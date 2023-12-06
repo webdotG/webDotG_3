@@ -1,18 +1,30 @@
-const login = async (req, res) => {
-  res.send('login')
+// @route
+// @desc
+// @access
+
+import {prisma} = require('../prisma/client')
+
+
+const Login = async (req, res) => {
+  const {email, password } = req.body
+  if(!email && !password) {
+    return res.status(400).json({message: 'пожалуйста заполните поля они обязательны'}) //message для отображения на фронте
+  }
+
+
 }
 
-const register = async (req, res) => {
+const Register = async (req, res) => {
   res.send('register')
 }
 
-const current = async (req, res) => {
+const Current = async (req, res) => {
   res.send('current')
 }
 
 
 module.exports = {
-  login,
-  register,
-  current
+  Login,
+  Register,
+  Current
 }
