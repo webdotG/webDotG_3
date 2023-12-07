@@ -58,7 +58,7 @@ const Login = async (req, res) => {
 
   const isPasswordCorrect = user && (await bcrypt.compare(password, user.password))
   const secret = process.env.JWT_SECRET
-  if (user && isPasswordCorrect) {     //если нашёлся пользователь и пароль верный
+  if (user && isPasswordCorrect && secret) {     //если нашёлся пользователь и пароль верный
     res.status(200).json({
       id: user.id,
       email: user.email,
