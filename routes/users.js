@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-
+const express = require('express');
+const router = express.Router();
 const {Login, Register, Current} = require('../controllers/users')
+const {Auth} = require('../midlewear/auth')
 
 /* api/user/login */
 router.post('/login', Login );
@@ -12,6 +12,6 @@ router.post('/register', Register);
 
 
 /* api/user/current */
-router.get('/current', Current);
+router.get('/current', Auth ,Current);
 
 module.exports = router;

@@ -36,7 +36,7 @@ const Register = async (req, res) => {
       id: user.id,
       email: user.email,
       name,
-      token: jwt.sign({id: user.id}, secret, {expiresIn: '1d'}) 
+      token: jwt.sign({id: user.id}, secret, {expiresIn: '1d'}) //шифрую id юзера
     })
   } else {
     return res.status(400).json({message: 'не удалось создать пользователя'})
@@ -63,7 +63,7 @@ const Login = async (req, res) => {
       id: user.id,
       email: user.email,
       name: user.name,
-      token: jwt.sign({id: user.id}, secret, {expiresIn: '1d'}) 
+      token: jwt.sign({id: user.id}, secret, {expiresIn: '1d'})  //шифрую id юзера
     })
   } else {
     return res.status(400).json({ message: 'неверный логин или пароль' })
@@ -72,7 +72,7 @@ const Login = async (req, res) => {
 }
 
 const Current = async (req, res) => {
-  res.send('current')
+  return res.status(200).json(req.user)
 }
 
 
