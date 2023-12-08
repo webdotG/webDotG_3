@@ -1,6 +1,7 @@
 @media (min-width:320px) {
 
-	.burger_btn {
+	// -----------------------------------header 
+	.default {
 		padding: 18px 12px !important;
 		display: flex;
 		justify-content: center;
@@ -15,10 +16,5 @@
 			border: 2px solid #00ADB5 !important;
 			color: #eeeeee !important;
 		}
-
-		p {
-			font-size: 18px;
-		}
 	}
-
 }

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import style from './header.module.scss'
-import { CustomButton } from '../customAntd/buttonCustom';
 
 
 export default function Header() {
@@ -18,15 +17,16 @@ export default function Header() {
         <Link className={style.header_logo} to="/webDotG_2/">
           Kirill Grant
         </Link>
-        <CustomButton
-          customType='burger_btn'
+        <button
           onClick={() => setOnCliclBtn(!onClickBtn)}
-        >{onClickBtn
-          ? (<p>закрыть</p>)
-          : (<p>меню</p>)
+          className={style.burger_btn}
+        >
+          {onClickBtn
+            ? (<span>закрыть</span>)
+            : (<span>меню</span>)
           }
-        </CustomButton>
-        
+
+        </button>
       </section>
 
       <div className={onClickBtn ? style.nav__wrapper : style.display_none}>

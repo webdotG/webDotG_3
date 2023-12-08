@@ -10,7 +10,7 @@ type typeProps = {
   shape?: "default" | "circle" | "round" | undefined,
   icon?: React.ReactNode,
   onClick?: () => void,
-  customType: string,
+  customStyle: string
 }
 
 export const CustomButton = ({
@@ -22,8 +22,14 @@ export const CustomButton = ({
   shape,
   icon,
   onClick,
-  customType
+  customStyle
 }: typeProps) => {
+
+  console.log('STYLE', style)
+  for( const st in style) {
+      console.log("STyle : ", st)
+  }
+
 
   return (
     <Button
@@ -33,7 +39,7 @@ export const CustomButton = ({
       loading={loading}
       shape={shape}
       icon={icon}
-      className={style[customType]} 
+      className={style[customStyle]} 
       onClick={onClick}
     >
       {children}
@@ -41,3 +47,4 @@ export const CustomButton = ({
   )
 
 }
+// `${style[customStyle]} ${style[customStyle]}`

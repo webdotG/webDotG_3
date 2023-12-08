@@ -78,6 +78,23 @@
 	// 	}
 	// }
 
+	.burger_btn {
+		padding: 18px 12px !important;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		background-color: transparent;
+		border: 2px solid #00ADB5;
+		border-radius: 8px;
+		color: #eeeeee;
+
+		&:hover {
+			border: 2px solid #00ADB5 !important;
+			color: #eeeeee !important;
+		}
+	}
+
 	.header_nav__link {
 		position: relative;
 		color: #eeeeee;
