@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import style from './header.module.scss'
+import { CustomButton } from '../customAntd/buttonCustom';
 
 
 export default function Header() {
@@ -29,6 +30,7 @@ export default function Header() {
 
         </button>
       </section>
+      <CustomButton customType='header'>{'test'}</CustomButton>
       <div className={onClickBtn ? style.nav__wrapper : style.display_none}>
         <nav className={style.header_navigation}>
           <ul className={style.header_nav_list}>
