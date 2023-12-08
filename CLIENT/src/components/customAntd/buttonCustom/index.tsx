@@ -1,4 +1,4 @@
-import { Button, ConfigProvider } from 'antd'
+import { Button } from 'antd'
 import style from './style.module.scss'
 
 type typeProps = {
@@ -26,7 +26,6 @@ export const CustomButton = ({
 }: typeProps) => {
 
   return (
-    <ConfigProvider autoInsertSpaceInButton={false}>
     <Button
       htmlType={htmlType}
       type={type}
@@ -39,7 +38,6 @@ export const CustomButton = ({
     >
       {children}
     </Button>
-    </ConfigProvider>
   )
 
 }
