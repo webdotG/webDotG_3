@@ -18,19 +18,17 @@ export default function Header() {
         <Link className={style.header_logo} to="/webDotG_2/">
           Kirill Grant
         </Link>
-
-        <button
+        <CustomButton
+          customType='burger_btn'
           onClick={() => setOnCliclBtn(!onClickBtn)}
-          className={style.burger_btn}
-        >
-          {onClickBtn
-            ? (<span>закрыть</span>)
-            : (<span>меню</span>)
+        >{onClickBtn
+          ? (<p>закрыть</p>)
+          : (<p>меню</p>)
           }
-
-        </button>
+        </CustomButton>
+        
       </section>
-      <CustomButton customType='header'>{'test'}</CustomButton>
+
       <div className={onClickBtn ? style.nav__wrapper : style.display_none}>
         <nav className={style.header_navigation}>
           <ul className={style.header_nav_list}>
@@ -47,7 +45,7 @@ export default function Header() {
             <li className={style.header_nav__item}>
               {/* <section className={style.cart_iem}>0</section> */}
               <Link className={style.header_nav__link} to="/webDotG_2/cart">
-                корзина 
+                корзина
               </Link>
             </li>
             <li className={style.header_nav__item}>
@@ -81,7 +79,7 @@ export default function Header() {
             перейти в личный кабинет
           </Link>
         }
-        <button  className={style.check_auth_btn} onClick={() => setIsAuth(!isAuth)}>toggle auth test</button>
+        <button className={style.check_auth_btn} onClick={() => setIsAuth(!isAuth)}>toggle auth test</button>
       </div>
     </header>
   )
