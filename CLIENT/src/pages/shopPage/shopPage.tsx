@@ -11,6 +11,7 @@ export default function ShopPage() {
   const totalPrice = useSelector((state: RootState) => state.totalPrice.value);
 
   const [isThirdBlockVisible, setIsThirdBlockVisible] = useState(false);
+  const [isThirdBlockChecked, setIsThirdBlockChecked] = useState(false)
   const [isSiteChecked, setIsSiteChecked] = useState(false);
   const [isFourthBlockVisible, setIsFourthBlockVisible] = useState(false);
 
@@ -21,8 +22,10 @@ export default function ShopPage() {
   const handleSiteSecondeTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedType = e.target.value as typeSiteType;
     const active = e.target.checked;
+    const optionName = ''; // Задайте значение переменной optionName
+    const optionChecked = true; // Задайте значение переменной optionChecked
 
-    const newTotalPrice = calculateTotalPrice(selectedType, active, totalPrice, '', true);
+    const newTotalPrice = calculateTotalPrice(selectedType, active, totalPrice, optionName, optionChecked);
     dispatch(setTotalPrice(newTotalPrice));
 
     setIsThirdBlockVisible(true);
@@ -30,10 +33,14 @@ export default function ShopPage() {
 
 
   const handleSiteTypeThirdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsThirdBlockChecked(e.target.checked);
+
     const selectedType = e.target.value as typeSiteType;
     const active = e.target.checked;
+    const optionName = ''; // Задайте значение переменной optionName
+    const optionChecked = true; // Задайте значение переменной optionChecked
 
-    const newTotalPrice = calculateTotalPrice(selectedType, active, totalPrice, '', true);
+    const newTotalPrice = calculateTotalPrice(selectedType, active, totalPrice, optionName, optionChecked);
     dispatch(setTotalPrice(newTotalPrice));
 
     setIsFourthBlockVisible(e.target.checked);
@@ -64,7 +71,7 @@ export default function ShopPage() {
           </div>
         </div>
 
-        {isSiteChecked && (
+        {isSiteChecked ? (
           <div className={style.site_seconde_blok_wrapper}>
             <label>лендинг</label>
             <input
@@ -88,9 +95,9 @@ export default function ShopPage() {
               onChange={handleSiteSecondeTypeChange}
             />
           </div>
-        )}
+        ) : null}
 
-        {isThirdBlockVisible && (
+        {isThirdBlockVisible ? (
           <div className={style.site_third_blok_wrapper}>
             <label>индивидуальный</label>
             <input
@@ -107,14 +114,15 @@ export default function ShopPage() {
               onChange={handleSiteTypeThirdChange}
             />
           </div>
-        )}
+        ) : null}
+
 
         {isFourthBlockVisible && (
           <div className={style.site_fourth_blok_wrapper}>
             <label>дизайн</label>
             <input type='checkbox' name='дизайн' onChange={handleDesignOptionsChange} />
             <label>логотип</label>
-            <input type='checkbox' name='логотип' onChange={handleDesignOptionsChange}/>
+            <input type='checkbox' name='логотип' onChange={handleDesignOptionsChange} />
             <label>фирменные цвета</label>
             <input type='checkbox' name='фирменные цвета' onChange={handleDesignOptionsChange} />
             <label>индивидуальные иконки</label>
@@ -122,7 +130,7 @@ export default function ShopPage() {
             <label>индивидуальные картинки</label>
             <input type='checkbox' name='индивидуальные картинки' onChange={handleDesignOptionsChange} />
             <label>срочно</label>
-            <input type='checkbox'  name='срочно' onChange={handleDesignOptionsChange} />
+            <input type='checkbox' name='срочно' onChange={handleDesignOptionsChange} />
           </div>
         )}
 
