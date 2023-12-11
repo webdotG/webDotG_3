@@ -4,11 +4,16 @@ import style from './shopPage.module.scss';
 
 function ShopPage() {
   const [selectedSiteSecondeType, setSelectedSiteSecondeType] = useState('');
-  const [isThirdBlockVisible, setIsThirdBlockVisible] = useState(false); // Используем состояние для управления видимостью блока
+  const [isThirdBlockVisible, setIsThirdBlockVisible] = useState(false);
+  const [isSiteChecked, setIsSiteChecked] = useState(false);
 
-  const handleSiteSecondeTypeChange = (e) => {
+  const handleSiteTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsSiteChecked(e.target.value === 'сайты' && e.target.checked);
+  };
+
+  const handleSiteSecondeTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedSiteSecondeType(e.target.value);
-    setIsThirdBlockVisible(true); // Показываем блок при выборе типа сайта
+    setIsThirdBlockVisible(true);
   };
 
   return (
@@ -24,64 +29,62 @@ function ShopPage() {
               type='radio'
               name='siteType'
               value='сайты'
+              onChange={handleSiteTypeChange}
             />
           </div>
         </div>
-        <div className={style.site_seconde_blok_wrapper}>
-          <label>лендинг</label>
-          <input
-            type='radio'
-            name='siteTypeSeconde'
-            value='лендинг'
-            checked={selectedSiteSecondeType === 'лендинг'}
-            onChange={handleSiteSecondeTypeChange}
-          />
-          <label>многостраничный</label>
-          <input
-            type='radio'
-            name='siteTypeSeconde'
-            value='многостраничный'
-            checked={selectedSiteSecondeType === 'многостраничный'}
-            onChange={handleSiteSecondeTypeChange}
-          />
-          <label>магазин</label>
-          <input
-            type='radio'
-            name='siteTypeSeconde'
-            value='магазин'
-            checked={selectedSiteSecondeType === 'магазин'}
-            onChange={handleSiteSecondeTypeChange}
-          />
-        </div>
 
-        {/* Показывать блок только если выбран тип сайта */}
-        {isThirdBlockVisible && (
-          <div className={style.site_third_blok_wrapper}>
-             <label>индивидуальный</label>
-          <input
-            type='radio'
-            name='siteTypeThird'
-            value='индивидуальный'
-          />
-          <label>шаблон</label>
-          <input
-            type='radio'
-            name='siteTypeThird'
-            value='шаблон'
-          />
+        {isSiteChecked && (
+          <div className={style.site_seconde_blok_wrapper}>
+            <label>лендинг</label>
+            <input
+              type='radio'
+              name='siteTypeSeconde'
+              value='лендинг'
+              checked={selectedSiteSecondeType === 'лендинг'}
+              onChange={handleSiteSecondeTypeChange}
+            />
+            <label>многостраничный</label>
+            <input
+              type='radio'
+              name='siteTypeSeconde'
+              value='многостраничный'
+              checked={selectedSiteSecondeType === 'многостраничный'}
+              onChange={handleSiteSecondeTypeChange}
+            />
+            <label>магазин</label>
+            <input
+              type='radio'
+              name='siteTypeSeconde'
+              value='магазин'
+              checked={selectedSiteSecondeType === 'магазин'}
+              onChange={handleSiteSecondeTypeChange}
+            />
           </div>
         )}
 
-
+        {isThirdBlockVisible && (
+          <div className={style.site_third_blok_wrapper}>
+            <label>индивидуальный</label>
+            <input
+              type='radio'
+              name='siteTypeThird'
+              value='индивидуальный'
+            />
+            <label>шаблон</label>
+            <input
+              type='radio'
+              name='siteTypeThird'
+              value='шаблон'
+            />
+          </div>
+        )}
       </div>
     </>
   );
 }
 
 export default ShopPage;
-
-
-
 
 // import React, { useState } from 'react';
 // import Header from '../../components/header/header';
@@ -131,22 +134,7 @@ export default ShopPage;
 //           />
 //         </div>
 
-//           <div className={style.site_third_blok_wrapper}>
-//           <label>индивидуальный</label>
-//           <input
-//             type='radio'
-//             name='siteTypeThird'
-//             value='индивидуальный'
-//             checked={selectedSiteThirdType === 'индивидуальный'}
-//           />
-//           <label>шаблон</label>
-//           <input
-//             type='radio'
-//             name='siteTypeThird'
-//             value='шаблон'
-//             checked={selectedSiteThirdType === 'шаблон'}
-//           />
-//         </div>
+//           
 
 //           <div className={style.site_fourth_blok_wrapper}>
 //             <label>дизайн</label>
