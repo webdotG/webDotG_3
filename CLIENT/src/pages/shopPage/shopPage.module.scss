@@ -1,0 +1,96 @@
+.shop_page__wrapper {
+  font-family: 'Arial', sans-serif;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #555;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #444;
+  }
+
+  .site_blok_wrapper,
+  .site_seconde_blok_wrapper,
+  .site_third_blok_wrapper,
+  .site_fourth_blok_wrapper {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    input[type='checkbox'],
+    input[type='radio'] {
+      margin-right: 10px;
+      margin-bottom: 10px;
+      flex: 0 0 calc(50% - 15px); /* Две колонки с отступами */
+      min-width: 100px; /* Минимальная ширина */
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      cursor: pointer;
+    }
+
+    label {
+      font-size: 16px;
+      width: 100%;
+    }
+  }
+
+  .site_fourth_blok_wrapper {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+  }
+
+  input[type='checkbox']:hover,
+  input[type='radio']:hover {
+    transform: scale(1.05);
+  }
+
+  input[type='checkbox']:checked::before {
+    content: '✓';
+    font-size: 18px;
+    color: #4CAF50;
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  // @media (max-width: 320px) {
+  //   .site_blok_wrapper,
+  //   .site_seconde_blok_wrapper,
+  //   .site_third_blok_wrapper,
+  //   .site_fourth_blok_wrapper {
+  //     flex-direction: column;
+  //     align-items: flex-start;
+
+  //     input[type='checkbox'],
+  //     input[type='radio'] {
+  //       margin-right: 0;
+  //       margin-bottom: 10px;
+  //       min-width: auto;
+  //       flex: 0 0 100%;
+  //     }
+  //   }
+  // }
+}
