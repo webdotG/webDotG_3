@@ -1,9 +1,9 @@
 import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit'
-import shopReducer from './slice/shopSlice/shopSlice';
-
+import totalPriceReducer from './slice/totalPriceSlice';
 export const store = configureStore({
   reducer: {
-    shop: shopReducer,
+    totalPrice: totalPriceReducer,
+
   },
 })
 

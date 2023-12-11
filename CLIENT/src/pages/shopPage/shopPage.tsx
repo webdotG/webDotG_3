@@ -1,40 +1,23 @@
 import React, { useState } from 'react';
 import Header from '../../components/header/header';
 import style from './shopPage.module.scss';
-import  {calculateTotalPrice } from '../../utilits_function/calculatePrice'
-import { typeSiteType } from '../../utilits_function/calculatePrice';
-// import { useSelector, useDispatch } from 'react-redux';
-// import {
-//   setSelectedSiteSecondeType,
-//   setIsThirdBlockVisible,
-//   setIsSiteChecked,
-//   setIsFourthBlockVisible,
-// } from '../../STORE/slice/shopSlice/shopSlice';
-// import { RootState, AppDispatch } from '../../STORE/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { setTotalPrice } from '../../STORE/slice/totalPriceSlice';
+import { RootState } from '../../STORE/store';
+import { calculateTotalPrice, typeSiteType } from '../../utilits_function/calculatePrice';
 
 
 
 function ShopPage() {
+  const dispatch = useDispatch();
+  const totalPrice = useSelector((state: RootState) => state.totalPrice.value);
 
-  // const dispatch: AppDispatch = useDispatch();
+
+  
   const [selectedSiteSecondeType, setSelectedSiteSecondeType] = useState('');
   const [isThirdBlockVisible, setIsThirdBlockVisible] = useState(false);
   const [isSiteChecked, setIsSiteChecked] = useState(false);
   const [isFourthBlockVisible, setIsFourthBlockVisible] = useState(false);
-
-  // const selectedSiteSecondeType = useSelector(
-  //   (state: RootState) => state.shop.selectedSiteSecondeType
-  // );
-  // const isThirdBlockVisible = useSelector(
-  //   (state: RootState) => state.shop.isThirdBlockVisible
-  // );
-  // const isSiteChecked = useSelector(
-  //   (state: RootState) => state.shop.isSiteChecked
-  // );
-  // const isFourthBlockVisible = useSelector(
-  //   (state: RootSt
-
-  const [totalPrice, setTotalPrice] = useState<number>(0); 
 
   const handleSiteTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsSiteChecked(e.target.value === 'сайты' && e.target.checked);
@@ -43,8 +26,8 @@ function ShopPage() {
   const handleSiteSecondeTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedType = e.target.value as typeSiteType; // Приводим значение к типу SiteType
     setSelectedSiteSecondeType(selectedType);
-    const price = calculateTotalPrice(selectedType); // Вызываем функцию calculateTotalPrice
-    setTotalPrice(price);
+    const price = calculateTotalPrice(selectedType);
+    dispatch(setTotalPrice(price));
     setSelectedSiteSecondeType(e.target.value);
     setIsThirdBlockVisible(true);
   };
