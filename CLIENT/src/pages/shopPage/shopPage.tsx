@@ -6,15 +6,10 @@ import { setTotalPrice } from '../../STORE/slice/totalPriceSlice';
 import { RootState } from '../../STORE/store';
 import { calculateTotalPrice, typeSiteType } from '../../utilits_function/calculatePrice';
 
-
-
-function ShopPage() {
+export default function ShopPage() {
   const dispatch = useDispatch();
   const totalPrice = useSelector((state: RootState) => state.totalPrice.value);
 
-
-  
-  const [selectedSiteSecondeType, setSelectedSiteSecondeType] = useState('');
   const [isThirdBlockVisible, setIsThirdBlockVisible] = useState(false);
   const [isSiteChecked, setIsSiteChecked] = useState(false);
   const [isFourthBlockVisible, setIsFourthBlockVisible] = useState(false);
@@ -24,18 +19,32 @@ function ShopPage() {
   };
 
   const handleSiteSecondeTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedType = e.target.value as typeSiteType; // Приводим значение к типу SiteType
-    setSelectedSiteSecondeType(selectedType);
-    const price = calculateTotalPrice(selectedType);
-    dispatch(setTotalPrice(price));
-    setSelectedSiteSecondeType(e.target.value);
+    const selectedType = e.target.value as typeSiteType;
+    const active = e.target.checked;
+
+    const newTotalPrice = calculateTotalPrice(selectedType, active, totalPrice, '', true);
+    dispatch(setTotalPrice(newTotalPrice));
+
     setIsThirdBlockVisible(true);
   };
 
+
   const handleSiteTypeThirdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedType = e.target.value as typeSiteType;
+    const active = e.target.checked;
+
+    const newTotalPrice = calculateTotalPrice(selectedType, active, totalPrice, '', true);
+    dispatch(setTotalPrice(newTotalPrice));
+
     setIsFourthBlockVisible(e.target.checked);
   };
 
+  const handleDesignOptionsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+
+    const newTotalPrice = calculateTotalPrice('', true, totalPrice, name, checked);
+    dispatch(setTotalPrice(newTotalPrice));
+  };
 
   return (
     <>
@@ -47,7 +56,7 @@ function ShopPage() {
           <div className={style.site_blok_wrapper}>
             <label>сайты</label>
             <input
-              type='radio'
+              type='checkbox'
               name='siteType'
               value='сайты'
               onChange={handleSiteTypeChange}
@@ -59,26 +68,23 @@ function ShopPage() {
           <div className={style.site_seconde_blok_wrapper}>
             <label>лендинг</label>
             <input
-              type='radio'
+              type='checkbox'
               name='siteTypeSeconde'
               value='лендинг'
-              checked={selectedSiteSecondeType === 'лендинг'}
               onChange={handleSiteSecondeTypeChange}
             />
             <label>многостраничный</label>
             <input
-              type='radio'
+              type='checkbox'
               name='siteTypeSeconde'
               value='многостраничный'
-              checked={selectedSiteSecondeType === 'многостраничный'}
               onChange={handleSiteSecondeTypeChange}
             />
             <label>магазин</label>
             <input
-              type='radio'
+              type='checkbox'
               name='siteTypeSeconde'
               value='магазин'
-              checked={selectedSiteSecondeType === 'магазин'}
               onChange={handleSiteSecondeTypeChange}
             />
           </div>
@@ -88,14 +94,14 @@ function ShopPage() {
           <div className={style.site_third_blok_wrapper}>
             <label>индивидуальный</label>
             <input
-              type='radio'
+              type='checkbox'
               name='siteTypeThird'
               value='индивидуальный'
               onChange={handleSiteTypeThirdChange}
             />
             <label>шаблон</label>
             <input
-              type='radio'
+              type='checkbox'
               name='siteTypeThird'
               value='шаблон'
               onChange={handleSiteTypeThirdChange}
@@ -106,20 +112,21 @@ function ShopPage() {
         {isFourthBlockVisible && (
           <div className={style.site_fourth_blok_wrapper}>
             <label>дизайн</label>
-            <input type='checkbox' />
+            <input type='checkbox' name='дизайн' onChange={handleDesignOptionsChange} />
             <label>логотип</label>
-            <input type='checkbox' />
+            <input type='checkbox' name='логотип' onChange={handleDesignOptionsChange}/>
             <label>фирменные цвета</label>
-            <input type='checkbox' />
+            <input type='checkbox' name='фирменные цвета' onChange={handleDesignOptionsChange} />
             <label>индивидуальные иконки</label>
-            <input type='checkbox' />
+            <input type='checkbox' name='индивидуальные иконки' onChange={handleDesignOptionsChange} />
             <label>индивидуальные картинки</label>
-            <input type='checkbox' />
+            <input type='checkbox' name='индивидуальные картинки' onChange={handleDesignOptionsChange} />
             <label>срочно</label>
-            <input type='checkbox' />
+            <input type='checkbox'  name='срочно' onChange={handleDesignOptionsChange} />
           </div>
         )}
-         {totalPrice > 0 && (
+
+        {totalPrice > 0 && (
           <div className={style.total_price_wrapper}>
             <p>Общая цена: {totalPrice} рублей</p>
           </div>
@@ -128,5 +135,3 @@ function ShopPage() {
     </>
   );
 }
-
-export default ShopPage;
