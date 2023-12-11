@@ -1,22 +1,26 @@
-import Layout from '../../components/layout/layout'
+import { Card, Form } from 'antd'
+import Header from '../../components/header/header'
 import style from './loginPage.module.scss'
 import { Link } from 'react-router-dom'
+import { CustomButton } from '../../components/customAntd/button'
 
 
 
-function LoginPage() {
+export default function LoginPage() {
 
 
   return (
-    <Layout>
+    <>
+      <Header />
       <div className={style.wrapper}>
-
-
-        <Link className={style.login_link} to='/register'>зарегистрироваться</Link>
+        <Card title='Войти'>
+          <Form onFinish={() => null} >
+          
+          </Form>
+        </Card>
       </div>
-    </Layout>
+      <CustomButton customStyle='default loginPage' />
+    </>
   )
 
 }
-
-export default LoginPage

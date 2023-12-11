@@ -3,6 +3,8 @@ const router = express.Router();
 const {Login, Register, Current} = require('../controllers/users')
 const {Auth} = require('../midlewear/auth')
 
+app.use(bodyParser.json());
+
 /* api/user/login */
 router.post('/login', Login );
 
