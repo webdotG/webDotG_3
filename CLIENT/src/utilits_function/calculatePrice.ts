@@ -1,6 +1,6 @@
-type SiteType = 'лендинг' | 'многостраничный' | 'магазин'; // Определение типа сайта
+export type typeSiteType = 'лендинг' | 'многостраничный' | 'магазин'; // Определение типа сайта
 
-function calculateTotalPrice(selectedType: SiteType): number {
+export function calculateTotalPrice(selectedType: typeSiteType): number {
   let totalPrice = 0;
 
   switch (selectedType) {

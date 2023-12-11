@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Header from '../../components/header/header';
 import style from './shopPage.module.scss';
-
+import  {calculateTotalPrice } from '../../utilits_function/calculatePrice'
+import { typeSiteType } from '../../utilits_function/calculatePrice';
 // import { useSelector, useDispatch } from 'react-redux';
 // import {
 //   setSelectedSiteSecondeType,
@@ -11,28 +12,6 @@ import style from './shopPage.module.scss';
 // } from '../../STORE/slice/shopSlice/shopSlice';
 // import { RootState, AppDispatch } from '../../STORE/store';
 
-type SiteType = 'лендинг' | 'многостраничный' | 'магазин'; // Определение типа сайта
-
-function calculateTotalPrice(selectedType: SiteType): number {
-  let totalPrice = 0;
-
-  switch (selectedType) {
-    case 'лендинг':
-      totalPrice = 500;
-      break;
-    case 'многостраничный':
-      totalPrice = 750;
-      break;
-    case 'магазин':
-      totalPrice = 1000;
-      break;
-    // Добавьте другие типы сайтов и их цены при необходимости
-    default:
-      totalPrice = 0;
-  }
-
-  return totalPrice;
-}
 
 
 function ShopPage() {
@@ -62,7 +41,7 @@ function ShopPage() {
   };
 
   const handleSiteSecondeTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedType = e.target.value as SiteType; // Приводим значение к типу SiteType
+    const selectedType = e.target.value as typeSiteType; // Приводим значение к типу SiteType
     setSelectedSiteSecondeType(selectedType);
     const price = calculateTotalPrice(selectedType); // Вызываем функцию calculateTotalPrice
     setTotalPrice(price);
