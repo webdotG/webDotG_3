@@ -1,40 +1,51 @@
+/* Общие стили */
+/* ... */
 
-
-/* Новые стили для ширины viewport >= 320px */
+/* Стили для viewport шириной не менее 320px */
 @media (min-width: 320px) {
   .registration-form-container {
     width: 90%;
     max-width: 350px;
-    padding: 20px;
     margin: 20px auto;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  form{
+    flex-direction: column;
   }
 
   h2 {
-    margin-bottom: 20px;
     font-size: 24px;
-    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
   }
 
   label {
     font-size: 14px;
-    color: #333;
+    color: #555555;
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
   input {
+    width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 12px;
-    width: calc(100% - 20px);
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     border-radius: 5px;
     font-size: 14px;
+    color: #333333;
   }
 
   button {
+    width: 100%;
     padding: 10px;
+    margin-top: 10px;
     border: none;
     border-radius: 5px;
     background-color: #007bff;
@@ -42,8 +53,6 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 14px;
-    width: 100%;
-    margin-top: 10px;
   }
 
   button:hover {
@@ -54,55 +63,5 @@
     color: red;
     margin-top: 6px;
     font-size: 12px;
-  }
-}
-
-
-
-@media (min-width: 510px) {
-  .registration-form-container {
-    max-width: 500px;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  }
-
-  h2 {
-    margin-bottom: 30px;
-    font-size: 28px;
-  }
-
-  label {
-    font-size: 16px;
-    color: #333;
-  }
-
-  input {
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-  }
-
-  button {
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 16px;
-  }
-
-  button:hover {
-    background-color: #0056b3;
-  }
-
-  .error-message {
-    color: red;
-    margin-top: 8px;
-    font-size: 14px;
   }
 }
