@@ -1,9 +1,9 @@
 import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit'
-import { shopPageReducer } from './reducer' 
+import shopReducer from './slice/shopSlice/shopSlice';
 
 export const store = configureStore({
   reducer: {
-    shopPage: shopPageReducer,
+    shop: shopReducer,
   },
 })
 
