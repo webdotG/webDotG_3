@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+
+
+import React, { useState, useEffect } from 'react';
 import Header from '../../components/header/header';
 import style from './shopPage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,10 +9,16 @@ import { RootState } from '../../STORE/store';
 import { calculateTotalPrice, typeSiteType } from '../../utilits_function/calculatePrice';
 
 interface CheckboxValues {
-  isLandingChecked: boolean;
-  isMultPageChecked: boolean;
-  isShopChecked: boolean;
+  [key: string]: boolean;
 }
+
+const initialCheckboxValues: CheckboxValues = {
+  isLandingChecked: false,
+  isMultPageChecked: false,
+  isShopChecked: false,
+  isIndividualChecked: false,
+  isTemplateChecked: false,
+};
 
 export default function ShopPage(): JSX.Element {
   const dispatch = useDispatch();
@@ -18,30 +26,25 @@ export default function ShopPage(): JSX.Element {
 
   const [isThirdBlockVisible, setIsThirdBlockVisible] = useState(false);
   const [isSiteChecked, setIsSiteChecked] = useState(false);
-  const [checkboxValues, setCheckboxValues] = useState<CheckboxValues>({
-    isLandingChecked: false,
-    isMultPageChecked: false,
-    isShopChecked: false,
-  });
+  const [checkboxValues, setCheckboxValues] = useState<CheckboxValues>(initialCheckboxValues);
+
+  useEffect(() => {
+    const anySecondBlockChecked = Object.values(checkboxValues).some((value) => value);
+    setIsThirdBlockVisible(anySecondBlockChecked);
+  }, [checkboxValues]);
 
   const handleSiteTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Убедимся, что значение отмечено как true, только если значение равно 'сайты' и отмечено
     setIsSiteChecked(e.target.value === 'сайты' && e.target.checked);
   };
 
-  const handleSiteSecondeTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSiteTypeChangeSecondBlock = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedType = e.target.value as typeSiteType;
     const active = e.target.checked;
 
-    // Изменяем состояние чекбоксов на основе предыдущего состояния
     setCheckboxValues({
       ...checkboxValues,
       [selectedType]: active,
     });
-
-    // Проверяем, есть ли хотя бы один чекбокс отмечен во втором блоке
-    const areAnyChecked = Object.values({ ...checkboxValues, [selectedType]: active }).some((value) => value);
-    setIsThirdBlockVisible(areAnyChecked);
 
     const optionName = e.target.value;
     const optionChecked = e.target.checked;
@@ -50,21 +53,15 @@ export default function ShopPage(): JSX.Element {
     dispatch(setTotalPrice(newTotalPrice));
   };
 
-  const handleSiteTypeThirdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSiteTypeChangeThirdBlock = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedType = e.target.value as typeSiteType;
     const optionName = e.target.value;
     const optionChecked = e.target.checked;
 
-    const newCheckboxValues = {
+    setCheckboxValues({
       ...checkboxValues,
       [selectedType]: optionChecked,
-    };
-
-    setCheckboxValues(newCheckboxValues);
-
-    // Проверяем, есть ли хотя бы один чекбокс отмечен в третьем блоке
-    const areAnyChecked = Object.values(newCheckboxValues).some((value) => value);
-    setIsThirdBlockVisible(areAnyChecked);
+    });
 
     const newTotalPrice = calculateTotalPrice(selectedType, optionChecked, totalPrice, optionName, optionChecked);
     dispatch(setTotalPrice(newTotalPrice));
@@ -77,8 +74,7 @@ export default function ShopPage(): JSX.Element {
     dispatch(setTotalPrice(newTotalPrice));
   };
 
-  const isThirdBlockChecked = Object.values(checkboxValues).some((value) => value);
-  const isFourthBlockVisible = isThirdBlockChecked && Object.values(checkboxValues).some((value) => value);
+  const isFourthBlockVisible = isThirdBlockVisible && Object.values(checkboxValues).some((value) => value);
 
   return (
     <>
@@ -105,21 +101,21 @@ export default function ShopPage(): JSX.Element {
               type='checkbox'
               name='siteTypeSeconde'
               value='лендинг'
-              onChange={handleSiteSecondeTypeChange}
+              onChange={handleSiteTypeChangeSecondBlock}
             />
             <label>многостраничный</label>
             <input
               type='checkbox'
               name='siteTypeSeconde'
               value='многостраничный'
-              onChange={handleSiteSecondeTypeChange}
+              onChange={handleSiteTypeChangeSecondBlock}
             />
             <label>магазин</label>
             <input
               type='checkbox'
               name='siteTypeSeconde'
               value='магазин'
-              onChange={handleSiteSecondeTypeChange}
+              onChange={handleSiteTypeChangeSecondBlock}
             />
           </div>
         )}
@@ -131,19 +127,19 @@ export default function ShopPage(): JSX.Element {
               type='checkbox'
               name='siteTypeThird'
               value='индивидуальный'
-              onChange={handleSiteTypeThirdChange}
+              onChange={handleSiteTypeChangeThirdBlock}
             />
             <label>шаблон</label>
             <input
               type='checkbox'
               name='siteTypeThird'
               value='шаблон'
-              onChange={handleSiteTypeThirdChange}
+              onChange={handleSiteTypeChangeThirdBlock}
             />
           </div>
         )}
 
-        {isFourthBlockVisible && (
+        {isThirdBlockVisible && isFourthBlockVisible && (
           <div className={style.site_fourth_blok_wrapper}>
             <label>дизайн</label>
             <input type='checkbox' name='дизайн' onChange={handleDesignOptionsChange} />
