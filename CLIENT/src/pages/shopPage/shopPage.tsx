@@ -6,44 +6,68 @@ import { setTotalPrice } from '../../STORE/slice/totalPriceSlice';
 import { RootState } from '../../STORE/store';
 import { calculateTotalPrice, typeSiteType } from '../../utilits_function/calculatePrice';
 
-export default function ShopPage() {
+interface CheckboxValues {
+  isLandingChecked: boolean;
+  isMultPageChecked: boolean;
+  isShopChecked: boolean;
+}
+
+export default function ShopPage(): JSX.Element {
   const dispatch = useDispatch();
   const totalPrice = useSelector((state: RootState) => state.totalPrice.value);
 
   const [isThirdBlockVisible, setIsThirdBlockVisible] = useState(false);
-  const [isThirdBlockChecked, setIsThirdBlockChecked] = useState(false)
   const [isSiteChecked, setIsSiteChecked] = useState(false);
-  const [isFourthBlockVisible, setIsFourthBlockVisible] = useState(false);
+  const [checkboxValues, setCheckboxValues] = useState<CheckboxValues>({
+    isLandingChecked: false,
+    isMultPageChecked: false,
+    isShopChecked: false,
+  });
 
   const handleSiteTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Убедимся, что значение отмечено как true, только если значение равно 'сайты' и отмечено
     setIsSiteChecked(e.target.value === 'сайты' && e.target.checked);
   };
 
   const handleSiteSecondeTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedType = e.target.value as typeSiteType;
     const active = e.target.checked;
-    const optionName = ''; // Задайте значение переменной optionName
-    const optionChecked = true; // Задайте значение переменной optionChecked
+
+    // Изменяем состояние чекбоксов на основе предыдущего состояния
+    setCheckboxValues({
+      ...checkboxValues,
+      [selectedType]: active,
+    });
+
+    // Проверяем, есть ли хотя бы один чекбокс отмечен во втором блоке
+    const areAnyChecked = Object.values({ ...checkboxValues, [selectedType]: active }).some((value) => value);
+    setIsThirdBlockVisible(areAnyChecked);
+
+    const optionName = e.target.value;
+    const optionChecked = e.target.checked;
 
     const newTotalPrice = calculateTotalPrice(selectedType, active, totalPrice, optionName, optionChecked);
     dispatch(setTotalPrice(newTotalPrice));
-
-    setIsThirdBlockVisible(true);
   };
 
-
   const handleSiteTypeThirdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsThirdBlockChecked(e.target.checked);
-
     const selectedType = e.target.value as typeSiteType;
-    const active = e.target.checked;
-    const optionName = ''; // Задайте значение переменной optionName
-    const optionChecked = true; // Задайте значение переменной optionChecked
+    const optionName = e.target.value;
+    const optionChecked = e.target.checked;
 
-    const newTotalPrice = calculateTotalPrice(selectedType, active, totalPrice, optionName, optionChecked);
+    const newCheckboxValues = {
+      ...checkboxValues,
+      [selectedType]: optionChecked,
+    };
+
+    setCheckboxValues(newCheckboxValues);
+
+    // Проверяем, есть ли хотя бы один чекбокс отмечен в третьем блоке
+    const areAnyChecked = Object.values(newCheckboxValues).some((value) => value);
+    setIsThirdBlockVisible(areAnyChecked);
+
+    const newTotalPrice = calculateTotalPrice(selectedType, optionChecked, totalPrice, optionName, optionChecked);
     dispatch(setTotalPrice(newTotalPrice));
-
-    setIsFourthBlockVisible(e.target.checked);
   };
 
   const handleDesignOptionsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,6 +76,9 @@ export default function ShopPage() {
     const newTotalPrice = calculateTotalPrice('', true, totalPrice, name, checked);
     dispatch(setTotalPrice(newTotalPrice));
   };
+
+  const isThirdBlockChecked = Object.values(checkboxValues).some((value) => value);
+  const isFourthBlockVisible = isThirdBlockChecked && Object.values(checkboxValues).some((value) => value);
 
   return (
     <>
@@ -71,7 +98,7 @@ export default function ShopPage() {
           </div>
         </div>
 
-        {isSiteChecked ? (
+        {isSiteChecked && (
           <div className={style.site_seconde_blok_wrapper}>
             <label>лендинг</label>
             <input
@@ -95,9 +122,9 @@ export default function ShopPage() {
               onChange={handleSiteSecondeTypeChange}
             />
           </div>
-        ) : null}
+        )}
 
-        {isThirdBlockVisible ? (
+        {isThirdBlockVisible &&  (
           <div className={style.site_third_blok_wrapper}>
             <label>индивидуальный</label>
             <input
@@ -114,8 +141,7 @@ export default function ShopPage() {
               onChange={handleSiteTypeThirdChange}
             />
           </div>
-        ) : null}
-
+        )}
 
         {isFourthBlockVisible && (
           <div className={style.site_fourth_blok_wrapper}>
