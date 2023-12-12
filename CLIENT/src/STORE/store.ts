@@ -1,12 +1,14 @@
 import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit'
 import totalPriceReducer from './slice/totalPriceSlice';
-import { userReducer } from './slice/userSlice'; // Импортируйте ваш slice для пользователей
+import { userReducer } from './slice/userSlice'; 
+import authReducer from './features/auth/authSlice';
 
 
 export const store = configureStore({
   reducer: {
     totalPrice: totalPriceReducer,
     user: userReducer,
+    auth: authReducer,
   },
 })
 
