@@ -1,33 +1,32 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { loginUser } from '../../axios/userApi';
 
-interface UserState {
+interface typeUserState {
   isLoggedIn: boolean;
   error: string | null;
 }
 
-interface LoginData {
+interface typeLoginData {
   username: string;
   password: string;
 }
 
-export const loginAsync = createAsyncThunk<
-  string,
-  LoginData,
-  { rejectValue: string }
+const initialState: typeUserState = {
+  isLoggedIn: false,
+  error: null,
+};
+
+export const loginAsync = createAsyncThunk<string, typeLoginData,{ rejectValue: { message: string | null;} }
 >('user/login', async (userData, { rejectWithValue }) => {
   try {
     await loginUser(userData);
     return userData.username; // Возвращаем имя пользователя в случае успешного входа
   } catch (error) {
-    return rejectWithValue(error.response?.data || 'Login failed');
+    return rejectWithValue({ message: error.response?.data || 'Login failed' });
   }
 });
 
-const initialState: UserState = {
-  isLoggedIn: false,
-  error: null,
-};
+
 
 const userSlice = createSlice({
   name: 'user',
@@ -49,7 +48,7 @@ const userSlice = createSlice({
       })
       .addCase(loginAsync.rejected, (state, action) => {
         state.isLoggedIn = false;
-        state.error = action.payload as string;
+        state.error = action.payload?.message || 'Login failed';
       });
   },
 });
@@ -57,4 +56,3 @@ const userSlice = createSlice({
 export const { logout, login } = userSlice.actions;
 
 export const userReducer = userSlice.reducer;
-
