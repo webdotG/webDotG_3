@@ -44,7 +44,6 @@ const LoginPage: React.FC = () => {
   // };
   //  setError({ ...error, login: 'Ошибка входа. Пожалуйста, проверьте введенные данные.' })
 
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, user: typeLoginData) => {
     console.log("RESPONSE USER : ", user)
     e.preventDefault();
@@ -53,10 +52,10 @@ const LoginPage: React.FC = () => {
         const response = await axios.post('/api/user/login', { ...user });
         console.log("RESPONSE API/USER/LOGIN: ", response)
         console.log("LOGIN PAGE RESPONSE DATA : ", response.data);
-        // navigate('/register');
+        navigate('/');
       } catch (error) {
-        console.log("LOGIN ERROR 1000 : ")
-        console.error('Ошибка:', error);
+        // console.log("LOGIN ERROR 1000 : ")
+        console.error('ОШИБКА : ', error);
       }
     } else {
       console.log("LOGIN ERROR 11111 : ")
