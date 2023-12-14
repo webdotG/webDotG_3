@@ -14,6 +14,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', require('./routes/users'));
-
+app.use('/api/user', require('./routes/user'));
+app.listen(1111, () => {
+  console.log(`Server is running on port ${1111}`);
+});
 module.exports = app;

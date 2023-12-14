@@ -69,7 +69,7 @@ const RegistrPage: React.FC = () => {
   const handleSubmitAxios = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/register', { ...user });
+      const response = await axios.post('/auth/register', { ...user });
 
       console.log(response.data);
       if (response.status === 200) {
