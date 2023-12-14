@@ -50,15 +50,12 @@ const LoginPage: React.FC = () => {
     if (!error.username && !error.password) {
       try {
         const response = await axios.post('/api/user/login', { ...user });
-        console.log("RESPONSE API/USER/LOGIN: ", response)
-        console.log("LOGIN PAGE RESPONSE DATA : ", response.data);
+        console.log("LOGIN PAGE API/USER/LOGIN RESPONSE DATA : ", response.data);
         navigate('/');
       } catch (error) {
-        // console.log("LOGIN ERROR 1000 : ")
         console.error('ОШИБКА : ', error);
       }
     } else {
-      console.log("LOGIN ERROR 11111 : ")
       console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
     }
   };
