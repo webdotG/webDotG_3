@@ -68,11 +68,7 @@ const LoginPage: React.FC = () => {
   const isValidPassword = (password: string): boolean => {
     return password.length >= 3;
   };
-  // const isValidEmail = (email: string): boolean => {
-  //   // Регулярное выражение для проверки корректности email
-  //   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  //   return emailPattern.test(email);
-  // };
+
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
