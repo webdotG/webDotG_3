@@ -1,6 +1,8 @@
 import React, { useState, FormEvent } from 'react';
-import axios from 'axios';
 import styles from './LoginPage.module.scss';
+import { typeUserData, useLoginMutation } from '../../api/auth';
+import { useNavigate } from 'react-router-dom';
+import { isErrorWithMessage, typeErrorWithMessage } from '../../support_function/is_error_with_message';
 
 interface LoginData {
   username: string;
@@ -8,17 +10,30 @@ interface LoginData {
 }
 
 const LoginPage: React.FC = () => {
-  const [user, setUser] = useState<LoginData>({
-    username: '',
-    password: ''
-  });
+  const navigate = useNavigate();
+  const [user, setUser] = useState<LoginData>({ username: '', password: '' });
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState<Record<string, string>>({username: '', password: ''});
+  const [messageError, setMessageError] = useState('')
+  const [loginUser, loginUserResult] = useLoginMutation()
 
-  const [error, setError] = useState<Record<string, string>>({
-    username: '',
-    password: ''
-  });
-
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const login = async (data: typeUserData) => {
+    try {
+      await loginUser(data).unwrap();
+      console.log("ERROR LOGINUSER DATA : ", data)
+      navigate('/register');
+    } catch (err) {
+      console.log("LOGIN ERROR : ", err)
+      const maybeError = isErrorWithMessage(err);
+      if (maybeError) {
+        const errorData = err as typeErrorWithMessage; // Приведение типа
+        setMessageError(errorData.data.message);
+      } else {
+        setMessageError('Неизвестная ошибка');
+      }
+    }
+  };
+  //  setError({ ...error, login: 'Ошибка входа. Пожалуйста, проверьте введенные данные.' })
 
   const isValidPassword = (password: string): boolean => {
     return password.length >= 3;
@@ -46,20 +61,6 @@ const LoginPage: React.FC = () => {
     });
   };
 
-  const handleSubmitAxios = async (e: FormEvent) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('/login', { ...user });
-
-      console.log(response.data);
-      if (response.status === 200) {
-        // Redirect to user page or perform necessary actions upon successful login
-      }
-    } catch (error) {
-      console.error('Ошибка:', error);
-    }
-  };
-
   const handleTogglePassword = (): void => {
     setShowPassword(!showPassword);
   };
@@ -67,7 +68,7 @@ const LoginPage: React.FC = () => {
   return (
     <div>
       <h2>Форма входа</h2>
-      <form className={styles['login-form-container']} onSubmit={handleSubmitAxios}>
+      <form className={styles['login-form-container']} onSubmit={login}>
         <div>
           <label>
             Имя пользователя:
@@ -100,6 +101,7 @@ const LoginPage: React.FC = () => {
           {error.password && <p className={styles['error-message']}>{error.password}</p>}
         </div>
         <button type="submit" className={styles['submit-button']}>Войти</button>
+        {messageError && <p className={styles['error-message']}>{messageError}</p>}
       </form>
     </div>
   );

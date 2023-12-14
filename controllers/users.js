@@ -36,7 +36,7 @@ const Register = async (req, res) => {
       id: user.id,
       email: user.email,
       name,
-      token: jwt.sign({id: user.id}, secret, {expiresIn: '1d'}) //шифрую id юзера
+      token: jwt.sign({id: user.id}, secret, {expiresIn: '100d'}) //шифрую id юзера
     })
   } else {
     return res.status(400).json({message: 'не удалось создать пользователя'})

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../components/header/header';
 import style from './shopPage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { setTotalPrice } from '../../STORE/slice/totalPriceSlice';
+import { setTotalPrice } from '../../slices/totalPrice/totalPriceSlice';
 import { RootState } from '../../store';
 import { calculateTotalPrice, typeSiteType } from '../../support_function/calculatePrice';
 
