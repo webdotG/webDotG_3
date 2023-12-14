@@ -44,6 +44,7 @@ const Register = async (req, res) => {
 }
 
 const Login = async (req, res) => {
+  console.log("SERVER LOGIN : ")
   const { email, password } = req.body
 
   if (!email || !password) {

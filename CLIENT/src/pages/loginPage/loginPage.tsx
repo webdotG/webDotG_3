@@ -6,15 +6,16 @@ import { isErrorWithMessage, typeErrorWithMessage } from '../../support_function
 import { useDispatch } from 'react-redux';
 import axios from '../../axios';
 import { fetchAuth } from '../../slices/auth/auth';
-interface LoginData {
-  username: string;
+interface typeLoginData {
+  username?: string;
   password: string;
+  email?: string,
 }
 
 const LoginPage: React.FC = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
-  const [user, setUser] = useState<LoginData>({ username: '', password: '' });
+  const [user, setUser] = useState<typeLoginData>({ username: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<Record<string, string>>({ username: '', password: '' });
   const [messageError, setMessageError] = useState('')
@@ -44,7 +45,7 @@ const LoginPage: React.FC = () => {
   //  setError({ ...error, login: 'Ошибка входа. Пожалуйста, проверьте введенные данные.' })
 
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, user: typeUserData) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, user: typeLoginData) => {
     console.log("RESPONSE USER : ", user)
     e.preventDefault();
     if (!error.username && !error.password) {
@@ -67,18 +68,31 @@ const LoginPage: React.FC = () => {
   const isValidPassword = (password: string): boolean => {
     return password.length >= 3;
   };
-
+  // const isValidEmail = (email: string): boolean => {
+  //   // Регулярное выражение для проверки корректности email
+  //   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   return emailPattern.test(email);
+  // };
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     switch (name) {
       case 'email':
-        setError({ ...error, [name]: value.trim() === '' ? 'Email обязателен для заполнения' : '' });
+        setError({
+          ...error,
+          [name]: value.trim() === '' ? 'Email обязателен для заполнения' : !emailRegex.test(value) ? 'Некорректный email' : '',
+        });
         break;
       case 'password':
         setError({ ...error, [name]: !isValidPassword(value) ? 'Пароль должен содержать не менее 3 символов' : '' });
         break;
       default:
         break;
+    }
+    if (name === 'email' && !emailRegex.test(value)) {
+      setMessageError('Некорректный email');
+    } else {
+      setMessageError('');
     }
   };
 
@@ -100,17 +114,17 @@ const LoginPage: React.FC = () => {
       <form className={styles['login-form-container']} onSubmit={(e) => handleSubmit(e, user)}>
         <div>
           <label>
-            Имя пользователя:
+          Email:
             <input
-              type="text"
-              name="username"
-              value={user.username}
+              type="email"
+              name="email"
+              value={user.email}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={error.username ? styles['error'] : ''}
+              className={error.email ? styles['error'] : ''}
             />
           </label>
-          {error.username && <p className={styles['error-message']}>{error.username}</p>}
+          {error.email && <p className={styles['error-message']}>{error.email}</p>}
         </div>
         <div>
           <label>
@@ -129,7 +143,7 @@ const LoginPage: React.FC = () => {
           </button>
           {error.password && <p className={styles['error-message']}>{error.password}</p>}
         </div>
-        <button type="submit" className={styles['submit-button']}>Войти</button>
+        <button disabled={!!(error.username || error.password)} type="submit" className={styles['submit-button']}>Войти</button>
         {messageError && <p className={styles['error-message']}>{messageError}</p>}
       </form>
     </div>
