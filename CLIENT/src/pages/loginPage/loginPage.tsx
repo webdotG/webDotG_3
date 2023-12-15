@@ -4,17 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useLoginMutation, UserData } from '../../api/authApi';
 import { selectUser } from "../../slices/auth/authSlice";
-import { isErrorWithMessage } from '../../support_function/is_error_with_message';
-
-
-// interface typeLoginData {
-//   id?: string,
-//   email?: string,
-//   password?: string,
-//   name?: string ,
-//   token?: string | null
-// }
-
 
 const LoginPage: React.FC = () => {
   const [user, setUser] = useState({ email: '', password: '' });
@@ -56,45 +45,6 @@ const LoginPage: React.FC = () => {
   const handleTogglePassword = (): void => {
     setShowPassword(!showPassword);
   };
-
-
-
-
-  // const handleSubmit = async (user: UserData) => {
-  //   console.log("HANDLE SUBMIT DATA : ", user)
-  //   try {
-  //     await loginUser(user).unwrap();
-
-  //     navigate("/");
-  //   } catch (err) {
-  //     const maybeError = isErrorWithMessage(err);
-
-  //     if (maybeError) {
-  //       setErrorMes(err.data.message);
-  //     } else {
-  //       setErrorMes("Неизвестная ошибка");
-  //     }
-  //   }
-  // };
-  //  const handleSubmit = async (user: UserData, ) => { //e: React.FormEvent<HTMLFormElement>,
-  //     console.log("DATA USER FORM EM PASS : ", user)       // e.preventDefault();
-  //     try {
-  //       if (!error.email && !error.password) {
-  //         await loginUser(user).unwrap()
-  //         // dispatch(fetchAuth(user))
-  //         navigate('/');
-  //       } else {
-  //         console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
-  //       }
-  //     } catch (err) {
-  //       const ifError = isErrorWithMessage(err)
-  //       if (ifError) {
-  //         setErrorMes(err.data.message)
-  //       } else {
-  //         setErrorMes('непонятно')
-  //       }
-  //     }
-  //   };
   const navigate = useNavigate();
   const userSelect = useSelector(selectUser);
   const [loginUser] = useLoginMutation()
@@ -201,3 +151,44 @@ export default LoginPage;
 // } catch (error) {
 //   console.error('ОШИБКА : ', error);
 // }
+
+
+
+
+
+
+  // const handleSubmit = async (user: UserData) => {
+  //   console.log("HANDLE SUBMIT DATA : ", user)
+  //   try {
+  //     await loginUser(user).unwrap();
+
+  //     navigate("/");
+  //   } catch (err) {
+  //     const maybeError = isErrorWithMessage(err);
+
+  //     if (maybeError) {
+  //       setErrorMes(err.data.message);
+  //     } else {
+  //       setErrorMes("Неизвестная ошибка");
+  //     }
+  //   }
+  // };
+  //  const handleSubmit = async (user: UserData, ) => { //e: React.FormEvent<HTMLFormElement>,
+  //     console.log("DATA USER FORM EM PASS : ", user)       // e.preventDefault();
+  //     try {
+  //       if (!error.email && !error.password) {
+  //         await loginUser(user).unwrap()
+  //         // dispatch(fetchAuth(user))
+  //         navigate('/');
+  //       } else {
+  //         console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
+  //       }
+  //     } catch (err) {
+  //       const ifError = isErrorWithMessage(err)
+  //       if (ifError) {
+  //         setErrorMes(err.data.message)
+  //       } else {
+  //         setErrorMes('непонятно')
+  //       }
+  //     }
+  //   };
