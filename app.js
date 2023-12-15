@@ -15,7 +15,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api/user', require('./routes/user'));
-app.listen(1111, () => {
-  console.log(`Server is running on port ${1111}`);
+
+const PORT = process.env.PORT
+
+app.listen(PORT, () => { //1111
+  console.log(`Server is running on port ${PORT}`);
 });
+
 module.exports = app;

@@ -1,3 +1,4 @@
+import style from './error.module.scss'
 
 type typeProps = {
   message?: string
@@ -9,7 +10,10 @@ export const ErrorMessage = ({ message }: typeProps) => {
     return null
   } else {
     return (
-      <div>{message}</div>
+      <div className={style['pzdc']}>
+        {message}
+     PZDC
+      </div>
     )
   }
 }

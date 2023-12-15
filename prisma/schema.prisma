@@ -16,15 +16,15 @@ model User {
   email String
   password String
   name String
-  createEmployee Employee[]
+  // createEmployee Employee[]
 }
 
-model Employee {
-  id String @id @default(uuid())
-  firstName String
-  lastName String
-  age String
-  adress String
-  userId String
-  user User @relation(fields: [userId], references: [id])
-}
+// model Employee {
+//   id String @id @default(uuid())
+//   firstName String
+//   lastName String
+//   age String
+//   adress String
+//   userId String
+//   user User @relation(fields: [userId], references: [id])
+// }

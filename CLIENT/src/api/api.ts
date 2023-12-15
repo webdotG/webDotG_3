@@ -1,8 +1,8 @@
-import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react'
-import { RootState } from '../store'
+import { createApi, fetchBaseQuery, retry } from "@reduxjs/toolkit/query/react";
+import { RootState } from "../store";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: '/',
+  baseUrl: "http://localhost:1111/api",
   prepareHeaders: (headers, { getState }) => {
     const token =
       (getState() as RootState).auth.user?.token ||
@@ -12,14 +12,14 @@ const baseQuery = fetchBaseQuery({
       headers.set("authorization", `Bearer ${token}`);
     }
     return headers;
-  }
-})
+  },
+});
 
-const baseQueryWithRetry = retry(baseQuery, { maxRetries: 3 })
+const baseQueryWithRetry = retry(baseQuery, { maxRetries: 1 });
 
 export const api = createApi({
-  reducerPath: 'splitApi',
+  reducerPath: "splitApi",
   baseQuery: baseQueryWithRetry,
   refetchOnMountOrArgChange: true,
-  endpoints: () => ({})
-})
+  endpoints: () => ({}),
+});

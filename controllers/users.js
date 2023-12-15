@@ -2,6 +2,12 @@ const {prisma} = require ('../prisma/prisma-client')
 const bcrypt = require ('bcrypt')
 const jwt = require ('jsonwebtoken')
 
+/**
+ * 
+ * @route POST /api/user/register
+ * @desc Регистрация
+ * @access Public
+ */
 const Register = async (req, res) => {
   const { email, name, password } = req.body
 
@@ -43,6 +49,11 @@ const Register = async (req, res) => {
   }
 }
 
+/**
+ * @route POST /api/user/login
+ * @desс Логин
+ * @access Public
+ */
 const Login = async (req, res) => {
   console.log("SERVER LOGIN : ")
   const { email, password } = req.body
@@ -71,6 +82,7 @@ const Login = async (req, res) => {
   }
 
 }
+
 
 const Current = async (req, res) => {
   return res.status(200).json(req.user)

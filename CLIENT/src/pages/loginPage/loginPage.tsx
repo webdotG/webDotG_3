@@ -1,70 +1,29 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './LoginPage.module.scss';
-import { typeUserData, useLoginMutation } from '../../api/auth';
 import { useNavigate } from 'react-router-dom';
-import { isErrorWithMessage, typeErrorWithMessage } from '../../support_function/is_error_with_message';
-import { useDispatch } from 'react-redux';
-import axios from '../../axios';
-import { fetchAuth } from '../../slices/auth/auth';
+import { useSelector } from 'react-redux';
+import { useLoginMutation, UserData } from '../../api/authApi';
+import { selectUser } from "../../slices/auth/authSlice";
+import { isErrorWithMessage } from '../../support_function/is_error_with_message';
+
+
 interface typeLoginData {
-  username?: string;
-  password: string;
-  email?: string,
+  id?: string,
+  email?: string | undefined,
+  password?: string,
+  name?: string,
+  token?: string | null
 }
 
+
 const LoginPage: React.FC = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate();
-  const [user, setUser] = useState<typeLoginData>({ username: '', password: '' });
+  const [user, setUser] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState<Record<string, string>>({ username: '', password: '' });
+  const [error, setError] = useState({ email: '', password: '' });
   const [messageError, setMessageError] = useState('')
-  const [formValid, setFormValid] = useState(false);
-
-  const [loginUser, loginUserResult] = useLoginMutation()
-
-  // const handleSubmit = async (data: typeUserData, ) => { //e: React.FormEvent<HTMLFormElement>
-  //   console.log("ERROR LOGINUSER DATA : ")
-  //   // e.preventDefault();
-  //   if (!error.username && !error.password) {
-  //     try {
-  //       await loginUser(data).unwrap();
-  //       navigate('/register');
-  //     } catch (err) {
-  //       console.log("LOGIN ERROR : ", err)
-  //       const maybeError = isErrorWithMessage(err);
-  //       if (maybeError) {
-  //         const errorData = err as typeErrorWithMessage; // Приведение типа
-  //         setMessageError(errorData.data.message);
-  //       } else {
-  //         setMessageError('Неизвестная ошибка');
-  //       }
-  //     }
-  //    }
-  // };
-  //  setError({ ...error, login: 'Ошибка входа. Пожалуйста, проверьте введенные данные.' })
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, user: typeLoginData) => {
-    console.log("RESPONSE USER : ", user)
-    e.preventDefault();
-    if (!error.username && !error.password) {
-      try {
-        const response = await axios.post('/api/user/login', { ...user });
-        console.log("LOGIN PAGE API/USER/LOGIN RESPONSE DATA : ", response.data);
-        navigate('/');
-      } catch (error) {
-        console.error('ОШИБКА : ', error);
-      }
-    } else {
-      console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
-    }
-  };
-
-
   const isValidPassword = (password: string): boolean => {
     return password.length >= 3;
   };
-
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
@@ -87,7 +46,6 @@ const LoginPage: React.FC = () => {
       setMessageError('');
     }
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     setUser({
@@ -95,31 +53,95 @@ const LoginPage: React.FC = () => {
       [name]: value
     });
   };
-
   const handleTogglePassword = (): void => {
     setShowPassword(!showPassword);
   };
 
+
+  const [errorMes, setErrorMes] = useState('')
+  const navigate = useNavigate();
+  // const userSelect = useSelector(selectUser);
+  const [loginUser] = useLoginMutation()
+
+  // const handleSubmit = async (user: UserData) => {
+  //   console.log("HANDLE SUBMIT DATA : ", user)
+  //   try {
+  //     await loginUser(user).unwrap();
+
+  //     navigate("/");
+  //   } catch (err) {
+  //     const maybeError = isErrorWithMessage(err);
+
+  //     if (maybeError) {
+  //       setErrorMes(err.data.message);
+  //     } else {
+  //       setErrorMes("Неизвестная ошибка");
+  //     }
+  //   }
+  // };
+  //  const handleSubmit = async (user: UserData, ) => { //e: React.FormEvent<HTMLFormElement>,
+  //     console.log("DATA USER FORM EM PASS : ", user)       // e.preventDefault();
+  //     try {
+  //       if (!error.email && !error.password) {
+  //         await loginUser(user).unwrap()
+  //         // dispatch(fetchAuth(user))
+  //         navigate('/');
+  //       } else {
+  //         console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
+  //       }
+  //     } catch (err) {
+  //       const ifError = isErrorWithMessage(err)
+  //       if (ifError) {
+  //         setErrorMes(err.data.message)
+  //       } else {
+  //         setErrorMes('непонятно')
+  //       }
+  //     }
+  //   };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, user: typeLoginData) => {
+    console.log("RESPONSE USER : ", user)
+    e.preventDefault();
+    if (!error.email && !error.password) {
+      try {
+        await loginUser(user).unwrap()
+        navigate('/');
+      } catch (error) {
+        console.error('ОШИБКА : ', error);
+        const ifError = isErrorWithMessage(error)
+        if (ifError) {
+          setErrorMes(error.data.message)
+        } else {
+          setErrorMes('непонятно')
+        }
+      }
+    }
+    else {
+      console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
+    }
+  };
+
+
   return (
     <div>
-      <h2>Форма входа</h2>
+      <h2 className={styles['login-form-title']}>Войти</h2>
       <form className={styles['login-form-container']} onSubmit={(e) => handleSubmit(e, user)}>
-        <div>
-          <label>
-          Email:
+        <div className={styles['email-wrapper']}>
+          <label className={styles['email-label']}>
+            Email:
             <input
               type="email"
               name="email"
               value={user.email}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={error.email ? styles['error'] : ''}
+              className={error.email ? styles['error'] : styles['email-input']}
             />
           </label>
           {error.email && <p className={styles['error-message']}>{error.email}</p>}
         </div>
-        <div>
-          <label>
+        <div className={styles['password-wrapper']} >
+          <label className={styles['password-label']}>
             Пароль:
             <input
               type={showPassword ? 'text' : 'password'}
@@ -127,15 +149,15 @@ const LoginPage: React.FC = () => {
               value={user.password}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={error.password ? styles['error'] : ''}
+              className={error.password ? styles['error'] : styles['password-input']}
             />
+            <button className={styles['btn-show-password']} type="button" onClick={handleTogglePassword}>
+              {showPassword ? 'Скрыть' : 'Показать'}
+            </button>
           </label>
-          <button type="button" onClick={handleTogglePassword}>
-            {showPassword ? 'Скрыть пароль' : 'Показать пароль'}
-          </button>
           {error.password && <p className={styles['error-message']}>{error.password}</p>}
         </div>
-        <button disabled={!!(error.username || error.password)} type="submit" className={styles['submit-button']}>Войти</button>
+        <button disabled={!!(error.email || error.password)} type="submit" className={styles['submit-button']}>Войти</button>
         {messageError && <p className={styles['error-message']}>{messageError}</p>}
       </form>
     </div>
@@ -143,3 +165,42 @@ const LoginPage: React.FC = () => {
 };
 
 export default LoginPage;
+
+
+
+// const handleSubmit = async (user: typeLoginData) => { //e: React.FormEvent<HTMLFormElement>,
+//   console.log("DATA USER FORM EM PASS : ", user)       // e.preventDefault();
+
+//   try {
+//     if (!error.email && !error.password) {
+//       await loginUser(user).unwrap()
+//       // dispatch(fetchAuth(user))
+//       navigate('/');
+//     } else {
+//       console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
+//     }
+//   } catch (err) {
+//     const ifError = isErrorWithMessage(err)
+//     if (ifError) {
+//       setErrorMes(err.data.message)
+//     } else {
+//       setErrorMes('непонятно')
+//     }
+//   }
+// };
+
+
+
+
+// try {
+//   const response = await axios.post('/api/user/login', { ...user });
+//   console.log("LOGIN PAGE AXIOS POST API/USER/LOGIN RESPONSE.DATA : ", response.data);
+//   const { email, token, id, name } = response.data
+//   console.log("EMAIL < TOKEN < ID < NAME : ", email, token, id, name)
+//   if (email && token) {
+//     dispatch(fetchAuth(user))
+//     navigate('/');
+//   }
+// } catch (error) {
+//   console.error('ОШИБКА : ', error);
+// }
