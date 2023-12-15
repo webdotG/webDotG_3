@@ -5,18 +5,21 @@ import RegistrPage from './pages/registerPage/registerPage'
 import MyPage from './pages/myPage/myPage';
 import ShopPage from './pages/shopPage/shopPage';
 import MainPage from './pages/homePage/homePage';
+import { Auth } from './components/loading/auth';
 
 function App() {
 
   return (
     <>
-      <Routes>
-      <Route index path="/" element={<MainPage />} />
-        <Route index path="/register" element={<RegistrPage />} />
-        <Route index path="/login" element={<LoginPage />} />
-        <Route index path="/myPage" element={<MyPage />} />
-        <Route index path="/shop" element={<ShopPage />} />
-      </Routes>
+      <Auth>
+        <Routes>
+          <Route index path="/" element={<MainPage />} />
+          <Route index path="/register" element={<RegistrPage />} />
+          <Route index path="/login" element={<LoginPage />} />
+          <Route index path="/myPage" element={<MyPage />} />
+          <Route index path="/shop" element={<ShopPage />} />
+        </Routes>
+      </Auth>
     </>
   )
 }

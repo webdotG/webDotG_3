@@ -5,17 +5,16 @@ const baseQuery = fetchBaseQuery({
   baseUrl: "http://localhost:1111/api",
   prepareHeaders: (headers, { getState }) => {
     const token =
-      (getState() as RootState).auth.user?.token ||
-      localStorage.getItem("token");
+      (getState() as RootState).auth.user?.token || localStorage.getItem("token");
 
-    if (token) {
+    if (token && token !== null) {
       headers.set("authorization", `Bearer ${token}`);
     }
     return headers;
   },
 });
 
-const baseQueryWithRetry = retry(baseQuery, { maxRetries: 1 });
+const baseQueryWithRetry = retry(baseQuery, { maxRetries: 3 });
 
 export const api = createApi({
   reducerPath: "splitApi",

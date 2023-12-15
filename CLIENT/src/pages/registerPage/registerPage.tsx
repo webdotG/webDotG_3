@@ -1,42 +1,23 @@
 import React, { useState, FormEvent } from 'react';
 import styles from './registerPage.module.scss';
-import axios from 'axios';
+// import axios from 'axios';
+import { User } from '@prisma/client';
+import { useRegisterMutation} from '../../api/authApi';
 
-interface typeUser {
-  username: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
+type typeRegisterData = Omit<User, "id"> 
 
-const RegistrPage: React.FC = () => {
-  const [user, setUser] = useState<typeUser>({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
-
-  const [error, setError] = useState<Record<string, string>>({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
-
+const RegistrPage = () => {
+  const [user, setUser] = useState({name: '',email: '', password: '', confirmPassword: ''});
+  const [error, setError] = useState({name: '', email: '', password: '', confirmPassword: ''});
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [redirectToUserPage, setRedirectToUserPage] = useState(false);
-
   const isValidPassword = (password: string): boolean => {
     return password.length >= 3;
   };
-
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     switch (name) {
-      case 'username':
+      case 'name':
         setError({ ...error, [name]: value.trim() === '' ? 'Имя пользователя обязательно для заполнения' : '' });
         break;
       case 'email':
@@ -52,7 +33,6 @@ const RegistrPage: React.FC = () => {
         break;
     }
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
 
@@ -61,46 +41,35 @@ const RegistrPage: React.FC = () => {
       [name]: value
     });
   };
-
   const handleTogglePassword = (): void => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmitAxios = async (e: FormEvent) => {
+  const [registerUser] = useRegisterMutation()
+// console.log("USE_REGISTER_MUTATION : ", registerUser )
+
+  const handleSubmit = async (user: typeRegisterData, e: React.FormEvent<HTMLFormElement>) => {
+    console.log("REGISTER PAGE FORM SUBMIT DATA : ", user)
     e.preventDefault();
-    try {
-      const response = await axios.post('/auth/register', { ...user });
-
-      console.log(response.data);
-      if (response.status === 200) {
-        setRedirectToUserPage(true);
-      }
-    } catch (error) {
-      console.error('Ошибка:', error);
-    }
-  };
-
-  if (redirectToUserPage) {
-    window.location.href = '/myPage';
-    return null;
+    registerUser(user)
   }
 
   return (
     <div className={styles['registration-form-container']}>
       <h2>Форма регистрации</h2>
-      <form onSubmit={handleSubmitAxios}>
+      <form onSubmit={(e) => handleSubmit(user, e)}>
         <div>
           <label>
             Имя пользователя:
             <input
               type="text"
-              name="username"
-              value={user.username}
+              name="name"
+              value={user.name}
               onChange={handleChange}
               onBlur={handleBlur}
             />
           </label>
-          {error.username && <p className={styles['error-message']}>{error.username}</p>}
+          {error.name && <p className={styles['error-message']}>{error.name}</p>}
         </div>
         <div>
           <label>
@@ -152,3 +121,21 @@ const RegistrPage: React.FC = () => {
 
 export default RegistrPage;
 
+// const handleSubmitAxios = async (e: FormEvent) => {
+//   e.preventDefault();
+//   try {
+//     const response = await axios.post('/auth/register', { ...user });
+
+//     console.log(response.data);
+//     if (response.status === 200) {
+//       setRedirectToUserPage(true);
+//     }
+//   } catch (error) {
+//     console.error('Ошибка:', error);
+//   }
+// };
+
+// if (redirectToUserPage) {
+//   window.location.href = '/myPage';
+//   return null;
+// }
