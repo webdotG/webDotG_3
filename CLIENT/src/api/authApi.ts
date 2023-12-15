@@ -1,7 +1,7 @@
 import { User } from "@prisma/client";
 import { api } from "./api";
 
-export type UserData = Omit<User, "id">;
+export type UserData = Omit<User, 'id' | 'name'> & Partial<Pick<User, 'id' | 'name'>>;
 type ResponseLoginData = User & { token: string };
 
 export const authApi = api.injectEndpoints({

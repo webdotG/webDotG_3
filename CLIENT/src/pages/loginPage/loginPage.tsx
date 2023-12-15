@@ -7,13 +7,13 @@ import { selectUser } from "../../slices/auth/authSlice";
 import { isErrorWithMessage } from '../../support_function/is_error_with_message';
 
 
-interface typeLoginData {
-  id?: string,
-  email?: string | undefined,
-  password?: string,
-  name?: string,
-  token?: string | null
-}
+// interface typeLoginData {
+//   id?: string,
+//   email?: string,
+//   password?: string,
+//   name?: string ,
+//   token?: string | null
+// }
 
 
 const LoginPage: React.FC = () => {
@@ -95,11 +95,10 @@ const LoginPage: React.FC = () => {
   //       }
   //     }
   //   };
-  const [setErrorMes] = useState()
   const navigate = useNavigate();
   const userSelect = useSelector(selectUser);
   const [loginUser] = useLoginMutation()
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, user: typeLoginData) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, user: UserData) => {
     console.log("RESPONSE USER : ", user)
     e.preventDefault();
     if (!error.email && !error.password) {
