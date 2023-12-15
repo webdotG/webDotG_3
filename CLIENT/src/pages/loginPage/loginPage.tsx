@@ -58,10 +58,7 @@ const LoginPage: React.FC = () => {
   };
 
 
-  const [errorMes, setErrorMes] = useState('')
-  const navigate = useNavigate();
-  // const userSelect = useSelector(selectUser);
-  const [loginUser] = useLoginMutation()
+
 
   // const handleSubmit = async (user: UserData) => {
   //   console.log("HANDLE SUBMIT DATA : ", user)
@@ -98,22 +95,18 @@ const LoginPage: React.FC = () => {
   //       }
   //     }
   //   };
-
+  const [setErrorMes] = useState()
+  const navigate = useNavigate();
+  const userSelect = useSelector(selectUser);
+  const [loginUser] = useLoginMutation()
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, user: typeLoginData) => {
     console.log("RESPONSE USER : ", user)
     e.preventDefault();
     if (!error.email && !error.password) {
       try {
         await loginUser(user).unwrap()
-        navigate('/');
       } catch (error) {
-        console.error('ОШИБКА : ', error);
-        const ifError = isErrorWithMessage(error)
-        if (ifError) {
-          setErrorMes(error.data.message)
-        } else {
-          setErrorMes('непонятно')
-        }
+        console.error('ОШИБКА БЛЯДЬ ЗАПОЛНИ ФОРМУ : ', error);
       }
     }
     else {
@@ -121,6 +114,11 @@ const LoginPage: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (userSelect) {
+      navigate("/");
+    }
+  }, [userSelect, navigate]);
 
   return (
     <div>
