@@ -13,7 +13,7 @@ function MainPriceBlokck() {
 
   return (
     <div className={styles['wrapper']}>
-      <h2 className={styles['main_price__itle']}>цены</h2>
+      <h2 className={styles['main_price__title']}>цены</h2>
       <ul className={styles['bloc_tabs']}>
        <li className={toggleState === 1 ? `${styles["tab"]} ${styles["active_tab"]}` : styles['tab']}
           onClick={() => toggleTab(1)}>
@@ -31,63 +31,63 @@ function MainPriceBlokck() {
       </ul>
       <ul className={styles['content_tabs']}>
       <li className={toggleState === 1 ? `${styles['content']} ${styles['active_content']}` : styles['content']}>
-          <div className={styles['sites_block_rapper']}>
-            <section className={styles['sites_block_ection']}>
-              <h3 className={styles['sites_block_ection_title']}>лендинг</h3>
-              <p className={styles['sites_block_ection_text']}>шаблон :</p>
-              <p id='sites_block_section_price'>15 000р</p>
-              <p className={styles['sites_block_ection_text']}>инди :</p>
-              <p id='sites_block_section_price'>от 30 000р</p>
+          <div className={styles['sites_block_wrapper']}>
+            <section className={styles['sites_block_section']}>
+              <h3 className={styles['sites_block_section_title']}>лендинг</h3>
+              <p className={styles['sites_block_section_text']}>шаблон :</p>
+              <p className={styles['sites_block_section_price']}>15 000р</p>
+              <p className={styles['sites_block_section_text']}>инди :</p>
+              <p className={styles['sites_block_section_price']}>от 30 000р</p>
             </section>
-            <section className={styles['sites_block_ection']}>
-              <h3 className={styles['sites_block_ection_title']}>многостраничный</h3>
-              <p className={styles['sites_block_ection_text']}>шаблон :</p>
-              <p id='sites_block_section_price'>60 000р</p>
-              <p className={styles['sites_block_ection_text']}>инди :</p>
-              <p id='sites_block_section_price'>от 90 000р</p>
+            <section className={styles['sites_block_section']}>
+              <h3 className={styles['sites_block_section_title']}>многостраничный</h3>
+              <p className={styles['sites_block_section_text']}>шаблон :</p>
+              <p className={styles['sites_block_section_price']}>60 000р</p>
+              <p className={styles['sites_block_section_text']}>инди :</p>
+              <p className={styles['sites_block_section_price']}>от 90 000р</p>
             </section>
-            <section className={styles['sites_block_ection']}>
-              <h3 className={styles['sites_block_ection_title']}>магазин</h3>
-              <p className={styles['sites_block_ection_text']}>шаблон :</p>
-              <p id='sites_block_section_price'>120 000р</p>
-              <p className={styles['sites_block_ection_text']}>инди :</p>
-              <p id='sites_block_section_price'>от 150 000р</p>
+            <section className={styles['sites_block_section']}>
+              <h3 className={styles['sites_block_section_title']}>магазин</h3>
+              <p className={styles['sites_block_section_text']}>шаблон :</p>
+              <p className={styles['sites_block_section_price']}>120 000р</p>
+              <p className={styles['sites_block_section_text']}>инди :</p>
+              <p className={styles['sites_block_section_price']}>от 150 000р</p>
             </section>
           </div>
         </li>
         <li className={toggleState === 2 ? `${styles['content']} ${styles['active_content']}` : styles['content']}>
-          <div className={styles['sites_block_rapper']}>
-            <section className={styles['sites_block_ection']}>
-              <h3 className={styles['sites_block_ection_title']}>магазин бот</h3>
-              <p className={styles['sites_block_ection_text']}>шаблон :</p>
-              <p id='sites_block_section_price'>60 000р</p>
-              <p className={styles['sites_block_ection_text']}>инди :</p>
-              <p id='sites_block_section_price'>от 90 000р</p>
+          <div className={styles['sites_block_wrapper']}>
+            <section className={styles['sites_block_section']}>
+              <h3 className={styles['sites_block_section_title']}>магазин бот</h3>
+              <p className={styles['sites_block_section_text']}>шаблон :</p>
+              <p className={styles['sites_block_section_price']}>60 000р</p>
+              <p className={styles['sites_block_section_text']}>инди :</p>
+              <p className={styles['sites_block_section_price']}>от 90 000р</p>
             </section>
-            <section className={styles['sites_block_ection']}>
-              <h3 className={styles['sites_block_ection_title']}>чат бот</h3>
-              <p className={styles['sites_block_ection_text']}>шаблон :</p>
-              <p id='sites_block_section_price'>40 000р</p>
-              <p className={styles['sites_block_ection_text']}>инди :</p>
-              <p id='sites_block_section_price'>от 60 000р</p>
+            <section className={styles['sites_block_section']}>
+              <h3 className={styles['sites_block_section_title']}>чат бот</h3>
+              <p className={styles['sites_block_section_text']}>шаблон :</p>
+              <p className={styles['sites_block_section_price']}>40 000р</p>
+              <p className={styles['sites_block_section_text']}>инди :</p>
+              <p className={styles['sites_block_section_price']}>от 60 000р</p>
             </section>
           </div>
         </li>
         <li className={toggleState === 3 ? `${styles['content']} ${styles['active_content']}` : styles['content']}>
-          <div className={styles['sites_block_rapper']}>
-            <section className={styles['sites_block_ection']}>
-              <h3 className={styles['sites_block_ection_title']}>IOS & Android</h3>
-              <p className={styles['sites_block_]ection_text']}>шаблон :</p>
-              <p id='sites_block_section_price'>80 000р</p>
-              <p className={styles['sites_block_ection_text']}>инди :</p>
-              <p id='sites_block_section_price'>от 120 000р</p>
+          <div className={styles['sites_block_wrapper']}>
+            <section className={styles['sites_block_section']}>
+              <h3 className={styles['sites_block_section_title']}>IOS & Android</h3>
+              <p className={styles['sites_block_section_text']}>шаблон :</p>
+              <p className={styles['sites_block_section_price']}>80 000р</p>
+              <p className={styles['sites_block_section_text']}>инди :</p>
+              <p className={styles['sites_block_section_price']}>от 120 000р</p>
             </section>
-            <section className={styles['sites_block_ection']}>
-              <h3 className={styles['sites_block_ection_title']}>VK mini App</h3>
-              <p className={styles['sites_block_ection_text']}>шаблон :</p>
-              <p id='sites_block_section_price'>60 000р</p>
-              <p className={styles['sites_block_ection_text']}>инди :</p>
-              <p id='sites_block_section_price'>от 90 000р</p>
+            <section className={styles['sites_block_section']}>
+              <h3 className={styles['sites_block_section_title']}>VK mini App</h3>
+              <p className={styles['sites_block_section_text']}>шаблон :</p>
+              <p className={styles['sites_block_section_price']}>60 000р</p>
+              <p className={styles['sites_block_section_text']}>инди :</p>
+              <p className={styles['sites_block_section_price']}>от 90 000р</p>
             </section>
           </div>
         </li>

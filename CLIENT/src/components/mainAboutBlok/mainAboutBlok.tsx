@@ -1,4 +1,11 @@
-import style from'./mainAboutBlok.module.scss'
+import IconFinishWork from '../../svg/iconFinishWork'
+import IconList from '../../svg/iconList'
+import IconMonitor from '../../svg/iconMonitor'
+import IconPencil from '../../svg/iconPencil'
+import IconProgramming from '../../svg/iconProgramming'
+import IconStartProject from '../../svg/iconStartProject'
+import IconTesting from '../../svg/iconTesting'
+import style from './mainAboutBlok.module.scss'
 import { motion } from 'framer-motion'
 
 const listAnimation = {
@@ -28,46 +35,46 @@ function MainAboutBlok() {
             custom={1}
             variants={listAnimation}
             className={style['main-abou__item']} >
-          <img src='#' alt='icon'></img>
-          <p>изучаю задачу, составляю ТЗ</p>
-        </motion.li>
-        <motion.li
-          custom={2}
-          variants={listAnimation}
-          className={style['main-abou__item']}>
-          <img src='#' alt='icon'></img>
-          <p>заключаю договор</p>
-        </motion.li>
-      <motion.li
-        custom={3}
-        variants={listAnimation}
-        className={style['main-abou__item']}>
-          <img src='#' alt='icon'></img>
-          <p>разрабатываю концепцию и дизайн</p>
-        </motion.li >
-        <motion.li
-          custom={4}
-          variants={listAnimation}
-          className={style['main-abou__item']}>
-          <img src='#' alt='icon'></img>
-          <p>верстаю и программирую</p>
-        </motion.li>
-        <motion.li
-          custom={5}
-          variants={listAnimation}
-          className={style['main-abou__item']}>
-          <img src='#' alt='icon'></img>
-          <p>тестирую</p>
-        </motion.li>
-        <motion.li
-          custom={6}
-          variants={listAnimation}
-          className={style['main-abou__item']}>
-          <img src='#' alt='icon'></img>
-          <p>запускую</p>
-        </motion.li>
-      </motion.ul>
-    </div >
+            <span className={style['main-about_icon-svg']}><IconList /></span>
+            <p>изучаю задачу, составляю ТЗ</p>
+          </motion.li>
+          <motion.li
+            custom={2}
+            variants={listAnimation}
+            className={style['main-abou__item']}>
+            <span className={style['main-about_icon-svg']}><IconPencil /></span>
+            <p>заключаю договор</p>
+          </motion.li>
+          <motion.li
+            custom={3}
+            variants={listAnimation}
+            className={style['main-abou__item']}>
+            <span className={style['main-about_icon-svg']}><IconTesting /></span>
+            <p>разрабатываю концепцию и дизайн</p>
+          </motion.li >
+          <motion.li
+            custom={4}
+            variants={listAnimation}
+            className={style['main-abou__item']}>
+            <span className={style['main-about_icon-svg']}><IconProgramming /></span>
+            <p>верстаю и программирую</p>
+          </motion.li>
+          <motion.li
+            custom={5}
+            variants={listAnimation}
+            className={style['main-abou__item']}>
+            <span className={style['main-about_icon-svg']}><IconFinishWork /></span>
+            <p>тестирую</p>
+          </motion.li>
+          <motion.li
+            custom={6}
+            variants={listAnimation}
+            className={style['main-abou__item']}>
+            <span className={style['main-about_icon-svg']}><IconStartProject /></span>
+            <p>запускаю</p>
+          </motion.li>
+        </motion.ul>
+      </div >
     </>
   )
 }
