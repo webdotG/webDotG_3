@@ -1,11 +1,11 @@
 import Header from "../../components/header/header"
 import { motion } from 'framer-motion'
-import G from './G';
 import style from './homePage.module.scss'
 import MainPriceBlokck from "../../components/mainPriceBlock/mainPriceBlokck";
 import MainPortfolioBock from "../../components/mainPortfolioBlock/mainPortfolioBock";
 import MainAboutBlok from "../../components/mainAboutBlok/mainAboutBlok";
 import LogoGMint from "../../svg/logoGMint";
+import MainFeedback from "../../components/mainFeedback/mainFeedback";
 
 
 const textAnimation = {
@@ -51,6 +51,8 @@ function HomePage() {
       <MainPortfolioBock />
 
       <MainAboutBlok />
+
+      <MainFeedback />
 
     </>
   )
