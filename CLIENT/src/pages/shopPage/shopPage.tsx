@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/header/header';
 import style from './shopPage.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setTotalPrice } from '../../slices/totalPrice/totalPriceSlice';
-import { RootState } from '../../store';
-import { calculateTotalPrice, typeSiteType } from '../../support_function/calculatePrice';
+// import { RootState } from '../../store';
+import {  typeSiteType } from '../../support_function/calculatePrice'; //calculateTotalPrice,
 
 interface CheckboxValues {
   [key: string]: boolean;
@@ -20,9 +20,9 @@ const initialCheckboxValues: CheckboxValues = {
   isTemplateChecked: false,
 };
 
-export default function ShopPage(): JSX.Element {
+function ShopPage() {
   const dispatch = useDispatch();
-  const totalPrice = useSelector((state: RootState) => state.totalPrice.value);
+  // const totalPrice = useSelector((state: RootState) => state.totalPrice.value);
 
   const [isThirdBlockVisible, setIsThirdBlockVisible] = useState(false);
   const [isSiteChecked, setIsSiteChecked] = useState(false);
@@ -63,14 +63,14 @@ export default function ShopPage(): JSX.Element {
       [selectedType]: optionChecked,
     });
 
-    const newTotalPrice = calculateTotalPrice(selectedType, optionChecked, totalPrice, optionName, optionChecked);
-    dispatch(setTotalPrice(newTotalPrice));
+    // const newTotalPrice = calculateTotalPrice(selectedType, optionChecked, totalPrice, optionName, optionChecked);
+    // dispatch(setTotalPrice(newTotalPrice));
   };
 
   const handleDesignOptionsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
 
-    const newTotalPrice = calculateTotalPrice('', true, totalPrice, name, checked);
+    const newTotalPrice = calculateTotalPrice('_', true, totalPrice, name, checked);
     dispatch(setTotalPrice(newTotalPrice));
   };
 
@@ -156,12 +156,15 @@ export default function ShopPage(): JSX.Element {
           </div>
         )}
 
-        {totalPrice > 0 && (
+        {/* {totalPrice > 0 && (
           <div className={style.total_price_wrapper}>
             <p>Общая цена: {totalPrice} рублей</p>
           </div>
-        )}
+        )} */}
       </div>
     </>
   );
 }
+
+
+export default ShopPage

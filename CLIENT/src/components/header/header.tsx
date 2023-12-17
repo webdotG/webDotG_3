@@ -14,7 +14,7 @@ export default function Header() {
     <header className={style.header}>
 
       <section className={style.header_logo__wrapper}>
-        <Link className={style.header_logo} to="/webDotG_2/">
+        <Link className={style.header_logo} to="/">
           Kirill Grant
         </Link>
         <button
@@ -33,27 +33,27 @@ export default function Header() {
         <nav className={style.header_navigation}>
           <ul className={style.header_nav_list}>
             <li className={style.header_nav__item}>
-              <Link className={style.header_nav__link} to="/webDotG_2/portfolio">
+              <Link className={style.header_nav__link} to="/portfolio">
                 портфолио
               </Link>
             </li>
             <li className={style.header_nav__item}>
-              <Link className={style.header_nav__link} to="/webDotG_2/shop">
+              <Link className={style.header_nav__link} to="/shop">
                 магазин
               </Link>
             </li>
             <li className={style.header_nav__item}>
               {/* <section className={style.cart_iem}>0</section> */}
-              <Link className={style.header_nav__link} to="/webDotG_2/cart">
+              <Link className={style.header_nav__link} to="/cart">
                 корзина
               </Link>
             </li>
             <li className={style.header_nav__item}>
               {!isAuth
-                ? (<Link className={style.header_nav__link} to="/webDotG_2/login">
+                ? (<Link className={style.header_nav__link} to="/login">
                   войти
                 </Link>)
-                : (<Link className={`style.header_nav__link ${style.display_none}`} to="#">
+                : (<Link className={`style.header_nav__link ${style.display_none}`} to="/login">
                   войти
                 </Link>
                 )
@@ -61,7 +61,7 @@ export default function Header() {
             </li>
             <li className={style.header_nav__item}>
               {!isAuth
-                ? (<Link className={style.header_nav__link} to="/webDotG_2/register">
+                ? (<Link className={style.header_nav__link} to="/register">
                   регистрация
                 </Link>)
                 : (<Link className={`style.header_nav__link  ${style.display_none}`} to="#">
@@ -70,16 +70,26 @@ export default function Header() {
                 )
               }
             </li>
+            <li className={style.header_nav__item}>
+              {!isAuth
+                ? (<Link className={`style.header_nav__link  ${style.display_none}`} to="/my_page">
+                  личный кабинет
+                </Link>)
+                : (<Link className={style.header_nav__link} to="/my_page">
+                  личный кабинет
+                </Link>)
+              }
+            </li>
           </ul>
         </nav>
       </div>
       <div className={style.auth_wrapper}>
         {isAuth &&
-          <Link className={style.check_auth_link} to='#'>
+          <Link className={style.check_auth_link} to='/myPage'>
             перейти в личный кабинет
           </Link>
         }
-        <button className={style.check_auth_btn} onClick={() => setIsAuth(!isAuth)}>toggle auth test</button>
+        {/* <button className={style.check_auth_btn} onClick={() => setIsAuth(!isAuth)}>toggle auth test</button> */}
       </div>
     </header>
   )

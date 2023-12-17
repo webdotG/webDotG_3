@@ -1,18 +1,15 @@
-// import Footer from "../components/footer/footer"
 import Header from "../../components/header/header"
-// import IndexMain from "../../components/indexMain//indexMain"
 
-function MainPage() {
+function HomePage() {
 
   return (
     <>
       <Header />
-      {/* <IndexMain /> */}
-      {/* <Footer /> */}
+      
     </>
 
   )
 
 }
 
-export default MainPage
+export default HomePage

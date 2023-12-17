@@ -1,14 +1,15 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState } from 'react';
 import styles from './registerPage.module.scss';
 // import axios from 'axios';
 import { User } from '@prisma/client';
-import { useRegisterMutation} from '../../api/authApi';
+import { useRegisterMutation } from '../../api/authApi';
+import Header from '../../components/header/header';
 
-type typeRegisterData = Omit<User, "id"> 
+type typeRegisterData = Omit<User, "id">
 
 const RegistrPage = () => {
-  const [user, setUser] = useState({name: '',email: '', password: '', confirmPassword: ''});
-  const [error, setError] = useState({name: '', email: '', password: '', confirmPassword: ''});
+  const [user, setUser] = useState({ name: '', email: '', password: '', confirmPassword: '' });
+  const [error, setError] = useState({ name: '', email: '', password: '', confirmPassword: '' });
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const isValidPassword = (password: string): boolean => {
     return password.length >= 3;
@@ -46,7 +47,7 @@ const RegistrPage = () => {
   };
 
   const [registerUser] = useRegisterMutation()
-// console.log("USE_REGISTER_MUTATION : ", registerUser )
+  // console.log("USE_REGISTER_MUTATION : ", registerUser )
 
   const handleSubmit = async (user: typeRegisterData, e: React.FormEvent<HTMLFormElement>) => {
     console.log("REGISTER PAGE FORM SUBMIT DATA : ", user)
@@ -55,67 +56,70 @@ const RegistrPage = () => {
   }
 
   return (
-    <div className={styles['registration-form-container']}>
-      <h2>Форма регистрации</h2>
-      <form onSubmit={(e) => handleSubmit(user, e)}>
-        <div>
-          <label>
-            Имя пользователя:
-            <input
-              type="text"
-              name="name"
-              value={user.name}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-          </label>
-          {error.name && <p className={styles['error-message']}>{error.name}</p>}
-        </div>
-        <div>
-          <label>
-            Email:
-            <input
-              type="email"
-              name="email"
-              value={user.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-          </label>
-          {error.email && <p className={styles['error-message']}>{error.email}</p>}
-        </div>
-        <div>
-          <label>
-            Пароль:
-            <input
-              type={showPassword ? 'text' : 'password'}
-              name="password"
-              value={user.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-          </label>
-          <button type="button" onClick={handleTogglePassword}>
-            {showPassword ? 'Скрыть пароль' : 'Показать пароль'}
-          </button>
-          {error.password && <p className={styles['error-message']}>{error.password}</p>}
-        </div>
-        <div>
-          <label>
-            Подтверждение пароля:
-            <input
-              type="password"
-              name="confirmPassword"
-              value={user.confirmPassword}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-          </label>
-          {error.confirmPassword && <p className={styles['error-message']}>{error.confirmPassword}</p>}
-        </div>
-        <button type="submit">Зарегистрироваться</button>
-      </form>
-    </div>
+    <>
+      <Header />
+      <div className={styles['registration-form-container']}>
+        <h2>Форма регистрации</h2>
+        <form onSubmit={(e) => handleSubmit(user, e)}>
+          <div>
+            <label>
+              Имя пользователя:
+              <input
+                type="text"
+                name="name"
+                value={user.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+            </label>
+            {error.name && <p className={styles['error-message']}>{error.name}</p>}
+          </div>
+          <div>
+            <label>
+              Email:
+              <input
+                type="email"
+                name="email"
+                value={user.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+            </label>
+            {error.email && <p className={styles['error-message']}>{error.email}</p>}
+          </div>
+          <div>
+            <label>
+              Пароль:
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                value={user.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+            </label>
+            <button type="button" onClick={handleTogglePassword}>
+              {showPassword ? 'Скрыть пароль' : 'Показать пароль'}
+            </button>
+            {error.password && <p className={styles['error-message']}>{error.password}</p>}
+          </div>
+          <div>
+            <label>
+              Подтверждение пароля:
+              <input
+                type="password"
+                name="confirmPassword"
+                value={user.confirmPassword}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+            </label>
+            {error.confirmPassword && <p className={styles['error-message']}>{error.confirmPassword}</p>}
+          </div>
+          <button type="submit">Зарегистрироваться</button>
+        </form>
+      </div>
+    </>
   );
 };
 

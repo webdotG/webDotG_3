@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Chat from '../../components/chat/chat';
 import styles from './MyPage.module.scss';
+import Header from '../../components/header/header';
 
 const MyPage: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>('');
@@ -11,6 +12,7 @@ const MyPage: React.FC = () => {
 
   return (
     <div className={styles.myPage}>
+      <Header />
       <h2>Личный кабинет</h2>
       <p>Добро пожаловать в ваш личный кабинет!</p>
       <div className={styles.specialOption}>

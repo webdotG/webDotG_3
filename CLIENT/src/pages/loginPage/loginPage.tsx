@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useLoginMutation, UserData } from '../../api/authApi';
 import { selectUser } from "../../slices/auth/authSlice";
+import Header from '../../components/header/header';
 
 const LoginPage: React.FC = () => {
   const [user, setUser] = useState({ email: '', password: '' });
@@ -72,6 +73,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <div>
+      <Header />
       <h2 className={styles['login-form-title']}>Войти</h2>
       <form className={styles['login-form-container']} onSubmit={(e) => handleSubmit(e, user)}>
         <div className={styles['email-wrapper']}>
