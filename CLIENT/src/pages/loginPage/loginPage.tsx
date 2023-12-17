@@ -57,7 +57,7 @@ const LoginPage: React.FC = () => {
       try {
         await loginUser(user).unwrap()
       } catch (error) {
-        console.error('ОШИБКА БЛЯДЬ ЗАПОЛНИ ФОРМУ : ', error);
+        console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
       }
     }
     else {

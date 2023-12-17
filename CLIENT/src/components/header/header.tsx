@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import style from './header.module.scss'
+import LogoG from '../../svg/logoG';
+
 
 
 export default function Header() {
@@ -15,7 +17,7 @@ export default function Header() {
 
       <section className={style.header_logo__wrapper}>
         <Link className={style.header_logo} to="/">
-          Kirill Grant
+          <LogoG />
         </Link>
         <button
           onClick={() => setOnCliclBtn(!onClickBtn)}
@@ -28,7 +30,6 @@ export default function Header() {
 
         </button>
       </section>
-
       <div className={onClickBtn ? style.nav__wrapper : style.display_none}>
         <nav className={style.header_navigation}>
           <ul className={style.header_nav_list}>

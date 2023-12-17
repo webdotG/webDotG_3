@@ -1,67 +1,67 @@
-/* Общие стили */
-/* ... */
+// /* Общие стили */
+// /* ... */
 
-/* Стили для viewport шириной не менее 320px */
-@media (min-width: 320px) {
-  .registration-form-container {
-    width: 90%;
-    max-width: 350px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  form{
-    flex-direction: column;
-  }
+// /* Стили для viewport шириной не менее 320px */
+// @media (min-width: 320px) {
+//   .registration-form-container {
+//     width: 90%;
+//     max-width: 350px;
+//     margin: 20px auto;
+//     padding: 20px;
+//     border-radius: 10px;
+//     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+//     background-color: #ffffff;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+//   form{
+//     flex-direction: column;
+//   }
 
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333333;
-  }
+//   h2 {
+//     font-size: 24px;
+//     margin-bottom: 20px;
+//     color: #333333;
+//   }
 
-  label {
-    font-size: 14px;
-    color: #555555;
-    display: block;
-    margin-bottom: 8px;
-  }
+//   label {
+//     font-size: 14px;
+//     color: #555555;
+//     display: block;
+//     margin-bottom: 8px;
+//   }
 
-  input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 12px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    font-size: 14px;
-    color: #333333;
-  }
+//   input {
+//     width: calc(100% - 20px);
+//     padding: 10px;
+//     margin-bottom: 12px;
+//     border: 1px solid #cccccc;
+//     border-radius: 5px;
+//     font-size: 14px;
+//     color: #333333;
+//   }
 
-  button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 14px;
-  }
+//   button {
+//     width: 100%;
+//     padding: 10px;
+//     margin-top: 10px;
+//     border: none;
+//     border-radius: 5px;
+//     background-color: #007bff;
+//     color: white;
+//     cursor: pointer;
+//     transition: background-color 0.3s ease;
+//     font-size: 14px;
+//   }
 
-  button:hover {
-    background-color: #0056b3;
-  }
+//   button:hover {
+//     background-color: #0056b3;
+//   }
 
-  .error-message {
-    color: red;
-    margin-top: 6px;
-    font-size: 12px;
-  }
-}
+//   .error-message {
+//     color: red;
+//     margin-top: 6px;
+//     font-size: 12px;
+//   }
+// }
