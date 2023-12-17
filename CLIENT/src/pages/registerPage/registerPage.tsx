@@ -4,6 +4,7 @@ import styles from './registerPage.module.scss';
 import { User } from '@prisma/client';
 import { useRegisterMutation } from '../../api/authApi';
 import Header from '../../components/header/header';
+import Footer from '../../components/footer/footer';
 
 type typeRegisterData = Omit<User, "id">
 
@@ -118,6 +119,7 @@ const RegistrPage = () => {
           </div>
           <button type="submit">Зарегистрироваться</button>
         </form>
+        <Footer />
       </div>
     </>
   );

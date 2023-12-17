@@ -47,8 +47,9 @@
   .main-order__form {
     width: 320px;
     padding-bottom: 10px;
-    height: 412px;
+    height: 525px;
     margin: 0 auto;
+    margin-top: 20px;
     letter-spacing: 1px;
     text-transform: uppercase;
     text-align: center;
@@ -71,21 +72,38 @@
     align-items: center;
   }
 
-  #main-order__name-input,
-  #main-order__tel-input {
-    width: 250px;
-    height: 25px;
+  .main-order__name-input,
+  .main-order__tel-input,
+  .main-order__email-input {
+    width: 200px;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
+    outline: none; 
+    color: #222831; 
+    font-size: 17px;
   }
 
-  #main-order__comment-input {
-    width: 250px;
+  .main-order__comment-input {
+    width: 280px;
+    height: 75px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    outline: none;
     border: none;
-    border-radius: 8px;
+    color: #222831;
+    font-size: 17px;
   }
 
   .main-order__name-label,
+  .main-order__email-label,
   .main-order__tel-label,
   .main-order__comment-label {
     margin: 0;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Chat from '../../components/chat/chat';
 import styles from './MyPage.module.scss';
 import Header from '../../components/header/header';
+import Footer from '../../components/footer/footer';
 
 const MyPage: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>('');
@@ -24,6 +25,7 @@ const MyPage: React.FC = () => {
         </select>
       </div>
       {/* {selectedOption === 'option3' && <Chat />} */}
+      <Footer />
     </div>
   );
 };

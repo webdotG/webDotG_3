@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { setTotalPrice } from '../../slices/totalPrice/totalPriceSlice';
 // import { RootState } from '../../store';
 import {  typeSiteType } from '../../support_function/calculatePrice'; //calculateTotalPrice,
+import Footer from '../../components/footer/footer';
 
 interface CheckboxValues {
   [key: string]: boolean;
@@ -162,6 +163,7 @@ function ShopPage() {
           </div>
         )} */}
       </div>
+      <Footer />
     </>
   );
 }

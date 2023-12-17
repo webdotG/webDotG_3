@@ -10,8 +10,8 @@ export default function IconPencil() {
 
 
   return (
-    <svg version="1.1" id="Слой_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-       viewBox="0 0 128 128" style={svgStyles} xml:space="preserve">
+    <svg version="1.1" id="Слой_2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+       viewBox="0 0 128 128" style={svgStyles} xmlSpace="preserve">
     <g>
       <path d="M92.18,1.38H9.96C6.12,1.38,3,4.51,3,8.35v111c0,3.84,3.12,6.96,6.96,6.96h82.21c3.84,0,6.96-3.12,6.96-6.96v-111
         C99.14,4.51,96.01,1.38,92.18,1.38z M95.14,119.34c0,1.63-1.33,2.96-2.96,2.96H9.96c-1.63,0-2.96-1.33-2.96-2.96v-111

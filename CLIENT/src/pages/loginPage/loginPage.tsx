@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { useLoginMutation, UserData } from '../../api/authApi';
 import { selectUser } from "../../slices/auth/authSlice";
 import Header from '../../components/header/header';
+import Footer from '../../components/footer/footer';
 
 const LoginPage: React.FC = () => {
   const [user, setUser] = useState({ email: '', password: '' });
@@ -110,6 +111,7 @@ const LoginPage: React.FC = () => {
         <button disabled={!!(error.email || error.password)} type="submit" className={styles['submit-button']}>Войти</button>
         {messageError && <p className={styles['error-message']}>{messageError}</p>}
       </form>
+      <Footer />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import MainAboutBlok from "../../components/mainAboutBlok/mainAboutBlok";
 import LogoGMint from "../../svg/logoGMint";
 import MainFeedback from "../../components/mainFeedback/mainFeedback";
 import MainOrder from "../../components/mainOreder/mainOrder";
+import Footer from "../../components/footer/footer";
 
 
 const textAnimation = {
@@ -53,6 +54,8 @@ function HomePage() {
       <MainAboutBlok />
       <MainFeedback />
       <MainOrder />
+
+      <Footer />
     </>
   )
 }
