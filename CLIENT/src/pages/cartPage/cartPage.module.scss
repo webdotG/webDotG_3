@@ -1,3 +1,83 @@
 @media (min-width:340px) {
-  
+  /* module.scss */
+
+  /* Общие стили */
+
+  $primary-color: #333;
+  $secondary-color: #ccc;
+
+  .cart {
+    border: 1px solid $secondary-color;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+  .cart h2 {
+    margin-top: 0;
+  }
+
+  .cart-items {
+    list-style: none;
+    padding: 0;
+  }
+
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .item-name {
+    flex: 1;
+  }
+
+  .cart-total {
+    margin-top: 20px;
+    text-align: right;
+  }
+
+  .checkout-btn {
+    padding: 10px 20px;
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .checkout-btn:hover {
+    background-color: darken($primary-color, 10%);
+  }
+
+  .remove-btn,
+  .inc-btn,
+  .dec-btn {
+    padding: 5px 10px;
+    background-color: $secondary-color;
+    color: $primary-color;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .remove-btn:hover,
+  .inc-btn:hover,
+  .dec-btn:hover {
+    background-color: lighten($secondary-color, 10%);
+  }
+
+  .quantity {
+    display: flex;
+    align-items: center;
+  }
+
+  .item-quantity {
+    margin: 0 10px;
+    font-weight: bold;
+  }
+
 }
