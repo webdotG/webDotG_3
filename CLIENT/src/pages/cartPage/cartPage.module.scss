@@ -31,6 +31,10 @@
     color: #eeeeee;
     border-radius: 8px;
 
+    &:hover{
+      background-color: #eeeeee;
+      color: #393e46;
+    }
   }
 
   .item-name {
@@ -60,7 +64,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 6px;
     background-color: #393e46;
     border: 2px solid #eeeeee;
     cursor: pointer;
@@ -75,10 +79,23 @@
     }
   }
 
+  .remove-btn svg,
+  .inc-btn svg,
+  .dec-btn svg {
+    fill: #00ADB5;
+
+  }
+
+  .remove-btn:focus svg,
+  .inc-btn:focus svg,
+  .dec-btn:focus svg, 
   .remove-btn:hover svg,
   .inc-btn:hover svg,
-  .dec-btn:hover svg {
-    fill: #00ADB5;
+  .dec-btn:hover svg, 
+  .remove-btn:active svg,
+  .inc-btn:active svg,
+  .dec-btn:active svg {
+    fill: #eeeeee;
   }
 
   .quantity {
