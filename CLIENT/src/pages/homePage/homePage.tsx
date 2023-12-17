@@ -6,6 +6,7 @@ import MainPortfolioBock from "../../components/mainPortfolioBlock/mainPortfolio
 import MainAboutBlok from "../../components/mainAboutBlok/mainAboutBlok";
 import LogoGMint from "../../svg/logoGMint";
 import MainFeedback from "../../components/mainFeedback/mainFeedback";
+import MainOrder from "../../components/mainOreder/mainOrder";
 
 
 const textAnimation = {
@@ -28,6 +29,7 @@ function HomePage() {
   return (
     <>
       <Header />
+      
       <div className={style.mainTitleBlock}>
         <motion.div
           initial='hidden'
@@ -36,7 +38,7 @@ function HomePage() {
           className={style.main_title__wrapp}>
           <motion.h1 variants={textAnimation} className={style.main_title}>
             webDot <span><LogoGMint /></span>
-            </motion.h1>
+          </motion.h1>
           <motion.p custom={2} variants={textAnimation} className={style.main_title_p}>разрабатываю и улучшаю</motion.p>
         </motion.div>
         <ul className={style.main_title_list}>
@@ -47,13 +49,10 @@ function HomePage() {
       </div>
 
       <MainPriceBlokck />
-
       <MainPortfolioBock />
-
       <MainAboutBlok />
-
       <MainFeedback />
-
+      <MainOrder />
     </>
   )
 }
