@@ -1,9 +1,8 @@
-@media (min-width:340px) {
+@media (min-width:320px) {
 
   .cart {
     padding: 10px 10px;
-    border-radius: 5px;
-  background-color:  #393e46;
+    background-color: #393e46;
   }
 
   .cart_title {
@@ -27,11 +26,11 @@
     justify-content: space-between;
     align-items: center;
     border: 2px solid #00ADB5;
-    background-color:#393e46;
+    background-color: #393e46;
     color: #eeeeee;
     border-radius: 8px;
 
-    &:hover{
+    &:hover {
       background-color: #eeeeee;
       color: #393e46;
     }
@@ -68,12 +67,12 @@
     background-color: #393e46;
     border: 2px solid #eeeeee;
     cursor: pointer;
-    fill:#eeeeee; 
-    transition: fill 0.3s ease; 
+    fill: #eeeeee;
+    transition: fill 0.3s ease;
 
     &:focus,
     &:hover,
-    &:active{
+    &:active {
       border: 2px solid #00ADB5;
       background-color: #393e46;
     }
@@ -88,10 +87,10 @@
 
   .remove-btn:focus svg,
   .inc-btn:focus svg,
-  .dec-btn:focus svg, 
+  .dec-btn:focus svg,
   .remove-btn:hover svg,
   .inc-btn:hover svg,
-  .dec-btn:hover svg, 
+  .dec-btn:hover svg,
   .remove-btn:active svg,
   .inc-btn:active svg,
   .dec-btn:active svg {
@@ -112,7 +111,7 @@
     display: flex;
     flex-direction: column;
 
-    p{
+    p {
       padding-bottom: 30px;
       color: #eeeeee;
     }
@@ -121,7 +120,7 @@
   .checkout-btn {
     padding: 10px 20px;
     margin-bottom: 20px;
-    color:#eeeeee;
+    color: #eeeeee;
     border: none;
     border-radius: 5px;
     cursor: pointer;
