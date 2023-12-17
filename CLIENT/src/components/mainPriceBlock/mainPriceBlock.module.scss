@@ -1,0 +1,161 @@
+@media (min-width: 340px) {
+
+	.wrapper {
+		padding-bottom: 25px;
+		background-color: #393e46;
+		position: relative;
+	}
+
+	.main_price__title {
+		margin: 0;
+		margin-bottom: 20px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 38px;
+		font-weight: 200;
+		color: #eeeeee;
+		background-color: #222831;
+		position: relative;
+
+		&::before {
+			content: '';
+			width: 100%;
+			height: 3px;
+			border-radius: 5px;
+			background-color: #00ADB5;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		&::after {
+			content: '';
+			width: 100%;
+			height: 3px;
+			border-radius: 5px;
+			background-color: #00ADB5;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+	}
+
+	.bloc_tabs {
+		padding-top: 15px;
+		padding-left: 20px;
+		padding-right: 20px;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.tab {
+		padding: 5px 10px;
+		border-radius: 8px;
+		cursor: pointer;
+
+		p {
+			padding: 0;
+			font-size: 17px;
+			font-weight: 250;
+			color: white;
+		}
+	}
+
+	.active_tab {
+		background-color: #00adb5;
+		border: 2px solid #00adb5;
+	}
+
+	.content_tabs {
+		flex-grow: 1;
+	}
+
+	.content {
+		background-color: white;
+		padding: 20px;
+		background-color: #393e46;
+		display: none;
+		color: white;
+		font-size: 16px;
+
+		h2 {
+			padding: 0 0 5px 0;
+		}
+	}
+
+	.active_content {
+		display: block;
+	}
+
+	.sites_block_wrapper {
+		display: flex;
+		justify-content: space-around;
+	}
+
+
+	.sites_block_section_title,
+	.sites_block_section_text {
+		padding-top: 15px;
+		margin: 0;
+		font-size: 16px;
+		font-weight: 200;
+		text-align: center;
+	}
+
+	.sites_block_section_title {
+		font-size: 18px;
+		padding-bottom: 5px;
+		border-bottom: #00ADB5 2px solid;
+	}
+
+
+	#sites_block_section_price {
+		font-size: 14px;
+		padding-bottom: 5px;
+		border-bottom: #00ADB5 2px solid;
+	}
+
+	.main_price_link_shop {
+		width: 225px;
+		height: 35px;
+		margin: 0 auto;
+		margin-top: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: #00adb5 2px solid;
+		border-radius: 8px;
+		font-size: 18px;
+		letter-spacing: 0.5px;
+		color: #eeeeee;
+		background-color: #00ADB5;
+
+		&:focus,
+		&:hover,
+		&:active {
+			color: #222831;		
+			// background-color: #eeeeee;
+			// border-color: #222831;		
+		}
+	}
+
+	.content_blok_telegram {
+		font-size: 18px;
+		margin: 0;
+		padding-top: 15px;
+		padding-bottom: 10px;
+		font-weight: 200;
+		padding-bottom: 7px;
+		border-bottom: #00ADB5 2px solid;
+	}
+
+	.telega {
+		padding-top: 15px;
+		font-size: 18px;
+		letter-spacing: 0.7px;
+
+	}
+}
