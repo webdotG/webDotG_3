@@ -47,7 +47,7 @@
   .main-order__form {
     width: 320px;
     padding-bottom: 10px;
-    height: 525px;
+    min-height: 525px;
     margin: 0 auto;
     margin-top: 20px;
     letter-spacing: 1px;
@@ -117,6 +117,11 @@
     font-size: 21px;
     color: #222831;
     border-radius: 8px;
+  }
+
+  .error-message{
+    font-size: 12px;
+    padding-top: 5px;
   }
 
 }

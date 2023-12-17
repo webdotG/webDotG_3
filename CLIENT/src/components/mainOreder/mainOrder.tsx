@@ -21,15 +21,15 @@ const MainOrder: React.FC = () => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { id, value } = event.target;
-    setErrors({ ...errors, [id]: !validateInput(value) ? 'Введите минимум 5 символов' : '' });
+    setErrors({ ...errors, [id]: !validateInput(value) ? 'минимум 5 символов' : '' });
   };
   const handleEmailInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { id, value } = event.target;
-    setErrors({ ...errors, [id]: !validateEmail(value) ? 'Введите корректный email' : '' });
+    setErrors({ ...errors, [id]: !validateEmail(value) ? 'не правильный email' : '' });
   };
   const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { id, value } = event.target;
-    setErrors({ ...errors, [id]: !validatePhoneNumber(value) ? 'Введите корректный номер телефона' : '' });
+    setErrors({ ...errors, [id]: !validatePhoneNumber(value) ? 'не правильный номер' : '' });
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
@@ -41,11 +41,11 @@ const MainOrder: React.FC = () => {
 
     inputs.forEach((input) => {
       if (input.id === 'main-order__email-input') {
-        newErrors = { ...newErrors, [input.id]: !validateEmail(input.value) ? 'Введите корректный email' : '' };
+        newErrors = { ...newErrors, [input.id]: !validateEmail(input.value) ? 'не корректный email' : '' };
       } else if (input.id === 'main-order__tel-input') {
-        newErrors = { ...newErrors, [input.id]: !validatePhoneNumber(input.value) ? 'Введите корректный номер телефона' : '' };
+        newErrors = { ...newErrors, [input.id]: !validatePhoneNumber(input.value) ? 'не правильный номер телефона' : '' };
       } else {
-        newErrors = { ...newErrors, [input.id]: !validateInput(input.value) ? 'Введите минимум 5 символов' : '' };
+        newErrors = { ...newErrors, [input.id]: !validateInput(input.value) ? 'минимум 5 символов' : '' };
       }
     });
 
