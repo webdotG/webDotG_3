@@ -2,11 +2,14 @@
   "name": "a-webdotg-3",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://webdotg.github.io/webDotG_3 ",
   "scripts": {
     "start": "node ./bin/www",
     "server": "nodemon ./bin/www",
     "client": "npm run dev --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
+    "predeploy": "rm -rf build && npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@prisma/client": "^5.7.0",
@@ -16,6 +19,7 @@
     "debug": "~2.6.9",
     "dotenv": "^16.3.1",
     "express": "~4.16.1",
+    "gh-pages": "^6.1.0",
     "jsonwebtoken": "^9.0.2",
     "morgan": "~1.9.1",
     "prisma": "^5.7.0"
