@@ -63,6 +63,7 @@
 	.header_nav__item {
 		padding-bottom: 15px;
 		text-align: center;
+		border-bottom: transparent 2px solid;
 	}
 
 	.burger_btn {
@@ -130,4 +131,52 @@
 		color: #eeeeee;
 	}
 
+}
+
+@media (min-width:780px) {
+
+	.header{
+		padding-left: 40px;
+		padding-right: 40px;
+		position: relative;
+	}
+
+	.header_logo__wrapper{
+		position: absolute;
+		left: 5px;
+		top: 10px;
+	}
+
+	.burger_btn{
+		display: none;
+	}
+
+	.header_navigation{
+		padding: 0;
+		width: 100%;
+		align-items: center;
+	}
+	.nav__wrapper{
+		height: 60px;
+		margin-left: 55px;
+		display: flex;
+		// align-items: center;
+	}
+
+	.header_nav_list{
+		width: 100%;
+		margin-right: 30px;
+		display: flex;
+		justify-content: right;
+	}
+
+
+	.header_nav__item{
+		font-size: 19px;
+		padding-bottom: 5px;
+
+		&:hover{
+			border-bottom: #00ADB5 2px solid;
+		}
+	}
 }

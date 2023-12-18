@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from './header.module.scss'
 import LogoG from '../../svg/logoG';
 
@@ -10,7 +10,18 @@ export default function Header() {
   const [onClickBtn, setOnCliclBtn] = useState(false)
   const [isAuth, setIsAuth] = useState(false)
 
-  console.log(onClickBtn)
+  
+  useEffect(() => {
+    function handleResize() {
+      setOnCliclBtn(window.innerWidth >= 780);
+    }
+    handleResize(); 
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  console.log(onClickBtn);
 
   return (
     <header className={style.header}>
