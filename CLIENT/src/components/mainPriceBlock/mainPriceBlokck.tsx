@@ -21,7 +21,7 @@ function MainPriceBlokck() {
         </li>
         <li className={toggleState === 2 ? `${styles["tab"]} ${styles["active_tab"]}` : styles['tab']}
           onClick={() => toggleTab(2)}>
-          <p>бот телеграм</p>
+          <p>телеграм бот</p>
         </li>
         <li className={toggleState === 3 ? `${styles["tab"]} ${styles["active_tab"]}` : styles['tab']}
           onClick={() => toggleTab(3)}>
