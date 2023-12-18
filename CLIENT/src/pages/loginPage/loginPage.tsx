@@ -11,7 +11,7 @@ const LoginPage: React.FC = () => {
   const [user, setUser] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState({ email: '', password: '' });
-  const [messageError, setMessageError] = useState('')
+  // const [setMessageError] = useState('')
   const isValidPassword = (password: string): boolean => {
     return password.length >= 6;
   };
@@ -32,9 +32,9 @@ const LoginPage: React.FC = () => {
         break;
     }
     if (name === 'email' && !emailRegex.test(value)) {
-      setMessageError('Некорректный email');
+      // setMessageError('Некорректный email');
     } else {
-      setMessageError('');
+      // setMessageError('');
     }
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {

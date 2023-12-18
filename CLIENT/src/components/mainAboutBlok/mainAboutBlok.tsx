@@ -1,6 +1,5 @@
 import IconFinishWork from '../../svg/iconFinishWork'
 import IconList from '../../svg/iconList'
-import IconMonitor from '../../svg/iconMonitor'
 import IconPencil from '../../svg/iconPencil'
 import IconProgramming from '../../svg/iconProgramming'
 import IconStartProject from '../../svg/iconStartProject'

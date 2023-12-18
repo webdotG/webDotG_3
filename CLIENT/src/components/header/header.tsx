@@ -8,7 +8,7 @@ import LogoG from '../../svg/logoG';
 export default function Header() {
 
   const [onClickBtn, setOnCliclBtn] = useState(false)
-  const [isAuth, setIsAuth] = useState(false)
+  const [isAuth] = useState(false)
 
   
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Header() {
     <header className={style.header}>
 
       <section className={style.header_logo__wrapper}>
-        <Link className={style.header_logo} to="/">
+        <Link className={style.header_logo} to="/webDotG_3/">
           <LogoG />
         </Link>
         <button
@@ -44,27 +44,27 @@ export default function Header() {
         <nav className={style.header_navigation}>
           <ul className={style.header_nav_list}>
             <li className={style.header_nav__item}>
-              <Link className={style.header_nav__link} to="/portfolio">
+              <Link className={style.header_nav__link} to="/webDotG_3/portfolio">
                 портфолио
               </Link>
             </li>
             <li className={style.header_nav__item}>
-              <Link className={style.header_nav__link} to="/shop">
+              <Link className={style.header_nav__link} to="/webDotG_3/shop">
                 магазин
               </Link>
             </li>
             <li className={style.header_nav__item}>
               {/* <section className={style.cart_iem}>0</section> */}
-              <Link className={style.header_nav__link} to="/cart">
+              <Link className={style.header_nav__link} to="/webDotG_3/cart">
                 корзина
               </Link>
             </li>
             <li className={style.header_nav__item}>
               {!isAuth
-                ? (<Link className={style.header_nav__link} to="/login">
+                ? (<Link className={style.header_nav__link} to="/webDotG_3/login">
                   войти
                 </Link>)
-                : (<Link className={`style.header_nav__link ${style.display_none}`} to="/login">
+                : (<Link className={`style.header_nav__link ${style.display_none}`} to="/webDotG_3/login">
                   войти
                 </Link>
                 )
@@ -72,7 +72,7 @@ export default function Header() {
             </li>
             <li className={style.header_nav__item}>
               {!isAuth
-                ? (<Link className={style.header_nav__link} to="/register">
+                ? (<Link className={style.header_nav__link} to="/webDotG_3/register">
                   регистрация
                 </Link>)
                 : (<Link className={`style.header_nav__link  ${style.display_none}`} to="#">
@@ -83,10 +83,10 @@ export default function Header() {
             </li>
             <li className={style.header_nav__item}>
               {!isAuth
-                ? (<Link className={`style.header_nav__link  ${style.display_none}`} to="/my_page">
+                ? (<Link className={`style.header_nav__link  ${style.display_none}`} to="/webDotG_3/my_page">
                   личный кабинет
                 </Link>)
-                : (<Link className={style.header_nav__link} to="/my_page">
+                : (<Link className={style.header_nav__link} to="/webDotG_3/my_page">
                   личный кабинет
                 </Link>)
               }
@@ -96,7 +96,7 @@ export default function Header() {
       </div>
       <div className={style.auth_wrapper}>
         {isAuth &&
-          <Link className={style.check_auth_link} to='/myPage'>
+          <Link className={style.check_auth_link} to='/webDotG_3/myPage'>
             перейти в личный кабинет
           </Link>
         }

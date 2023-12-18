@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Chat from '../../components/chat/chat';
 import styles from './MyPage.module.scss';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';

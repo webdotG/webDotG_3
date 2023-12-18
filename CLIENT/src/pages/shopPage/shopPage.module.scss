@@ -1,92 +1,43 @@
-/* Общие стили */
-.shop_page__wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  color: #333;
-}
+@media (min-width:320px) {
 
-/* Скрытие блоков по умолчанию */
-.site_seconde_blok_wrapper,
-.site_third_blok_wrapper,
-.site_fourth_blok_wrapper {
-  display: none;
-  margin-top: 20px;
-}
-
-/* Медиа-запрос для ширин не менее 320px */
-@media (min-width: 320px) {
-  .shop_page__wrapper {
-    padding: 40px;
+  .form-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 300px;
+    margin: 0 auto;
   }
 
-  .check_first {
+  .form-title{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  .first-radio-wrapper {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .first-wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-  }
 
-  .site_seconde_blok_wrapper,
-  .site_third_blok_wrapper,
-  .site_fourth_blok_wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .site_seconde_blok_wrapper {
-    /* Стили для блока site_seconde_blok_wrapper */
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    width: 80%;
-    margin-bottom: 20px;
-
-    label {
-      margin-bottom: 5px;
-    }
-
-    input[type='checkbox'] {
-      margin-right: 5px;
+    label{
+      padding-bottom: 15px;
     }
   }
 
-  .site_third_blok_wrapper {
-    /* Стили для блока site_third_blok_wrapper */
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    width: 80%;
-    margin-bottom: 20px;
-
-    label {
-      margin-bottom: 5px;
-    }
-
-    input[type='checkbox'] {
-      margin-right: 5px;
-    }
+  .radio {
+    width: 25px;
+    height: 25px;
   }
 
-  .site_fourth_blok_wrapper {
-    /* Стили для блока site_fourth_blok_wrapper */
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #e6e6e6;
-    width: 80%;
-    margin-bottom: 20px;
-
-    label {
-      margin-bottom: 5px;
-    }
-
-    input[type='checkbox'] {
-      margin-right: 5px;
-    }
-  }
 }

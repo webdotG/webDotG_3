@@ -15,13 +15,13 @@ function App() {
     <>
       {/* <Auth> */}
         <Routes>
-          <Route index path="/" element={<HomePage />} />
-          <Route index path="/register" element={<RegistrPage />} />
-          <Route index path="/login" element={<LoginPage />} />
-          <Route index path="/portfolio" element={<PortfolioPage />} />
-          <Route index path="/shop" element={<ShopPage />} />
-          <Route index path="/cart" element={<CartPage />} />
-          <Route index path="/my_page" element={<MyPage />} />
+          <Route index path="/webDotG_3/" element={<HomePage />} />
+          <Route index path="/webDotG_3/register" element={<RegistrPage />} />
+          <Route index path="/webDotG_3/login" element={<LoginPage />} />
+          <Route index path="/webDotG_3/portfolio" element={<PortfolioPage />} />
+          <Route index path="/webDotG_3/shop" element={<ShopPage />} />
+          <Route index path="/webDotG_3/cart" element={<CartPage />} />
+          <Route index path="/webDotG_3/my_page" element={<MyPage />} />
         </Routes>
       {/* </Auth> */}
     </>
