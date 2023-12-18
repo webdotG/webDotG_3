@@ -106,3 +106,22 @@
   }
 
 }
+
+@media (min-width: 780px) {
+  
+  .main-about__list{
+    padding-left: 80px;
+    padding-right: 80px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .main-abou__item{
+    height: 155px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+  }
+
+  
+}
