@@ -5,6 +5,12 @@ body > div {
   width: 100%;
   height: 100%;
 }
+// body {
+//   display: grid;
+//   grid-template-rows: auto 1fr auto; /* Заголовок, основное содержимое, футер */
+//   min-height: 100vh; /* Установка минимальной высоты равной высоте окна просмотра */
+//   margin: 0; /* Убираем внешние отступы */
+// }
 input::-ms-clear,
 input::-ms-reveal {
   display: none;

@@ -14,7 +14,7 @@
 
   .login-form {
     max-width: 320px;
-    min-height: 300px;
+    min-height: 350px;
     margin: 0 auto;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -70,5 +70,28 @@
     bottom: -4px;
     border: none;
     background-color: transparent;
+  }
+
+  .submit-button{
+    width: 200px;
+    margin: 0 auto;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 19px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 200;
+    border-radius: 8px;
+    border: #00ADB5 2px solid;
+    color: #eeeeee;
+    background-color: transparent;
+    outline: none;
+
+    &:focus,
+    &:hover,
+    &:active{
+      background-color: #eeeeee;
+      color: #393e46;     
+    }
   }
 }

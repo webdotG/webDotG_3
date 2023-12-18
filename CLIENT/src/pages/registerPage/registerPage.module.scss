@@ -1,67 +1,99 @@
-// /* Общие стили */
-// /* ... */
+@media screen and (min-width: 320px) {
 
-// /* Стили для viewport шириной не менее 320px */
-// @media (min-width: 320px) {
-//   .registration-form-container {
-//     width: 90%;
-//     max-width: 350px;
-//     margin: 20px auto;
-//     padding: 20px;
-//     border-radius: 10px;
-//     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-//     background-color: #ffffff;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//   }
-//   form{
-//     flex-direction: column;
-//   }
+  .registration-form-container{
+    background-color: #393e46;
+  }
 
-//   h2 {
-//     font-size: 24px;
-//     margin-bottom: 20px;
-//     color: #333333;
-//   }
+  .register-form-title{
+    text-align: center;
+    padding-top: 25px;
+    font-size: 28px;
+    color: #eeeeee;
+    font-weight: 300;
+  }
 
-//   label {
-//     font-size: 14px;
-//     color: #555555;
-//     display: block;
-//     margin-bottom: 8px;
-//   }
+  .register-form{
+    max-width: 320px;
+    min-height: 350px;
+    margin: 0 auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-//   input {
-//     width: calc(100% - 20px);
-//     padding: 10px;
-//     margin-bottom: 12px;
-//     border: 1px solid #cccccc;
-//     border-radius: 5px;
-//     font-size: 14px;
-//     color: #333333;
-//   }
+  .email-wrapper,
+  .password-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 
-//   button {
-//     width: 100%;
-//     padding: 10px;
-//     margin-top: 10px;
-//     border: none;
-//     border-radius: 5px;
-//     background-color: #007bff;
-//     color: white;
-//     cursor: pointer;
-//     transition: background-color 0.3s ease;
-//     font-size: 14px;
-//   }
+  .email-label,
+  .password-label {
+    font-size: 18px;
+    padding-bottom: 10px;
+    padding-left: 35px;
+    color: #eeeeee;
+  }
 
-//   button:hover {
-//     background-color: #0056b3;
-//   }
+  .email-input,
+  .password-input {
+    width: 230px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 7px 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: #00ADB5 2px solid;
+    outline: none;
+  }
 
-//   .error-message {
-//     color: red;
-//     margin-top: 6px;
-//     font-size: 12px;
-//   }
-// }
+  .error-message {
+    padding-top: 5px;
+    padding-left: 36px;
+    font-size: 14px;
+    color: tomato;
+  }
+
+  .password-input_wrapper {
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .btn-show-password {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    bottom: -4px;
+    border: none;
+    background-color: transparent;
+  }
+
+  
+  .submit-button{
+    width: 280px;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 19px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 200;
+    border-radius: 8px;
+    border: #00ADB5 2px solid;
+    color: #eeeeee;
+    background-color: transparent;
+    outline: none;
+
+    &:focus,
+    &:hover,
+    &:active{
+      background-color: #eeeeee;
+      color: #393e46;     
+    }
+  }
+}
