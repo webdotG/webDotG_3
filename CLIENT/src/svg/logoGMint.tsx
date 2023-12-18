@@ -1,16 +1,20 @@
-
+import style from './Gmint.module.scss'
 
 export default function LogoGMint() {
 
-  const svgStyles: React.CSSProperties = {
-    width: '163px',
-    height: '163px',
-    fill: '#00ADB5',
-  };
+  // const svgStyles: React.CSSProperties = {
+  //   width: '163px',
+  //   height: '163px',
+  //   fill: '#00ADB5',
+  // };
+  // style={svgStyles}
+
+
 
   return (
     <svg version="1.1" id="G_logo" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-    viewBox="0 0 128 128" style={svgStyles} xmlSpace="preserve">
+    viewBox="0 0 128 128"  xmlSpace="preserve"
+    className={style['g_mint']}>
  <g>
    <path d="M58.51,65.76c-3.14-0.01-6.28-0.01-9.42,0c-2.74,0.01-2.75-0.36-2.71,2.71c0.02,1.21,0.17,1.39,1.4,1.39
      c2.41,0.01,4.81,0.02,7.22-0.01c0.68-0.01,0.94,0.21,0.93,0.92c-0.04,2.37,0,4.74-0.01,7.12c-0.01,2.67-1.5,4.18-4.15,4.19

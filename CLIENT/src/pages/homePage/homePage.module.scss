@@ -122,9 +122,35 @@
     color: #00ADB5;
   }
 
+}
 
+@media (min-width:780px) {
+  
+.main_title{
+  font-size: 100px;
+  width: 480px;
 
+  &::after{
+    width: 352px;
+  }
+  span{
+    right: -110px;
+  }
+}
 
+ .main_title_p{
+  padding-top: 50px;
+  padding-bottom: 30px;
+  font-size: 43px;
+  font-weight: 200;
+ }
+
+ .main_title_list{
+
+  li{
+    font-size: 21px;
+  }
+ }
 
 }
 
