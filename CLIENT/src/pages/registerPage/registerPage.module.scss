@@ -29,6 +29,7 @@
   .password-wrapper {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
   }
 
   .email-label,
@@ -43,7 +44,6 @@
   .password-input {
     width: 230px;
     margin: 0 auto;
-    margin-bottom: 20px;
     padding: 7px 10px;
     font-size: 16px;
     border-radius: 8px;
