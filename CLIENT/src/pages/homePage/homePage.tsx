@@ -1,6 +1,6 @@
-import Header from "../../components/header/header"
 import { motion } from 'framer-motion'
 import style from './homePage.module.scss'
+import Header from "../../components/header/header"
 import MainPriceBlokck from "../../components/mainPriceBlock/mainPriceBlokck";
 import MainPortfolioBock from "../../components/mainPortfolioBlock/mainPortfolioBock";
 import MainAboutBlok from "../../components/mainAboutBlok/mainAboutBlok";
@@ -21,7 +21,6 @@ const textAnimation = {
     transition: { delay: custom * 0.3 }
   })
 }
-
 
 function HomePage() {
 

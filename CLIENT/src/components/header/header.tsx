@@ -21,7 +21,6 @@ export default function Header() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  console.log(onClickBtn);
 
   return (
     <header className={style.header}>
