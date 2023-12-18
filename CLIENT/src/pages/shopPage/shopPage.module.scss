@@ -16,7 +16,11 @@
     text-transform: uppercase;
   }
 
-  .first-radio-wrapper {
+  .first-radio-wrapper,
+  .seconde-radio-wrapper,
+  .first-site-wrapper,
+  .first-telegram-wrapper,
+  .first-app-wrapper {
     width: 100%;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -35,7 +39,8 @@
     }
   }
 
-  .radio {
+  .radio,
+  .checkbox {
     width: 25px;
     height: 25px;
   }
