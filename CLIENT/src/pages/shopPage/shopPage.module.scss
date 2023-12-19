@@ -2,13 +2,12 @@
 
   .wrapper {
     width: 100%;
-    background-color:  #393e46;
+    background-color: #393e46;
   }
 
-  .form-wrapper{
+  .form-wrapper {
     width: 320px;
     margin: 0 auto;
-    border:#eeeeee 1px solid;
   }
 
   .form-title {
@@ -26,22 +25,26 @@
   .first-site-wrapper,
   .first-telegram-wrapper,
   .first-app-wrapper {
-    width: 100%;
+    width: 320px;
     padding-top: 25px;
     padding-bottom: 25px;
     display: flex;
-    justify-content: space-between;
-  }
-
-  .first-wrapper {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    position: relative;
 
-    label {
-      padding-bottom: 15px;
+    &::after {
+      content: "";
+      width: 190px;
+      height: 2px;
+      border-radius: 8px;
+      background-color: #00ADB5;
+      position: absolute;
+      left: 68px;
+      bottom: 0;
+
     }
+
   }
 
 
@@ -50,22 +53,24 @@
     appearance: none;
     -webkit-appearance: none;
     position: absolute;
-    
   }
 
   label,
-  checkbox{
-   padding: 7px 12px;
+  checkbox {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row-reverse;
     align-items: center;
+    justify-content: flex-end;
     font-size: 18px;
     color: #eeeeee;
 
-   .custom-check{
-    margin-top: 15px;
-   }
+    .custom-check {
+      // margin-top: 25px;
+      margin-right: 25px;
+    }
 
   }
 
@@ -77,12 +82,35 @@
     background-image: url(../../svg/icon_heart_non_check.svg);
   }
 
-  .radio:checked +.custom-check,
-  .checkbox:checked +.custom-check {
+  .radio:checked+.custom-check,
+  .checkbox:checked+.custom-check {
     display: block;
     width: 25px;
     height: 25px;
     background-image: url(../../svg/icon_heart_check.svg);
   }
+
+.additional-wrapper{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+  .additional-check1,
+  .additional-check2,
+  .additional-check3,
+  .additional-check4 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+
+    .custom-check {
+      margin-top: 0;
+      margin-right: 25px;
+    }
+  }
+
 
 }

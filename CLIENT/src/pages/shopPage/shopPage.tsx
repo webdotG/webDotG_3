@@ -98,31 +98,30 @@ export default function ShopPage() {
           </div>
 
           <div className={style['additional-wrapper']}>
-            <span className={style['first-wrapper']}>
-              <label htmlFor='additional-check1'>графику от иллюстратора
-              <input className={style['checkbox']} id='additional-check1' type='checkbox' name='additional-first' />
+            <span className={style['addit-check-wrapper']}>
+              <label className={style['additional-check1']}>графику от иллюстратора
+              <input className={style['checkbox']} type='checkbox' name='additional-first' />
               <span className={style['custom-check']}></span>
               </label>
             </span>
-            <span className={style['first-wrapper']}>
-              <label htmlFor='additional-check2'>индивидуальные иконки
-              <input className={style['checkbox']} id='additional-check2' type='checkbox' name='additional-seconde' />
+            <span className={style['addit-check-wrapper']}>
+              <label className={style['additional-check2']}>индивидуальные иконки
+              <input className={style['checkbox']} type='checkbox' name='additional-seconde' />
               <span className={style['custom-check']}></span>
               </label>
             </span>
-            <span className={style['first-wrapper']}>
-              <label htmlFor='additional-check3'>профессиональные фотографии
-              <input className={style['checkbox']} id='additional-check3' type='checkbox' name='additional-therd' />
+            <span className={style['addit-check-wrapper']}>
+              <label className={style['additional-check3']}> фотографии
+              <input className={style['checkbox']} type='checkbox' name='additional-therd' />
               <span className={style['custom-check']}></span>
               </label>
             </span>
-            <span className={style['first-wrapper']}>
-              <label htmlFor='additional-check4'>СРОЧНО !!!
-              <input className={style['checkbox']} id='additional-check4' type='checkbox' name='additional-fourth' />
+            <span className={style['addit-check-wrapper']}>
+              <label className={style['additional-check4']}>СРОЧНО !!!
+              <input className={style['checkbox']} type='checkbox' name='additional-fourth' />
               <span className={style['custom-check']}></span>
               </label>
             </span>
-
           </div>
 
         </form>
