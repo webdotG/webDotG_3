@@ -7,40 +7,35 @@ import Footer from '../../components/footer/footer'
 
 export default function ShopPage() {
 
-  // Состояния для управления видимостью блоков
-  const [showSecondBlock, setShowSecondBlock] = useState(false); // Состояние для показа второго блока
-  const [showThirdBlock, setShowThirdBlock] = useState(false); // Состояние для показа второго блока
-  const [showFourthBlock, setShowFourthBlock] = useState(false); // Состояние для показа второго блока
-  const [showFifthBlock, setShowFifthBlock] = useState(false); // Состояние для показа второго блока
-  const [showSixthBlock, setShowSixthBlock] = useState(false); // Состояние для показа второго блока
-  
-  const [selectedSecondRadio, setSelectedSecondRadio] = useState(''); // Выбранная радиокнопка второго блока
+  const [showSecondBlock, setShowSecondBlock] = useState(false);
+  const [showThirdBlock, setShowThirdBlock] = useState(false);
+  const [showFourthBlock, setShowFourthBlock] = useState(false);
+  const [showFifthBlock, setShowFifthBlock] = useState(false);
+  const [showSixthBlock, setShowSixthBlock] = useState(false);
 
-  // Обработчик изменения первой группы радиокнопок
-  const handleFirstInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setShowSecondBlock(true); // Установка видимости второго блока
-    setSelectedSecondRadio(event.target.id); // Установка выбранной радиокнопки
+  const handleFirstInputChange = () => {
+    setShowSecondBlock(true);
   };
 
   const handleSecondInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedRadio = event.target.id;
     if (selectedRadio === 'websites') {
-      setShowThirdBlock(true) 
-      setShowFourthBlock(false) 
+      setShowThirdBlock(true)
+      setShowFourthBlock(false)
       setShowFifthBlock(false)
     } else if (selectedRadio === 'telegramBot') {
-      setShowThirdBlock(false) 
+      setShowThirdBlock(false)
       setShowFourthBlock(true)
-      setShowFifthBlock(false) 
+      setShowFifthBlock(false)
     } else if (selectedRadio === 'applications') {
-      setShowThirdBlock(false) 
+      setShowThirdBlock(false)
       setShowFourthBlock(false)
-      setShowFifthBlock(true) 
+      setShowFifthBlock(true)
     }
   }
 
   const handleOtherInputChange = () => {
-    setShowSixthBlock(true); // Показать шестой блок
+    setShowSixthBlock(true); 
   };
 
   return (
