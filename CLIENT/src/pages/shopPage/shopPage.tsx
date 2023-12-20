@@ -23,15 +23,15 @@ export default function ShopPage() {
   };
   const handleSecondInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedRadio = event.target.id;
-    if (selectedRadio === 'websites') {
+    if (selectedRadio === 'Сайты') {
       setShowThirdBlock(true)
       setShowFourthBlock(false)
       setShowFifthBlock(false)
-    } else if (selectedRadio === 'telegramBot') {
+    } else if (selectedRadio === 'ТелеграмБот') {
       setShowThirdBlock(false)
       setShowFourthBlock(true)
       setShowFifthBlock(false)
-    } else if (selectedRadio === 'applications') {
+    } else if (selectedRadio === 'Приложения') {
       setShowThirdBlock(false)
       setShowFourthBlock(false)
       setShowFifthBlock(true)
@@ -96,9 +96,10 @@ export default function ShopPage() {
 
           <div className={style['first-radio-wrapper']}>
             <span className={style['first-wrapper']}>
-              <label htmlFor='pattern'>шаблон
+              <label>шаблон
                 <input className={style['radio']}
-                  id='pattern'
+                  // id='Pattern'
+                  id='Шаблон'
                   type='radio'
                   name='first-radio'
                   onClick={handleFirstInputChange}
@@ -108,9 +109,10 @@ export default function ShopPage() {
               </label>
             </span>
             <span className={style['first-wrapper']}>
-              <label htmlFor='custom'>индивидуальный
+              <label>индивидуальный
                 <input className={style['radio']}
-                  id='custom'
+                  // id='Custom'
+                  id='Индивидуальный'
                   type='radio'
                   name='first-radio'
                   onClick={handleFirstInputChange}
@@ -124,9 +126,10 @@ export default function ShopPage() {
           {showSecondBlock && (
             <div className={style['seconde-radio-wrapper']}>
               <span className={style['first-wrapper']}>
-                <label className={style['label']} htmlFor='websites'>сайты
+                <label className={style['label']} >сайты
                   <input className={style['radio']}
-                    id='websites'
+                    // id='websites'
+                    id='Сайты'
                     type='radio'
                     name='seconde-radio'
                     onChange={handleSecondInputChange}
@@ -135,9 +138,10 @@ export default function ShopPage() {
                 </label>
               </span>
               <span className={style['first-wrapper']}>
-                <label htmlFor='telegramBot'>боты
+                <label >боты
                   <input className={style['radio']}
-                    id='telegramBot'
+                    // id='telegramBot'
+                    id='ТелеграмБот'
                     type='radio'
                     name='seconde-radio'
                     onChange={handleSecondInputChange}
@@ -146,9 +150,10 @@ export default function ShopPage() {
                 </label>
               </span>
               <span className={style['first-wrapper']}>
-                <label htmlFor='applications'>приложения
+                <label>приложения
                   <input className={style['radio']}
-                    id='applications'
+                    // id='applications'
+                    id='Приложения'
                     type='radio'
                     name='seconde-radio'
                     onChange={handleSecondInputChange}
@@ -162,9 +167,10 @@ export default function ShopPage() {
           {showThirdBlock && (
             <div className={style['first-site-wrapper']}>
               <span className={style['first-wrapper']}>
-                <label htmlFor='lending'>лендинг
+                <label>лендинг
                   <input className={style['radio']}
-                    id='lending'
+                  // id='lending'
+                    id='Лендинг'
                     type='radio'
                     name='site-radio'
                     onClick={handleOtherInputChange}
@@ -174,9 +180,10 @@ export default function ShopPage() {
                 </label>
               </span>
               <span className={style['first-wrapper']}>
-                <label htmlFor='multipage'>многостраничный
+                <label>многостраничный
                   <input className={style['radio']}
-                    id='multipage'
+                    // id='multipage'
+                    id='Многостраничный'
                     type='radio'
                     name='site-radio'
                     onClick={handleOtherInputChange}
@@ -186,9 +193,10 @@ export default function ShopPage() {
                 </label>
               </span>
               <span className={style['first-wrapper']}>
-                <label htmlFor='shop'>магазин
+                <label>магазин
                   <input className={style['radio']}
-                    id='shop'
+                    // id='shop'
+                    id='Магазин'
                     type='radio'
                     name='site-radio'
                     onClick={handleOtherInputChange}
@@ -203,9 +211,10 @@ export default function ShopPage() {
           {showFourthBlock && (
             <div className={style['first-telegram-wrapper']}>
               <span className={style['first-wrapper']}>
-                <label htmlFor='chat-bot'>чат бот
+                <label>чат бот
                   <input className={style['radio']}
-                    id='chat-bot'
+                    // id='chat-bot'
+                    id='ЧатБот'
                     type='radio'
                     name='telegram-radio'
                     onClick={handleOtherInputChange}
@@ -215,9 +224,10 @@ export default function ShopPage() {
                 </label>
               </span>
               <span className={style['first-wrapper']}>
-                <label htmlFor='shop-bot'>магазин бот
+                <label>магазин бот
                   <input className={style['radio']}
-                    id='shop-bot'
+                    // id='shop-bot'
+                    id='МагазинБот'
                     type='radio'
                     name='telegram-radio'
                     onClick={handleOtherInputChange}
@@ -232,9 +242,9 @@ export default function ShopPage() {
           {showFifthBlock && (
             <div className={style['first-app-wrapper']}>
               <span className={style['first-wrapper']}>
-                <label htmlFor='i&a'>IOS & Android
+                <label>IOS & Android
                   <input className={style['radio']}
-                    id='i&a'
+                    id='IOS_&_Andriod'
                     type='radio'
                     name='app-radio'
                     onClick={handleOtherInputChange}
@@ -244,9 +254,9 @@ export default function ShopPage() {
                 </label>
               </span>
               <span className={style['first-wrapper']}>
-                <label htmlFor='vkapp'>VK App
+                <label>VK App
                   <input className={style['radio']}
-                    id='vkapp'
+                    id='VK_App'
                     type='radio'
                     name='app-radio'
                     onClick={handleOtherInputChange}
@@ -263,7 +273,8 @@ export default function ShopPage() {
               <span className={style['addit-check-wrapper']}>
                 <label className={style['additional-check1']}>графику от иллюстратора
                   <input className={style['checkbox']}
-                    id="customImages"
+                    // id="customImages"
+                    id="Иллюстрации"
                     type='checkbox'
                     name='additional-first'
                     onChange={isFourdInputChange}
@@ -274,7 +285,8 @@ export default function ShopPage() {
               <span className={style['addit-check-wrapper']}>
                 <label className={style['additional-check2']}>индивидуальные иконки
                   <input className={style['checkbox']}
-                    id="customIcons"
+                    // id="customIcons"
+                    id="Иконки"
                     type='checkbox'
                     name='additional-seconde'
                     onChange={isFourdInputChange}
@@ -285,7 +297,8 @@ export default function ShopPage() {
               <span className={style['addit-check-wrapper']}>
                 <label className={style['additional-check3']}> фотографии
                   <input className={style['checkbox']}
-                    id="photos"
+                    // id="photos"
+                    id="Фотографии"
                     type='checkbox'
                     name='additional-therd'
                     onChange={isFourdInputChange}
@@ -296,7 +309,8 @@ export default function ShopPage() {
               <span className={style['addit-check-wrapper']}>
                 <label className={style['additional-check4']}>СРОЧНО !!!
                   <input className={style['checkbox']}
-                    id="now"
+                    // id="now"
+                    id="Срочно!"
                     type='checkbox'
                     name='additional-fourth'
                     onChange={isFourdInputChange}
@@ -331,10 +345,12 @@ export default function ShopPage() {
               <li key={index}>{input}</li>
             ))}
           </ul> */}
-          {<h3 className={style['total-select']}>ВЫБРАНО : <p>{combinedString}</p></h3>}
+          {<h3 className={style['total-select']}>ВЫБРАНО :
+           <p className={style['total-select-text']}>{combinedString}</p>
+           </h3>}
         </div>
 
-          <button type='submit'>добавить в корзину</button>
+          <button className={style['form-submit']} type='submit'>добавить в корзину</button>
         </form>
 
       </div>
