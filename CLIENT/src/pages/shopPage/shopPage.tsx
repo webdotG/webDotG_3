@@ -1,5 +1,5 @@
 import style from './shopPage.module.scss'
-import { useState } from 'react';
+import { useState, useCallback, useEffec } from 'react';
 import Header from '../../components/header/header'
 import Footer from '../../components/footer/footer'
 
@@ -72,8 +72,6 @@ export default function ShopPage() {
     }
   };
 
-
-
   function combineSelectedInputs(firstInputs: string[], secondInputs: string[], thirdInputs: string[], fourthInputs: string[]): string {
     // Объединяем все массивы в один с помощью оператора concat
     const combinedInputs: string[] = firstInputs.concat(secondInputs, thirdInputs, fourthInputs);
@@ -83,16 +81,29 @@ export default function ShopPage() {
   // Пример использования функции для создания строки с разделенными запятыми элементами массива
   const combinedString = combineSelectedInputs(firstSelectedInputs, secondSelectedInputs, thirdSelectedInputs, fourthSelectedInputs);
 
+  // const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
+  //     event.preventDefault();
 
-
-
+  //     setFirstSelectedInputs([]);
+  //     setSecondSelectedInputs([]);
+  //     setThirdSelectedInputs([]);
+  //     setFourthSelectedInputs([]);
+  //     setShowSecondBlock(false);
+  //     setShowThirdBlock(false);
+  //     setShowFourthBlock(false);
+  //     setShowFifthBlock(false);
+  //     setShowSixthBlock(false);
+  //   },[]);
+    
   return (
     <div className={style['wrapper']}>
       <Header />
       <div className={style['form-wrapper']}>
         <h2 className={style['form-title']}>выберите желаемое</h2>
-        
-        <form className={style['shop-form']}>
+
+        <form className={style['shop-form']}
+          // onSubmit={handleSubmit}
+        >
 
           <div className={style['first-radio-wrapper']}>
             <span className={style['first-wrapper']}>
@@ -169,7 +180,7 @@ export default function ShopPage() {
               <span className={style['first-wrapper']}>
                 <label>лендинг
                   <input className={style['radio']}
-                  // id='lending'
+                    // id='lending'
                     id='Лендинг'
                     type='radio'
                     name='site-radio'
@@ -321,7 +332,7 @@ export default function ShopPage() {
             </div>
           )}
           <div>
-          {/* <h4>first radio:</h4>
+            {/* <h4>first radio:</h4>
           <ul>
             {firstSelectedInputs.map((input, index) => (
               <li key={index}>{input}</li>
@@ -345,10 +356,10 @@ export default function ShopPage() {
               <li key={index}>{input}</li>
             ))}
           </ul> */}
-          {<h3 className={style['total-select']}>ВЫБРАНО :
-           <p className={style['total-select-text']}>{combinedString}</p>
-           </h3>}
-        </div>
+            {<h3 className={style['total-select']}>ВЫБРАНО :
+              <p className={style['total-select-text']}>{combinedString}</p>
+            </h3>}
+          </div>
 
           <button className={style['form-submit']} type='submit'>добавить в корзину</button>
         </form>
