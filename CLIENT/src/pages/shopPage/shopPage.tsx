@@ -13,10 +13,14 @@ export default function ShopPage() {
   const [showFifthBlock, setShowFifthBlock] = useState(false);
   const [showSixthBlock, setShowSixthBlock] = useState(false);
 
+  const [firstSelectedInputs, setFirstSelectedInputs] = useState<string[]>([]);
+  const [secondSelectedInputs, setSecondSelectedInputs] = useState<string[]>([]);
+  const [thirdSelectedInputs, setThirdSelectedInputs] = useState<string[]>([]);
+  const [fourthSelectedInputs, setFourthSelectedInputs] = useState<string[]>([]);
+
   const handleFirstInputChange = () => {
     setShowSecondBlock(true);
   };
-
   const handleSecondInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedRadio = event.target.id;
     if (selectedRadio === 'websites') {
@@ -32,17 +36,62 @@ export default function ShopPage() {
       setShowFourthBlock(false)
       setShowFifthBlock(true)
     }
+    isSecondeInputChange(event)
   }
-
   const handleOtherInputChange = () => {
-    setShowSixthBlock(true); 
+    setShowSixthBlock(true);
   };
+
+  const isFirstInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, checked } = event.target;
+    if (checked) {
+      setFirstSelectedInputs([id]);
+    }
+  };
+  const isSecondeInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, checked } = event.target;
+    if (checked) {
+      setSecondSelectedInputs([id]);
+    }
+  };
+  const isThirdInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, checked } = event.target;
+    if (checked) {
+      setThirdSelectedInputs([id]);
+    }
+  };
+  const isFourdInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, checked } = event.target;
+
+    if (checked) {
+      setFourthSelectedInputs(prevInputs => [...prevInputs, id]); // Добавить в массив, если чек установлен
+    } else {
+      setFourthSelectedInputs(prevInputs =>
+        prevInputs.filter(input => input !== id) // Удалить из массива, если чек снят
+      );
+    }
+  };
+
+
+
+  function combineSelectedInputs(firstInputs: string[], secondInputs: string[], thirdInputs: string[], fourthInputs: string[]): string {
+    // Объединяем все массивы в один с помощью оператора concat
+    const combinedInputs: string[] = firstInputs.concat(secondInputs, thirdInputs, fourthInputs);
+    // Используем метод join(',') для разделения элементов запятыми
+    return combinedInputs.join(', ');
+  }
+  // Пример использования функции для создания строки с разделенными запятыми элементами массива
+  const combinedString = combineSelectedInputs(firstSelectedInputs, secondSelectedInputs, thirdSelectedInputs, fourthSelectedInputs);
+
+
+
 
   return (
     <div className={style['wrapper']}>
       <Header />
       <div className={style['form-wrapper']}>
         <h2 className={style['form-title']}>выберите желаемое</h2>
+        
         <form className={style['shop-form']}>
 
           <div className={style['first-radio-wrapper']}>
@@ -52,7 +101,8 @@ export default function ShopPage() {
                   id='pattern'
                   type='radio'
                   name='first-radio'
-                  onChange={handleFirstInputChange}
+                  onClick={handleFirstInputChange}
+                  onChange={isFirstInputChange}
                 />
                 <span className={style['custom-check']}></span>
               </label>
@@ -63,7 +113,8 @@ export default function ShopPage() {
                   id='custom'
                   type='radio'
                   name='first-radio'
-                  onChange={handleFirstInputChange}
+                  onClick={handleFirstInputChange}
+                  onChange={isFirstInputChange}
                 />
                 <span className={style['custom-check']}></span>
               </label>
@@ -116,7 +167,8 @@ export default function ShopPage() {
                     id='lending'
                     type='radio'
                     name='site-radio'
-                    onChange={handleOtherInputChange}
+                    onClick={handleOtherInputChange}
+                    onChange={isThirdInputChange}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -127,7 +179,8 @@ export default function ShopPage() {
                     id='multipage'
                     type='radio'
                     name='site-radio'
-                    onChange={handleOtherInputChange}
+                    onClick={handleOtherInputChange}
+                    onChange={isThirdInputChange}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -138,7 +191,8 @@ export default function ShopPage() {
                     id='shop'
                     type='radio'
                     name='site-radio'
-                    onChange={handleOtherInputChange}
+                    onClick={handleOtherInputChange}
+                    onChange={isThirdInputChange}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -154,7 +208,8 @@ export default function ShopPage() {
                     id='chat-bot'
                     type='radio'
                     name='telegram-radio'
-                    onChange={handleOtherInputChange}
+                    onClick={handleOtherInputChange}
+                    onChange={isThirdInputChange}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -165,7 +220,8 @@ export default function ShopPage() {
                     id='shop-bot'
                     type='radio'
                     name='telegram-radio'
-                    onChange={handleOtherInputChange}
+                    onClick={handleOtherInputChange}
+                    onChange={isThirdInputChange}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -181,7 +237,8 @@ export default function ShopPage() {
                     id='i&a'
                     type='radio'
                     name='app-radio'
-                    onChange={handleOtherInputChange}
+                    onClick={handleOtherInputChange}
+                    onChange={isThirdInputChange}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -192,7 +249,8 @@ export default function ShopPage() {
                     id='vkapp'
                     type='radio'
                     name='app-radio'
-                    onChange={handleOtherInputChange}
+                    onClick={handleOtherInputChange}
+                    onChange={isThirdInputChange}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -205,8 +263,10 @@ export default function ShopPage() {
               <span className={style['addit-check-wrapper']}>
                 <label className={style['additional-check1']}>графику от иллюстратора
                   <input className={style['checkbox']}
+                    id="customImages"
                     type='checkbox'
                     name='additional-first'
+                    onChange={isFourdInputChange}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -214,8 +274,10 @@ export default function ShopPage() {
               <span className={style['addit-check-wrapper']}>
                 <label className={style['additional-check2']}>индивидуальные иконки
                   <input className={style['checkbox']}
+                    id="customIcons"
                     type='checkbox'
                     name='additional-seconde'
+                    onChange={isFourdInputChange}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -223,8 +285,10 @@ export default function ShopPage() {
               <span className={style['addit-check-wrapper']}>
                 <label className={style['additional-check3']}> фотографии
                   <input className={style['checkbox']}
+                    id="photos"
                     type='checkbox'
                     name='additional-therd'
+                    onChange={isFourdInputChange}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -232,16 +296,47 @@ export default function ShopPage() {
               <span className={style['addit-check-wrapper']}>
                 <label className={style['additional-check4']}>СРОЧНО !!!
                   <input className={style['checkbox']}
+                    id="now"
                     type='checkbox'
                     name='additional-fourth'
+                    onChange={isFourdInputChange}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
               </span>
             </div>
           )}
+          <div>
+          {/* <h4>first radio:</h4>
+          <ul>
+            {firstSelectedInputs.map((input, index) => (
+              <li key={index}>{input}</li>
+            ))}
+          </ul>
+          <h4>seconde radio:</h4>
+          <ul>
+            {secondSelectedInputs.map((input, index) => (
+              <li key={index}>{input}</li>
+            ))}
+          </ul>
+          <h4>third radio:</h4>
+          <ul>
+            {thirdSelectedInputs.map((input, index) => (
+              <li key={index}>{input}</li>
+            ))}
+          </ul>
+          <h4>fourd checkbox:</h4>
+          <ul>
+            {fourthSelectedInputs.map((input, index) => (
+              <li key={index}>{input}</li>
+            ))}
+          </ul> */}
+          {<h3 className={style['total-select']}>ВЫБРАНО : <p>{combinedString}</p></h3>}
+        </div>
 
+          <button type='submit'>добавить в корзину</button>
         </form>
+
       </div>
       <Footer />
     </div>
