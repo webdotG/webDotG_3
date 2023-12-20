@@ -1,5 +1,5 @@
 import style from './shopPage.module.scss'
-import { useState, useCallback, useEffec } from 'react';
+import { useState} from 'react';
 import Header from '../../components/header/header'
 import Footer from '../../components/footer/footer'
 
