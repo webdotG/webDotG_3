@@ -1,4 +1,7 @@
-import { User } from "@prisma/client";
+import { User } from ''; // Или импорт из файла с вашей схемой
+
+// Использование типа User в вашем коде
+
 import { api } from "./api";
 
 export type UserData = Omit<User, 'id' | 'name'> & Partial<Pick<User, 'id' | 'name'>>;

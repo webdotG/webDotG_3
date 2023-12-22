@@ -1,4 +1,3 @@
-const { prisma } = require('../prisma/prisma-client')
 const jwt = require('jsonwebtoken')
 
 const Auth = async (req, res, next) => {

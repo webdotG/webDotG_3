@@ -1,7 +1,7 @@
-const {prisma} = require ('../prisma/prisma-client')
 const bcrypt = require ('bcrypt')
 const jwt = require ('jsonwebtoken')
-
+const db = require ('../db')
+console.log("DB :  , " , db)
 /**
  * 
  * @route POST /api/user/register
