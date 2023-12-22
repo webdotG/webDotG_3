@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styles from './registerPage.module.scss';
-import { User } from '@prisma/client';
 import { useRegisterMutation } from '../../api/authApi';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -9,7 +8,14 @@ import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 
 
-type typeRegisterData = Omit<User, "id">
+// type typeRegisterData = Omit<User, "id">
+
+type typeRegisterData = {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
 
 const RegistrPage = () => {
   const [user, setUser] = useState({ name: '', email: '', password: '', confirmPassword: '' });

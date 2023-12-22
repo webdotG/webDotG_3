@@ -2,16 +2,24 @@ import React, { useState, useEffect } from 'react';
 import styles from './LoginPage.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useLoginMutation, UserData } from '../../api/authApi';
+import { useLoginMutation } from '../../api/authApi';
 import { selectUser } from "../../slices/auth/authSlice";
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
+
+
+// interface User {
+//   email: string;
+//   password: string;
+// }
+
 
 const LoginPage: React.FC = () => {
   const [user, setUser] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState({ email: '', password: '' });
   // const [setMessageError] = useState('')
+
   const isValidPassword = (password: string): boolean => {
     return password.length >= 6;
   };
@@ -51,11 +59,12 @@ const LoginPage: React.FC = () => {
   const userSelect = useSelector(selectUser);
   const [loginUser] = useLoginMutation()
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, user: {name: string, }) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, user: {email: string, }) => {
     console.log("RESPONSE USER : ", user)
     e.preventDefault();
     if (!error.email && !error.password) {
       try {
+        
         await loginUser(user).unwrap()
       } catch (error) {
         console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
