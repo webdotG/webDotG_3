@@ -51,7 +51,7 @@ const LoginPage: React.FC = () => {
   const userSelect = useSelector(selectUser);
   const [loginUser] = useLoginMutation()
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, user: UserData) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, user: {name: string, }) => {
     console.log("RESPONSE USER : ", user)
     e.preventDefault();
     if (!error.email && !error.password) {

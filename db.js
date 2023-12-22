@@ -1,6 +1,6 @@
-// db.js
-
-const { Pool } = require('pg');
+// db.ts
+// это запрос к бд
+import { Pool } from 'pg';
 
 const pool = new Pool({
   user: 'kirill',
@@ -10,20 +10,7 @@ const pool = new Pool({
   port: 11002,
 });
 
-// Выполнение запроса к базе данных
-pool.query('SELECT * FROM webdotg.users', (err, result) => {
-  if (err) {
-    console.error('Ошибка выполнения запроса:', err);
-  } else {
-    console.log('Результаты запроса:', result.rows);
-    // Обработка полученных данных
-    // Например, здесь можно вывести результаты на консоль
-  }
-  
-  // Закрываем подключение к базе данных после выполнения запроса
-  pool.end();
-});
+export default pool;
 
 
-module.exports = pool;
 

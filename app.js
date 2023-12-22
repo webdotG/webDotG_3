@@ -24,19 +24,6 @@ const PORT = process.env.PORT || 3000; // Заменила process.env.PORT на
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 
-
-// // Пример использования подключения к базе данных в вашем Express-приложении
-// app.get('/users', async (req, res) => {
-//   try {
-//     const result = await pool.query('SELECT * FROM users');
-//     res.json(result.rows);
-//   } catch (error) {
-//     console.error('Ошибка выполнения запроса:', error);
-//     res.status(500).json({ error: 'Ошибка сервера' });
-//   }
-// });
-//   // Вызовите функцию получения пользователей после запуска сервера
-//   getUsers();
 });
 
 module.exports = app;

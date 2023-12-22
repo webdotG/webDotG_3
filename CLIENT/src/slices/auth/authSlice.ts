@@ -1,10 +1,10 @@
-import { User } from "@prisma/client";
 import { createSlice } from "@reduxjs/toolkit";
 import { authApi } from "../../api/authApi";
 import { RootState } from "../../store";
+import { typeUser } from "../../types";
 
 interface InitialState {
-  user: User & { token: string} | null;
+  user: typeUser & { token: string} | null;
   isAuthenticated: boolean;
 }
 
