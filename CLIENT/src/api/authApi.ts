@@ -1,7 +1,5 @@
 import { typeUser } from "../types"; // Или импорт из файла с вашей схемой
 
-// Использование типа User в вашем коде
-
 import { api } from "./api";
 
 export type UserData = Omit<typeUser, 'id' | 'name'> & Partial<Pick<typeUser, 'id' | 'name'>>;

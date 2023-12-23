@@ -1,17 +1,12 @@
-// db.ts
-// это запрос к бд
-// import { Pool } from 'pg';
 const { Pool } = require('pg');
+require('dotenv').config(); // Подключаем пакет для чтения переменных среды из файла .env
 
 const pool = new Pool({
-  user: 'kirill',
-  host: '178.67.245.227',
-  database: 'kyrill',
-  password: 'KirillGrantWebDotG250125',
-  port: 11002,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // Установите это значение в true, если вы используете самоподписанный сертификат SSL
+  },
 });
 
-// export default pool;
 module.exports = pool;
-
 
