@@ -6,6 +6,27 @@ import Footer from '../../components/footer/footer'
 interface PriceList {
   [key: string]: number;
 }
+// const price: PriceList = {
+//   'Шаблон': 15000,
+//   'Лендинг': 30000,
+//   'Многостраничный': 60000,
+//   'Магазин': 120000,
+//   'Магазин Бот': 60000,
+//   'Чат Бот': 40000,
+//   'IOS & Android': 80000,
+//   'VK mini App': 60000,
+//   'Индивидуальный на Лендинге': 30000,
+//   'Индивидуальный на Многостраничном': 90000,
+//   'Индивидуальный на Магазине': 150000,
+//   'Индивидуальный на Магазине Бот': 90000,
+//   'Индивидуальный на Чат Боте': 60000,
+//   'Индивидуальный на IOS & Android': 120000,
+//   'Индивидуальный на VK mini App': 90000,
+//   'Иллюстрации': 1,
+//   'Иконки': 2,
+//   'Фотографии': 3,
+//   'Срочно!': 4,
+// };
 
 const price: PriceList = {
   Шаблон: 50,
@@ -20,10 +41,10 @@ const price: PriceList = {
   МагазинБот: 170,
   'IOS_&_Andriod': 220,
   VK_App: 190,
-  Иллюстрации: 30,
-  Иконки: 40,
-  Фотографии: 35,
-  'Срочно!': 20,
+  Иллюстрации: 1,
+  Иконки: 2,
+  Фотографии: 3,
+  'Срочно!': 4,
 };
 
 export default function ShopPage() {
@@ -124,24 +145,64 @@ export default function ShopPage() {
   //     setShowSixthBlock(false);
   //   },[]);
 
-
-
-  // Функция для расчета общей стоимости выбранных опций
   function calculateTotalPrice(selectedInputs: string[]) {
     let totalPrice = 0;
+  
+    // Переменная, хранящая информацию об индивидуальном выборе
+    let hasCustomOption = false;
+  
+    // Перебираем выбранные опции и считаем общую стоимость
     selectedInputs.forEach(input => {
       if (price[input]) {
         totalPrice += price[input];
+  
+        // Проверяем, выбрана ли опция "Индивидуальный" в сочетании с другими опциями
+        if (input === 'Индивидуальный') {
+          hasCustomOption = true;
+        }
       }
     });
+  
+    // Если выбрана опция "Индивидуальный" в сочетании с другими опциями, изменяем общую стоимость
+    if (hasCustomOption) {
+      // Проверяем и добавляем стоимость в зависимости от выбранных опций
+      if (selectedInputs.includes('Лендинг')) {
+        totalPrice = 30000;
+      } else if (selectedInputs.includes('Многостраничный')) {
+        totalPrice = 90000;
+      } else if (selectedInputs.includes('Магазин')) {
+        totalPrice = 150000;
+      } else if (selectedInputs.includes('Магазин Бот')) {
+        totalPrice = 90000;
+      } else if (selectedInputs.includes('Чат Бот')) {
+        totalPrice = 60000;
+      } else if (selectedInputs.includes('IOS & Android')) {
+        totalPrice = 120000;
+      } else if (selectedInputs.includes('VK mini App')) {
+        totalPrice = 90000;
+      }
+    }
+  
     return totalPrice;
   }
+  
+
+  // // Функция для расчета общей стоимости выбранных опций
+  // function calculateTotalPrice(selectedInputs: string[]) {
+  //   let totalPrice = 0;
+  //   selectedInputs.forEach(input => {
+  //     if (price[input]) {
+  //       totalPrice += price[input];
+  //     }
+  //   });
+  //   return totalPrice;
+  // }
   // Вычисляем общую стоимость на основе выбранных опций
   const total = calculateTotalPrice(
     [...firstSelectedInputs, ...secondSelectedInputs, ...thirdSelectedInputs, ...fourthSelectedInputs]
   );
 
-  console.log('Общая стоимость:', total); // Отобразить общую стоимость в консоли или исп
+  console.log('TOTAL PRICE : ', total); 
 
   return (
     <div className={style['wrapper']}>
@@ -408,7 +469,7 @@ export default function ShopPage() {
               <p className={style['total-select-text']}>{combinedString}</p>
             </h3>}
           </div>
-
+          {<p>{total}</p>}
           <button className={style['form-submit']} type='submit'>добавить в корзину</button>
         </form>
 
