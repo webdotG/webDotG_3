@@ -1,53 +1,81 @@
 import style from './shopPage.module.scss'
-import { useState} from 'react';
+import { useState } from 'react';
 import Header from '../../components/header/header'
 import Footer from '../../components/footer/footer'
 
+interface PriceList {
+  [key: string]: number;
+}
 
+const price: PriceList = {
+  Шаблон: 50,
+  Индивидуальный: 100,
+  Сайты: 200,
+  ТелеграмБот: 150,
+  Приложения: 180,
+  Лендинг: 80,
+  Многостраничный: 120,
+  Магазин: 160,
+  ЧатБот: 130,
+  МагазинБот: 170,
+  'IOS_&_Andriod': 220,
+  VK_App: 190,
+  Иллюстрации: 30,
+  Иконки: 40,
+  Фотографии: 35,
+  'Срочно!': 20,
+};
 
 export default function ShopPage() {
-
+  // Здесь объявляем состояния для отображения блоков и выбранных опций
   const [showSecondBlock, setShowSecondBlock] = useState(false);
   const [showThirdBlock, setShowThirdBlock] = useState(false);
   const [showFourthBlock, setShowFourthBlock] = useState(false);
   const [showFifthBlock, setShowFifthBlock] = useState(false);
   const [showSixthBlock, setShowSixthBlock] = useState(false);
-
+  // Состояния для хранения выбранных опций каждого блока
   const [firstSelectedInputs, setFirstSelectedInputs] = useState<string[]>([]);
   const [secondSelectedInputs, setSecondSelectedInputs] = useState<string[]>([]);
   const [thirdSelectedInputs, setThirdSelectedInputs] = useState<string[]>([]);
   const [fourthSelectedInputs, setFourthSelectedInputs] = useState<string[]>([]);
 
+  // Обработчики событий для изменения отображения блоков и выбранных опций
   const handleFirstInputChange = () => {
     setShowSecondBlock(true);
   };
+
   const handleSecondInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedRadio = event.target.id;
+    // Обновление состояния блоков на основе выбранной опции
     if (selectedRadio === 'Сайты') {
-      setShowThirdBlock(true)
-      setShowFourthBlock(false)
-      setShowFifthBlock(false)
+      setShowThirdBlock(true);
+      setShowFourthBlock(false);
+      setShowFifthBlock(false);
     } else if (selectedRadio === 'ТелеграмБот') {
-      setShowThirdBlock(false)
-      setShowFourthBlock(true)
-      setShowFifthBlock(false)
+      setShowThirdBlock(false);
+      setShowFourthBlock(true);
+      setShowFifthBlock(false);
     } else if (selectedRadio === 'Приложения') {
-      setShowThirdBlock(false)
-      setShowFourthBlock(false)
-      setShowFifthBlock(true)
+      setShowThirdBlock(false);
+      setShowFourthBlock(false);
+      setShowFifthBlock(true);
     }
-    isSecondeInputChange(event)
-  }
+    // Вызов функции для обновления выбранных опций
+    isSecondeInputChange(event);
+  };
+
   const handleOtherInputChange = () => {
     setShowSixthBlock(true);
   };
 
+  // Обработчик события для первого блока опций
   const isFirstInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
       setFirstSelectedInputs([id]);
     }
   };
+  // Аналогично для остальных блоков опций
   const isSecondeInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
@@ -64,21 +92,22 @@ export default function ShopPage() {
     const { id, checked } = event.target;
 
     if (checked) {
-      setFourthSelectedInputs(prevInputs => [...prevInputs, id]); // Добавить в массив, если чек установлен
+      setFourthSelectedInputs(prevInputs => [...prevInputs, id]);
     } else {
       setFourthSelectedInputs(prevInputs =>
-        prevInputs.filter(input => input !== id) // Удалить из массива, если чек снят
+        prevInputs.filter(input => input !== id)
       );
     }
   };
 
+  // Функция для объединения выбранных опций из всех блоков в одну строку
   function combineSelectedInputs(firstInputs: string[], secondInputs: string[], thirdInputs: string[], fourthInputs: string[]): string {
     // Объединяем все массивы в один с помощью оператора concat
     const combinedInputs: string[] = firstInputs.concat(secondInputs, thirdInputs, fourthInputs);
     // Используем метод join(',') для разделения элементов запятыми
     return combinedInputs.join(', ');
   }
-  // Пример использования функции для создания строки с разделенными запятыми элементами массива
+  // Вызываем функцию для объединения выбранных опций в одну строку
   const combinedString = combineSelectedInputs(firstSelectedInputs, secondSelectedInputs, thirdSelectedInputs, fourthSelectedInputs);
 
   // const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
@@ -94,15 +123,34 @@ export default function ShopPage() {
   //     setShowFifthBlock(false);
   //     setShowSixthBlock(false);
   //   },[]);
-    
+
+
+
+  // Функция для расчета общей стоимости выбранных опций
+  function calculateTotalPrice(selectedInputs: string[]) {
+    let totalPrice = 0;
+    selectedInputs.forEach(input => {
+      if (price[input]) {
+        totalPrice += price[input];
+      }
+    });
+    return totalPrice;
+  }
+  // Вычисляем общую стоимость на основе выбранных опций
+  const total = calculateTotalPrice(
+    [...firstSelectedInputs, ...secondSelectedInputs, ...thirdSelectedInputs, ...fourthSelectedInputs]
+  );
+
+  console.log('Общая стоимость:', total); // Отобразить общую стоимость в консоли или исп
+
   return (
     <div className={style['wrapper']}>
       <Header />
       <div className={style['form-wrapper']}>
         <h2 className={style['form-title']}>выберите желаемое</h2>
-
+        {<p>{total}</p>}
         <form className={style['shop-form']}
-          // onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
         >
 
           <div className={style['first-radio-wrapper']}>

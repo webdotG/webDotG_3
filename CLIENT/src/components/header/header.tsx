@@ -49,7 +49,7 @@ export default function Header() {
               </Link>
             </li>
             <li className={style.header_nav__item}>
-              <Link className={style.header_nav__link} to="/webDotG_3/shop">
+              <Link className={style.header_nav__link} to="/shop">
                 магазин
               </Link>
             </li>
