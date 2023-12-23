@@ -20,7 +20,6 @@ app.use(cookieParser());
 app.use('/api/user', require('./routes/user'));
 
 const PORT = process.env.PORT || 3000; // Заменила process.env.PORT на 3000 по умолчанию
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 

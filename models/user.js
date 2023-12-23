@@ -1,11 +1,6 @@
-// const db = require ('../db')
-// console.log("DB :  , " , db)
-const bcrypt = require ('bcrypt')
-const jwt = require ('jsonwebtoken')
-// import pool from '../db';
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const pool = require('../db');
-import { Request, Response } from 'express'; // Импорт типов Request и Response из Express
-// import { typeUser } from '../CLIENT/src/types'; // Подключаем тип typeUser из файла types.ts
 const { Auth } = require('../midlewear/auth');
 
 /**
@@ -15,12 +10,11 @@ const { Auth } = require('../midlewear/auth');
  * @access Public
  */
 
-const Register = async (req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {
+const Register = async (req, res) => {
   const { email, name, password } = req.body;
 
   if (!email || !password || !name) {
     return res.status(400).json({ message: 'Пожалуйста, заполните обязательные поля' });
- 
   }
 
   try {
@@ -52,17 +46,16 @@ const Register = async (req: Request, res: Response): Promise<Response<any, Reco
       res.status(400).json({ message: 'Не удалось создать пользователя' });
     }
 
-   // В этом месте, после успешной обработки запроса, добавьте оператор return с пустым значением
-  return res;
+    // В этом месте, после успешной обработки запроса, добавьте оператор return с пустым значением
+    return res;
 
-} catch (error) {
+  } catch (error) {
     console.error('Ошибка при регистрации пользователя:', error);
     return res.status(500).json({ message: 'Внутренняя ошибка сервера' });
   }
-  
 };
 
-const Login = async (req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {
+const Login = async (req, res) => {
   console.log('SERVER LOGIN: ');
   const { email, password } = req.body;
 
@@ -98,7 +91,6 @@ const Login = async (req: Request, res: Response): Promise<Response<any, Record<
   }
 };
 
-
 const Current = async (req, res) => {
   Auth(req, res, async () => {
     const user = req.user; // Здесь будет информация о пользователе из вашего middleware
@@ -115,4 +107,4 @@ module.exports = {
   Register,
   Login,
   Current
-}
+};

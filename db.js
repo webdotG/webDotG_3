@@ -1,6 +1,7 @@
 // db.ts
 // это запрос к бд
-import { Pool } from 'pg';
+// import { Pool } from 'pg';
+const { Pool } = require('pg');
 
 const pool = new Pool({
   user: 'kirill',
@@ -10,7 +11,7 @@ const pool = new Pool({
   port: 11002,
 });
 
-export default pool;
-
+// export default pool;
+module.exports = pool;
 
 
