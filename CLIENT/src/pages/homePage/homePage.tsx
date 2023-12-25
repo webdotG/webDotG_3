@@ -8,8 +8,8 @@ import LogoGMint from "../../svg/logoGMint";
 import MainFeedback from "../../components/mainFeedback/mainFeedback";
 import MainOrder from "../../components/mainOreder/mainOrder";
 import Footer from "../../components/footer/footer";
-// import { useEffect, useState } from 'react';
-// import axios from 'axios';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 const textAnimation = {
@@ -27,28 +27,41 @@ const textAnimation = {
 
 
 function HomePage() {
-  // const [selectedUser, setSelectedUser] = useState(null);
+  const [selectedUser, setSelectedUser] = useState(null);
   
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     try {
-  //       const response = await axios.get('/api/user/current');
-  //       setSelectedUser(response.data); 
-  //       console.log("SET_SELECTED_USER AXIOS GET API?USER?CURRENT : ", selectedUser )
-  //     } catch (error) {
-  //       console.error('Ошибка при получении данных пользователя:', error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get('/api/user/current');
+        setSelectedUser(response.data); 
+        console.log("SET_SELECTED_USER AXIOS GET API?USER?CURRENT : ", selectedUser )
+      } catch (error) {
+        console.error('Ошибка при получении данных пользователя:', error);
+      }
+    };
 
-  //   fetchUser();
-  // }, []);
+    fetchUser();
+  }, []);
 
     return (
     <>
-      <Header />
-      <div>
-      
+    
+    <div>
+      {selectedUser ? (
+        <div>
+          <h2>пользователь</h2>
+          <p>ID: {selectedUser.id}</p>
+          <p>Имя: {selectedUser.name}</p>
+          {/* Другие поля пользователя */}
+        </div>
+      ) : (
+        <p>Загрузка данных...</p>
+      )}
     </div>
+
+
+      <Header />
+    
       <div className={style.mainTitleBlock}>
         <motion.div
           initial='hidden'
