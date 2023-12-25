@@ -50,8 +50,8 @@ function HomePage() {
       {selectedUser ? (
         <div>
           <h2>пользователь</h2>
-          <p>ID: {selectedUser.id}</p>
-          <p>Имя: {selectedUser.name}</p>
+          <p>ID: {selectedUser}</p>
+          <p>Имя: {selectedUser}</p>
           {/* Другие поля пользователя */}
         </div>
       ) : (
