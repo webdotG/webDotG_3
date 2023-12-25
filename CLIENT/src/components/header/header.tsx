@@ -8,8 +8,7 @@ import LogoG from '../../svg/logoG';
 export default function Header() {
 
   const [onClickBtn, setOnCliclBtn] = useState(false)
-  const [isAuth] = useState(false)
-
+  
   
   useEffect(() => {
     function handleResize() {
@@ -54,12 +53,12 @@ export default function Header() {
               </Link>
             </li>
             <li className={style.header_nav__item}>
-              {/* <section className={style.cart_iem}>0</section> */}
               <Link className={style.header_nav__link} to="/cart">
                 корзина
               </Link>
             </li>
-            <li className={style.header_nav__item}>
+           
+            {/* <li className={style.header_nav__item}>
               {!isAuth
                 ? (<Link className={style.header_nav__link} to="/login">
                   войти
@@ -67,10 +66,10 @@ export default function Header() {
                 : (<Link className={`style.header_nav__link ${style.display_none}`} to="/login">
                   войти
                 </Link>
-                )
-              }
-            </li>
-            <li className={style.header_nav__item}>
+                )}
+            </li> */}
+           
+            {/* <li className={style.header_nav__item}>
               {!isAuth
                 ? (<Link className={style.header_nav__link} to="/register">
                   регистрация
@@ -80,7 +79,8 @@ export default function Header() {
                 </Link>
                 )
               }
-            </li>
+            </li> */}
+{/* 
             <li className={style.header_nav__item}>
               {!isAuth
                 ? (<Link className={`style.header_nav__link  ${style.display_none}`} to="/my_page">
@@ -90,17 +90,20 @@ export default function Header() {
                   личный кабинет
                 </Link>)
               }
-            </li>
+            </li> */}
+
           </ul>
         </nav>
       </div>
       <div className={style.auth_wrapper}>
-        {isAuth &&
+        {/* {isAuth &&
           <Link className={style.check_auth_link} to='/myPage'>
             перейти в личный кабинет
           </Link>
-        }
+        } */}
         {/* <button className={style.check_auth_btn} onClick={() => setIsAuth(!isAuth)}>toggle auth test</button> */}
+      </div>
+      <div>
       </div>
     </header>
   )

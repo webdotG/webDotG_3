@@ -8,6 +8,7 @@
   .g_mint {
     width: 300px;
     height: 300px;
-    fill: '#00ADB5',
+    fill: '#00ADB5';
+    z-index: -1000;
   }
 }
