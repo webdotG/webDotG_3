@@ -3,9 +3,6 @@ const jwt = require('jsonwebtoken');
 const pool = require('../db');
 const { Auth } = require('../midlewear/auth');
 
-
-const db = require ('../db')
-// console.log("DB USER JS  :  , " , db)
 /**
  * 
  * @route POST /api/user/register
@@ -43,8 +40,9 @@ const Register = async (req, res) => {
         id: user.id,
         email: user.email,
         name: user.name,
-        token: jwt.sign({ id: user.id }, secret, { expiresIn: '100d' }), // Шифрование id пользователя
+        token: jwt.sign({ id: user.id }, secret, { expiresIn: '30d' }), // Шифрование id пользователя
       });
+      console.log("MODELS REGISTER USER : ", user)
     } else {
       res.status(400).json({ message: 'Не удалось создать пользователя' });
     }
@@ -59,7 +57,7 @@ const Register = async (req, res) => {
 };
 
 const Login = async (req, res) => {
-  console.log('SERVER LOGIN: ');
+
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -75,7 +73,7 @@ const Login = async (req, res) => {
     }
 
     const user = userResult.rows[0];
-    console.log("PASWORD USER : ", password, user)
+    console.log("MODELS LOGIN PASWORD , USER : ", password, user)
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
     const secret = process.env.JWT_SECRET;
@@ -98,7 +96,7 @@ const Login = async (req, res) => {
 const Current = async (req, res) => {
   Auth(req, res, async () => {
     const user = req.user; // Здесь будет информация о пользователе из вашего middleware
-
+    console.log("MODELS CURRENT USER : ", user)
     if (user) {
       res.status(200).json(user);
     } else {

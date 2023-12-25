@@ -6,9 +6,9 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 
 // Получение пути к папке dist внутри папки CLIENT
-const distPath = path.resolve(__dirname, 'CLIENT', 'dist');
+// const distPath = path.resolve(__dirname, 'CLIENT', 'dist');
 // const distPath = path.join(__dirname, '..', 'dist');
-// const distPath = path.join(__dirname, 'dist');
+const distPath = path.join(__dirname, 'dist');
 
 // // Получение пути к папке CLIENT
 // const clientPath = path.resolve(__dirname, '..', 'CLIENT');

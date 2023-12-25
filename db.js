@@ -10,7 +10,7 @@ const pool = new Pool({
   port: 11002,
 })
 
-pool.query('SELECT NOW()').then(x => console.log(x))
+pool.query('SELECT NOW()').then() //x => console.log(x)
 // pool.query('SELECT NOW()', function (err, rows) {
 //   console.log(rows);
 // });
