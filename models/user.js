@@ -73,7 +73,7 @@ const Login = async (req, res) => {
     }
 
     const user = userResult.rows[0];
-    console.log("MODELS LOGIN PASWORD , USER : ", password, user)
+    console.log("MODELS LOGIN USER : ", user)
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
     const secret = process.env.JWT_SECRET;
