@@ -4,3 +4,4 @@ export type typeUser = {
   name?: string, 
   confirmed?: boolean,
 }
+

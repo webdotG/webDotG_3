@@ -3,6 +3,9 @@ const jwt = require('jsonwebtoken');
 const pool = require('../db');
 const { Auth } = require('../midlewear/auth');
 
+
+const db = require ('../db')
+console.log("DB USER JS  :  , " , db)
 /**
  * 
  * @route POST /api/user/register

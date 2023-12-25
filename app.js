@@ -6,8 +6,8 @@ const cors = require('cors');
 require('dotenv').config();
 
 
-const pool = require('./db'); // Путь к вашему файлу для подключения к базе данных
-
+// const pool = require('./db'); // Путь к вашему файлу для подключения к базе данных
+// console.log('POOL APP JS SERVER : ', pool)
 
 const app = express();
 

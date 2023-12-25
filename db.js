@@ -1,5 +1,8 @@
 const { Pool } = require('pg');
 require('dotenv').config(); // Подключаем пакет для чтения переменных среды из файла .env
+console.log('POOL DB JS SERVER : ', Pool)
+
+
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,

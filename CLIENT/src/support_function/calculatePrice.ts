@@ -1,3 +1,20 @@
+
+//   // Объявляем переменную totalPrice в функции calculateTotalPrice
+// export const calculateTotalPrice = (selectedInputs: string[]): number => {
+//     let totalPrice = 0;
+//   // Рассчитываем общую стоимость на основе выбранных опций
+//     selectedInputs.forEach((input) => {
+//     if (price[input]) {
+//       totalPrice += price[input];
+//     }
+//   });
+//       return totalPrice;
+//    };
+
+  
+  
+
+
 export type typeSiteType = 'лендинг' | 'многостраничный' | 'магазин' | 'индивидуальный' | 'шаблон';
 
 export function calculateTotalPrice(selectedType: typeSiteType, isChecked: boolean, totalPrice: number, optionName: string, optionChecked: boolean): number {
