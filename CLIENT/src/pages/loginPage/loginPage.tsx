@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styles from './LoginPage.module.scss';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useLoginMutation } from '../../api/authApi';
-import { selectUser } from "../../slices/auth/authSlice";
+// import { useLoginMutation } from '../../api/authApi';
+import { selectUser } from "../../slices/auth/authSlice2";
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAuth } from '../../slices/auth/authSlice';
 
 // interface User {
 //   email: string;
@@ -15,6 +15,7 @@ import Footer from '../../components/footer/footer';
 
 
 const LoginPage: React.FC = () => {
+  const diapstch = useDispatch()
   const [user, setUser] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState({ email: '', password: '' });
@@ -57,22 +58,23 @@ const LoginPage: React.FC = () => {
   };
   const navigate = useNavigate();
   const userSelect = useSelector(selectUser);
-  const [loginUser] = useLoginMutation()
+  // const [loginUser] = useLoginMutation()
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, user: {email: string, }) => {
-    console.log("RESPONSE USER : ", user)
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, values: {email: string, }) => {
+    console.log("LOGIN PAGE RESPONSE VALUES : ", values)
     e.preventDefault();
-    if (!error.email && !error.password) {
-      try {
+    diapstch(fetchAuth(values))
+    // if (!error.email && !error.password) {
+    //   try {
         
-        await loginUser(user).unwrap()
-      } catch (error) {
-        console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
-      }
-    }
-    else {
-      console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
-    }
+    //     await loginUser(user).unwrap()
+    //   } catch (error) {
+    //     console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
+    //   }
+    // }
+    // else {
+    //   console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
+    // }
   };
 
   useEffect(() => {

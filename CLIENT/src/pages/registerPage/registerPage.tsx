@@ -3,7 +3,7 @@ import styles from './registerPage.module.scss';
 import { useRegisterMutation } from '../../api/authApi';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { selectUser } from "../../slices/auth/authSlice";
+import { selectUser } from "../../slices/auth/authSlice2";
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 

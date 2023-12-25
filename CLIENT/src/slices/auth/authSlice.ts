@@ -1,44 +1,58 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { authApi } from "../../api/authApi";
-import { RootState } from "../../store";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { AxiosResponse } from "axios";
+import axios from '../../axios'
+import { RootState } from "../../store"; // Замените на ваш путь к RootState
 import { typeUser } from "../../types";
 
-interface InitialState {
+
+interface UserData {
   user: typeUser & { token: string} | null;
-  isAuthenticated: boolean;
 }
 
-const initialState: InitialState = {
-  user: null,
-  isAuthenticated: false,
+interface AuthState {
+  data: UserData | null;
+  status: 'loading' | 'loaded' | 'error';
+}
+
+export const fetchAuth = createAsyncThunk<UserData, void, { state: RootState }>(
+  'auth/fetchUserData',
+  
+  async (params) => {
+    console.log("AUTH SLICE AXIOS PARAMS : ", params)
+    try {
+      const response: AxiosResponse<UserData> = await axios.post('api/user/login', { params });
+      console.log("AUTH SLICE AXIOS RESPONSE : ", response)
+      return response.data;
+    } catch (error) {
+      throw Error("Ошибка при получении данных пользователя");
+    }
+  }
+);
+
+const initialState: AuthState = {
+  data: null,
+  status: 'loading',
 };
 
-const slice = createSlice({
-  name: "auth",
+const authSlice = createSlice({
+  name: 'auth',
   initialState,
-  reducers: {
-    logout: () => initialState,
-  },
+  reducers: {}, 
   extraReducers: (builder) => {
     builder
-      .addMatcher(authApi.endpoints.login.matchFulfilled, (state, action) => {
-        state.user = action.payload;
-        state.isAuthenticated = true;
+      .addCase(fetchAuth.pending, (state) => {
+        state.status = 'loading';
+        state.data = null;
       })
-      .addMatcher(authApi.endpoints.register.matchFulfilled, (state, action) => {
-        state.user = action.payload;
-        state.isAuthenticated = true;
+      .addCase(fetchAuth.fulfilled, (state, action: PayloadAction<UserData>) => {
+        state.status = 'loaded';
+        state.data = action.payload;
       })
-      .addMatcher(authApi.endpoints.current.matchFulfilled, (state, action) => {
-        state.user = action.payload;
-        state.isAuthenticated = true;
+      .addCase(fetchAuth.rejected, (state) => {
+        state.status = 'error';
+        state.data = null;
       });
   },
 });
 
-export const { logout } = slice.actions;
-export default slice.reducer;
-
-export const selectIsAuthenticated = (state: RootState) => state.auth.isAuthenticated;
-
-export const selectUser = (state: RootState) => state.auth.user;
+export const authReducer = authSlice.reducer;

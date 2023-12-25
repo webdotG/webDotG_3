@@ -8,7 +8,7 @@ import LogoG from '../../svg/logoG';
 export default function Header() {
 
   const [onClickBtn, setOnCliclBtn] = useState(false)
-  
+  const [isAuth] = useState(false)
   
   useEffect(() => {
     function handleResize() {
@@ -58,7 +58,7 @@ export default function Header() {
               </Link>
             </li>
            
-            {/* <li className={style.header_nav__item}>
+             <li className={style.header_nav__item}>
               {!isAuth
                 ? (<Link className={style.header_nav__link} to="/login">
                   войти
@@ -67,9 +67,9 @@ export default function Header() {
                   войти
                 </Link>
                 )}
-            </li> */}
+            </li> 
            
-            {/* <li className={style.header_nav__item}>
+            <li className={style.header_nav__item}>
               {!isAuth
                 ? (<Link className={style.header_nav__link} to="/register">
                   регистрация
@@ -79,18 +79,18 @@ export default function Header() {
                 </Link>
                 )
               }
-            </li> */}
-{/* 
+            </li> 
+
             <li className={style.header_nav__item}>
               {!isAuth
                 ? (<Link className={`style.header_nav__link  ${style.display_none}`} to="/my_page">
-                  личный кабинет
+                  кабинет
                 </Link>)
                 : (<Link className={style.header_nav__link} to="/my_page">
                   личный кабинет
                 </Link>)
               }
-            </li> */}
+            </li> 
 
           </ul>
         </nav>
