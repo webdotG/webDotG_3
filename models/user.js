@@ -5,7 +5,7 @@ const { Auth } = require('../midlewear/auth');
 
 
 const db = require ('../db')
-console.log("DB USER JS  :  , " , db)
+// console.log("DB USER JS  :  , " , db)
 /**
  * 
  * @route POST /api/user/register
@@ -22,7 +22,7 @@ const Register = async (req, res) => {
 
   try {
     // Проверка наличия пользователя с таким email в базе данных
-    const checkUserQuery = 'SELECT * FROM users WHERE email = $1';
+    const checkUserQuery = 'SELECT * FROM webdotg.users WHERE email = $1';
     const existingUser = await pool.query(checkUserQuery, [email]);
 
     if (existingUser.rows.length > 0) {
@@ -33,7 +33,7 @@ const Register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Создание нового пользователя в базе данных
-    const createUserQuery = 'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *';
+    const createUserQuery = 'INSERT INTO webdotg.users (name, email, password) VALUES ($1, $2, $3) RETURNING *';
     const newUser = await pool.query(createUserQuery, [name, email, hashedPassword]);
 
     const secret = process.env.JWT_SECRET;
@@ -67,7 +67,7 @@ const Login = async (req, res) => {
   }
 
   try {
-    const userQuery = 'SELECT * FROM users WHERE email = $1';
+    const userQuery = 'SELECT * FROM webdotg.users WHERE email = $1';
     const userResult = await pool.query(userQuery, [email]);
 
     if (userResult.rows.length === 0) {
@@ -75,6 +75,7 @@ const Login = async (req, res) => {
     }
 
     const user = userResult.rows[0];
+    console.log("PASWORD USER : ", password, user)
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
     const secret = process.env.JWT_SECRET;

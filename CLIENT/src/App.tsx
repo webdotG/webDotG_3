@@ -15,7 +15,7 @@ function App() {
     <>
       {/* <Auth> */}
         <Routes>
-          <Route index path="/" element={<HomePage />} />
+          <Route index path="/webdotg_3" element={<HomePage />} />
           <Route index path="/register" element={<RegistrPage />} />
           <Route index path="/login" element={<LoginPage />} />
           <Route index path="/portfolio" element={<PortfolioPage />} />
