@@ -3,7 +3,7 @@
 
 # // Публикация содержимого с файлом CNAME
 # ghpages.publish('dist', {
-#   cname: 'webdotg.ru' // Указание кастомного домена для файла CNAME
+#   cname: 'www.webdotg.ru' // Указание кастомного домена для файла CNAME
 # }, function(err) {
 #   if(err) {
 #     console.error(err);
@@ -12,4 +12,4 @@
 #   }
 # });
 
-www.webdotg.ru
+ www.webdotg.ru
