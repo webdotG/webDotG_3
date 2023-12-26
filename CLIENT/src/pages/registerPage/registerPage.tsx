@@ -54,6 +54,39 @@ const RegistrPage = () => {
   };
 
 
+  // const handleSubmit = async (
+  //   e: React.FormEvent<HTMLFormElement>,
+  //   user: {
+  //     email: string,
+  //     password: string,
+  //     confirmPassword: string,
+  //     name: string
+  //   }) => {
+  //   e.preventDefault();
+  //   console.log("LOGIN PAGE HANDLE SUBMIT REGISTER USER : ", user)
+  //   if (!error.email && !error.password && !error.confirmPassword && !error.name) {
+  //     try {
+  //       dispatch(fetchRegister(user))
+  //       //проверка на промис 
+  //       const data = await dispatch(fetchRegister(user))
+  //       console.log("DISPATCH fetchREGISTER USER , PROMISE ??? : ", data)
+  //       // Проверка, что data.payload не является unknown
+  //       if (typeof data.payload === 'object' && data.payload !== null && 'token' in data.payload) {
+  //         //збс сохраняю в локалсторадж
+  //         const token: string = data.payload.token as string;
+  //         window.localStorage.setItem('token', token);
+  //       } else {
+  //         alert('Не зареган ошибка!');//ВОТ ТУТ БЛЯТЬ ПЗД
+  //       }
+  //     } catch (error) {
+  //       console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
+  //     }
+  //   }
+  //   else {
+  //     console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
+  //   }
+  // };
+
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
     user: {
@@ -61,32 +94,69 @@ const RegistrPage = () => {
       password: string,
       confirmPassword: string,
       name: string
-    }) => {
+    },
+  ) => {
     e.preventDefault();
-    console.log("LOGIN PAGE HANDLE SUBMIT REGISTER USER : ", user)
-    if (!error.email && !error.password && !error.confirmPassword && !error.name) {
-      try {
-        dispatch(fetchRegister(user))
-        //проверка на промис 
-        const data = await dispatch(fetchRegister(user))
-        console.log("DISPATCH fetchREGISTER USER , PROMISE ??? : ", data)
-        // Проверка, что data.payload не является unknown
-        if (typeof data.payload === 'object' && data.payload !== null && 'token' in data.payload) {
-          //збс сохраняю в локалсторадж
+  
+    try {
+      if (!error.email && !error.password && !error.confirmPassword && !error.name) {
+        const data = await dispatch(fetchRegister(user));
+        console.log("DISPATCH fetchREGISTER USER, PROMISE ??? : ", data);
+  
+        if (data.payload && 'token' in data.payload) {
           const token: string = data.payload.token as string;
           window.localStorage.setItem('token', token);
+          console.log('Registration successful. Token stored in local storage.');
         } else {
-          alert('Не зареган ошибка!');//ВОТ ТУТ БЛЯТЬ ПЗД
+          console.error('Failed to get token from the response:', data);
+          alert('Ошибка при получении токена регистрации!');
         }
-      } catch (error) {
-        console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
+      } else {
+        console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
       }
-    }
-    else {
-      console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
+    } catch (error) {
+      console.error('Произошла ошибка при отправке данных регистрации на сервер!', error);
+      alert('Произошла ошибка при отправке данных регистрации на сервер!');
     }
   };
+  
 
+// // Код для обработки отправки данных формы регистрации на клиенте
+// const handleSubmit = async (
+//   e: React.FormEvent<HTMLFormElement>,
+//   user: {
+//     email: string,
+//     password: string,
+//     confirmPassword: string,
+//     name: string
+//   },
+// ) => {
+//   e.preventDefault();
+
+//   try {
+//     // Проверка на валидность данных формы
+//     if (!error.email && !error.password && !error.confirmPassword && !error.name) {
+//       // Отправка данных на сервер с помощью Redux action
+//       const data = await dispatch(fetchRegister(user));
+//       console.log("DISPATCH fetchREGISTER USER, PROMISE ??? : ", data);
+
+//       // Проверка ответа от сервера на наличие токена
+//       if (data.payload && 'token' in data.payload) {
+//         const token: string = data.payload.token as string;
+//         window.localStorage.setItem('token', token);
+//         console.log('Registration successful. Token stored in local storage.');
+//       } else {
+//         console.error('Failed to get token from the response:', data);
+//         alert('Ошибка при получении токена регистрации!');
+//       }
+//     } else {
+//       console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
+//     }
+//   } catch (error) {
+//     console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
+//     alert('Произошла ошибка при отправке данных регистрации на сервер!');
+//   }
+// };
 
 
   // console.log('SELECT IS AUTH : ', isAuth)
