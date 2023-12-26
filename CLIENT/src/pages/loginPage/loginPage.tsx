@@ -81,7 +81,6 @@ const LoginPage: React.FC = () => {
     return <Navigate to='/' />
   }
 
-
   // useEffect(() => {
   //   if (userSelect) {
   //     navigate("/");

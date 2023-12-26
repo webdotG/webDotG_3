@@ -2,19 +2,20 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import style from './header.module.scss'
 import LogoG from '../../svg/logoG';
-
+import { selectIsAuth } from '../../slices/auth/authSlice';
+import { useAppSelector } from '../../hooks';
 
 
 export default function Header() {
 
   const [onClickBtn, setOnCliclBtn] = useState(false)
-  const [isAuth] = useState(false)
-  
+  const isAuth = useAppSelector(selectIsAuth)
+
   useEffect(() => {
     function handleResize() {
       setOnCliclBtn(window.innerWidth >= 780);
     }
-    handleResize(); 
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -57,8 +58,8 @@ export default function Header() {
                 корзина
               </Link>
             </li>
-           
-             <li className={style.header_nav__item}>
+
+            <li className={style.header_nav__item}>
               {!isAuth
                 ? (<Link className={style.header_nav__link} to="/login">
                   войти
@@ -67,8 +68,8 @@ export default function Header() {
                   войти
                 </Link>
                 )}
-            </li> 
-           
+            </li>
+
             <li className={style.header_nav__item}>
               {!isAuth
                 ? (<Link className={style.header_nav__link} to="/register">
@@ -79,29 +80,17 @@ export default function Header() {
                 </Link>
                 )
               }
-            </li> 
-
-            <li className={style.header_nav__item}>
-              {!isAuth
-                ? (<Link className={`style.header_nav__link  ${style.display_none}`} to="/my_page">
-                  кабинет
-                </Link>)
-                : (<Link className={style.header_nav__link} to="/my_page">
-                  личный кабинет
-                </Link>)
-              }
-            </li> 
+            </li>
 
           </ul>
         </nav>
       </div>
       <div className={style.auth_wrapper}>
-        {/* {isAuth &&
+        {isAuth &&
           <Link className={style.check_auth_link} to='/myPage'>
             перейти в личный кабинет
           </Link>
-        } */}
-        {/* <button className={style.check_auth_btn} onClick={() => setIsAuth(!isAuth)}>toggle auth test</button> */}
+        }
       </div>
       <div>
       </div>
