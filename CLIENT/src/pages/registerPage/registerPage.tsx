@@ -3,17 +3,12 @@ import styles from './registerPage.module.scss';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { fetchLogin, fetchRegister, selectIsAuth } from '../../slices/auth/authSlice';
-
-// type typeRegisterData = {
-//   name: string;
-//   email: string;
-//   password: string;
-//   confirmPassword: string;
-// };
+import { fetchRegister, selectIsAuth } from '../../slices/auth/authSlice';
+import { Navigate } from 'react-router-dom';
 
 const RegistrPage = () => {
   const dispatch = useAppDispatch()
+  const isAuth = useAppSelector(selectIsAuth)
 
   const [user, setUser] = useState({ name: '', email: '', password: '', confirmPassword: '' });
   const [error, setError] = useState({ name: '', email: '', password: '', confirmPassword: '' });
@@ -53,40 +48,6 @@ const RegistrPage = () => {
     setShowPassword(!showPassword);
   };
 
-
-  // const handleSubmit = async (
-  //   e: React.FormEvent<HTMLFormElement>,
-  //   user: {
-  //     email: string,
-  //     password: string,
-  //     confirmPassword: string,
-  //     name: string
-  //   }) => {
-  //   e.preventDefault();
-  //   console.log("LOGIN PAGE HANDLE SUBMIT REGISTER USER : ", user)
-  //   if (!error.email && !error.password && !error.confirmPassword && !error.name) {
-  //     try {
-  //       dispatch(fetchRegister(user))
-  //       //проверка на промис 
-  //       const data = await dispatch(fetchRegister(user))
-  //       console.log("DISPATCH fetchREGISTER USER , PROMISE ??? : ", data)
-  //       // Проверка, что data.payload не является unknown
-  //       if (typeof data.payload === 'object' && data.payload !== null && 'token' in data.payload) {
-  //         //збс сохраняю в локалсторадж
-  //         const token: string = data.payload.token as string;
-  //         window.localStorage.setItem('token', token);
-  //       } else {
-  //         alert('Не зареган ошибка!');//ВОТ ТУТ БЛЯТЬ ПЗД
-  //       }
-  //     } catch (error) {
-  //       console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
-  //     }
-  //   }
-  //   else {
-  //     console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
-  //   }
-  // };
-
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
     user: {
@@ -103,7 +64,8 @@ const RegistrPage = () => {
         const data = await dispatch(fetchRegister(user));
         console.log("DISPATCH fetchREGISTER USER, PROMISE ??? : ", data);
   
-        if (data.payload && 'token' in data.payload) {
+        if (data.payload !== null && typeof data.payload === 'object' && 'token' in data.payload) {
+
           const token: string = data.payload.token as string;
           window.localStorage.setItem('token', token);
           console.log('Registration successful. Token stored in local storage.');
@@ -121,49 +83,12 @@ const RegistrPage = () => {
   };
   
 
-// // Код для обработки отправки данных формы регистрации на клиенте
-// const handleSubmit = async (
-//   e: React.FormEvent<HTMLFormElement>,
-//   user: {
-//     email: string,
-//     password: string,
-//     confirmPassword: string,
-//     name: string
-//   },
-// ) => {
-//   e.preventDefault();
 
-//   try {
-//     // Проверка на валидность данных формы
-//     if (!error.email && !error.password && !error.confirmPassword && !error.name) {
-//       // Отправка данных на сервер с помощью Redux action
-//       const data = await dispatch(fetchRegister(user));
-//       console.log("DISPATCH fetchREGISTER USER, PROMISE ??? : ", data);
-
-//       // Проверка ответа от сервера на наличие токена
-//       if (data.payload && 'token' in data.payload) {
-//         const token: string = data.payload.token as string;
-//         window.localStorage.setItem('token', token);
-//         console.log('Registration successful. Token stored in local storage.');
-//       } else {
-//         console.error('Failed to get token from the response:', data);
-//         alert('Ошибка при получении токена регистрации!');
-//       }
-//     } else {
-//       console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
-//     }
-//   } catch (error) {
-//     console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
-//     alert('Произошла ошибка при отправке данных регистрации на сервер!');
-//   }
-// };
-
-
-  // console.log('SELECT IS AUTH : ', isAuth)
-  // //если залогинился то надо сразу отправлятю на главную страницу
-  // if (isAuth) {
-  //   return <Navigate to='/' />
-  // }
+  console.log('SELECT IS AUTH : ', isAuth)
+  //если залогинился то надо сразу отправлять на главную страницу
+  if (isAuth) {
+    return <Navigate to='/' />
+  }
 
 
   return (
@@ -264,40 +189,6 @@ const RegistrPage = () => {
                 onBlur={handleBlur}
                 className={`${error.email ? styles.error : ''} ${styles['password-input']}`}
               />
-              {/* <button className={styles['btn-show-password']} type="button" onClick={handleTogglePassword}>
-                {showPassword
-                  ? (<svg fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.5 8C7.5 14.5 16.5 14.5 19.5 8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M16.8162 11.3175L19.5 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M12 12.875V16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M7.18383 11.3175L4.5 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>)
-                  : (<svg
-                    id="Layer_1"
-                    version="1.1"
-                    viewBox="0 0 80 80"
-                    xmlSpace="preserve"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                  >
-                    <g id="Layer_2">
-                      <g id="Layer_3">
-                        <path
-                          d="M40,5.4C20.9,5.4,5.4,20.9,5.4,40c0,19.1,15.5,34.6,34.5,34.6S74.5,59.1,74.6,40c0,0,0,0,0,0C74.5,20.9,59.1,5.5,40,5.4z M40,71.6C22.6,71.6,8.4,57.4,8.4,40C8.4,22.6,22.6,8.4,40,8.4S71.5,22.6,71.6,40c0,0,0,0,0,0C71.5,57.4,57.4,71.5,40,71.6z"
-                        />
-                        <path
-                          d="M64.6,39.1c-9.6-13.7-28.4-17.1-42.1-7.5c-2.9,2-5.5,4.6-7.5,7.5L14.4,40l0.6,0.9c9.6,13.7,28.4,17.1,42.1,7.5c2.9-2,5.5-4.6,7.5-7.5l0.6-0.9L64.6,39.1z M39.8,50.8c-8.5,0-16.6-4-21.7-10.8c9.1-12,26.2-14.4,38.2-5.3c2,1.5,3.8,3.3,5.3,5.3C56.4,46.8,48.3,50.8,39.8,50.8z"
-                        />
-                        <path
-                          d="M40.1,31.2c-4.9,0-8.8,3.9-8.8,8.8s3.9,8.8,8.8,8.8s8.8-3.9,8.8-8.8C48.8,35.2,44.9,31.3,40.1,31.2z M40.1,45.9c-3.2,0-5.8-2.6-5.8-5.8s2.6-5.8,5.8-5.8c3.2,0,5.8,2.6,5.8,5.8c0,0,0,0,0,0C45.8,43.3,43.3,45.9,40.1,45.9z"
-                        />
-                        <circle cx="40.1" cy="40" r="3.3" />
-                      </g>
-                    </g>
-                  </svg>
-                  )
-                }
-              </button> */}
             </div>
             {error.confirmPassword && <p className={styles['error-message']}>{error.confirmPassword}</p>}
           </div>
