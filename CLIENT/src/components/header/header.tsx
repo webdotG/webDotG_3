@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import style from './header.module.scss'
 import LogoG from '../../svg/logoG';
-import { selectIsAuth } from '../../slices/auth/authSlice';
-import { useAppSelector } from '../../hooks';
+import { logOut, selectIsAuth } from '../../slices/auth/authSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 
 
 export default function Header() {
-
+  const dispatch = useAppDispatch()
   const [onClickBtn, setOnCliclBtn] = useState(false)
   const isAuth = useAppSelector(selectIsAuth)
 
@@ -21,6 +21,13 @@ export default function Header() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  const onClickLogOut = () => {
+    if (window.confirm('уверен что надо ? ')) {
+      dispatch(logOut())
+      window.localStorage.removeItem('token')
+    }
+  }
 
   return (
     <header className={style.header}>
@@ -85,13 +92,17 @@ export default function Header() {
           </ul>
         </nav>
       </div>
-      <div className={style.auth_wrapper}>
-        {isAuth &&
+
+      {isAuth &&
+        <div className={style.auth_wrapper}>
           <Link className={style.check_auth_link} to='/myPage'>
             перейти в личный кабинет
           </Link>
-        }
-      </div>
+          <button className={style['btn-logout']}
+            onClick={onClickLogOut}>выйти</button>
+        </div>
+      }
+
       <div>
       </div>
     </header>

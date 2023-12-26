@@ -139,6 +139,16 @@
 		color: #eeeeee;
 	}
 
+	.btn-logout{
+		padding: 5px 8px;
+		border: #00ADB5 2px solid;
+		border-radius: 8px;
+		font-size: 18px;
+		color: #eeeeee;
+		background-color: transparent;
+		cursor: pointer;
+	}
+
 }
 
 @media (min-width:780px) {

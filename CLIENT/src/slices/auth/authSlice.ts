@@ -14,8 +14,8 @@ interface AuthState {
   status: 'loading' | 'loaded' | 'error';
 }
 
-export const fetchAuth = createAsyncThunk<UserData, { email: string, password: string }, { state: RootState }>(
-  'auth/fetchUserData',
+export const fetchLogin = createAsyncThunk<UserData, { email: string, password: string }, { state: RootState }>(
+  'auth/fetchLogin',
 
   async (values) => {
     console.log("AUTH SLICE AXIOS EMAIL LOGIN : ", values)
@@ -30,6 +30,12 @@ export const fetchAuth = createAsyncThunk<UserData, { email: string, password: s
   }
 );
 
+export const fetchAuth = createAsyncThunk('auth/fetchAuth', async () =>{
+  const {data} = await axios.get('api/user/current')
+  console.log("FETCH AUTH API USER CURRENT DATA : ", data)
+  return data
+})
+
 const initialState: AuthState = {
   data: null,
   status: 'loading',
@@ -38,9 +44,28 @@ const initialState: AuthState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+
+    logOut: (state) => {
+      state.data = null
+    }
+
+  },
+
   extraReducers: (builder) => {
     builder
+      .addCase(fetchLogin.pending, (state) => {
+        state.status = 'loading';
+        state.data = null;
+      })
+      .addCase(fetchLogin.fulfilled, (state, action: PayloadAction<UserData>) => {
+        state.status = 'loaded';
+        state.data = action.payload;
+      })
+      .addCase(fetchLogin.rejected, (state) => {
+        state.status = 'error';
+        state.data = null;
+      })
       .addCase(fetchAuth.pending, (state) => {
         state.status = 'loading';
         state.data = null;
@@ -60,6 +85,7 @@ const authSlice = createSlice({
 export const selectIsAuth = (state: RootState) => {
   return state.auth.data !== null && typeof state.auth.data === 'object' && 'token' in state.auth.data;
 };
-// export const selectIsAuth = (state: RootState) => {Boolean(state.auth.data)}
 
 export const authReducer = authSlice.reducer;
+
+export const { logOut } = authSlice.actions

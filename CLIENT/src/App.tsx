@@ -9,7 +9,17 @@ import CartPage from './pages/cartPage/cartPage';
 import PortfolioPage from './pages/portfolioPage/portfolioPage';
 // import { Auth } from './components/loading/auth';
 
+import { useAppDispatch, useAppSelector } from './hooks';
+import { useEffect } from 'react';
+import { fetchAuth, selectIsAuth } from './slices/auth/authSlice';
+
 function App() {
+  const dispatch = useAppDispatch()
+  const isAuth = useAppSelector(selectIsAuth)
+  
+  useEffect(() => {
+    dispatch(fetchAuth())
+  }, [])
 
   return (
     <>

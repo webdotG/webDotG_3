@@ -1,16 +1,15 @@
-import React, { useState } from 'react'; //, useEffect
+import React, { useState } from 'react';
 import styles from './LoginPage.module.scss';
-import { Navigate } from 'react-router-dom'; //, useNavigate
-// import { useLoginMutation } from '../../api/authApi';
-// import { selectUser } from "../../slices/auth/authSlice2";
+import { Navigate } from 'react-router-dom';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
-import { fetchAuth, selectIsAuth } from '../../slices/auth/authSlice';
+import { fetchLogin, selectIsAuth } from '../../slices/auth/authSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks';
+// import { UserData } from '../../api/authApi';
 
 
 const LoginPage: React.FC = () => {
-  const diapstch = useAppDispatch()
+  const dispatch = useAppDispatch()
   const isAuth = useAppSelector(selectIsAuth)
 
   const [user, setUser] = useState({ email: '', password: '' });
@@ -53,18 +52,24 @@ const LoginPage: React.FC = () => {
   const handleTogglePassword = (): void => {
     setShowPassword(!showPassword);
   };
-  // const navigate = useNavigate();
-  // const userSelect = useAppSelector(selectUser);
-  // const [loginUser] = useLoginMutation()
 
-  
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, values: { email: string, password: string }) => {
     console.log("LOGIN PAGE HANDLE SUBMIT VALUES : ", values)
     e.preventDefault();
     if (!error.email && !error.password) {
       try {
-        diapstch(fetchAuth(values))
-        // await loginUser(user).unwrap()
+        dispatch(fetchLogin(values))
+        //проверка на промис 
+        const data = await dispatch(fetchLogin(values))
+        console.log("DISPATCH fetchLogin VALUES , PROMISE ??? : ", data)
+        // Проверка, что data.payload не является unknown
+        if (typeof data.payload === 'object' && data.payload !== null && 'token' in data.payload) {
+             //збс сохраняю в локалсторадж
+          const token: string = data.payload.token as string;
+          window.localStorage.setItem('token', token);
+        } else {
+          alert('Не авторизован');
+        }
       } catch (error) {
         console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
       }
@@ -72,20 +77,15 @@ const LoginPage: React.FC = () => {
     else {
       console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
     }
-
   };
+
+
 
   console.log('SELECT IS AUTH : ', isAuth)
   //если залогинился то надо сразу отправлятю на главную страницу
-  if (isAuth){
+  if (isAuth) {
     return <Navigate to='/' />
   }
-
-  // useEffect(() => {
-  //   if (userSelect) {
-  //     navigate("/");
-  //   }
-  // }, [userSelect, navigate]);
 
   return (
     <div className={styles['login-form__title']} >
