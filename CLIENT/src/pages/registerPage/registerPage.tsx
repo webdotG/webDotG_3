@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './registerPage.module.scss';
-import { useRegisterMutation } from '../../api/authApi';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { selectUser } from "../../slices/auth/authSlice2";
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { fetchLogin, fetchRegister, selectIsAuth } from '../../slices/auth/authSlice';
 
-
-// type typeRegisterData = Omit<User, "id">
-
-type typeRegisterData = {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-};
+// type typeRegisterData = {
+//   name: string;
+//   email: string;
+//   password: string;
+//   confirmPassword: string;
+// };
 
 const RegistrPage = () => {
+  const dispatch = useAppDispatch()
+
   const [user, setUser] = useState({ name: '', email: '', password: '', confirmPassword: '' });
   const [error, setError] = useState({ name: '', email: '', password: '', confirmPassword: '' });
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -56,26 +53,57 @@ const RegistrPage = () => {
     setShowPassword(!showPassword);
   };
 
-  const [registerUser] = useRegisterMutation()
-  const handleSubmit = async (user: typeRegisterData, e: React.FormEvent<HTMLFormElement>) => {
-    // console.log("REGISTER PAGE FORM SUBMIT DATA : ", user)
+
+  // e: React.FormEvent<HTMLFormElement>,
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>,
+    user: {
+      email: string,
+      password: string,
+      confirmPassword: string,
+      name: string
+    }) => {
     e.preventDefault();
-    registerUser(user)
-  }
-  const navigate = useNavigate();
-  const userSelect = useSelector(selectUser);
-  useEffect(() => {
-    if (userSelect) {
-      navigate("/");
+    console.log("LOGIN PAGE HANDLE SUBMIT REGISTER USER : ", user)
+    if (!error.email && !error.password && !error.confirmPassword && !error.name) {
+      try {
+        dispatch(fetchRegister(user))
+        //проверка на промис 
+        const data = await dispatch(fetchRegister(user))
+        console.log("DISPATCH fetchREGISTER USER , PROMISE ??? : ", data)
+        // Проверка, что data.payload не является unknown
+        if (typeof data.payload === 'object' && data.payload !== null && 'token' in data.payload) {
+          //збс сохраняю в локалсторадж
+          const token: string = data.payload.token as string;
+          window.localStorage.setItem('token', token);
+        } else {
+          alert('Не зареган ошибка!');
+        }
+      } catch (error) {
+        console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
+      }
     }
-  }, [userSelect, navigate]);
-  
+    else {
+      console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
+    }
+  };
+
+
+
+  // console.log('SELECT IS AUTH : ', isAuth)
+  // //если залогинился то надо сразу отправлятю на главную страницу
+  // if (isAuth) {
+  //   return <Navigate to='/' />
+  // }
+
+
   return (
     <>
       <Header />
       <div className={styles['registration-form-container']}>
         <h2 className={styles['register-form-title']}>Форма регистрации</h2>
-        <form className={styles['register-form']} onSubmit={(e) => handleSubmit(user, e)}>
+        <form className={styles['register-form']}
+          onSubmit={(e) => handleSubmit(e, user)}>
           <div className={styles['email-wrapper']}>
             <label className={styles['email-label']}>
               Имя пользователя:
@@ -204,7 +232,12 @@ const RegistrPage = () => {
             </div>
             {error.confirmPassword && <p className={styles['error-message']}>{error.confirmPassword}</p>}
           </div>
-          <button  disabled={!!(error.email || error.password)} type="submit" className={styles['submit-button']}>Зарегистрироваться</button>
+          <button
+            disabled={!!(error.email || error.password)}
+            type="submit"
+            className={styles['submit-button']}>
+            Зарегистрироваться
+          </button>
         </form>
         <Footer />
       </div>

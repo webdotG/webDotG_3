@@ -11,14 +11,13 @@ const { Auth } = require('../midlewear/auth');
  */
 
 const Register = async (req, res) => {
-  const { email, name, password } = req.body;
+  const { email, name, password, confirmPassword } = req.body;
 
-  if (!email || !password || !name) {
+  if (!email || !password || !name || !confirmPassword) {
     return res.status(400).json({ message: 'Пожалуйста, заполните обязательные поля' });
   }
 
   try {
-    // Проверка наличия пользователя с таким email в базе данных
     const checkUserQuery = 'SELECT * FROM webdotg.users WHERE email = $1';
     const existingUser = await pool.query(checkUserQuery, [email]);
 
@@ -29,9 +28,8 @@ const Register = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Создание нового пользователя в базе данных
-    const createUserQuery = 'INSERT INTO webdotg.users (name, email, password) VALUES ($1, $2, $3) RETURNING *';
-    const newUser = await pool.query(createUserQuery, [name, email, hashedPassword]);
+    const createUserQuery = 'INSERT INTO webdotg.users (name, email, password, confirmPassword) VALUES ($1, $2, $3, $4) RETURNING *';
+    const newUser = await pool.query(createUserQuery, [name, email, hashedPassword, confirmPassword]);
 
     const secret = process.env.JWT_SECRET;
     if (newUser.rows.length > 0 && secret) {
@@ -40,14 +38,13 @@ const Register = async (req, res) => {
         id: user.id,
         email: user.email,
         name: user.name,
-        token: jwt.sign({ id: user.id }, secret, { expiresIn: '30d' }), // Шифрование id пользователя
+        confirmPassword: user.confirmPassword,
+        token: jwt.sign({ id: user.id }, secret, { expiresIn: '30d' }),
       });
-      console.log("MODELS REGISTER USER : ", user)
     } else {
       res.status(400).json({ message: 'Не удалось создать пользователя' });
     }
 
-    // В этом месте, после успешной обработки запроса, добавьте оператор return с пустым значением
     return res;
 
   } catch (error) {
@@ -55,7 +52,6 @@ const Register = async (req, res) => {
     return res.status(500).json({ message: 'Внутренняя ошибка сервера' });
   }
 };
-
 
 
 const Login = async (req, res) => {
@@ -97,7 +93,7 @@ const Login = async (req, res) => {
 
 const Current = async (req, res) => {
   Auth(req, res, async () => {
-    const user = req.user; // Здесь будет информация о пользователе из вашего middleware
+    const user = req.user;                // Здесь будет информация о пользователе из middleware
     console.log("MODELS CURRENT USER : ", user)
     if (user) {
       res.status(200).json(user);

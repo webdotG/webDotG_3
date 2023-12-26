@@ -22,7 +22,7 @@ export const fetchLogin = createAsyncThunk<UserData, { email: string, password: 
     try {
       const { email, password } = values;
       const response: AxiosResponse<UserData> = await axios.post('/api/user/login', { email, password });//{ params }
-      console.log("AUTH SLICE AXIOS RESPONSE : ", response)
+      console.log("AUTH SLICE AXIOS RESPONSE LOGIN : ", response)
       return response.data;
     } catch (error) {
       throw Error("Ошибка при получении данных пользователя");
@@ -30,9 +30,35 @@ export const fetchLogin = createAsyncThunk<UserData, { email: string, password: 
   }
 );
 
-export const fetchAuth = createAsyncThunk('auth/fetchAuth', async () =>{
-  const {data} = await axios.get('api/user/current')
-  console.log("FETCH AUTH API USER CURRENT DATA : ", data)
+export const fetchRegister = createAsyncThunk<UserData, {
+  email: string,
+  password: string,
+  confirmPassword: string,
+  name: string
+}, { state: RootState }>(
+  'auth/fetchRegister',
+
+  async (values) => {
+    console.log("AUTH SLICE AXIOS EMAIL REGISTER : ", values)
+    try {
+      const { email, password, confirmPassword, name } = values;
+      const response: AxiosResponse<UserData> = await axios.post('/api/user/register', {
+        email,
+        password,
+        confirmPassword,
+        name
+      });//{ params }
+      console.log("AUTH SLICE AXIOS RESPONSE REGISTER : ", response)
+      return response.data;
+    } catch (error) {
+      throw Error("Ошибка при получении данных пользователя");
+    }
+  }
+);
+
+export const fetchAuth = createAsyncThunk('auth/fetchAuth', async () => {
+  const { data } = await axios.get('api/user/current')
+  console.log("FETCH AUTH API/USER/CURRENT DATA : ", data)
   return data
 })
 
@@ -75,6 +101,18 @@ const authSlice = createSlice({
         state.data = action.payload;
       })
       .addCase(fetchAuth.rejected, (state) => {
+        state.status = 'error';
+        state.data = null;
+      })
+      .addCase(fetchRegister.pending, (state) => {
+        state.status = 'loading';
+        state.data = null;
+      })
+      .addCase(fetchRegister.fulfilled, (state, action: PayloadAction<UserData>) => {
+        state.status = 'loaded';
+        state.data = action.payload;
+      })
+      .addCase(fetchRegister.rejected, (state) => {
         state.status = 'error';
         state.data = null;
       });
