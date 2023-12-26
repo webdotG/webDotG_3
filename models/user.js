@@ -22,7 +22,7 @@ const Register = async (req, res) => {
     const existingUser = await pool.query(checkUserQuery, [email]);
 
     if (existingUser.rows.length > 0) {
-      return res.status(400).json({ message: 'Пользователь с таким email уже существует' });
+      return res.status(400).json({ message: 'Пользователь  с таким email уже существует' });
     }
 
     const salt = await bcrypt.genSalt(10);
