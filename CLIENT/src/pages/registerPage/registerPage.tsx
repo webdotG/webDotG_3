@@ -54,7 +54,6 @@ const RegistrPage = () => {
   };
 
 
-  // e: React.FormEvent<HTMLFormElement>,
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
     user: {
@@ -77,7 +76,7 @@ const RegistrPage = () => {
           const token: string = data.payload.token as string;
           window.localStorage.setItem('token', token);
         } else {
-          alert('Не зареган ошибка!');
+          alert('Не зареган ошибка!');//ВОТ ТУТ БЛЯТЬ ПЗД
         }
       } catch (error) {
         console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
