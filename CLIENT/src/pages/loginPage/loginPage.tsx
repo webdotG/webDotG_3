@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react'; //, useEffect
 import styles from './LoginPage.module.scss';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom'; //, useNavigate
 // import { useLoginMutation } from '../../api/authApi';
-import { selectUser } from "../../slices/auth/authSlice2";
+// import { selectUser } from "../../slices/auth/authSlice2";
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
-// import { useDispatch, useSelector } from 'react-redux';
-import { fetchAuth } from '../../slices/auth/authSlice';
+import { fetchAuth, selectIsAuth } from '../../slices/auth/authSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-
 
 
 const LoginPage: React.FC = () => {
   const diapstch = useAppDispatch()
+  const isAuth = useAppSelector(selectIsAuth)
+
   const [user, setUser] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState({ email: '', password: '' });
@@ -53,10 +53,11 @@ const LoginPage: React.FC = () => {
   const handleTogglePassword = (): void => {
     setShowPassword(!showPassword);
   };
-  const navigate = useNavigate();
-  const userSelect = useAppSelector(selectUser);
+  // const navigate = useNavigate();
+  // const userSelect = useAppSelector(selectUser);
   // const [loginUser] = useLoginMutation()
 
+  
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, values: { email: string, password: string }) => {
     console.log("LOGIN PAGE HANDLE SUBMIT VALUES : ", values)
     e.preventDefault();
@@ -74,12 +75,18 @@ const LoginPage: React.FC = () => {
 
   };
 
+  console.log('SELECT IS AUTH : ', isAuth)
+  //если залогинился то надо сразу отправлятю на главную страницу
+  if (isAuth){
+    return <Navigate to='/' />
+  }
 
-  useEffect(() => {
-    if (userSelect) {
-      navigate("/");
-    }
-  }, [userSelect, navigate]);
+
+  // useEffect(() => {
+  //   if (userSelect) {
+  //     navigate("/");
+  //   }
+  // }, [userSelect, navigate]);
 
   return (
     <div className={styles['login-form__title']} >
