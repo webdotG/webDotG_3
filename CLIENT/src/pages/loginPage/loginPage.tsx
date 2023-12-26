@@ -5,17 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import { selectUser } from "../../slices/auth/authSlice2";
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuth } from '../../slices/auth/authSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 
-// interface User {
-//   email: string;
-//   password: string;
-// }
 
 
 const LoginPage: React.FC = () => {
-  const diapstch = useDispatch()
+  const diapstch = useAppDispatch()
   const [user, setUser] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState({ email: '', password: '' });
@@ -57,25 +54,26 @@ const LoginPage: React.FC = () => {
     setShowPassword(!showPassword);
   };
   const navigate = useNavigate();
-  const userSelect = useSelector(selectUser);
+  const userSelect = useAppSelector(selectUser);
   // const [loginUser] = useLoginMutation()
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, values: {email: string, }) => {
-    console.log("LOGIN PAGE RESPONSE VALUES : ", values)
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, values: { email: string, password: string }) => {
+    console.log("LOGIN PAGE HANDLE SUBMIT VALUES : ", values)
     e.preventDefault();
-    diapstch(fetchAuth(values))
-    // if (!error.email && !error.password) {
-    //   try {
-        
-    //     await loginUser(user).unwrap()
-    //   } catch (error) {
-    //     console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
-    //   }
-    // }
-    // else {
-    //   console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
-    // }
+    if (!error.email && !error.password) {
+      try {
+        diapstch(fetchAuth(values))
+        // await loginUser(user).unwrap()
+      } catch (error) {
+        console.error('ОШИБКА ЗАПОЛНИ ФОРМУ : ', error);
+      }
+    }
+    else {
+      console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
+    }
+
   };
+
 
   useEffect(() => {
     if (userSelect) {
@@ -117,11 +115,11 @@ const LoginPage: React.FC = () => {
             />
             <button className={styles['btn-show-password']} type="button" onClick={handleTogglePassword}>
               {showPassword
-                ? (<svg fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.5 8C7.5 14.5 16.5 14.5 19.5 8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16.8162 11.3175L19.5 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 12.875V16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M7.18383 11.3175L4.5 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                ? (<svg fill="none" height="24" strokeWidth="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.5 8C7.5 14.5 16.5 14.5 19.5 8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M16.8162 11.3175L19.5 15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M12 12.875V16.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M7.18383 11.3175L4.5 15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>)
                 : (<svg
                   id="Layer_1"

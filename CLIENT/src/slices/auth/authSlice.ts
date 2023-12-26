@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { AxiosResponse } from "axios";
+import  { AxiosResponse } from "axios";
 import axios from '../../axios'
 import { RootState } from "../../store"; // Замените на ваш путь к RootState
 import { typeUser } from "../../types";
@@ -14,13 +14,15 @@ interface AuthState {
   status: 'loading' | 'loaded' | 'error';
 }
 
-export const fetchAuth = createAsyncThunk<UserData, void, { state: RootState }>(
+export const fetchAuth = createAsyncThunk<UserData, { email: string, password: string }, { state: RootState }>(
   'auth/fetchUserData',
   
-  async (params) => {
-    console.log("AUTH SLICE AXIOS PARAMS : ", params)
+  async (values) => {
+    // console.log("AUTH SLICE AXIOS PARAMS : ", params)
+    console.log("AUTH SLICE AXIOS EMAIL LOGIN : ", values)
     try {
-      const response: AxiosResponse<UserData> = await axios.post('api/user/login', { params });
+      const { email, password } = values; 
+      const response: AxiosResponse<UserData> = await axios.post('/api/user/login', { email, password });//{ params }
       console.log("AUTH SLICE AXIOS RESPONSE : ", response)
       return response.data;
     } catch (error) {
