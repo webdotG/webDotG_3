@@ -8,6 +8,7 @@ export const store = configureStore({
     cart: cartReducer,
     auth: authReducer
   },
+  //   getDefaultMiddleware().concat(api.middleware).prepend(listenerMiddleware.middleware),
 
 })
 

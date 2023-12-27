@@ -56,12 +56,6 @@ export const fetchRegister = createAsyncThunk<UserData, {
   }
 );
 
-// export const fetchAuth = createAsyncThunk('auth/fetchAuth', async () => {
-//   const { data } = await axios.get('api/user/current')
-//   console.log("FETCH AUTH API/USER/CURRENT DATA : ", data)
-//   return data
-// })
-
 
 export const fetchAuth = createAsyncThunk('auth/fetchAuth', async () => {
   try {
@@ -73,26 +67,6 @@ export const fetchAuth = createAsyncThunk('auth/fetchAuth', async () => {
   }
 });
 
-
-// Новая action для проверки авторизации при загрузке страницы
-export const checkAuth = () => async (dispatch: Dispatch) => {
-  try {
-    const storedToken = localStorage.getItem('token');
-    if (storedToken) {
-      // Если токен есть в Local Storage, выполняем запрос для проверки авторизации
-      const response = await axios.get('/api/user/current', {
-        headers: {
-          Authorization: `Bearer ${storedToken}`, // Предполагается использование токена для авторизации
-        },
-      });
-      dispatch(fetchAuth.fulfilled(response.data)); // Устанавливаем данные пользователя в store при успешной проверке
-    }
-  } catch (error) {
-    console.error("Ошибка проверки авторизации:", error);
-    // В случае ошибки можно очистить данные пользователя в store или выполнить другие действия
-    dispatch(fetchAuth.rejected()); // Отмечаем, что проверка авторизации завершилась неудачно
-  }
-};
 
 const initialState: AuthState = {
   data: null,
@@ -154,7 +128,8 @@ const authSlice = createSlice({
 
 
 export const selectIsAuth = (state: RootState) => {
-  return state.auth.data !== null && typeof state.auth.data === 'object' && 'token' in state.auth.data;
+  console.log("SELECTN IS AUTH STATE : ", state)
+  return state.auth.data !== null && typeof state.auth.data === 'object' && 'id' in state.auth.data;
 };
 
 export const authReducer = authSlice.reducer;
