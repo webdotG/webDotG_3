@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction, Dispatch  } from "@reduxjs/toolkit";
 import { AxiosResponse } from "axios";
 import axios from '../../axios'
 import { RootState } from "../../store";
@@ -56,11 +56,43 @@ export const fetchRegister = createAsyncThunk<UserData, {
   }
 );
 
+// export const fetchAuth = createAsyncThunk('auth/fetchAuth', async () => {
+//   const { data } = await axios.get('api/user/current')
+//   console.log("FETCH AUTH API/USER/CURRENT DATA : ", data)
+//   return data
+// })
+
+
 export const fetchAuth = createAsyncThunk('auth/fetchAuth', async () => {
-  const { data } = await axios.get('api/user/current')
-  console.log("FETCH AUTH API/USER/CURRENT DATA : ", data)
-  return data
-})
+  try {
+    const { data } = await axios.get('/api/user/current');
+    console.log("FETCH AUTH API/USER/CURRENT DATA : ", data);
+    return data;
+  } catch (error) {
+    throw Error("Ошибка при получении данных пользователя");
+  }
+});
+
+
+// Новая action для проверки авторизации при загрузке страницы
+export const checkAuth = () => async (dispatch: Dispatch) => {
+  try {
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      // Если токен есть в Local Storage, выполняем запрос для проверки авторизации
+      const response = await axios.get('/api/user/current', {
+        headers: {
+          Authorization: `Bearer ${storedToken}`, // Предполагается использование токена для авторизации
+        },
+      });
+      dispatch(fetchAuth.fulfilled(response.data)); // Устанавливаем данные пользователя в store при успешной проверке
+    }
+  } catch (error) {
+    console.error("Ошибка проверки авторизации:", error);
+    // В случае ошибки можно очистить данные пользователя в store или выполнить другие действия
+    dispatch(fetchAuth.rejected()); // Отмечаем, что проверка авторизации завершилась неудачно
+  }
+};
 
 const initialState: AuthState = {
   data: null,
@@ -74,6 +106,7 @@ const authSlice = createSlice({
 
     logOut: (state) => {
       state.data = null
+      localStorage.removeItem('token');
     }
 
   },

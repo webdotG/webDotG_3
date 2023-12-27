@@ -68,17 +68,17 @@ const RegistrPage = () => {
 
           const token: string = data.payload.token as string;
           window.localStorage.setItem('token', token);
-          console.log('Registration successful. Token stored in local storage.');
+          console.log('зарегался токен в локалсторадже', token);
         } else {
-          console.error('Failed to get token from the response:', data);
+          console.error('нет токена из  response:', data);
           alert('Ошибка при получении токена регистрации!');
         }
       } else {
-        console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
+        console.log('Форма невалидна');
       }
     } catch (error) {
-      console.error('Произошла ошибка при отправке данных регистрации на сервер!', error);
-      alert('Произошла ошибка при отправке данных регистрации на сервер!');
+      console.error('ошибка данных регистрации на сервер!', error);
+      alert('ошибка при отправке регистрации на сервер!');
     }
   };
   

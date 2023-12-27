@@ -9,10 +9,10 @@ const app = express();
 
 app.use(logger('dev'));
 // const corsOptions = {
-//   origin: 'http://localhost:5173', // Замените на URL вашего фронтенд-приложения
+//   origin: 'http://localhost:5173', // Замените на URL приложения
 //   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 //   credentials: true,
-//   optionsSuccessStatus: 200 // Некоторые браузеры (старые версии IE) могут требовать этот флаг
+//   optionsSuccessStatus: 200 // (старые версии IE) могут требовать этот флаг
 // };
 // app.use(cors(corsOptions));
 app.use(cors());

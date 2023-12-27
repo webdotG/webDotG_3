@@ -1,8 +1,5 @@
 import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit'
 import { authReducer } from '../src/slices/auth/authSlice'
-// import auth from './slices/auth/authSlice2'
-// import { api } from './api/api'
-// import { listenerMiddleware } from "./middleware/auth";
 import cartReducer from './slices/cart/cartSlice';
 
 
@@ -10,11 +7,7 @@ export const store = configureStore({
   reducer: {
     cart: cartReducer,
     auth: authReducer
-    // [api.reducerPath]: api.reducer,
-    // auth
   },
-  // middleware: (getDefaultMiddleware) =>
-  //   getDefaultMiddleware().concat(api.middleware).prepend(listenerMiddleware.middleware),
 
 })
 
