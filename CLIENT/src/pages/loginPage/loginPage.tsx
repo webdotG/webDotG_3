@@ -78,10 +78,10 @@ const LoginPage: React.FC = () => {
       console.log('Форма невалидна. Пожалуйста, заполните все поля корректно.');
     }
   };
+  
+  console.log('PAGE LOGIN SELECT IS AUTH : ', isAuth)
 
 
-
-  console.log('SELECT IS AUTH : ', isAuth)
   //если залогинился то надо сразу отправлятю на главную страницу
   if (isAuth) {
     return <Navigate to='/' />

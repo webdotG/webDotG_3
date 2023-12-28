@@ -23,18 +23,19 @@ function App() {
   }, [dispatch])
 
   const isAuth = useAppSelector(selectIsAuth);
+  console.log('SRC APP Slice Auth IS AUTH : ', isAuth)
   // useEffect(() => {
   //   // Проверка на изменение состояния на null и перезагрузка страницы
   //   if (!selectIsAuth(store.getState())) {
   //     windoocation.reload();
   //   }
   // }, [store.getState().auth.data]); // Зависимость useEffect от состояния auth.data
-  useEffect(() => {
-    // Проверка на изменение состояния на null и перезагрузка страницы
-    if (isAuth === null) {
-      window.location.reload();
-    }
-  }, [isAuth]);
+  // useEffect(() => {
+  //   // Проверка на изменение состояния на null и перезагрузка страницы
+  //   if (isAuth === null) {
+  //     window.location.reload();
+  //   }
+  // }, [isAuth]);
 
   return (
     <>
