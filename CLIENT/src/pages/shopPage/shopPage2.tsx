@@ -5,27 +5,72 @@ import Footer from '../../components/footer/footer'
 // import { useDispatch } from 'react-redux';
 // import { setCartItems, setTotalPrice } from '../../slices/cart/cartSlice'
 
-interface PriceList {
-  [key: string]: number;
+// interface PriceList {
+//   [key: string]: number;
+// }
+
+const obj = {
+  first_blok: [
+    {
+      id: 1,
+      name: 'Шаблон',
+      price: 1
+    },
+    {
+      id: 2,
+      name: 'Индивидуальный',
+      price: 2
+    }
+  ],
+  seconde_blok: [
+    {
+      id: 3,
+      name: 'Сайты',
+      price: 3
+    },
+    {
+      id: 4,
+      name: 'ТелеграмБот',
+      price: 4
+    },
+    { id: 5, 
+      name: 'Приложения', 
+      price: 5 
+    },
+  ],
+  third_block: [
+
+  ],
 }
-const price: PriceList = {
-  Шаблон: 50,
-  Индивидуальный: 100,
-  Сайты: 200,
-  ТелеграмБот: 150,
-  Приложения: 180,
-  Лендинг: 80,
-  Многостраничный: 120,
-  Магазин: 160,
-  ЧатБот: 130,
-  МагазинБот: 170,
-  'IOS_&_Andriod': 220,
-  VK_App: 190,
-  Иллюстрации: 1,
-  Иконки: 2,
-  Фотографии: 3,
-  'Срочно!': 4,
-};
+console.log(obj);
+// const price = [
+//   { id: 1, name: 'Шаблон', price: 1 },
+//   { id: 2, name: 'Индивидуальный', price: 2 },
+//   { id: 3, name: 'Сайты', price: 3 },
+//   { id: 4, name: 'ТелеграмБот', price: 4 },
+//   { id: 5, name: 'Приложения', price: 5 },
+//   { id: 6, name: 'Лендинг', price: 6 },
+//   { id: 7, name: 'Многостраничный', price: 8 },
+//   { id: 8, name: 'Магазин', price: 9 },
+//   { id: 9, name: 'ЧатБот', price: 10 },
+//   { id: 10, name: 'Магазин Бот', price: 11 },
+//   { id: 12, name: 'IOS & Andriod', price: 12 },
+//   { id: 13, name: 'VK App', price: 13 },
+//   { id: 14, name: 'Иллюстрации', price: 14 },
+//   { id: 15, name: 'Иконки', price: 15 },
+//   { id: 16, name: 'Фотографии', price: 16 },
+//   { id: 17, name: 'Срочно!', price: 17 },
+// ]
+// console.log(price);
+
+// // Преобразование объекта price в массив объектов
+// const products = Object.entries(price).map(([name, price], index) => ({
+//   id: index + 1,
+//   name,
+//   price,
+// }));
+
+// console.log(products);
 
 export default function ShopPage() {
   // const dispatch = useDispatch();
@@ -127,33 +172,33 @@ export default function ShopPage() {
   //     setShowSixthBlock(false);
   //   },[]);
 
-  
-  // Объявляем переменную totalPrice в функции calculateTotalPrice
-  const calculateTotalPrice = (selectedInputs: string[]): number => {
-    let totalPrice = 0;
-  // Рассчитываем общую стоимость на основе выбранных опций
-    selectedInputs.forEach((input) => {
-    if (price[input]) {
-      totalPrice += price[input];
-    }
-  });
-      return totalPrice;
-   };
 
-  
-  // Вычисляем общую стоимость на основе выбранных опций
-  const total = calculateTotalPrice(
-    [...firstSelectedInputs, ...secondSelectedInputs, ...thirdSelectedInputs, ...fourthSelectedInputs]
-  );
+  // // Объявляем переменную totalPrice в функции calculateTotalPrice
+  // const calculateTotalPrice = (selectedInputs: string[]): number => {
+  //   let totalPrice = 0;
+  // // Рассчитываем общую стоимость на основе выбранных опций
+  //   selectedInputs.forEach((input) => {
+  //   if (price[input]) {
+  //     totalPrice += price[input];
+  //   }
+  // });
+  //     return totalPrice;
+  //  };
 
 
-  console.log('TOTAL PRICE : ', total); 
+  // // Вычисляем общую стоимость на основе выбранных опций
+  // const total = calculateTotalPrice(
+  //   [...firstSelectedInputs, ...secondSelectedInputs, ...thirdSelectedInputs, ...fourthSelectedInputs]
+  // );
+
+
+  // console.log('TOTAL PRICE : ', total); 
   return (
     <div className={style['wrapper']}>
       <Header />
       <div className={style['form-wrapper']}>
         <h2 className={style['form-title']}>выберите желаемое</h2>
-        {<p>{total}</p>}
+        {/* {<p>{total}</p>} */}
         <form className={style['shop-form']}
         // onSubmit={handleSubmit}
         >
@@ -389,9 +434,9 @@ export default function ShopPage() {
               <p className={style['total-select-text']}>{combinedString}</p>
             </h3>}
           </div>
-          {<p>{total}</p>}
-          <button className={style['form-submit']} 
-          type='submit'
+          {/* {<p>{total}</p>} */}
+          <button className={style['form-submit']}
+            type='submit'
           // onClick={handleAddToCart}
           >добавить в корзину</button>
         </form>

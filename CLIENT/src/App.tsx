@@ -8,9 +8,12 @@ import HomePage from './pages/homePage/homePage';
 import CartPage from './pages/cartPage/cartPage';
 import PortfolioPage from './pages/portfolioPage/portfolioPage';
 
-import { useAppDispatch  } from './hooks';
-import { useEffect } from 'react';  
+import { useAppDispatch, useAppSelector } from './hooks';
+import { useEffect } from 'react';
 import { fetchAuth } from './slices/auth/authSlice';
+import { selectIsAuth } from '../src/slices/auth/authSlice';
+import { Navigate } from 'react-router-dom';
+import { store } from './store';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -18,6 +21,20 @@ function App() {
   useEffect(() => {
     dispatch(fetchAuth())
   }, [dispatch])
+
+  const isAuth = useAppSelector(selectIsAuth);
+  // useEffect(() => {
+  //   // Проверка на изменение состояния на null и перезагрузка страницы
+  //   if (!selectIsAuth(store.getState())) {
+  //     windoocation.reload();
+  //   }
+  // }, [store.getState().auth.data]); // Зависимость useEffect от состояния auth.data
+  useEffect(() => {
+    // Проверка на изменение состояния на null и перезагрузка страницы
+    if (isAuth === null) {
+      window.location.reload();
+    }
+  }, [isAuth]);
 
   return (
     <>
@@ -28,7 +45,14 @@ function App() {
         <Route index path="/portfolio" element={<PortfolioPage />} />
         <Route index path="/shop" element={<ShopPage />} />
         <Route index path="/cart" element={<CartPage />} />
-        <Route index path="/my_page" element={<MyPage />} />
+        {isAuth ? (
+          <Route index path="/my_page" element={<MyPage />} />
+        )
+          : (
+            null
+            // <Route to='/login'/>
+          )}
+
       </Routes>
     </>
   )

@@ -21,7 +21,7 @@ export const fetchLogin = createAsyncThunk<UserData, { email: string, password: 
     console.log("AUTH SLICE AXIOS EMAIL LOGIN : ", values)
     try {
       const { email, password } = values;
-      const response: AxiosResponse<UserData> = await axios.post('/api/user/login', { email, password });//{ params }
+      const response: AxiosResponse<UserData> = await axios.post('/api/user/login', { email, password });
       console.log("AUTH SLICE AXIOS RESPONSE LOGIN : ", response)
       return response.data;
     } catch (error) {
