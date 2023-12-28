@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction, Dispatch  } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { AxiosResponse } from "axios";
 import axios from '../../axios'
 import { RootState } from "../../store";
@@ -21,7 +21,7 @@ export const fetchLogin = createAsyncThunk<UserData, { email: string, password: 
     console.log("AUTH SLICE AXIOS EMAIL LOGIN : ", values)
     try {
       const { email, password } = values;
-      const response: AxiosResponse<UserData> = await axios.post('/api/user/login', { email, password });
+      const response: AxiosResponse<UserData> = await axios.post('/api/user/login', { email, password });//{ params }
       console.log("AUTH SLICE AXIOS RESPONSE LOGIN : ", response)
       return response.data;
     } catch (error) {
@@ -129,7 +129,7 @@ const authSlice = createSlice({
 
 export const selectIsAuth = (state: RootState) => {
   console.log("SELECTN IS AUTH STATE : ", state)
-  return state.auth.data !== null && typeof state.auth.data === 'object' && 'id' in state.auth.data;
+  return state.auth.data !== null && typeof state.auth.data === 'object' && '' in state.auth.data;
 };
 
 export const authReducer = authSlice.reducer;

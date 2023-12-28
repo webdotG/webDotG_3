@@ -12,8 +12,8 @@ import { useAppDispatch, useAppSelector } from './hooks';
 import { useEffect } from 'react';
 import { fetchAuth } from './slices/auth/authSlice';
 import { selectIsAuth } from '../src/slices/auth/authSlice';
-import { Navigate } from 'react-router-dom';
-import { store } from './store';
+// import { Navigate } from 'react-router-dom';
+// import { store } from './store';
 
 function App() {
   const dispatch = useAppDispatch()
