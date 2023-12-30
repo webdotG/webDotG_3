@@ -2,6 +2,8 @@ import Header from '../../components/header/header'
 import Footer from '../../components/footer/footer'
 import style from './shopPage.module.scss';
 import { useState, useEffect, ChangeEvent } from 'react';
+import { useAppDispatch } from '../../hooks';
+import { addToCart } from '../../slices/cart/cartSlice';
 
 const PRICE = [
   { id: 1, name: 'Шаблон', price: 1 },
@@ -23,7 +25,8 @@ const PRICE = [
 ]
 
 export default function ShopPage() {
-  // Добавим состояния для управления видимостью блоков
+  const dispatch = useAppDispatch()
+  //состояния для управления видимостью блоков
   const [showFirstRadio] = useState(true);
   const [showSecondeRadio, setShowSecondeRadio] = useState(false);
   const [showSite, setShowSite] = useState(false);
@@ -126,6 +129,56 @@ export default function ShopPage() {
     selectedItemsCheckbox
   );
 
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+
+    const selectedItemsIds = [
+      ...selectedItems,
+      ...selectedItems2,
+      ...selectedItems3,
+      ...selectedItems4,
+      ...selectedItems5,
+      ...selectedItemsCheckbox,
+    ];
+
+    selectedItemsIds.forEach((selectedItemId) => {
+      const selectedItem = PRICE.find((item) => item.id.toString() === selectedItemId);
+      if (selectedItem) {
+        totalPrice += selectedItem.price;
+      }
+    });
+
+    return totalPrice;
+  };
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const allSelectedItems = [
+      ...selectedItems,
+      ...selectedItems2,
+      ...selectedItems3,
+      ...selectedItems4,
+      ...selectedItems5,
+      ...selectedItemsCheckbox,
+    ].map(itemId => {
+      const selectedItem = PRICE.find(item => item.id.toString() === itemId);
+      return selectedItem ? { ...selectedItem } : null;
+    }).filter(item => item !== null) as { id: number; name: string; price: number }[];
+
+    // Передача объектов элементов корзины в Redux для добавления
+    allSelectedItems.forEach(item => {
+      dispatch(addToCart(item)); // Добавляем каждый выбранный объект в корзину
+    });
+
+    // Очистка выбранных элементов
+    setSelectedItems([]);
+    setSelectedItems2([]);
+    setSelectedItems3([]);
+    setSelectedItems4([]);
+    setSelectedItems5([]);
+    setSelectedItemsCheckbox([]);
+  };
+
   return (
 
     <div className={style['wrapper']}>
@@ -133,22 +186,24 @@ export default function ShopPage() {
       <Header />
       <div className={style['form-wrapper']}>
 
-      <h3 className={style['total-select']}>
-        ВЫБРАНО:
-        <ul className={style['selected-items-list']}>
-          {mergedSelectedItems.map((selectedItemId, index) => {
-            const selectedItem = PRICE.find(item => item.id.toString() === selectedItemId);
-            return (
-              <li key={index}>
-                {selectedItem ? `${selectedItem.name} (ID: ${selectedItem.id}) - Цена: ${selectedItem.price}` : ''}
-              </li>
-            );
-          })}
-        </ul>
-      </h3>
+        <h3 className={style['total-select']}>
+          ВЫБРАНО:
+          <ul className={style['selected-items-list']}>
+            {mergedSelectedItems.map((selectedItemId, index) => {
+              const selectedItem = PRICE.find(item => item.id.toString() === selectedItemId);
+              return (
+                <li key={index}>
+                  {selectedItem ? `${selectedItem.name} (ID: ${selectedItem.id}) - Цена: ${selectedItem.price}` : ''}
+                </li>
+              );
+            })}
+          </ul>
+        </h3>
+        <p>Общая стоимость: {calculateTotalPrice()}</p>
 
         <h2 className={style['form-title']}>выберите желаемое</h2>
-        <form className={style['shop-form']}
+        <form className={style['shop-form']} 
+        onSubmit={handleSubmit}
         >
           {showFirstRadio && (
             <div className={style['first-radio-wrapper']}>
@@ -388,22 +443,25 @@ export default function ShopPage() {
             </div>
           )}
           <div>
-          <h3 className={style['total-select']}>
-        ВЫБРАНО:
-        <ul className={style['selected-items-list']}>
-          {mergedSelectedItems.map((selectedItemId, index) => {
-            const selectedItem = PRICE.find(item => item.id.toString() === selectedItemId);
-            return (
-              <li key={index}>
-                {selectedItem ? `${selectedItem.name} (ID: ${selectedItem.id}) - Цена: ${selectedItem.price}` : ''}
-              </li>
-            );
-          })}
-        </ul>
-      </h3>
+            <h3 className={style['total-select']}>
+              ВЫБРАНО:
+              <ul className={style['selected-items-list']}>
+                {mergedSelectedItems.map((selectedItemId, index) => {
+                  const selectedItem = PRICE.find(item => item.id.toString() === selectedItemId);
+                  return (
+                    <li key={index}>
+                      {selectedItem ? `${selectedItem.name} (ID: ${selectedItem.id}) - Цена: ${selectedItem.price}` : ''}
+                    </li>
+                  );
+                })}
+              </ul>
+            </h3>
+            <p>Общая стоимость: {calculateTotalPrice()}</p>
           </div>
           <button className={style['form-submit']}
-            type='submit' />
+            type='submit' 
+            />
+            
         </form>
 
       </div>
