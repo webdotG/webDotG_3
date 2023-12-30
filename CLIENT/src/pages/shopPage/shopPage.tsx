@@ -7,7 +7,7 @@ import { useState, useEffect, ChangeEvent } from 'react';
 
 export default function ShopPage() {
   // Добавим состояния для управления видимостью блоков
-  const [showFirstRadio, setShowFirstRadio] = useState(true);
+  const [showFirstRadio] = useState(true);
   const [showSecondeRadio, setShowSecondeRadio] = useState(false);
   const [showSite, setShowSite] = useState(false);
   const [showTelegram, setShowTelegram] = useState(false);
@@ -20,7 +20,8 @@ export default function ShopPage() {
   const [selectedItems4, setSelectedItems4] = useState<string[]>([]);
   const [selectedItems5, setSelectedItems5] = useState<string[]>([]);
   const [selectedItemsCheckbox, setSelectedItemsCheckbox] = useState<string[]>([]);
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+  
+  const handleChangeFirsRadio = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
       setSelectedItems([id]);
@@ -29,7 +30,8 @@ export default function ShopPage() {
     }
     setShowSecondeRadio(true)
   };
-  const handleInputChange2 = (event: ChangeEvent<HTMLInputElement>) => {
+  
+  const handleChangeSecondRadio = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
       setSelectedItems2([id]);
@@ -52,7 +54,8 @@ export default function ShopPage() {
       setSelectedItems2([]);
     }
   };
-  const handleInputChange3 = (event: ChangeEvent<HTMLInputElement>) => {
+  
+  const handleChangeSite = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
       setSelectedItems3([id]);
@@ -61,7 +64,8 @@ export default function ShopPage() {
     }
     setShowAdditional(true)
   };
-  const handleInputChange4 = (event: ChangeEvent<HTMLInputElement>) => {
+  
+  const handleChangeTelegram = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
       setSelectedItems4([id]);
@@ -70,7 +74,8 @@ export default function ShopPage() {
     }
     setShowAdditional(true)
   };
-  const handleInputChange5 = (event: ChangeEvent<HTMLInputElement>) => {
+  
+  const handleChangeApp = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
       setSelectedItems5([id]);
@@ -79,6 +84,7 @@ export default function ShopPage() {
     }
     setShowAdditional(true)
   };
+  
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     setSelectedItemsCheckbox((prevItems) => {
@@ -89,7 +95,6 @@ export default function ShopPage() {
       }
     });
   };
-
 
   useEffect(() => {
     const mergedSelectedItems = [...selectedItems, ...selectedItems2, ...selectedItems3, ...selectedItems4, ...selectedItems5, ...selectedItemsCheckbox];
@@ -118,7 +123,7 @@ export default function ShopPage() {
                   id='1'
                   type='radio'
                   name='first-radio'
-                  onChange={handleInputChange}
+                  onChange={handleChangeFirsRadio}
                 />
                 <span className={style['custom-check']}></span>
               </label>
@@ -129,7 +134,7 @@ export default function ShopPage() {
                   id='2'
                   type='radio'
                   name='first-radio'
-                  onChange={handleInputChange}
+                  onChange={handleChangeFirsRadio}
                 />
                 <span className={style['custom-check']}></span>
               </label>
@@ -146,7 +151,7 @@ export default function ShopPage() {
                     id='3'
                     type='radio'
                     name='seconde-radio'
-                    onChange={handleInputChange2}
+                    onChange={handleChangeSecondRadio}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -159,7 +164,7 @@ export default function ShopPage() {
                     id='4'
                     type='radio'
                     name='seconde-radio'
-                    onChange={handleInputChange2}
+                    onChange={handleChangeSecondRadio}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -172,7 +177,7 @@ export default function ShopPage() {
                     id='5'
                     type='radio'
                     name='seconde-radio'
-                    onChange={handleInputChange2}
+                    onChange={handleChangeSecondRadio}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -190,7 +195,7 @@ export default function ShopPage() {
                     id='6'
                     type='radio'
                     name='site-radio'
-                    onChange={handleInputChange3}
+                    onChange={handleChangeSite}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -203,7 +208,7 @@ export default function ShopPage() {
                     id='7'
                     type='radio'
                     name='site-radio'
-                    onChange={handleInputChange3}
+                    onChange={handleChangeSite}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -216,7 +221,7 @@ export default function ShopPage() {
                     id='8'
                     type='radio'
                     name='site-radio'
-                    onChange={handleInputChange3}
+                    onChange={handleChangeSite}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -234,7 +239,7 @@ export default function ShopPage() {
                     id='9'
                     type='radio'
                     name='telegram-radio'
-                    onChange={handleInputChange4}
+                    onChange={handleChangeTelegram}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -247,7 +252,7 @@ export default function ShopPage() {
                     id='10'
                     type='radio'
                     name='telegram-radio'
-                    onChange={handleInputChange4}
+                    onChange={handleChangeTelegram}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -264,7 +269,7 @@ export default function ShopPage() {
                     id='11'
                     type='radio'
                     name='app-radio'
-                    onChange={handleInputChange5}
+                    onChange={handleChangeApp}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
@@ -276,7 +281,7 @@ export default function ShopPage() {
                     id='12'
                     type='radio'
                     name='app-radio'
-                    onChange={handleInputChange2}
+                    onChange={handleChangeApp}
                   />
                   <span className={style['custom-check']}></span>
                 </label>
