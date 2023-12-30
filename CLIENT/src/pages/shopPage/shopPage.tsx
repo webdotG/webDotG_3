@@ -3,7 +3,24 @@ import Footer from '../../components/footer/footer'
 import style from './shopPage.module.scss';
 import { useState, useEffect, ChangeEvent } from 'react';
 
-
+const PRICE = [
+  { id: 1, name: 'Шаблон', price: 1 },
+  { id: 2, name: 'Индивидуальный', price: 2 },
+  { id: 3, name: 'Сайты', price: 3 },
+  { id: 4, name: 'ТелеграмБот', price: 4 },
+  { id: 5, name: 'Приложения', price: 5 },
+  { id: 6, name: 'Лендинг', price: 6 },
+  { id: 7, name: 'Многостраничный', price: 8 },
+  { id: 8, name: 'Магазин', price: 9 },
+  { id: 9, name: 'ЧатБот', price: 10 },
+  { id: 10, name: 'Магазин Бот', price: 11 },
+  { id: 12, name: 'IOS & Andriod', price: 12 },
+  { id: 13, name: 'VK App', price: 13 },
+  { id: 14, name: 'Иллюстрации', price: 14 },
+  { id: 15, name: 'Иконки', price: 15 },
+  { id: 16, name: 'Фотографии', price: 16 },
+  { id: 17, name: 'Срочно!', price: 17 },
+]
 
 export default function ShopPage() {
   // Добавим состояния для управления видимостью блоков
@@ -20,7 +37,7 @@ export default function ShopPage() {
   const [selectedItems4, setSelectedItems4] = useState<string[]>([]);
   const [selectedItems5, setSelectedItems5] = useState<string[]>([]);
   const [selectedItemsCheckbox, setSelectedItemsCheckbox] = useState<string[]>([]);
-  
+
   const handleChangeFirsRadio = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
@@ -30,31 +47,31 @@ export default function ShopPage() {
     }
     setShowSecondeRadio(true)
   };
-  
+
   const handleChangeSecondRadio = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
       setSelectedItems2([id]);
-    if (id === '3') {
-      setShowSite(true);
-    } else{
-      setShowSite(false);
-    }
-    if (id === '4') {
-      setShowTelegram(true);
-    } else {
-      setShowTelegram(false);
-    }
-    if (id === '5') {
-      setShowApp(true);
-    } else{
-      setShowApp(false);
-    }
+      if (id === '3') {
+        setShowSite(true);
+      } else {
+        setShowSite(false);
+      }
+      if (id === '4') {
+        setShowTelegram(true);
+      } else {
+        setShowTelegram(false);
+      }
+      if (id === '5') {
+        setShowApp(true);
+      } else {
+        setShowApp(false);
+      }
     } else {
       setSelectedItems2([]);
     }
   };
-  
+
   const handleChangeSite = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
@@ -64,7 +81,7 @@ export default function ShopPage() {
     }
     setShowAdditional(true)
   };
-  
+
   const handleChangeTelegram = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
@@ -74,7 +91,7 @@ export default function ShopPage() {
     }
     setShowAdditional(true)
   };
-  
+
   const handleChangeApp = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
@@ -84,7 +101,7 @@ export default function ShopPage() {
     }
     setShowAdditional(true)
   };
-  
+
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     setSelectedItemsCheckbox((prevItems) => {
@@ -96,10 +113,18 @@ export default function ShopPage() {
     });
   };
 
-  useEffect(() => {
-    const mergedSelectedItems = [...selectedItems, ...selectedItems2, ...selectedItems3, ...selectedItems4, ...selectedItems5, ...selectedItemsCheckbox];
-    console.log('НОВЫЙ МАССИВ ITEMS + ITEMS2 + ....', mergedSelectedItems);
-  }, [selectedItems, selectedItems2, selectedItems3, selectedItems4, selectedItems5, selectedItemsCheckbox]);
+  // useEffect(() => {
+  //   const mergedSelectedItems = [...selectedItems, ...selectedItems2, ...selectedItems3, ...selectedItems4, ...selectedItems5, ...selectedItemsCheckbox];
+  //   console.log('НОВЫЙ МАССИВ ITEMS + ITEMS2 + ....', mergedSelectedItems);
+  // }, [selectedItems, selectedItems2, selectedItems3, selectedItems4, selectedItems5, selectedItemsCheckbox]);
+
+  const mergedSelectedItems = selectedItems.concat(
+    selectedItems2,
+    selectedItems3,
+    selectedItems4,
+    selectedItems5,
+    selectedItemsCheckbox
+  );
 
   return (
 
@@ -107,40 +132,55 @@ export default function ShopPage() {
 
       <Header />
       <div className={style['form-wrapper']}>
+
+      <h3 className={style['total-select']}>
+        ВЫБРАНО:
+        <ul className={style['selected-items-list']}>
+          {mergedSelectedItems.map((selectedItemId, index) => {
+            const selectedItem = PRICE.find(item => item.id.toString() === selectedItemId);
+            return (
+              <li key={index}>
+                {selectedItem ? `${selectedItem.name} (ID: ${selectedItem.id}) - Цена: ${selectedItem.price}` : ''}
+              </li>
+            );
+          })}
+        </ul>
+      </h3>
+
         <h2 className={style['form-title']}>выберите желаемое</h2>
         <form className={style['shop-form']}
         >
-        {showFirstRadio && ( 
-         <div className={style['first-radio-wrapper']}>
-            <span className={style['first-wrapper']}>
+          {showFirstRadio && (
+            <div className={style['first-radio-wrapper']}>
+              <span className={style['first-wrapper']}>
 
-            </span>
-            <span className={style['first-wrapper']}>
-              <label>индивидуальный
-                <input className={style['radio']}
-                  // id='Custom'
-                  // id='Индивидуальный'
-                  id='1'
-                  type='radio'
-                  name='first-radio'
-                  onChange={handleChangeFirsRadio}
-                />
-                <span className={style['custom-check']}></span>
-              </label>
-              <label>шаблон
-                <input className={style['radio']}
-                  // id='Print'
-                  // id='Шаблон'
-                  id='2'
-                  type='radio'
-                  name='first-radio'
-                  onChange={handleChangeFirsRadio}
-                />
-                <span className={style['custom-check']}></span>
-              </label>
-            </span>
-          </div>
-        )}
+              </span>
+              <span className={style['first-wrapper']}>
+                <label>индивидуальный
+                  <input className={style['radio']}
+                    // id='Custom'
+                    // id='Индивидуальный'
+                    id='1'
+                    type='radio'
+                    name='first-radio'
+                    onChange={handleChangeFirsRadio}
+                  />
+                  <span className={style['custom-check']}></span>
+                </label>
+                <label>шаблон
+                  <input className={style['radio']}
+                    // id='Print'
+                    // id='Шаблон'
+                    id='2'
+                    type='radio'
+                    name='first-radio'
+                    onChange={handleChangeFirsRadio}
+                  />
+                  <span className={style['custom-check']}></span>
+                </label>
+              </span>
+            </div>
+          )}
           {showSecondeRadio && (
             <div className={style['seconde-radio-wrapper']}>
               <span className={style['first-wrapper']}>
@@ -185,7 +225,7 @@ export default function ShopPage() {
             </div>
           )}
 
-          {showSite &&(
+          {showSite && (
             <div className={style['first-site-wrapper']}>
               <span className={style['first-wrapper']}>
                 <label>лендинг
@@ -229,7 +269,7 @@ export default function ShopPage() {
             </div>
           )}
 
-          {showTelegram &&(
+          {showTelegram && (
             <div className={style['first-telegram-wrapper']}>
               <span className={style['first-wrapper']}>
                 <label>чат бот
@@ -348,9 +388,19 @@ export default function ShopPage() {
             </div>
           )}
           <div>
-            <h3 className={style['total-select']}>ВЫБРАНО :
-              {/* <p className={style['total-select-text']}>{combinedString}</p> */}
-            </h3>
+          <h3 className={style['total-select']}>
+        ВЫБРАНО:
+        <ul className={style['selected-items-list']}>
+          {mergedSelectedItems.map((selectedItemId, index) => {
+            const selectedItem = PRICE.find(item => item.id.toString() === selectedItemId);
+            return (
+              <li key={index}>
+                {selectedItem ? `${selectedItem.name} (ID: ${selectedItem.id}) - Цена: ${selectedItem.price}` : ''}
+              </li>
+            );
+          })}
+        </ul>
+      </h3>
           </div>
           <button className={style['form-submit']}
             type='submit' />
@@ -363,5 +413,3 @@ export default function ShopPage() {
 
 }
 
-
-// id={testObj.find(element => element.name === 'Лендинг')?.id.toString()}
