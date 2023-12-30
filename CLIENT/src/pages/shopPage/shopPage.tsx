@@ -133,7 +133,6 @@ export default function ShopPage() {
 
     const selectedItemsIds = [
       ...selectedItems,
-      // ...selectedItems2,
       ...selectedItems3,
       ...selectedItems4,
       ...selectedItems5,
@@ -152,10 +151,12 @@ export default function ShopPage() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    // Удаление старых данных из localStorage перед добавлением новых данных
+    localStorage.removeItem('cartState');
+    
 
     const allSelectedItems = [
       ...selectedItems,
-      // ...selectedItems2,
       ...selectedItems3,
       ...selectedItems4,
       ...selectedItems5,
