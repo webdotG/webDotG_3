@@ -8,20 +8,20 @@ import { addToCart } from '../../slices/cart/cartSlice';
 const PRICE = [
   { id: 1, name: 'Шаблон', price: 1 },
   { id: 2, name: 'Индивидуальный', price: 2 },
-  { id: 3, name: 'Сайты', price: 3 },
-  { id: 4, name: 'ТелеграмБот', price: 4 },
-  { id: 5, name: 'Приложения', price: 5 },
+  { id: 3, name: 'Сайты', price: 0 },
+  { id: 4, name: 'ТелеграмБот', price: 0 },
+  { id: 5, name: 'Приложения', price: 0 },
   { id: 6, name: 'Лендинг', price: 6 },
-  { id: 7, name: 'Многостраничный', price: 8 },
-  { id: 8, name: 'Магазин', price: 9 },
-  { id: 9, name: 'ЧатБот', price: 10 },
-  { id: 10, name: 'Магазин Бот', price: 11 },
-  { id: 12, name: 'IOS & Andriod', price: 12 },
-  { id: 13, name: 'VK App', price: 13 },
-  { id: 14, name: 'Иллюстрации', price: 14 },
-  { id: 15, name: 'Иконки', price: 15 },
-  { id: 16, name: 'Фотографии', price: 16 },
-  { id: 17, name: 'Срочно!', price: 17 },
+  { id: 7, name: 'Многостраничный', price: 7 },
+  { id: 8, name: 'Магазин', price: 8 },
+  { id: 9, name: 'ЧатБот', price: 9 },
+  { id: 10, name: 'Магазин Бот', price: 10 },
+  { id: 11, name: 'IOS & Andriod', price: 11 },
+  { id: 12, name: 'VK App', price: 12 },
+  { id: 13, name: 'Иллюстрации', price: 13 },
+  { id: 14, name: 'Иконки', price: 14 },
+  { id: 15, name: 'Фотографии', price: 15 },
+  { id: 16, name: 'Срочно!', price: 16 },
 ]
 
 export default function ShopPage() {
@@ -122,7 +122,6 @@ export default function ShopPage() {
   // }, [selectedItems, selectedItems2, selectedItems3, selectedItems4, selectedItems5, selectedItemsCheckbox]);
 
   const mergedSelectedItems = selectedItems.concat(
-    selectedItems2,
     selectedItems3,
     selectedItems4,
     selectedItems5,
@@ -134,7 +133,7 @@ export default function ShopPage() {
 
     const selectedItemsIds = [
       ...selectedItems,
-      ...selectedItems2,
+      // ...selectedItems2,
       ...selectedItems3,
       ...selectedItems4,
       ...selectedItems5,
@@ -156,7 +155,7 @@ export default function ShopPage() {
 
     const allSelectedItems = [
       ...selectedItems,
-      ...selectedItems2,
+      // ...selectedItems2,
       ...selectedItems3,
       ...selectedItems4,
       ...selectedItems5,
@@ -165,17 +164,17 @@ export default function ShopPage() {
       const selectedItem = PRICE.find((item) => item.id.toString() === selectedItemId);
       return selectedItem
         ? {
-            itemId: selectedItem.id, // Присваиваем значение свойства itemId объекта CartItem
-            name: selectedItem.name,
-            price: selectedItem.price,
-          }
+          itemId: selectedItem.id, // Присваиваем значение свойства itemId объекта CartItem
+          name: selectedItem.name,
+          price: selectedItem.price,
+        }
         : { itemId: -1, name: '', price: 0 }; // В случае ошибки или несоответствия типам, указываем значения по умолчанию
     });
     // Передача объектов элементов корзины в Redux для добавления
     allSelectedItems.forEach(item => {
       dispatch(addToCart(item)); // Добавляем каждый выбранный объект в корзину
       // Перезагрузка страницы после выполнения определенных действий
-    // window.location.reload(); // Параметр false означает, что страница будет загружена с сервера, а не из кэша
+      // window.location.reload(); // Параметр false означает, что страница будет загружена с сервера, а не из кэша
 
     });
 
@@ -212,8 +211,8 @@ export default function ShopPage() {
         <p>Общая стоимость: {calculateTotalPrice()}</p>
 
         <h2 className={style['form-title']}>выберите желаемое</h2>
-        <form className={style['shop-form']} 
-        onSubmit={handleSubmit}
+        <form className={style['shop-form']}
+          onSubmit={handleSubmit}
         >
           {showFirstRadio && (
             <div className={style['first-radio-wrapper']}>
@@ -221,10 +220,10 @@ export default function ShopPage() {
 
               </span>
               <span className={style['first-wrapper']}>
-                <label>индивидуальный
+                <label>шаблон
                   <input className={style['radio']}
-                    // id='Custom'
-                    // id='Индивидуальный'
+                    // id='Print'
+                    // id='Шаблон'
                     id='1'
                     type='radio'
                     name='first-radio'
@@ -232,10 +231,10 @@ export default function ShopPage() {
                   />
                   <span className={style['custom-check']}></span>
                 </label>
-                <label>шаблон
+                <label>индивидуальный
                   <input className={style['radio']}
-                    // id='Print'
-                    // id='Шаблон'
+                    // id='Custom'
+                    // id='Индивидуальный'
                     id='2'
                     type='radio'
                     name='first-radio'
@@ -469,9 +468,9 @@ export default function ShopPage() {
             <p>Общая стоимость: {calculateTotalPrice()}</p>
           </div>
           <button className={style['form-submit']}
-            type='submit' 
-            />
-            
+            type='submit'
+          />
+
         </form>
 
       </div>
