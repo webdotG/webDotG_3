@@ -32,22 +32,24 @@
         localStorage.removeItem('cartState');
       },
 
+      deleteItem(state, action: PayloadAction<number>) {
+        // Ищем элемент с заданным itemId
+        const itemIdToRemove = action.payload;
+        const updatedItems = state.selectedItems.filter(item => item.itemId !== itemIdToRemove);
+  
+        // Обновляем состояние в Redux хранилище
+        state.selectedItems = updatedItems;
+  
+        // Обновляем данные в localStorage после удаления элемента
+        localStorage.setItem('cartState', JSON.stringify({ selectedItems: updatedItems }));
+      },
+
       loadCartState(state, action: PayloadAction<CartItem[]>) {
         state.selectedItems = action.payload;
       },
     },
   });
 
-  export const { addToCart, clearCart, loadCartState } = cartSlice.actions;
+  export const { addToCart, clearCart, deleteItem ,loadCartState } = cartSlice.actions;
   export default cartSlice.reducer;
 
-
-  // export const selectItems = (state: { cart: CartState }) => state.cart.selectedItems;
-  // export const selectItems = () => {
-  //   const cartStateFromLocalStorage = localStorage.getItem('cartState');
-  //   if (cartStateFromLocalStorage) {
-  //     const cartState = JSON.parse(cartStateFromLocalStorage);
-  //     return cartState.selectedItems || []; // Возвращаем selectedItems из состояния или пустой массив, если данных нет
-  //   }
-  //   return []; // Если данных в localStorage нет, возвращаем пустой массив
-  // };
