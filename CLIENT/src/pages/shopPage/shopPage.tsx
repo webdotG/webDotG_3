@@ -40,7 +40,7 @@ export default function ShopPage() {
   const [selectedItems4, setSelectedItems4] = useState<string[]>([]);
   const [selectedItems5, setSelectedItems5] = useState<string[]>([]);
   const [selectedItemsCheckbox, setSelectedItemsCheckbox] = useState<string[]>([]);
-
+  console.log(selectedItems2)
   const handleChangeFirsRadio = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
@@ -153,7 +153,7 @@ export default function ShopPage() {
     event.preventDefault();
     // Удаление старых данных из localStorage перед добавлением новых данных
     localStorage.removeItem('cartState');
-    
+
 
     const allSelectedItems = [
       ...selectedItems,
