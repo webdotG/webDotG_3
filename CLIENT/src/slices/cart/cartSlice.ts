@@ -1,34 +1,35 @@
-// cartSlice.ts
+import { createSlice , PayloadAction } from '@reduxjs/toolkit';
 
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// Определение начального состояния для корзины
 interface CartState {
-  selectedInputs: string[];
-  total: number;
+  selectedItems: number[]; // Предполагается, что ID элементов являются числами
 }
 
 const initialState: CartState = {
-  selectedInputs: [],
-  total: 0,
+  selectedItems: [], // Начальное состояние - пустой массив
 };
 
-const cartSlice = createSlice({
+
+export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    setCartItems(state, action: PayloadAction<string[]>) {
-      state.selectedInputs = action.payload;
+    addToCart: (state, action: PayloadAction<{ itemId: number }>) => {
+      const { itemId } = action.payload;
+      state.selectedItems = [...state.selectedItems, itemId];
     },
-    setTotalPrice(state, action: PayloadAction<number>) {
-      state.total = action.payload;
+    removeFromCart: (state, action: PayloadAction<{ itemId: number }>) => {
+      const { itemId } = action.payload;
+      state.selectedItems = state.selectedItems.filter(id => id !== itemId);
     },
-    clearCart(state) {
-      state.selectedInputs = [];
-      state.total = 0;
+    clearCart: state => {
+      state.selectedItems = [];
     },
   },
 });
 
-export const { setCartItems, setTotalPrice, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+
+export const selectItems = (state: { cart: CartState }) => state.cart.selectedItems;
+
 export default cartSlice.reducer;
