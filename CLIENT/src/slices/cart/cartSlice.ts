@@ -1,73 +1,53 @@
 
-import { createSlice, PayloadAction  } from '@reduxjs/toolkit';
+  import { createSlice, PayloadAction  } from '@reduxjs/toolkit';
 
-interface CartItem {
-  itemId: number;
-  name: string;
-  price: number;
-}
+  export interface CartItem {
+    itemId: number;
+    name: string;
+    price: number;
+  }
 
-interface CartState {
-  selectedItems: CartItem[];
-}
+  interface CartState {
+    selectedItems: CartItem[];
+  }
 
-const initialState: CartState = {
-  selectedItems: [],
-};
+  const initialState: CartState = {
+    selectedItems: [],
+  };
 
-const cartSlice = createSlice({
-  name: 'cart',
-  initialState,
-  reducers: {
-    addToCart(state, action: PayloadAction<CartItem>) {
-      state.selectedItems.push(action.payload);
+  const cartSlice = createSlice({
+    name: 'cart',
+    initialState,
+    reducers: {
+      
+      addToCart(state, action: PayloadAction<CartItem>) {
+        state.selectedItems = [
+          ...state.selectedItems, action.payload
+        ]
+        localStorage.setItem('cartState', JSON.stringify(state));
+      },
+
+      clearCart(state) {
+        state.selectedItems = [];
+        localStorage.removeItem('cartState');
+      },
+
+      loadCartState(state, action: PayloadAction<CartItem[]>) {
+        state.selectedItems = action.payload;
+      },
     },
-    removeFromCart(state, action) {
-      state.selectedItems = state.selectedItems.filter(item => item !== action.payload);
-    },
-    clearCart(state) {
-      state.selectedItems = [];
-    },
-  },
-});
+  });
 
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
-export default cartSlice.reducer;
+  export const { addToCart, clearCart, loadCartState } = cartSlice.actions;
+  export default cartSlice.reducer;
 
 
-
-// import { createSlice , PayloadAction } from '@reduxjs/toolkit';
-
-
-// interface CartState {
-//   selectedItems: number[]; // Предполагается, что ID элементов являются числами
-// }
-
-// const initialState: CartState = {
-//   selectedItems: [], // Начальное состояние - пустой массив
-// };
-
-
-// export const cartSlice = createSlice({
-//   name: 'cart',
-//   initialState,
-//   reducers: {
-//     addToCart: (state, action: PayloadAction<{ itemId: number }>) => {
-//       const { itemId } = action.payload;
-//       state.selectedItems = [...state.selectedItems, itemId];
-//     },
-//     removeFromCart: (state, action: PayloadAction<{ itemId: number }>) => {
-//       const { itemId } = action.payload;
-//       state.selectedItems = state.selectedItems.filter(id => id !== itemId);
-//     },
-//     clearCart: state => {
-//       state.selectedItems = [];
-//     },
-//   },
-// });
-
-// export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
-
-// export const selectItems = (state: { cart: CartState }) => state.cart.selectedItems;
-
-// export default cartSlice.reducer;
+  // export const selectItems = (state: { cart: CartState }) => state.cart.selectedItems;
+  // export const selectItems = () => {
+  //   const cartStateFromLocalStorage = localStorage.getItem('cartState');
+  //   if (cartStateFromLocalStorage) {
+  //     const cartState = JSON.parse(cartStateFromLocalStorage);
+  //     return cartState.selectedItems || []; // Возвращаем selectedItems из состояния или пустой массив, если данных нет
+  //   }
+  //   return []; // Если данных в localStorage нет, возвращаем пустой массив
+  // };

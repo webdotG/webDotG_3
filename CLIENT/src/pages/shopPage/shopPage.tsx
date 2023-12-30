@@ -1,7 +1,7 @@
 import Header from '../../components/header/header'
 import Footer from '../../components/footer/footer'
 import style from './shopPage.module.scss';
-import { useState, useEffect, ChangeEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { useAppDispatch } from '../../hooks';
 import { addToCart } from '../../slices/cart/cartSlice';
 
@@ -150,6 +150,7 @@ export default function ShopPage() {
 
     return totalPrice;
   };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -160,14 +161,22 @@ export default function ShopPage() {
       ...selectedItems4,
       ...selectedItems5,
       ...selectedItemsCheckbox,
-    ].map(itemId => {
-      const selectedItem = PRICE.find(item => item.id.toString() === itemId);
-      return selectedItem ? { ...selectedItem } : null;
-    }).filter(item => item !== null) as { id: number; name: string; price: number }[];
-
+    ].map((selectedItemId) => {
+      const selectedItem = PRICE.find((item) => item.id.toString() === selectedItemId);
+      return selectedItem
+        ? {
+            itemId: selectedItem.id, // Присваиваем значение свойства itemId объекта CartItem
+            name: selectedItem.name,
+            price: selectedItem.price,
+          }
+        : { itemId: -1, name: '', price: 0 }; // В случае ошибки или несоответствия типам, указываем значения по умолчанию
+    });
     // Передача объектов элементов корзины в Redux для добавления
     allSelectedItems.forEach(item => {
       dispatch(addToCart(item)); // Добавляем каждый выбранный объект в корзину
+      // Перезагрузка страницы после выполнения определенных действий
+    // window.location.reload(); // Параметр false означает, что страница будет загружена с сервера, а не из кэша
+
     });
 
     // Очистка выбранных элементов
@@ -177,6 +186,7 @@ export default function ShopPage() {
     setSelectedItems4([]);
     setSelectedItems5([]);
     setSelectedItemsCheckbox([]);
+
   };
 
   return (
