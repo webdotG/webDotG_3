@@ -7,6 +7,30 @@ import { CartItem } from '../../slices/cart/cartSlice'; // Замените на
 import {  useAppDispatch, useAppSelector } from "../../hooks"; 
 
 
+//------------------------------------------------------MODELS ORDER NEED CREATE------------------------------
+
+// import { makeOrder } from 'path/to/makeOrder'; // Импортируйте функцию для создания заказа из соответствующего файла
+
+// const makeOrder = async (userId, selectedItems) => {
+//   try {
+//     // Здесь могут быть различные операции для создания заказа
+
+//     // Например, создание заказа для пользователя в базе данных
+//     const createOrderQuery = 'INSERT INTO orders (user_id, items) VALUES ($1, $2) RETURNING *';
+//     const order = await pool.query(createOrderQuery, [userId, JSON.stringify(selectedItems)]);
+    
+//     return order.rows[0]; // Возвращаем созданный заказ
+
+//   } catch (error) {
+//     console.error('Ошибка при создании заказа:', error);
+//     throw new Error('Ошибка при создании заказа');
+//   }
+// };
+// module.exports = {
+//   makeOrder, // Добавляем функцию makeOrder в экспорт модуля
+// };
+
+//---------------------------MODEL ORDER NEED CREATE ---------------------------------------------------
 
 function CartPage() {
   const dispatch = useAppDispatch();
@@ -39,6 +63,15 @@ function CartPage() {
     </li>
   ))
 
+  const sendOrder = () => {
+    // Вызов функции для создания заказа
+    // makeOrder(selectedItems);
+    // Очистка корзины после оформления заказа
+    dispatch(clearCart());
+    // Очистка данных в локальном хранилище после оформления заказа
+    localStorage.removeItem('cartState');
+  };
+
   return (
     <>
       <Header />
@@ -54,7 +87,9 @@ function CartPage() {
         </ul>
         <div className={style["cart-total"]}>
           <p>Итого: <span className={style["total-amount"]}>$50</span></p>
-          <button className={style["checkout-btn"]}>Оформить заказ</button>
+          <button className={style["checkout-btn"]}
+            onClick={sendOrder}
+          >Оформить заказ</button>
         </div>
         <button className={style["2remove-btn"]}
         onClick={() => dispatch(clearCart())}
