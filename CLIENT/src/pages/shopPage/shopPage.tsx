@@ -2,8 +2,9 @@ import Header from '../../components/header/header'
 import Footer from '../../components/footer/footer'
 import style from './shopPage.module.scss';
 import { useState, ChangeEvent } from 'react';
-import { useAppDispatch } from '../../hooks';
+import { useAppDispatch } from '../../hooks'; //, useAppSelector 
 import { addToCart } from '../../slices/cart/cartSlice';
+// import { selectIsAuth } from '../../slices/auth/authSlice';
 
 const PRICE = [
   { id: 1, name: 'Шаблон', price: 1 },
@@ -26,6 +27,7 @@ const PRICE = [
 
 export default function ShopPage() {
   const dispatch = useAppDispatch()
+  // const isAuth = useAppSelector(selectIsAuth)
   //состояния для управления видимостью блоков
   const [showFirstRadio] = useState(true);
   const [showSecondeRadio, setShowSecondeRadio] = useState(false);
@@ -190,35 +192,17 @@ export default function ShopPage() {
   };
 
   return (
-
     <div className={style['wrapper']}>
-
       <Header />
       <div className={style['form-wrapper']}>
-
-        <h3 className={style['total-select']}>
-          ВЫБРАНО:
-          <ul className={style['selected-items-list']}>
-            {mergedSelectedItems.map((selectedItemId, index) => {
-              const selectedItem = PRICE.find(item => item.id.toString() === selectedItemId);
-              return (
-                <li key={index}>
-                  {selectedItem ? `${selectedItem.name} (ID: ${selectedItem.id}) - Цена: ${selectedItem.price}` : ''}
-                </li>
-              );
-            })}
-          </ul>
-        </h3>
-        <p>Общая стоимость: {calculateTotalPrice()}</p>
-
         <h2 className={style['form-title']}>выберите желаемое</h2>
+
         <form className={style['shop-form']}
           onSubmit={handleSubmit}
         >
           {showFirstRadio && (
             <div className={style['first-radio-wrapper']}>
               <span className={style['first-wrapper']}>
-
               </span>
               <span className={style['first-wrapper']}>
                 <label>шаблон
@@ -289,7 +273,6 @@ export default function ShopPage() {
               </span>
             </div>
           )}
-
           {showSite && (
             <div className={style['first-site-wrapper']}>
               <span className={style['first-wrapper']}>
@@ -333,7 +316,6 @@ export default function ShopPage() {
               </span>
             </div>
           )}
-
           {showTelegram && (
             <div className={style['first-telegram-wrapper']}>
               <span className={style['first-wrapper']}>
@@ -364,7 +346,6 @@ export default function ShopPage() {
               </span>
             </div>
           )}
-
           {showApp && (
             <div className={style['first-app-wrapper']}>
               <span className={style['first-wrapper']}>
@@ -393,7 +374,6 @@ export default function ShopPage() {
               </span>
             </div>
           )}
-
           {showAdditional && (
             <div className={style['additional-wrapper']}>
               <span className={style['addit-check-wrapper']}>
@@ -414,7 +394,6 @@ export default function ShopPage() {
                   <input className={style['checkbox']}
                     // id="customIcons"
                     // id="Иконки"
-
                     id='14'
                     type='checkbox'
                     name='additional-seconde'
@@ -441,7 +420,6 @@ export default function ShopPage() {
                   <input className={style['checkbox']}
                     // id="now"
                     // id="Срочно!"
-
                     id='16'
                     type='checkbox'
                     name='additional-fourth'
@@ -460,20 +438,19 @@ export default function ShopPage() {
                   const selectedItem = PRICE.find(item => item.id.toString() === selectedItemId);
                   return (
                     <li key={index}>
-                      {selectedItem ? `${selectedItem.name} (ID: ${selectedItem.id}) - Цена: ${selectedItem.price}` : ''}
+                      {selectedItem ? `${selectedItem.name}  ${selectedItem.price} р` : ''}
                     </li>
                   );
                 })}
               </ul>
             </h3>
-            <p>Общая стоимость: {calculateTotalPrice()}</p>
+            <p className={style['total-price']}>Общая стоимость: {calculateTotalPrice()}</p>
           </div>
           <button className={style['form-submit']}
             type='submit'
+            // disabled={!isAuth}
           />
-
         </form>
-
       </div>
       <Footer />
     </div>

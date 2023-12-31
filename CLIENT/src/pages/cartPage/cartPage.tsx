@@ -2,24 +2,24 @@ import Footer from "../../components/footer/footer";
 import Header from "../../components/header/header";
 import style from './cartPage.module.scss'
 // import { useEffect } from 'react';
-import { clearCart, deleteItem, CartItem } from '../../slices/cart/cartSlice'; 
-import {  useAppDispatch, useAppSelector } from "../../hooks"; 
+import { clearCart, deleteItem, CartItem } from '../../slices/cart/cartSlice';
+import { useAppDispatch, useAppSelector } from "../../hooks";
 // import { makeOrder } from 'path/to/makeOrder'; // Импортируйте функцию для создания заказа из соответствующего файла
 
 
 function CartPage() {
-  
+
   const dispatch = useAppDispatch();
   const selectedItems = useAppSelector((state) => state.cart.selectedItems);
   console.log('CART PAGE APPSELECTOR SELECET ITEMS : ', selectedItems)
-  
+
 
   // Рендеринг списка элементов корзины
   const cartItems = selectedItems.map((item: CartItem, index: number) => (
-    <li className={style["cart-item"]}  key={index}>
-        <span className={style["item-name"]}>{item.name}</span>
-        <span className={style["item-price"]}>${item.price}</span>
-      
+    <li className={style["cart-item"]} key={index}>
+      <span className={style["item-name"]}>{item.name}</span>
+      <span className={style["item-price"]}>${item.price}</span>
+
       <button className={style["remove-btn"]}
         onClick={(event) => {
           alert('удалить ?')
@@ -48,11 +48,7 @@ function CartPage() {
   return (
     <>
       <Header />
-      <button className={style["2remove-btn"]}
-        onClick={() => dispatch(clearCart())}
-      >ОЧИСТИТЬ КОРЗИНУ
-        
-      </button>
+
       <section className={style["cart"]}>
         <h2 className={style["cart_title"]}>Ваш заказ:</h2>
         <ul className={style["cart-list"]}>
@@ -65,17 +61,17 @@ function CartPage() {
           >Оформить заказ</button>
         </div>
         <button className={style["2remove-btn"]}
-        onClick={() => dispatch(clearCart())}
-      >ОЧИСТИТЬ КОРЗИНУ
-        
-      </button>
+          onClick={() => dispatch(clearCart())}
+        >очистить заказ
+
+        </button>
       </section>
       <Footer />
     </>
   )
 }
 
-export default CartPage 
+export default CartPage
 
 
 ////////////////////////////////////////////////////////////////
