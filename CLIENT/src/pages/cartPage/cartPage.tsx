@@ -2,39 +2,14 @@ import Footer from "../../components/footer/footer";
 import Header from "../../components/header/header";
 import style from './cartPage.module.scss'
 // import { useEffect } from 'react';
-import { clearCart, deleteItem } from '../../slices/cart/cartSlice'; // Подставьте корректный путь к вашему экшену addToCart
-import { CartItem } from '../../slices/cart/cartSlice'; // Замените на путь к вашему cartSlice и типу CartItem
+import { clearCart, deleteItem, CartItem } from '../../slices/cart/cartSlice'; 
 import {  useAppDispatch, useAppSelector } from "../../hooks"; 
-
-
-//------------------------------------------------------MODELS ORDER NEED CREATE------------------------------
-
 // import { makeOrder } from 'path/to/makeOrder'; // Импортируйте функцию для создания заказа из соответствующего файла
 
-// const makeOrder = async (userId, selectedItems) => {
-//   try {
-//     // Здесь могут быть различные операции для создания заказа
-
-//     // Например, создание заказа для пользователя в базе данных
-//     const createOrderQuery = 'INSERT INTO orders (user_id, items) VALUES ($1, $2) RETURNING *';
-//     const order = await pool.query(createOrderQuery, [userId, JSON.stringify(selectedItems)]);
-    
-//     return order.rows[0]; // Возвращаем созданный заказ
-
-//   } catch (error) {
-//     console.error('Ошибка при создании заказа:', error);
-//     throw new Error('Ошибка при создании заказа');
-//   }
-// };
-// module.exports = {
-//   makeOrder, // Добавляем функцию makeOrder в экспорт модуля
-// };
-
-//---------------------------MODEL ORDER NEED CREATE ---------------------------------------------------
 
 function CartPage() {
+  
   const dispatch = useAppDispatch();
-  // Получение выбранных элементов из Redux store
   const selectedItems = useAppSelector((state) => state.cart.selectedItems);
   console.log('CART PAGE APPSELECTOR SELECET ITEMS : ', selectedItems)
   
@@ -66,9 +41,7 @@ function CartPage() {
   const sendOrder = () => {
     // Вызов функции для создания заказа
     // makeOrder(selectedItems);
-    // Очистка корзины после оформления заказа
     dispatch(clearCart());
-    // Очистка данных в локальном хранилище после оформления заказа
     localStorage.removeItem('cartState');
   };
 

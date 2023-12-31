@@ -54,51 +54,6 @@ const Register = async (req, res) => {
 };
 
 
-// const Register = async (req, res) => {
-//   const { email, name, password, confirmPassword } = req.body;
-
-//   if (!email || !password || !name || !confirmPassword) {
-//     return res.status(400).json({ message: 'Пожалуйста, заполните обязательные поля' });
-//   }
-
-//   try {
-//     // Проверка наличия пользователя с таким email в базе данных
-//     const checkUserQuery = 'SELECT * FROM users WHERE email = $1';
-//     const existingUser = await pool.query(checkUserQuery, [email]);
-
-//     if (existingUser.rows.length > 0) {
-//       return res.status(400).json({ message: 'Пользователь с таким email уже существует' });
-//     }
-
-//     const salt = await bcrypt.genSalt(10);
-//     const hashedPassword = await bcrypt.hash(password, salt);
-
-//     const createUserQuery = 'INSERT INTO users (name, email, password, confirmPassword) VALUES ($1, $2, $3, $4) RETURNING *';
-//     const newUser = await pool.query(createUserQuery, [name, email, hashedPassword, confirmPassword]);
-
-//     const secret = process.env.JWT_SECRET;
-//     if (newUser.rows.length > 0 && secret) {
-//       const user = newUser.rows[0];
-//       res.status(201).json({
-//         id: user.id,
-//         email: user.email,
-//         name: user.name,
-//         confirmPassword: user.confirmPassword,
-//         token: jwt.sign({ id: user.id }, secret, { expiresIn: '30d' }),
-//       });
-//     } else {
-//       res.status(400).json({ message: 'Не удалось создать пользователя' });
-//     }
-
-//     return res;
-
-//   } catch (error) {
-//     console.error('Ошибка при регистрации пользователя:', error);
-//     return res.status(500).json({ message: 'Внутренняя ошибка сервера' });
-//   }
-// };
-
-
 const Login = async (req, res) => {
 
   const { email, password } = req.body;

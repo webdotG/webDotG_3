@@ -4,15 +4,9 @@ const {Register, Login, Current} = require('../models/user')
 const {Auth} = require('../midlewear/auth')
 
 
-/* api/user/login */
+/* api/user/... */
 router.post('/login', Login );
-
-
-/* api/user/register */
 router.post('/register', Register);
-
-
-/* api/user/current */
 router.get('/current', Auth ,Current);
 
 module.exports = router;
