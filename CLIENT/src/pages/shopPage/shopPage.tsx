@@ -118,11 +118,6 @@ export default function ShopPage() {
     });
   };
 
-  // useEffect(() => {
-  //   const mergedSelectedItems = [...selectedItems, ...selectedItems2, ...selectedItems3, ...selectedItems4, ...selectedItems5, ...selectedItemsCheckbox];
-  //   console.log('НОВЫЙ МАССИВ ITEMS + ITEMS2 + ....', mergedSelectedItems);
-  // }, [selectedItems, selectedItems2, selectedItems3, selectedItems4, selectedItems5, selectedItemsCheckbox]);
-
   const mergedSelectedItems = selectedItems.concat(
     selectedItems3,
     selectedItems4,
@@ -180,7 +175,6 @@ export default function ShopPage() {
       // window.location.reload(); // Параметр false означает, что страница будет загружена с сервера, а не из кэша
 
     });
-
     // Очистка выбранных элементов
     setSelectedItems([]);
     setSelectedItems2([]);
