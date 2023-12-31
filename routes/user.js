@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {Register, Login, Current} = require('../models/user')
-const {Auth} = require('../midlewear/auth')
+const Auth = require('../midlewear/auth')
 
 
 /* api/user/... */

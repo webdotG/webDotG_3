@@ -6,8 +6,6 @@ const Auth = async (req, res, next) => {
     const token = (req.headers.authorization || '').replace(/Bearer\s?/, '');
     console.log('MIDLEWEAR AUTH TOKEN : ', token);
 
-    // const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    // console.log('MIDLEWEAR AUTH DECODED JWT : ', decoded);
     let decoded;
     try {
       decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -41,11 +39,14 @@ const Auth = async (req, res, next) => {
 
     req.user = userResult.rows[0]; // Добавляем информацию о пользователе в объект req
 
-    next(); // Передаем управление следующему обработчику маршрута
+    next() // Передаем управление следующему обработчику маршрута
 
   } catch (err) {
     res.status(401).json({ message: 'Не авторизован' });
   }
 };
 
-module.exports = { Auth };
+module.exports =  Auth ;
+// module.exports = (req, res, next) => {
+//   Auth(req, res, next).catch(next);
+// };
