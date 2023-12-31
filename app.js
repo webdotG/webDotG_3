@@ -8,13 +8,6 @@ require('dotenv').config();
 const app = express();
 
 app.use(logger('dev'));
-// const corsOptions = {
-//   origin: 'http://localhost:5173', // Замените на URL приложения
-//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//   credentials: true,
-//   optionsSuccessStatus: 200 // (старые версии IE) могут требовать этот флаг
-// };
-// app.use(cors(corsOptions));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
