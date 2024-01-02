@@ -5,7 +5,6 @@ const Auth = async (req, res, next) => {
   try {
     const token = (req.headers.authorization || '').replace(/Bearer\s?/, '');
     console.log('MIDLEWEAR AUTH TOKEN : ', token);
-
     let decoded;
     try {
       decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -24,7 +23,6 @@ const Auth = async (req, res, next) => {
     
     const userId = decoded.id;
     // console.log('MIDLEWEAR AUTH USER ID : ', userId);
-
 
     // Пример запроса на получение пользователя по его ID
     const getUserQuery = 'SELECT * FROM webdotg.users WHERE id = $1';

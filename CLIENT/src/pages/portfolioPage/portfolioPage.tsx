@@ -1,6 +1,7 @@
 
 import Footer from '../../components/footer/footer'
 import Header from '../../components/header/header'
+import ForCoders from '../../forCoders/forCoders'
 import style from './portfolioPage.module.scss'
 
 
@@ -9,6 +10,7 @@ function PortfolioPage() {
   return (
     <div>
       <Header />
+      <ForCoders />
       <section className={style["portfolio"]}>
         <h2>Мои работы</h2>
         <ul className={style["portfolio-list"]}>
