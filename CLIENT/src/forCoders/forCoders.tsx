@@ -235,7 +235,7 @@ export default function ForCoders() {
                 </svg>
               </li>
               <li className={style['zadrot-list-item']}>
-                <svg width="50px" height="50px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <svg width="50px" height="50px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                   <defs>
                     <linearGradient x1="62.1023273%" y1="0%" x2="108.19718%" y2="37.8635764%" id="linearGradient-1">
                       <stop stop-color="#4285EB" offset="0%">

@@ -8,7 +8,7 @@ import LogoGMint from "../../svg/logoGMint";
 import MainFeedback from "../../components/mainFeedback/mainFeedback";
 import MainOrder from "../../components/mainOreder/mainOrder";
 import Footer from "../../components/footer/footer";
-import ForCoders from '../../forCoders/forCoders';
+// import ForCoders from '../../forCoders/forCoders';
 
 
 const textAnimation = {
