@@ -4,6 +4,7 @@ import style from './shopPage.module.scss';
 import { useState, ChangeEvent } from 'react';
 import { useAppDispatch } from '../../hooks'; //, useAppSelector 
 import { addToCart } from '../../slices/cart/cartSlice';
+import { useNavigate } from 'react-router-dom';
 // import { selectIsAuth } from '../../slices/auth/authSlice';
 
 const PRICE = [
@@ -27,7 +28,7 @@ const PRICE = [
 
 export default function ShopPage() {
   const dispatch = useAppDispatch()
-  // const isAuth = useAppSelector(selectIsAuth)
+  const navigate = useNavigate()
   //состояния для управления видимостью блоков
   const [showFirstRadio] = useState(true);
   const [showSecondeRadio, setShowSecondeRadio] = useState(false);
@@ -183,6 +184,7 @@ export default function ShopPage() {
     setSelectedItems5([]);
     setSelectedItemsCheckbox([]);
 
+     navigate('/confirmation')
   };
 
   return (
@@ -426,24 +428,26 @@ export default function ShopPage() {
           )}
           <div>
             <h3 className={style['total-select']}>
-              ВЫБРАНО:
+              ВЫБРАНО :
               <ul className={style['selected-items-list']}>
                 {mergedSelectedItems.map((selectedItemId, index) => {
                   const selectedItem = PRICE.find(item => item.id.toString() === selectedItemId);
                   return (
-                    <li key={index}>
-                      {selectedItem ? `${selectedItem.name}  ${selectedItem.price} р` : ''}
+                    <li className={style['selected-item']} key={index}>
+                      {selectedItem ? `${selectedItem.name} : ${selectedItem.price} р` : ''}
                     </li>
                   );
                 })}
               </ul>
             </h3>
-            <p className={style['total-price']}>Общая стоимость: {calculateTotalPrice()}</p>
+            <p className={style['total-price']}>Общая стоимость : {calculateTotalPrice()} р</p>
           </div>
           <button className={style['form-submit']}
             type='submit'
-            // disabled={!isAuth}
-          />
+          // disabled={!isAuth}
+          >
+            добавить в корзину
+          </button>
         </form>
       </div>
       <Footer />

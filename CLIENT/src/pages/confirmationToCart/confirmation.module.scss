@@ -1,0 +1,29 @@
+@media (min-width:320px) {
+
+  .confirmation-wrapper {
+    min-height: 600px;
+    width: 100%;
+    background-color: #393e46;
+  }
+
+  .confirmation-title {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 200;
+    color: #eeeeee;
+    background-color: transparent;
+    text-transform: uppercase;
+  }
+
+  // .confirmation-list-link {}
+
+  .confirmation-link-text {
+    color: #eeeeee;
+    font-size: 18px;
+    padding-bottom: 10px;
+    text-decoration: underline;
+  }
+
+}

@@ -1,7 +1,7 @@
 
 import Footer from '../../components/footer/footer'
 import Header from '../../components/header/header'
-import ForCoders from '../../forCoders/forCoders'
+import ForCoders from '../../components/forCoders/forCoders'
 import style from './portfolioPage.module.scss'
 
 

@@ -92,7 +92,7 @@ function MainPriceBlokck() {
           </div>
         </li>
       </ul>
-      <Link className={styles['main_price_link_shop']} to='/webDotG_3/shop'>перейти в магазин</Link>
+      <Link className={styles['main_price_link_shop']} to='/shop'>перейти в магазин</Link>
     </div>
   )
 }

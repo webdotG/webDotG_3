@@ -40,7 +40,7 @@ function MainPortfolioBock() {
           <div className={style.wrapper}>
             <img className={style.panel_img}></img>
             <h4 className={style.panel_title}>приложение аренды строительной техники</h4>
-            <Link className={style.link_btn} to='/webDotG_3/portfolio'>открыть</Link>
+            <Link className={style.link_btn} to='/portfolio'>открыть</Link>
           </div>
         </div>
       </Carousel>
