@@ -8,6 +8,7 @@ import LogoGMint from "../../svg/logoGMint";
 import MainFeedback from "../../components/mainFeedback/mainFeedback";
 import MainOrder from "../../components/mainOreder/mainOrder";
 import Footer from "../../components/footer/footer";
+import ForCoders from '../../forCoders/forCoders';
 
 
 const textAnimation = {
@@ -26,11 +27,11 @@ const textAnimation = {
 
 function HomePage() {
 
-    return (
+  return (
     <>
-    
+
       <Header />
-    
+
       <div className={style.mainTitleBlock}>
         <motion.div
           initial='hidden'
@@ -48,7 +49,7 @@ function HomePage() {
           <li className={style.main_title__text}>приложения</li>
         </ul>
       </div>
-
+      {/* <ForCoders /> */}
       <MainPriceBlokck />
       <MainPortfolioBock />
       <MainAboutBlok />
