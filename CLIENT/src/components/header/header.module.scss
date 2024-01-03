@@ -82,12 +82,12 @@
 
 		&:hover {
 			background-color: transparent;
-			border: 2px solid #00ADB5 ;
-			color: #eeeeee ;
+			border: 2px solid #00ADB5;
+			color: #eeeeee;
 		}
 	}
 
-	
+
 
 	.header_nav__link {
 		z-index: 10;
@@ -135,7 +135,7 @@
 		}
 	}
 
-	.btn-logout{
+	.btn-logout {
 		height: 28px;
 		padding: 3px 5px;
 		border: #00ADB5 2px solid;
@@ -151,36 +151,37 @@
 
 @media (min-width:780px) {
 
-	.header{
+	.header {
 		padding-bottom: 10px;
 		padding-left: 40px;
 		padding-right: 40px;
 		position: relative;
 	}
 
-	.header_logo__wrapper{
+	.header_logo__wrapper {
 		position: absolute;
 		left: 5px;
 		top: 10px;
 	}
 
-	.burger_btn{
+	.burger_btn {
 		display: none;
 	}
 
-	.header_navigation{
+	.header_navigation {
 		padding: 0;
 		width: 100%;
 		align-items: center;
 	}
-	.nav__wrapper{
+
+	.nav__wrapper {
 		height: 60px;
 		margin-left: 55px;
 		display: flex;
 		// align-items: center;
 	}
 
-	.header_nav_list{
+	.header_nav_list {
 		width: 100%;
 		margin-right: 30px;
 		display: flex;
@@ -188,15 +189,21 @@
 	}
 
 
-	.header_nav__item{
+	.header_nav__item {
 		font-size: 19px;
 		padding-bottom: 5px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 
-		&:hover{
+		&:hover {
 			border-bottom: #00ADB5 2px solid;
 		}
 	}
+
+	.auth_wrapper {
+		width: 100%;
+		padding-left: 0;
+	}
+
 }
