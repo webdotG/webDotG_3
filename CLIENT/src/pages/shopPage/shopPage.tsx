@@ -44,6 +44,8 @@ export default function ShopPage() {
   const [selectedItems5, setSelectedItems5] = useState<string[]>([]);
   const [selectedItemsCheckbox, setSelectedItemsCheckbox] = useState<string[]>([]);
   console.log(selectedItems2)
+  const [showSelectItemMessage, setShowSelectItemMessage] = useState(false);
+
   const handleChangeFirsRadio = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
@@ -184,7 +186,7 @@ export default function ShopPage() {
     setSelectedItems5([]);
     setSelectedItemsCheckbox([]);
 
-     navigate('/confirmation')
+    navigate('/confirmation')
   };
 
   return (
@@ -442,12 +444,25 @@ export default function ShopPage() {
             </h3>
             <p className={style['total-price']}>Общая стоимость : {calculateTotalPrice()} р</p>
           </div>
-          <button className={style['form-submit']}
-            type='submit'
-          // disabled={!isAuth}
-          >
-            добавить в корзину
-          </button>
+          <div>
+            <button className={style['form-submit']}
+              type='submit'
+              // disabled={!showAdditional}
+              onClick={(event) => {
+                if (!showAdditional) {
+                  event.preventDefault();          // прерываю отправку формы если кнопка недоступна
+                  setShowSelectItemMessage(true);  
+                }
+              }}
+            >
+              добавить в корзину
+            </button>
+            {showSelectItemMessage && (
+              <p className={style['select-item-message']}>
+                Надо выбрать хотя бы один товар.
+              </p>
+            )}
+          </div>
         </form>
       </div>
       <Footer />
