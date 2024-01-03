@@ -206,4 +206,22 @@
 		padding-left: 0;
 	}
 
+	.check_auth_link{
+		font-size: 20px;
+		font-weight: 200;
+		svg{
+			width: 55px;
+			height: 55px;
+		}
+	}
+
+	.btn-logout{
+		height: auto;
+		font-size: 18px;
+		padding: 5px 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
 }
