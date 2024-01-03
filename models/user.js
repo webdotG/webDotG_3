@@ -92,16 +92,23 @@ const Login = async (req, res) => {
 };
 
 const Current = async (req, res) => {
-  Auth(req, res, async () => {
-    const user = req.user;                // Здесь будет информация о пользователе из middleware
-    console.log("MODELS CURRENT USER : ", user)
-    if (user) {
-      res.status(200).json(user);
-    } else {
-      res.status(401).json({ message: 'Пользователь не авторизован' });
-    }
-  });
+  return res.status(200).json(req.user)
+  // try {
+  //   const currentUser = req.user; // Получаем информацию о текущем пользователе из объекта req
+
+  //   if (currentUser) {
+  //     // Если пользователь найден, возвращаем его данные
+  //     res.status(200).json(currentUser);
+  //   } else {
+  //     // Если пользователь не найден, возвращаем ошибку
+  //     res.status(401).json({ message: 'Пользователь не авторизован' });
+  //   }
+  // } catch (err) {
+  //   // Обработка других ошибок, если они возникнут
+  //   res.status(500).json({ message: 'Произошла ошибка при получении данных пользователя' });
+  // }
 };
+
 
 module.exports = {
   Register,

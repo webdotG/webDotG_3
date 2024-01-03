@@ -4,17 +4,18 @@ import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchRegister, selectIsAuth } from '../../slices/auth/authSlice';
-import { Navigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const RegistrPage = () => {
   const dispatch = useAppDispatch()
   const isAuth = useAppSelector(selectIsAuth)
-
+  // const navigate = useNavigate()
+  
   const [user, setUser] = useState({ name: '', email: '', password: '', confirmPassword: '' });
   const [error, setError] = useState({ name: '', email: '', password: '', confirmPassword: '' });
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const isValidPassword = (password: string): boolean => {
-    return password.length >= 6;
+    return password.length >= 3;
   };
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>): void => {
@@ -87,7 +88,7 @@ const RegistrPage = () => {
   console.log('SELECT IS AUTH : ', isAuth)
   //если залогинился то надо сразу отправлять на главную страницу
   if (isAuth) {
-    return <Navigate to='/' />
+    return navigate('/')
   }
 
 
@@ -141,11 +142,11 @@ const RegistrPage = () => {
               />
               <button className={styles['btn-show-password']} type="button" onClick={handleTogglePassword}>
                 {showPassword
-                  ? (<svg fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.5 8C7.5 14.5 16.5 14.5 19.5 8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M16.8162 11.3175L19.5 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M12 12.875V16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M7.18383 11.3175L4.5 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+                  ? (<svg fill="none" height="24" strokeWidth="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.5 8C7.5 14.5 16.5 14.5 19.5 8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M16.8162 11.3175L19.5 15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M12 12.875V16.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M7.18383 11.3175L4.5 15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>)
                   : (<svg
                     id="Layer_1"

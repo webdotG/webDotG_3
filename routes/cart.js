@@ -7,3 +7,5 @@ console.log('AUTH >>>>> : ', Auth)
 
 /* api/cart/... */
 router.post('/makeOrder', Auth, MakeOrder );
+
+module.exports = router;

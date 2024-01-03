@@ -11,7 +11,7 @@ const pool = new Pool({
 })
 // console.log("POOL IMPORT>META>ENV>VITE_USER : ", process.env.DB_USER) 
 
-pool.query('SELECT NOW()').then() //x => console.log(x)
+// pool.query('SELECT NOW()').then() //x => console.log(x)
 // pool.query('SELECT NOW()', function (err, rows) {
 //   console.log(rows);
 // });

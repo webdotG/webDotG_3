@@ -47,7 +47,7 @@ export const fetchRegister = createAsyncThunk<UserData, {
         password,
         confirmPassword,
         name
-      });//{ params }
+      });
       console.log("AUTH SLICE AXIOS RESPONSE REGISTER : ", response)
       return response.data;
     } catch (error) {
@@ -129,6 +129,7 @@ const authSlice = createSlice({
 
 export const selectIsAuth = (state: RootState) => {
   // console.log("authSlice SelectIsAuth STATE : Root_State : ", state)
+  console.log("authSlice SelectIsAuth STATE AUTH DATA : ", state.auth.data)
   return state.auth.data !== null && typeof state.auth.data === 'object' && '' in state.auth.data;
 };
 
