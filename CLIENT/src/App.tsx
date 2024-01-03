@@ -13,30 +13,15 @@ import { useEffect } from 'react';
 import { fetchAuth } from './slices/auth/authSlice';
 import { selectIsAuth } from '../src/slices/auth/authSlice';
 import ConfirmationToCart from './pages/confirmationToCart/confirmationToCart';
-// import { Navigate } from 'react-router-dom';
-// import { store } from './store';
 
 function App() {
   const dispatch = useAppDispatch()
+  const isAuth = useAppSelector(selectIsAuth);
+  console.log('SRC APP Slice Auth IS AUTH : ', isAuth)
 
   useEffect(() => {
     dispatch(fetchAuth())
   }, [dispatch])
-
-  const isAuth = useAppSelector(selectIsAuth);
-  console.log('SRC APP Slice Auth IS AUTH : ', isAuth)
-  // useEffect(() => {
-  //   // Проверка на изменение состояния на null и перезагрузка страницы
-  //   if (!selectIsAuth(store.getState())) {
-  //     windoocation.reload();
-  //   }
-  // }, [store.getState().auth.data]); // Зависимость useEffect от состояния auth.data
-  // useEffect(() => {
-  //   // Проверка на изменение состояния на null и перезагрузка страницы
-  //   if (isAuth === null) {
-  //     window.location.reload();
-  //   }
-  // }, [isAuth]);
 
   return (
     <>
@@ -48,14 +33,7 @@ function App() {
         <Route index path="/shop" element={<ShopPage />} />
         <Route index path="/cart" element={<CartPage />} />
         <Route index path="/confirmation" element={<ConfirmationToCart />} />
-        {isAuth ? (
-          <Route index path="/my_page" element={<MyPage />} />
-        )
-          : (
-            null
-            // <Route to='/login'/>
-          )}
-
+        {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null }
       </Routes>
     </>
   )
