@@ -65,12 +65,12 @@ function ConfirmationToCart() {
         <ul className={style['confirmation-list-link']}>
           <li>
             <Link to='/cart'>
-              <p className={style['confirmation-link-text']}>подтвердить и оформить заказ</p>
+              <p className={style['confirmation-link']}>подтвердить и оформить заказ</p>
               </Link>
           </li>
           <li>
             <Link to='/'>
-              <p className={style['confirmation-link-text']}>вернуться на главную страницу</p>
+              <p className={style['home-link']}>вернуться на главную</p>
               </Link>
           </li>
         </ul>
