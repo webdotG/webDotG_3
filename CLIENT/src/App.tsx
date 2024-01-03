@@ -1,7 +1,7 @@
 import './App.module.scss'
 import { Routes, Route } from 'react-router-dom'
 import LoginPage from "./pages/loginPage/loginPage";
-import RegistrPage from './pages/registerPage/registerPage'
+import RegistrPage from './pages/registerPage/registerPage';
 import MyPage from './pages/myPage/myPage';
 import ShopPage from './pages/shopPage/shopPage';
 import HomePage from './pages/homePage/homePage';
@@ -13,6 +13,7 @@ import { useEffect } from 'react';
 import { fetchAuth } from './slices/auth/authSlice';
 import { selectIsAuth } from '../src/slices/auth/authSlice';
 import ConfirmationToCart from './pages/confirmationToCart/confirmationToCart';
+
 
 function App() {
   const dispatch = useAppDispatch()

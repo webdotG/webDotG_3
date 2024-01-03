@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchRegister, selectIsAuth } from '../../slices/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
 
-const RegistrPage = () => {
+function RegistrPage () {
   const dispatch = useAppDispatch()
   const isAuth = useAppSelector(selectIsAuth)
   const navigate = useNavigate()
@@ -85,10 +85,10 @@ const RegistrPage = () => {
   
 
 
-  console.log('SELECT IS AUTH : ', isAuth)
+  // console.log('SELECT IS AUTH : ', isAuth)
   //если залогинился то надо сразу отправлять на главную страницу
   if (isAuth) {
-    return navigate('/')
+    navigate('/')
   }
 
 
@@ -204,6 +204,6 @@ const RegistrPage = () => {
       </div>
     </>
   );
-};
+}
 
 export default RegistrPage;

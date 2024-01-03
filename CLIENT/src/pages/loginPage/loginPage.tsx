@@ -94,9 +94,6 @@ const LoginPage: React.FC = () => {
       <Header />
       <h2 className={styles['login-form-title']}>Войти</h2>
 
-      {/* {isAuth ? 
-      <Navigate to='/' /> 
-      : ( */}
         <form className={styles['login-form']} onSubmit={(e) => handleSubmit(e, user)}>
           <div className={styles['email-wrapper']}>
             <label className={styles['email-label']}>
@@ -164,7 +161,7 @@ const LoginPage: React.FC = () => {
           </div>
           <button disabled={!!(error.email || error.password)} type="submit" className={styles['submit-button']}>Войти</button>
         </form>
-      {/* )} */}
+   
 
       <Footer />
     </div>
