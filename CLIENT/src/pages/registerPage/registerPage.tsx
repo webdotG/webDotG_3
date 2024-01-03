@@ -4,12 +4,12 @@ import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchRegister, selectIsAuth } from '../../slices/auth/authSlice';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const RegistrPage = () => {
   const dispatch = useAppDispatch()
   const isAuth = useAppSelector(selectIsAuth)
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   
   const [user, setUser] = useState({ name: '', email: '', password: '', confirmPassword: '' });
   const [error, setError] = useState({ name: '', email: '', password: '', confirmPassword: '' });
