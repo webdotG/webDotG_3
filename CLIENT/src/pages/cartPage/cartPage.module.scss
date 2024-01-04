@@ -9,18 +9,35 @@
 
   .cart {
     padding: 10px 10px;
-    
   }
 
   .cart_title {
     margin-top: 0;
     padding-top: 15px;
-    padding-bottom: 35px;
+    padding-bottom: 25px;
     text-align: center;
     font-size: 21px;
     font-weight: 300;
     text-transform: uppercase;
     color: #eeeeee;
+  }
+
+  .all-clear-btn{
+    padding: 10px 20px;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: #eeeeee;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid #00ADB5;
+    background-color: #393e46;
+
+    &:hover {
+      background-color: #eeeeee;
+      color: #393e46;
+    }
   }
 
   .cart-item {

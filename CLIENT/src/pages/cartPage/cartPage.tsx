@@ -13,7 +13,7 @@ function CartPage() {
   const selectedItems = useAppSelector((state) => state.cart.selectedItems);
   console.log('CART PAGE APPSELECTOR SELECET ITEMS : ', selectedItems)
 
-  
+
 
   // Рендеринг списка элементов корзины
   const cartItems = selectedItems.map((item: CartItem, index: number) => (
@@ -51,6 +51,10 @@ function CartPage() {
       <Header />
       <section className={style["cart"]}>
         <h2 className={style["cart_title"]}>Ваш заказ:</h2>
+        <button className={style["all-clear-btn"]}
+          onClick={() => dispatch(clearCart())}>
+          очистить заказ
+        </button>
         <ul className={style["cart-list"]}>
           {cartItems}
         </ul>
@@ -60,11 +64,7 @@ function CartPage() {
             onClick={sendOrder}
           >Оформить заказ</button>
         </div>
-        <button className={style["2remove-btn"]}
-          onClick={() => dispatch(clearCart())}
-        >очистить заказ
 
-        </button>
       </section>
       <Footer />
     </div>
