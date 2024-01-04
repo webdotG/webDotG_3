@@ -8,21 +8,35 @@ import style from './portfolioPage.module.scss'
 function PortfolioPage() {
 
   return (
-    <div>
+    <div className={style['page-container']}>
       <Header />
       <ForCoders />
       <section className={style["portfolio"]}>
-        <h2>Мои работы</h2>
+        <h2>Работы</h2>
         <ul className={style["portfolio-list"]}>
           <li className={style["portfolio-item"]}>
-            <img src="work1.jpg" alt="Работа 1" />
-            <h3>Название работы 1</h3>
-            <p>Описание работы 1</p>
-          </li>
-          <li className={style["portfolio-item"]}>
-            <img src="work2.jpg" alt="Работа 2" />
-            <h3>Название работы 2</h3>
-            <p>Описание работы 2</p>
+            <img src="#" alt="Работа 1" />
+            <h3>Rental</h3>
+            <p>Сайт аренды сторительной техники</p>
+            <h4>Реализованные задачи</h4>
+            <ul className={style['task-list']}>
+                <li className={style['task-item']}>
+                  <p className={style['task-item-text']}>
+                      1
+                  </p>
+                </li>
+                <li className={style['task-item']}>
+                  <p className={style['task-item-text']}>
+                    2
+                  </p>
+                </li>
+                <li className={style['task-item']}>
+                  <p className={style['task-item-text']}>
+                    3
+                  </p>
+                </li>
+            </ul>
+            <a href='#'>ссылка на проект</a>
           </li>
         </ul>
       </section>

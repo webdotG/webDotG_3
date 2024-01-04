@@ -95,7 +95,7 @@ function RegistrPage () {
   return (
     <>
       <Header />
-      <div className={styles['registration-form-container']}>
+      <div className={`${styles['registration-form-container']} ${styles['page-container']}`}>
         <h2 className={styles['register-form-title']}>Форма регистрации</h2>
         <form className={styles['register-form']}
           onSubmit={(e) => handleSubmit(e, user)}>

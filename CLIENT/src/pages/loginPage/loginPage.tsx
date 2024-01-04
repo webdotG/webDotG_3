@@ -90,7 +90,7 @@ const LoginPage: React.FC = () => {
   }
   console.log('PAGE LOGIN SELECT IS AUTH : ', isAuth)
   return (
-    <div className={styles['login-form__title']} >
+    <div className={`${styles['login-form__title']} ${styles['page-container']}`} >
       <Header />
       <h2 className={styles['login-form-title']}>Войти</h2>
 

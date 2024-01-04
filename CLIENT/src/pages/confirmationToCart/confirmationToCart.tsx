@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import Header from "../../components/header/header"
 import Footer from "../../components/footer/footer"
 import style from './confirmation.module.scss'
-import JSConfetti   from 'js-confetti';
+import JSConfetti from 'js-confetti';
 import { useEffect } from "react";
 
 
@@ -32,9 +32,9 @@ interface IAddConfettiConfig {
   confettiColors?: string[];
   emojis?: string[];
   emojiSize?: number;
-  particleCount? : number,
+  particleCount?: number,
   spread?: number,
-  origin? : {y: number}
+  origin?: { y: number }
 }
 
 
@@ -57,28 +57,28 @@ function ConfirmationToCart() {
   }, []);
 
   return (
-    <>
-    
+    <div className={style['page-container']}>
+
       <Header />
       <div className={style['confirmation-wrapper']}>
-        <h2  className={style['confirmation-title']}>вы добавили товары в корзину</h2>
+        <h2 className={style['confirmation-title']}>вы добавили товары в корзину</h2>
         <ul className={style['confirmation-list-link']}>
           <li>
             <Link to='/cart'>
               <p className={style['confirmation-link']}>подтвердить и оформить заказ</p>
-              </Link>
+            </Link>
           </li>
           <li>
             <Link to='/'>
               <p className={style['home-link']}>вернуться на главную</p>
-              </Link>
+            </Link>
           </li>
         </ul>
       </div>
 
       <Footer />
-      <canvas id="confettiCanvas"></canvas>  
-    </>
+      <canvas id="confettiCanvas"></canvas>
+    </div>
   )
 }
 
