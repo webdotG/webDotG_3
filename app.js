@@ -32,7 +32,7 @@ app.use('/api/user', require('./routes/user'));
 
 app.use('/api/cart', require('./routes/cart'));
 
-const PORT = process.env.PORT; 
+const PORT = 1111 //process.env.PORT; 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 
