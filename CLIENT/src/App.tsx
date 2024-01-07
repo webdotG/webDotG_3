@@ -2,12 +2,12 @@ import './App.module.scss'
 import { Routes, Route } from 'react-router-dom'
 import LoginPage from "./pages/loginPage/loginPage";
 import RegistrPage from './pages/registerPage/registerPage';
-import MyPage from './pages/myPage/myPage';
 import ShopPage from './pages/shopPage/shopPage';
 import HomePage from './pages/homePage/homePage';
 import CartPage from './pages/cartPage/cartPage';
 import PortfolioPage from './pages/portfolioPage/portfolioPage';
 import CommunismPage from './pages/communismPage/communismPage';
+import MyPage from './pages/myPage/myPage';
 
 import { useAppDispatch, useAppSelector } from './hooks';
 import { useEffect } from 'react';
@@ -26,7 +26,6 @@ function App() {
   }, [dispatch])
 
   return (
-    <>
       <Routes>
         <Route index path="/" element={<HomePage />} />
         <Route index path="/register" element={<RegistrPage />} />
@@ -36,9 +35,8 @@ function App() {
         <Route index path="/cart" element={<CartPage />} />
         <Route index path="/confirmation" element={<ConfirmationToCart />} />
         <Route index path="/communism2.0" element={<CommunismPage />} />
-        <Route index path="/myPage" element={<MyPage />}
-      </Routes>
-    </>
+        <Route index path='myPage' element={<MyPage />} />
+   </Routes>
   )
 }
 

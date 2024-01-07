@@ -1,9 +1,8 @@
-import React from 'react';
 import style from './myPage.module.scss';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 
-const MyPage: React.FC = () => {
+function MyPage () {
 
   return (
     <div className={style['page-container']}>
@@ -15,6 +14,6 @@ const MyPage: React.FC = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default MyPage;

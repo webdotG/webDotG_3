@@ -65,6 +65,11 @@ export default function Header() {
                 корзина
               </Link>
             </li>
+            <li className={style.header_nav__item}>
+              <Link className={style.header_nav__link} to="/communism2.0">
+                коммунизм 2.0
+              </Link>
+            </li>
 
             <li className={style.header_nav__item}>
               {!isAuth
