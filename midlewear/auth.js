@@ -4,24 +4,25 @@ const pool = require('../db'); // Подключение к базе данны�
 const Auth = async (req, res, next) => {
   try {
     const token = (req.headers.authorization || '').replace(/Bearer\s?/, '');
-    console.log('MIDLEWEAR AUTH TOKEN : ', token);
+    // console.log('MIDLEWEAR AUTH TOKEN : ', token);
     let decoded;
     try {
       decoded = jwt.verify(token, process.env.JWT_SECRET);
-      console.log('MIDLEWEAR AUTH DECODED JWT : ', decoded);
+      // console.log('MIDLEWEAR AUTH DECODED JWT : ', decoded);
     } catch (decodeErr) {
       if (decodeErr.name === 'TokenExpiredError') {
         // Обработка истекшего токена
-        console.error('TOKEN EXPIRED : ', decodeErr.message);
+        // console.error('TOKEN EXPIRED : ', decodeErr.message);
         throw new Error('Срок действия токена истек');
       } else {
         // Обработка других ошибок при декодировании
-        console.error('ERROR DECODING TOKEN : ', decodeErr.message);
+        // console.error('ERROR DECODING TOKEN : ', decodeErr.message);
         throw new Error('Ошибка декодирования токена');
       }
     }
     
     const userId = decoded.id;
+    //пригодится для написания статей
     // console.log('MIDLEWEAR AUTH USER ID : ', userId);
 
     // Пример запроса на получение пользователя по его ID
@@ -35,8 +36,11 @@ const Auth = async (req, res, next) => {
       throw new Error('Пользователь не найден'); // Если пользователь не найден, генерируем ошибку
     }
 
-    req.user = userResult.rows[0]; // Добавляем информацию о пользователе в объект req
+    // Устанавливаю userId в объект req для использования в будущем для POSTS , CART
+    req.userId = userId;
 
+    // Добавляю информацию о пользователе в объект req
+    req.user = userResult.rows[0]; 
     next() // Передаем управление следующему обработчику маршрута
 
   } catch (err) {

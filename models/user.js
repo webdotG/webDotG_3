@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const pool = require('../db');
-const { Auth } = require('../midlewear/auth');
+// const { Auth } = require('../midlewear/auth');
 
 /**
  * 
@@ -57,7 +57,7 @@ const Register = async (req, res) => {
 const Login = async (req, res) => {
 
   const { email, password } = req.body;
-  console.log("MODELS USER LOGIN REQ>BODY EMAIL PASSWORD : ", email, password)
+  // console.log("MODELS USER LOGIN REQ>BODY EMAIL PASSWORD : ", email, password)
   if (!email || !password) {
     return res.status(400).json({ message: 'Пожалуйста, заполните поля, они обязательны' });
   }
@@ -71,7 +71,7 @@ const Login = async (req, res) => {
     }
 
     const user = userResult.rows[0];
-    console.log("MODELS LOGIN USER : ", user)
+    // console.log("MODELS LOGIN USER : ", user)
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
     const secret = process.env.JWT_SECRET;
