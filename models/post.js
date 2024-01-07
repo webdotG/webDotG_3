@@ -4,11 +4,11 @@ const Create = async (req, res) => {
   try {
     const { title, text, tags } = req.body;
     const userId = req.userId; 
-    
+
     // SQL запрос для вставки новой статьи в базу данных
     const insertQuery = `
-      INSERT INTO webdotg.posts (title, text, tags, user_id, created_at)
-      VALUES ($1, $2, $3, $4, NOW())
+      INSERT INTO webdotg.posts (title, text, tags, user_id, created_at, updated_at)
+      VALUES ($1, $2, $3, $4, NOW(), NOW())
       RETURNING *;
     `;
     const values = [title, text, tags, userId];
