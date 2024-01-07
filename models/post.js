@@ -99,10 +99,41 @@ const Remove = async (req, res) => {
   }
 };
 
+const Update = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    const { title, text, tags } = req.body;
+
+    // SQL-запрос для обновления конкретной записи по ее id
+    const updateQuery = `
+      UPDATE webdotg.posts
+      SET title = $1, text = $2, tags = $3
+      WHERE id = $4
+      RETURNING *
+    `;
+
+    const { rows } = await pool.query(updateQuery, [title, text, tags, postId]);
+
+    if (rows.length === 0) {
+      return res.status(404).json({ message: 'Пост не найден' });
+    }
+
+    res.json({ message: 'Пост успешно обновлен', updatedPost: rows[0] });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Не удалось обновить пост' });
+  }
+};
+
+module.exports = {
+  Update
+};
+
 
 module.exports = {
   GetAll,
   GetOne,
   Create,
-  Remove
+  Remove,
+  Update
 };
