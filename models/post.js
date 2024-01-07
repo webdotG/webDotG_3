@@ -27,7 +27,6 @@ const GetOne = async (req, res) => {
 
     const postId = req.params.id
 
-
     // SQL-запрос для получения конкретного поста по его id
     const query = `
       SELECT *
@@ -76,9 +75,34 @@ const Create = async (req, res) => {
   }
 };
 
+const Remove = async (req, res) => {
+  try {
+    const postId = req.params.id;
+
+    // SQL-запрос для удаления конкретной записи по её id
+    const deleteQuery = `
+      DELETE FROM webdotg.posts
+      WHERE id = $1
+      RETURNING *
+    `;
+    
+    const { rows } = await pool.query(deleteQuery, [postId]);
+
+    if (rows.length === 0) {
+      return res.status(404).json({ message: 'Пост не найден' });
+    }
+
+    res.json({ message: 'Пост успешно удален', deletedPost: rows[0] });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Не удалось удалить пост' });
+  }
+};
+
+
 module.exports = {
   GetAll,
   GetOne,
   Create,
-
+  Remove
 };
