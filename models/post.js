@@ -6,12 +6,11 @@ const GetAll = async (req, res) => {
     // // SQL-запрос для выборки всех постов из таблицы
     // const query = 'SELECT * FROM webdotg.posts';
 
-   // SQL-запрос для выборки всех постов из таблицы с добавлением информации о пользователе
-   const query = `
+    // SQL-запрос для выборки всех постов из таблицы с добавлением информации о пользователе
+    const query = `
    SELECT p.*, u.name AS user_name, u.email AS user_email
    FROM webdotg.posts AS p
-   LEFT JOIN webdotg.users AS u ON p.user_id::integer = u.id
- `;
+   LEFT JOIN webdotg.users AS u ON p.user_id::integer = u.id`
 
     // Выполнение запроса и получение результатов
     const { rows } = await pool.query(query);
@@ -20,6 +19,32 @@ const GetAll = async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Не удалось получть все посты' });
+  }
+}
+
+const GetOne = async (req, res) => {
+  try {
+
+    const postId = req.params.id
+
+
+    // SQL-запрос для получения конкретного поста по его id
+    const query = `
+      SELECT *
+      FROM webdotg.posts
+      WHERE id = $1
+    `;
+    const { rows } = await pool.query(query, [postId]);
+
+    if (rows.length === 0) {
+      return res.status(404).json({ message: 'Пост не найден' });
+    }
+
+    // Вернуть первый найденный пост
+    res.json(rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Не удалось получть конкретный пост' });
   }
 }
 
@@ -53,6 +78,7 @@ const Create = async (req, res) => {
 
 module.exports = {
   GetAll,
+  GetOne,
   Create,
 
 };
