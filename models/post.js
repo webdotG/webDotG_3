@@ -125,15 +125,4 @@ const Update = async (req, res) => {
   }
 };
 
-module.exports = {
-  Update
-};
-
-
-module.exports = {
-  GetAll,
-  GetOne,
-  Create,
-  Remove,
-  Update
-};
+module.exports = {GetAll, GetOne, Create, Remove, Update};
