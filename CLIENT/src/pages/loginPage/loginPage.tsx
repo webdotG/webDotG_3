@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './LoginPage.module.scss';
+import styles from './loginPage.module.scss';
 import { useNavigate } from 'react-router-dom';
 // import { Navigate } from 'react-router-dom';
 import Header from '../../components/header/header';
