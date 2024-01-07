@@ -1,6 +1,7 @@
 import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit'
 import { authReducer } from '../src/slices/auth/authSlice'
-import cartReducer , { loadCartState } from './slices/cart/cartSlice';
+import { postsReducer } from './slices/posts/postsSlice';
+import cartReducer, { loadCartState } from './slices/cart/cartSlice';
 
 
 // Функция, которая проверяет localStorage и загружает данные
@@ -12,27 +13,26 @@ const loadState = () => {
       return cartState;
     }
   } catch (error) {
-    // Можно обработать ошибку, если требуется
+    // Можно обработать ошибку
+    return undefined;
   }
-  return undefined;
-};
+}
 
-// Загружаем данные из localStorage
+// Загружаю данные из localStorage
 const preloadedState = loadState();
 
 
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
-    auth: authReducer
+    auth: authReducer,
+    post: postsReducer
   },
   preloadedState: {
     cart: {
       selectedItems: preloadedState ? preloadedState.selectedItems : [],
     },
   },
-  //   getDefaultMiddleware().concat(api.middleware).prepend(listenerMiddleware.middleware),
-
 })
 
 // Если данные были загружены из localStorage, обновляем состояние в хранилище

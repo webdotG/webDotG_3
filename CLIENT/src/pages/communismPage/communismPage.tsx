@@ -1,12 +1,15 @@
 import style from './communismPage.module.scss'
 import Footer from '../../components/footer/footer'
 import Header from '../../components/header/header'
-
+import { useEffect } from 'react'
+import axios from '../../axios'
 
 
 export default function CommunismPage() {
 
-
+useEffect(() => {
+  axios.get('/api/posts')
+}, [])
 
   return (
     <div className={style['page-container']}>

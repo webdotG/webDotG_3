@@ -3,10 +3,7 @@
   .page-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Установите минимальную высоту страницы по всей высоте окна браузера */
-  }
-  .footer {
-    margin-top: auto; /* Установите верхний отступ футера на auto, чтобы футер прижимался к нижней части страницы */
+    min-height: 100vh; 
   }
   
 
