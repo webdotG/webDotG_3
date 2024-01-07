@@ -13,7 +13,6 @@
     "deploy": "gh-pages --cname www.webdotg.ru -d dist"
   },
   "dependencies": {
-    "@prisma/client": "^5.7.1",
     "@reduxjs/toolkit": "^2.0.1",
     "@types/bcrypt": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.5",
@@ -24,7 +23,6 @@
     "js-confetti": "^0.12.0",
     "nuka-carousel": "^7.0.0",
     "pg": "^8.11.3",
-    "prisma-client": "^0.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.0.2",

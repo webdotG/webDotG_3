@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import styles from './loginPage.module.scss';
 import { useNavigate } from 'react-router-dom';
-// import { Navigate } from 'react-router-dom';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import { fetchLogin, selectIsAuth } from '../../slices/auth/authSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-// import { UserData } from '../../api/authApi';
 
 const LoginPage: React.FC = () => {
   const dispatch = useAppDispatch()
