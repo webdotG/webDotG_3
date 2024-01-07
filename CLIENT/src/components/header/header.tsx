@@ -76,10 +76,8 @@ export default function Header() {
                 ? (<Link className={style.header_nav__link} to="/login">
                   войти
                 </Link>)
-                : (<Link className={`style.header_nav__link ${style.display_none}`} to="/login">
-                  войти
-                </Link>
-                )}
+                : (null)
+                }
             </li>
 
             <li className={style.header_nav__item}>
@@ -87,18 +85,15 @@ export default function Header() {
                 ? (<Link className={style.header_nav__link} to="/register">
                   регистрация
                 </Link>)
-                : (<Link className={`style.header_nav__link  ${style.display_none}`} to="#">
-                  регистрация
-                </Link>
-                )
+                : (null)
               }
             </li>
-
+            
           </ul>
         </nav>
       </div>
 
-      {isAuth &&
+      {/* {isAuth && */}
         <div className={style.auth_wrapper}>
           <Link className={style.check_auth_link} to='/myPage'>
             <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +104,7 @@ export default function Header() {
           <button className={style['btn-logout']}
             onClick={onClickLogOut}>выйти</button>
         </div>
-      }
+      {/* } */}
 
       <div>
       </div>

@@ -35,7 +35,7 @@ function App() {
         <Route index path="/cart" element={<CartPage />} />
         <Route index path="/confirmation" element={<ConfirmationToCart />} />
         <Route index path="/communism2.0" element={<CommunismPage />} />
-        <Route index path='myPage' element={<MyPage />} />
+        <Route index path='/myPage' element={<MyPage />} />
    </Routes>
   )
 }
