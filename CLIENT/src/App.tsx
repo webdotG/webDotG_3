@@ -7,6 +7,7 @@ import ShopPage from './pages/shopPage/shopPage';
 import HomePage from './pages/homePage/homePage';
 import CartPage from './pages/cartPage/cartPage';
 import PortfolioPage from './pages/portfolioPage/portfolioPage';
+import CommunismPage from './pages/communismPage/communismPage';
 
 import { useAppDispatch, useAppSelector } from './hooks';
 import { useEffect } from 'react';
@@ -34,10 +35,13 @@ function App() {
         <Route index path="/shop" element={<ShopPage />} />
         <Route index path="/cart" element={<CartPage />} />
         <Route index path="/confirmation" element={<ConfirmationToCart />} />
-        {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null }
+        <Route index path="/communism2.0" element={<CommunismPage />} />
+        <Route index path="/myPage" element={<MyPage />}
       </Routes>
     </>
   )
 }
 
 export default App
+
+// {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null }
