@@ -3,8 +3,8 @@ const pool = require('../db');
 const Create = async (req, res) => {
   try {
     const { title, text, tags } = req.body;
-    const userId = req.userId; // Предположим, что у вас есть доступ к userId через middleware
-
+    const userId = req.userId; 
+    
     // SQL запрос для вставки новой статьи в базу данных
     const insertQuery = `
       INSERT INTO webdotg.posts (title, text, tags, user_id, created_at)
