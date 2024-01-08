@@ -39,6 +39,7 @@ const Post: React.FC<PostProps> = ({
 
   return (
     <div className={style.post}>
+      < Link to='/communism2.0'>перейти ко всем постам</>
       {isEditable && (
         <div className={style['editButtons']}>
           <Link to={`/posts/${id}/edit`}>

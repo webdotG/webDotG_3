@@ -1,7 +1,7 @@
 import style from './addPost.module.scss'
 import Footer from '../../components/footer/footer'
 import Header from '../../components/header/header'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 // import { useAppSelector } from '../../hooks'
 // import { selectIsAuth } from '../../slices/auth/authSlice'
 import { useState, FormEvent, ChangeEvent } from 'react'
