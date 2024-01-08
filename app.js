@@ -28,6 +28,8 @@ app.use('/api/user', require('./routes/user'));
 
 app.use('/api/posts', require('./routes/post'))
 
+app.use('/api/tags', require('./routes/tag'))
+
 app.use('/api/cart', require('./routes/cart'));
 
 const PORT = 1111 //process.env.PORT; 

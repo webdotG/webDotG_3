@@ -3,7 +3,7 @@ import Footer from '../../components/footer/footer'
 import Header from '../../components/header/header'
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks'
-import { fetchPosts } from '../../slices/posts/postsSlice'
+import { fetchPosts, fetchTags } from '../../slices/posts/postsSlice'
 import Post from '../../components/Post/Post'
 
 
@@ -11,10 +11,12 @@ export default function CommunismPage() {
   const dispatch = useAppDispatch()
   const { posts, tags } = useAppSelector(state => state.posts)
   // console.log('COMMUNISM PAGE POSTS : ', posts)
+  // console.log('COMMUNISM PAGE TAGS : ', tags)
   const isPostsLoading = posts.status === 'loading'
 
   useEffect(() => {
     dispatch(fetchPosts())
+    dispatch(fetchTags())
   }, [])
 
   return (
@@ -59,6 +61,7 @@ export default function CommunismPage() {
 
         </section>
 
+        <div className={style['tags-component']}>{tags.items}</div>
       </div>
       <Footer />
     </div>

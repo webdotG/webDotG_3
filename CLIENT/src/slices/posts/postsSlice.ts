@@ -2,8 +2,13 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from '../../axios'
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const {data} = await axios.get('/api/posts')
-  console.log('POST SLICE AXIOS GET API/POSTS DATA : ', data)
+  const {data} = await axios.get('/api/posts/')
+  console.log('POSTSLICE AXIOS GET API/POSTS DATA : ', data)
+  return data 
+})
+export const fetchTags = createAsyncThunk('posts/fetchTags', async () => {
+  const {data} = await axios.get('/api/tags')
+  console.log('POSTSLICE AXIOS GET API/TAGS DATA : ', data)
   return data 
 })
 
@@ -39,6 +44,18 @@ const postsSlice = createSlice({
     .addCase(fetchPosts.rejected, (state) =>{
       state.posts.status = 'error'
       state.posts.items = []
+    })
+    .addCase(fetchTags.pending, (state) =>{
+      state.tags.status = 'loading'
+      state.tags.items = []
+    })
+    .addCase(fetchTags.fulfilled, (state, action) =>{
+      state.tags.status = 'loaded'
+      state.tags.items = action.payload
+    })
+    .addCase(fetchTags.rejected, (state) =>{
+      state.tags.status = 'error'
+      state.tags.items = []
     })
   }
 

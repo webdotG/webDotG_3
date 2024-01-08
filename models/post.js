@@ -85,7 +85,7 @@ const Remove = async (req, res) => {
       WHERE id = $1
       RETURNING *
     `;
-    
+
     const { rows } = await pool.query(deleteQuery, [postId]);
 
     if (rows.length === 0) {
@@ -125,4 +125,4 @@ const Update = async (req, res) => {
   }
 };
 
-module.exports = {GetAll, GetOne, Create, Remove, Update};
+module.exports = { GetAll, GetOne, Create, Remove, Update};
