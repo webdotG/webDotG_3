@@ -1,6 +1,7 @@
 import style from './fullPost.module.scss'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from '../../axios'
 import Post from '../../components/Post/Post'
 
@@ -20,6 +21,7 @@ export default function FullPost() {
   // console.log('FULL POST USEPARAMS PARAMS : ', id)
   const [postData, setPostData] = useState<PostData>({id: 0,title: '',text: '',tags: '',user_name: '',user_email: '',created_at: '',updated_at: '',});
   // console.log('FULLPOST SETDATAPOST POSTDATA : ', postData)
+  
   useEffect(() => {
     axios.get(`/api/posts/${id}`)
       .then(res => {
@@ -48,6 +50,11 @@ export default function FullPost() {
         isEditable
       >
       </Post>
+      <Link to='/communism2.0'>перейти ко всем постам</Link>
+     
+      <h1>{postData.title}</h1>
+      <h2>{postData.text}</h2>
+      <h3>{postData.tags}</h3>
     </div>
   )
 }

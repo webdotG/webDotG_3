@@ -37,6 +37,7 @@ function App() {
         <Route index path="/confirmation" element={<ConfirmationToCart />} />
         <Route index path="/communism2.0" element={<CommunismPage />} />
         <Route index path="/communism2.0/:id" element={<FullPost />} />
+        <Route index path="/communism2.0/:id/edit" element={<AddPostPage />} />
         <Route index path="/addPost" element={<AddPostPage />} />
         {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null }
    </Routes>

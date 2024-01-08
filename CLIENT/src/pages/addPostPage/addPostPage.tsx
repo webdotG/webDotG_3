@@ -1,10 +1,10 @@
 import style from './addPost.module.scss'
 import Footer from '../../components/footer/footer'
 import Header from '../../components/header/header'
-import { Link, useNavigate } from 'react-router-dom'
-// import { useAppSelector } from '../../hooks'
-// import { selectIsAuth } from '../../slices/auth/authSlice'
-import { useState, FormEvent, ChangeEvent } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useAppSelector } from '../../hooks'
+import { selectIsAuth } from '../../slices/auth/authSlice'
+import { useState, FormEvent, ChangeEvent, useEffect } from 'react'
 import axios from '../../axios'
 
 interface PostFields {
@@ -14,51 +14,58 @@ interface PostFields {
 }
 
 
-export default function AddPostPage(): JSX.Element  {
-  // const isAuth = useAppSelector(selectIsAuth)
+export default function AddPostPage(): JSX.Element {
+  const { id } = useParams()
+  const isEditing = Boolean(id)
+  const isAuth = useAppSelector(selectIsAuth)
   const navigate = useNavigate()
-  
-  // if (!isAuth) {
-  //   navigate('/login')
-  // }
-
-  const [title, setTitle] = useState('')
-  const [text, setText] = useState('')
-  const [tags, setTags] = useState('')
+  const [title, setTitle] = useState<string>('')
+  const [text, setText] = useState<string>('')
+  const [tags, setTags] = useState<string>('')
   // console.log('ADD POST FIELDS TITLE TEXT TAGS : ', title, text, tags)
+
+  const handleTitleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    setTitle(e.target.value);
+  };
+  const handleTextChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
+    setText(e.target.value);
+  };
+  const handleTagsChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    setTags(e.target.value);
+  };
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
-    console.log('ONSUBMIT')
     try {
-      
-      const fields: PostFields  = {title, text, tags}
+      const fields: PostFields = { title, text, tags }
       // console.log('ADD POST FIELDS  : ', fields)
-      const response = await axios.post('/api/posts', fields)
+      const response = isEditing
+      ? await axios.patch(`/api/posts/${id}`, fields)
+      : await axios.post('/api/posts', fields)
       // console.log('ADD POST AXIOS POST API/POSTS RESPONSE : ', response)
-
-      const id: string = response.data.post.id
-      // console.log('ADD POST RESPONSE DATA ID : ', id)
-      navigate(`/communism2.0/${id}`)
-
+      const id_Response: string = isEditing ? id : response.data.post.id
+      // console.log('ADD POST RESPONSE DATA ID : ', id_Response)
+      navigate(`/communism2.0/${id_Response}`)
     } catch (err) {
       console.error('ошибка при создании поста', err)
       alert('ошибка при создании поста')
     }
   }
-  
 
-  const handleTitleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setTitle(e.target.value);
-  };
+  useEffect(() => {
+    if (id) {
+      axios.get(`/api/posts/${id}`).then(({ data }) => {
+        console.log('ADDPOST USEEFFECT AXIOS.GET RES : ', data)
+        setTitle(data.title)
+        setText(data.text)
+        setTags(data.tags)
+      })
+    }
+  }, [])
 
-  const handleTextChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
-    setText(e.target.value);
-  };
-
-  const handleTagsChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setTags(e.target.value);
-  };
+  if (!isAuth) {
+    navigate('/login')
+  }
 
   return (
     <div className={style['page-container']}>
@@ -83,7 +90,9 @@ export default function AddPostPage(): JSX.Element  {
             // onChange={(e) => setTags(e.target.value)}
             onChange={handleTagsChange}
           />
-          <button type='submit'>опубликовать</button>
+          <button type='submit'>
+            {isEditing ? 'сохранить' : 'опубликовать'}
+          </button>
         </form>
       </div>
       <Footer />

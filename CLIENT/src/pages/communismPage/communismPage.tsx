@@ -14,7 +14,7 @@ export default function CommunismPage() {
   const { posts, tags } = useAppSelector(state => state.posts)
   // console.log('COMMUNISM PAGE POSTS : ', posts)
   // console.log('COMMUNISM PAGE TAGS : ', tags)
-  const userData: typeUserData | null  = useAppSelector((state) => state.auth.data)
+  const userData: typeUserData | null = useAppSelector((state) => state.auth.data)
   // console.log('COMMUNISM PAGE USERDATA : ', userData);
 
   const isPostsLoading = posts.status === 'loading'
@@ -40,12 +40,12 @@ export default function CommunismPage() {
           В замен получить другие услуги или обмен на необходимое
         </p>
 
-      <section>
-        
-        <Link to='/addPost'>
-        <h3>написать пост/обьявление</h3>
-        </Link>
-      </section>
+        <section>
+
+          <Link to='/addPost'>
+            <h3>написать пост/обьявление</h3>
+          </Link>
+        </section>
 
         <section className={style['communism']}>
           {(isPostsLoading ? [...Array(3)] : posts.items).map((obj, index) =>
@@ -57,24 +57,28 @@ export default function CommunismPage() {
             isPostsLoading
               ? 'ЗАГРУЖАЮ ЗДЕСЬ НАДО НАРИСОВАТЬ СКЕЛЕТОН КОТОРЫЙ НАРИСУЕТСЯ 3 РАЗА [ARRAY(3)]'
               : (
-                <Post
-                  key={index}
-                  id={obj.id}
-                  title={obj.title}
-                  text={obj.text}
-                  tags={obj.tags}
-                  user_name={obj.user_name}
-                  user_email={obj.user_email}
-                  created_at={obj.created_at}
-                  updated_at={obj.updated_at}
-                  isEditable={userData?.id === Number(obj.user_id)}
-                />
+                <div>
+                  <Link to={`/communism2.0/${obj.id}`}>
+                    Link to ID POST
+                  </Link>
+                  <Post
+                    key={index}
+                    id={obj.id}
+                    title={obj.title}
+                    text={obj.text}
+                    tags={obj.tags}
+                    user_name={obj.user_name}
+                    user_email={obj.user_email}
+                    created_at={obj.created_at}
+                    updated_at={obj.updated_at}
+                    isEditable={userData?.id === Number(obj.user_id)}
+                  />
+                </div>
               )
           )}
 
         </section>
 
-        <div className={style['tags-component']}> {tags.items} </div>
       </div>
       <Footer />
     </div>
