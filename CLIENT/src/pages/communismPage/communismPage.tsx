@@ -12,10 +12,10 @@ import { Link } from 'react-router-dom'
 export default function CommunismPage() {
   const dispatch = useAppDispatch()
   const { posts, tags } = useAppSelector(state => state.posts)
-  console.log('COMMUNISM PAGE POSTS : ', posts)
+  // console.log('COMMUNISM PAGE POSTS : ', posts)
   // console.log('COMMUNISM PAGE TAGS : ', tags)
   const userData: typeUserData | null  = useAppSelector((state) => state.auth.data)
-  console.log('COMMUNISM PAGE USERDATA : ', userData);
+  // console.log('COMMUNISM PAGE USERDATA : ', userData);
 
   const isPostsLoading = posts.status === 'loading'
 

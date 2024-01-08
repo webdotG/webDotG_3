@@ -49,6 +49,9 @@ const GetOne = async (req, res) => {
 
 const Create = async (req, res) => {
   try {
+
+    console.log('API/POST POST CREATE REQ.BODY : ', req.body); 
+
     const { title, text, tags } = req.body;
     const userId = req.userId;
 
