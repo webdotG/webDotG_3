@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { fetchPosts, fetchTags } from '../../slices/posts/postsSlice'
 import { typeUserData } from '../../types'
+import { Link } from 'react-router-dom'
 
 
 export default function CommunismPage() {
@@ -38,6 +39,13 @@ export default function CommunismPage() {
         <p className={style['communism-about']}>
           В замен получить другие услуги или обмен на необходимое
         </p>
+
+      <section>
+        
+        <Link to='/addPost'>
+        <h3>написать пост/обьявление</h3>
+        </Link>
+      </section>
 
         <section className={style['communism']}>
           {(isPostsLoading ? [...Array(3)] : posts.items).map((obj, index) =>
