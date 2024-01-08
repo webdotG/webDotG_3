@@ -11,7 +11,7 @@ function CartPage() {
 
   const dispatch = useAppDispatch();
   const selectedItems = useAppSelector((state) => state.cart.selectedItems);
-  console.log('CART PAGE APPSELECTOR SELECET ITEMS : ', selectedItems)
+  // console.log('CART PAGE APPSELECTOR SELECET ITEMS : ', selectedItems)
 
 
 
@@ -23,9 +23,10 @@ function CartPage() {
 
       <button className={style["remove-btn"]}
         onClick={(event) => {
-          alert('удалить ?')
-          event.preventDefault();
-          dispatch(deleteItem(item.itemId));
+          if(window.confirm('точно удалить ?')) {
+            event.preventDefault();
+            dispatch(deleteItem(item.itemId));
+          }
         }}
       >
         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" transform="rotate(45)">
