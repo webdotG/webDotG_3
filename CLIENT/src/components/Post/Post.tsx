@@ -5,7 +5,7 @@ interface PostProps {
   id: number | undefined,
   title: string | undefined,
   text: string | undefined,
-  tags: string[] | null | undefined,
+  tags: string | null | undefined,
   user_name: string | undefined,
   user_email: string | undefined,
   created_at: string | undefined,

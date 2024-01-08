@@ -33,12 +33,12 @@ export default function AddPostPage(): JSX.Element  {
     try {
       
       const fields: PostFields  = {title, text, tags}
-      console.log('ADD POST FIELDS  : ', fields)
+      // console.log('ADD POST FIELDS  : ', fields)
       const response = await axios.post('/api/posts', fields)
-      console.log('ADD POST AXIOS POST API/POSTS RESPONSE : ', response)
+      // console.log('ADD POST AXIOS POST API/POSTS RESPONSE : ', response)
 
       const id: string = response.data.post.id
-      console.log('ADD POST RESPONSE DATA ID : ', id)
+      // console.log('ADD POST RESPONSE DATA ID : ', id)
       navigate(`/communism2.0/${id}`)
 
     } catch (err) {

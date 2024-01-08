@@ -8,7 +8,7 @@ type PostData = {
   id: number;
   title: string;
   text: string;
-  tags: string[] | null; // Пример типа для массива строк или null
+  tags: string | null; 
   user_name: string;
   user_email: string;
   created_at: string;
@@ -18,7 +18,7 @@ type PostData = {
 export default function FullPost() {
   const { id } = useParams()
   // console.log('FULL POST USEPARAMS PARAMS : ', id)
-  const [postData, setPostData] = useState<PostData>({id: 0,title: '',text: '',tags: null,user_name: '',user_email: '',created_at: '',updated_at: '',});
+  const [postData, setPostData] = useState<PostData>({id: 0,title: '',text: '',tags: '',user_name: '',user_email: '',created_at: '',updated_at: '',});
   // console.log('FULLPOST SETDATAPOST POSTDATA : ', postData)
   useEffect(() => {
     axios.get(`/api/posts/${id}`)
