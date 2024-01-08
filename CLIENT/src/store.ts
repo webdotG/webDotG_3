@@ -26,7 +26,7 @@ export const store = configureStore({
   reducer: {
     cart: cartReducer,
     auth: authReducer,
-    post: postsReducer
+    posts: postsReducer
   },
   preloadedState: {
     cart: {
