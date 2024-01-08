@@ -1,5 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import style from './post.module.scss';
+import { useAppDispatch } from '../../hooks';
+import { fetchRemovePost } from '../../slices/posts/postsSlice';
 
 interface PostProps {
   id: number | undefined,
@@ -26,8 +28,13 @@ const Post: React.FC<PostProps> = ({
 }) => {
 
 
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const onClickRemove =() => {
-
+    if(window.confirm('удалить пост ?')) {
+      dispatch(fetchRemovePost(id))
+    }
+    navigate('/communism2.0')
   }
 
   return (
