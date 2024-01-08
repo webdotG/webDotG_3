@@ -15,7 +15,7 @@ export default function CommunismPage() {
   // console.log('COMMUNISM PAGE POSTS : ', posts)
   // console.log('COMMUNISM PAGE TAGS : ', tags)
   const userData: typeUserData | null = useAppSelector((state) => state.auth.data)
-  console.log('COMMUNISM PAGE USERDATA : ', userData);
+  // console.log('COMMUNISM PAGE USERDATA : ', userData);
   const isPostsLoading = posts.status === 'loading'
 
   useEffect(() => {
@@ -47,7 +47,8 @@ export default function CommunismPage() {
         </section>
 
         <section className={style['communism']}>
-          {(isPostsLoading ? [...Array(3)] : posts.items).map((obj, index) =>
+          {(isPostsLoading ? [...Array(3)] : posts.items).map((obj, index) => 
+          
             //так как при рендере сперва будет фэковый массив из трёх undefined
             //а посты получаем позже так как запросу нужно время и сразу не получится взять данные из obj
             //надо сделать дополнительную проверку
@@ -71,6 +72,7 @@ export default function CommunismPage() {
                     created_at={obj.created_at}
                     updated_at={obj.updated_at}
                     isEditable={userData?.email === obj.user_email}
+                    confirmUser={userData?.email}
                   />
                 </div>
               )

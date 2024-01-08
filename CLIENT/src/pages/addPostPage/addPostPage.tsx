@@ -55,7 +55,7 @@ export default function AddPostPage(): JSX.Element {
   useEffect(() => {
     if (id) {
       axios.get(`/api/posts/${id}`).then(({ data }) => {
-        console.log('ADDPOST USEEFFECT AXIOS.GET RES : ', data)
+        // console.log('ADDPOST USEEFFECT AXIOS.GET RES : ', data)
         setTitle(data.title)
         setText(data.text)
         setTags(data.tags)

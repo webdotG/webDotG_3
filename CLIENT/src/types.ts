@@ -11,7 +11,7 @@ export type typeUser = {
 export interface typeUserData {
   user: typeUser & { token: string } | null;
   id?:  number; 
-  email?:  string; 
+  email?:  string | undefined ; 
 }
 
 export interface typeFetchAuthFulfilledAction {

@@ -13,6 +13,7 @@ interface PostProps {
   created_at: string | undefined,
   updated_at: string | undefined,
   isEditable: boolean,
+  confirmUser: string | undefined
 }
 
 const Post: React.FC<PostProps> = ({
@@ -25,31 +26,27 @@ const Post: React.FC<PostProps> = ({
   created_at,
   updated_at,
   isEditable,
+  confirmUser
 }) => {
 
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
-  // const onClickRemove = () => {
-  //   if (window.confirm('Удалить пост?')) {
-  //     // Проверка isEditable не нужна, так как кнопка уже скрыта для недопустимых пользователей
-  //     dispatch(fetchRemovePost(id))
-  //     navigate('/communism2.0')
-  //   }
-  // }
   const onClickRemove = () => {
     if (window.confirm('Удалить пост?')) {
-        dispatch(fetchRemovePost(id))
-        navigate('/communism2.0')
+      dispatch(fetchRemovePost(id))
+      navigate('/communism2.0')
     }
   }
 
- 
+  // console.log('confirmUser : ', confirmUser)
+  // console.log('user_email : ', user_email)
+  const canEditOrDelete = confirmUser === user_email;
 
   return (
     <div className={style.post}>
 
-      {isEditable && (     
+      {canEditOrDelete && isEditable && (
         <div className={style['editButtons']}>
           <Link to={`/communism2.0/${id}/edit`}>
             <button>
