@@ -15,7 +15,7 @@ export default function CommunismPage() {
   // console.log('COMMUNISM PAGE POSTS : ', posts)
   // console.log('COMMUNISM PAGE TAGS : ', tags)
   const userData: typeUserData | null = useAppSelector((state) => state.auth.data)
-  // console.log('COMMUNISM PAGE USERDATA : ', userData);
+  console.log('COMMUNISM PAGE USERDATA : ', userData);
   const isPostsLoading = posts.status === 'loading'
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function CommunismPage() {
                     user_email={obj.user_email}
                     created_at={obj.created_at}
                     updated_at={obj.updated_at}
-                    isEditable={userData?.id === Number(obj.user_id)}
+                    isEditable={userData?.email === obj.user_email}
                   />
                 </div>
               )

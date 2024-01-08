@@ -12,7 +12,7 @@ interface PostProps {
   user_email: string | undefined,
   created_at: string | undefined,
   updated_at: string | undefined,
-  isEditable: boolean
+  isEditable: boolean,
 }
 
 const Post: React.FC<PostProps> = ({
@@ -24,23 +24,32 @@ const Post: React.FC<PostProps> = ({
   user_email,
   created_at,
   updated_at,
-  isEditable
+  isEditable,
 }) => {
-
 
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const onClickRemove =() => {
-    if(window.confirm('удалить пост ?')) {
-      dispatch(fetchRemovePost(id))
+
+  // const onClickRemove = () => {
+  //   if (window.confirm('Удалить пост?')) {
+  //     // Проверка isEditable не нужна, так как кнопка уже скрыта для недопустимых пользователей
+  //     dispatch(fetchRemovePost(id))
+  //     navigate('/communism2.0')
+  //   }
+  // }
+  const onClickRemove = () => {
+    if (window.confirm('Удалить пост?')) {
+        dispatch(fetchRemovePost(id))
+        navigate('/communism2.0')
     }
-    navigate('/communism2.0')
   }
+
+ 
 
   return (
     <div className={style.post}>
-      
-      {isEditable && (
+
+      {isEditable && (     
         <div className={style['editButtons']}>
           <Link to={`/communism2.0/${id}/edit`}>
             <button>
@@ -52,7 +61,8 @@ const Post: React.FC<PostProps> = ({
           </button>
         </div>
       )}
-      
+
+
       <span>ID: {id}</span>
       <span>Title: {title}</span>
       <span>Text: {text}</span>
