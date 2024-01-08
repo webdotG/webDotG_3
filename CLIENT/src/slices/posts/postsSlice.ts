@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from '../../axios'
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
@@ -15,7 +15,7 @@ export const fetchTags = createAsyncThunk('posts/fetchTags', async () => {
 
 export const fetchRemovePost = createAsyncThunk('posts/fetchRemovePost', async (id) => {
   const {data} = await axios.delete(`/api/posts/${id}`)
-  console.log('POSTSLICE AXIOS DELETE API/POSTS ID, DATA : ', id, data)
+  // console.log('POSTSLICE AXIOS DELETE API/POSTS ID, DATA : ', id, data)
   return data 
 })
 

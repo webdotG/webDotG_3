@@ -16,7 +16,6 @@ export default function CommunismPage() {
   // console.log('COMMUNISM PAGE TAGS : ', tags)
   const userData: typeUserData | null = useAppSelector((state) => state.auth.data)
   // console.log('COMMUNISM PAGE USERDATA : ', userData);
-
   const isPostsLoading = posts.status === 'loading'
 
   useEffect(() => {

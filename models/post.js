@@ -3,18 +3,26 @@ const pool = require('../db');
 const GetAll = async (req, res) => {
   try {
 
-    // // SQL-запрос для выборки всех постов из таблицы
-    // const query = 'SELECT * FROM webdotg.posts';
-
+    //   // SQL-запрос для выборки всех постов из таблицы с добавлением информации о пользователе
+    //   const query = `
+    //  SELECT p.*, u.name AS user_name, u.email AS user_email
+    //  FROM webdotg.posts AS p
+    //  LEFT JOIN webdotg.users AS u ON p.user_id::integer = u.id`
     // SQL-запрос для выборки всех постов из таблицы с добавлением информации о пользователе
     const query = `
-   SELECT p.*, u.name AS user_name, u.email AS user_email
-   FROM webdotg.posts AS p
-   LEFT JOIN webdotg.users AS u ON p.user_id::integer = u.id`
-
+ SELECT 
+   p.*, 
+   u.name AS user_name, 
+   u.email AS user_email 
+ FROM 
+   webdotg.posts AS p
+ LEFT JOIN 
+   webdotg.users AS u 
+ ON 
+   p.user_id::integer = u.id`
     // Выполнение запроса и получение результатов
     const { rows } = await pool.query(query);
-
+    console.log('API/POSTS GETALL ROWS : ', rows)
     res.json(rows)
   } catch (err) {
     console.error(err);
@@ -50,22 +58,33 @@ const GetOne = async (req, res) => {
 const Create = async (req, res) => {
   try {
 
-    console.log('API/POST POST CREATE REQ.BODY : ', req.body); 
-
     const { title, text, tags } = req.body;
     const userId = req.userId;
 
-    // SQL запрос для вставки новой статьи в базу данных
+    // Получение информации о пользователе по userId
+    const userQuery = `
+          SELECT name, email FROM webdotg.users WHERE id = $1;
+          `;
+    const userValues = [userId];
+    const userResult = await pool.query(userQuery, userValues);
+
+    if (userResult.rows.length === 0) {
+      throw new Error('Пользователь не найден');
+    }
+
+    const { name, email } = userResult.rows[0];
+
+    // SQL запрос для вставки новой статьи в базу данных с информацией о пользователе
     const insertQuery = `
-      INSERT INTO webdotg.posts (title, text, tags, user_id, created_at, updated_at)
-      VALUES ($1, $2, $3, $4, NOW(), NOW())
+      INSERT INTO webdotg.posts (title, text, tags, user_id, created_at, updated_at, user_name, user_email)
+      VALUES ($1, $2, $3, $4, NOW(), NOW(), $5, $6)
       RETURNING *;
     `;
-    const values = [title, text, tags, userId];
-
+    const values = [title, text, tags, userId, name, email];
     const result = await pool.query(insertQuery, values);
-
-    // Проверяем успешность выполнения запроса и возвращаем созданную статью
+    // console.log('API/POSTS CREATE RESULT : ', result)
+    
+    // Проверяю успешность выполнения запроса и возвращаем созданную статью
     if (result.rows.length > 0) {
       const newPost = result.rows[0];
       res.status(201).json({ message: 'Пост успешно создан', post: newPost });
@@ -128,4 +147,4 @@ const Update = async (req, res) => {
   }
 };
 
-module.exports = { GetAll, GetOne, Create, Remove, Update};
+module.exports = { GetAll, GetOne, Create, Remove, Update };
