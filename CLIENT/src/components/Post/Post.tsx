@@ -1,14 +1,15 @@
+import { Link } from 'react-router-dom';
 import style from './post.module.scss';
 
 interface PostProps {
-  id: number;
-  title: string;
-  text: string;
-  tags: string | null;
-  user_name: string;
-  user_email: string;
-  created_at: string;
-  updated_at: string;
+  id: number | undefined;
+  title: string | undefined;
+  text: string | undefined;
+  tags: string[] | null | undefined;
+  user_name: string | undefined;
+  user_email: string | undefined;
+  created_at: string | undefined;
+  updated_at: string | undefined;
 }
 
 const Post: React.FC<PostProps> = ({
@@ -24,6 +25,9 @@ const Post: React.FC<PostProps> = ({
 
   return (
     <div className={style.post}>
+      <Link to={`/communism2.0/${id}`}>
+        Link to ID POST
+      </Link>
       <span>ID: {id}</span>
       <span>Title: {title}</span>
       <span>Text: {text}</span>

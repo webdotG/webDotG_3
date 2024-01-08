@@ -61,7 +61,7 @@ export default function CommunismPage() {
 
         </section>
 
-        <div className={style['tags-component']}>{tags.items}</div>
+        <div className={style['tags-component']}> {tags.items} </div>
       </div>
       <Footer />
     </div>

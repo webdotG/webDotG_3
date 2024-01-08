@@ -8,13 +8,13 @@ import CartPage from './pages/cartPage/cartPage';
 import PortfolioPage from './pages/portfolioPage/portfolioPage';
 import CommunismPage from './pages/communismPage/communismPage';
 import MyPage from './pages/myPage/myPage';
+import ConfirmationToCart from './pages/confirmationToCart/confirmationToCart';
+import FullPost from './pages/fullPostPage/fullPost';
 
 import { useAppDispatch, useAppSelector } from './hooks';
 import { useEffect } from 'react';
 import { fetchAuth } from './slices/auth/authSlice';
 import { selectIsAuth } from '../src/slices/auth/authSlice';
-import ConfirmationToCart from './pages/confirmationToCart/confirmationToCart';
-
 
 function App() {
   const dispatch = useAppDispatch()
@@ -35,6 +35,7 @@ function App() {
         <Route index path="/cart" element={<CartPage />} />
         <Route index path="/confirmation" element={<ConfirmationToCart />} />
         <Route index path="/communism2.0" element={<CommunismPage />} />
+        <Route index path="/communism2.0/:id" element={<FullPost />} />
         <Route index path='/myPage' element={<MyPage />} />
    </Routes>
   )
