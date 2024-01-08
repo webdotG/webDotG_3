@@ -45,6 +45,7 @@ export default function FullPost() {
         user_email={postData.user_email}
         created_at={postData.created_at}
         updated_at={postData.updated_at}
+        isEditable
       >
       </Post>
     </div>

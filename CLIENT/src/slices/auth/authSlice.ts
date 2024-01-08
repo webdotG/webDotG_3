@@ -2,27 +2,22 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { AxiosResponse } from "axios";
 import axios from '../../axios'
 import { RootState } from "../../store";
-import { typeUser } from "../../types";
-
-
-interface UserData {
-  user: typeUser & { token: string } | null;
-}
+import { typeUserData } from "../../types";
 
 interface AuthState {
-  data: UserData | null;
+  data: typeUserData | null;
   status: 'loading' | 'loaded' | 'error';
 }
 
-export const fetchLogin = createAsyncThunk<UserData, { email: string, password: string }, { state: RootState }>(
+export const fetchLogin = createAsyncThunk<typeUserData, { email: string, password: string,}, { state: RootState }>(
   'auth/fetchLogin',
 
   async (values) => {
     console.log("AUTH SLICE AXIOS EMAIL LOGIN : ", values)
     try {
-      const { email, password } = values;
-      const response: AxiosResponse<UserData> = await axios.post('/api/user/login', { email, password });//{ params }
-      console.log("AUTH SLICE AXIOS RESPONSE LOGIN : ", response)
+      const { email, password,} = values;
+      const response: AxiosResponse<typeUserData> = await axios.post('/api/user/login', { email, password });//{ params }
+      // console.log("AUTH SLICE AXIOS RESPONSE LOGIN : ", response)
       return response.data;
     } catch (error) {
       throw Error("Ошибка при получении данных пользователя");
@@ -30,7 +25,7 @@ export const fetchLogin = createAsyncThunk<UserData, { email: string, password: 
   }
 );
 
-export const fetchRegister = createAsyncThunk<UserData, {
+export const fetchRegister = createAsyncThunk<typeUserData, {
   email: string,
   password: string,
   confirmPassword: string,
@@ -39,16 +34,16 @@ export const fetchRegister = createAsyncThunk<UserData, {
   'auth/fetchRegister',
 
   async (values) => {
-    console.log("AUTH SLICE AXIOS EMAIL REGISTER : ", values)
+    // console.log("AUTH SLICE AXIOS EMAIL REGISTER : ", values)
     try {
       const { email, password, confirmPassword, name } = values;
-      const response: AxiosResponse<UserData> = await axios.post('/api/user/register', {
+      const response: AxiosResponse<typeUserData> = await axios.post('/api/user/register', {
         email,
         password,
         confirmPassword,
         name
       });
-      console.log("AUTH SLICE AXIOS RESPONSE REGISTER : ", response)
+      // console.log("AUTH SLICE AXIOS RESPONSE REGISTER : ", response)
       return response.data;
     } catch (error) {
       throw Error("Ошибка при получении данных пользователя");
@@ -91,7 +86,7 @@ const authSlice = createSlice({
         state.status = 'loading';
         state.data = null;
       })
-      .addCase(fetchLogin.fulfilled, (state, action: PayloadAction<UserData>) => {
+      .addCase(fetchLogin.fulfilled, (state, action: PayloadAction<typeUserData>) => {
         state.status = 'loaded';
         state.data = action.payload;
       })
@@ -103,7 +98,7 @@ const authSlice = createSlice({
         state.status = 'loading';
         state.data = null;
       })
-      .addCase(fetchAuth.fulfilled, (state, action: PayloadAction<UserData>) => {
+      .addCase(fetchAuth.fulfilled, (state, action: PayloadAction<typeUserData>) => {
         state.status = 'loaded';
         state.data = action.payload;
       })
@@ -115,7 +110,7 @@ const authSlice = createSlice({
         state.status = 'loading';
         state.data = null;
       })
-      .addCase(fetchRegister.fulfilled, (state, action: PayloadAction<UserData>) => {
+      .addCase(fetchRegister.fulfilled, (state, action: PayloadAction<typeUserData>) => {
         state.status = 'loaded';
         state.data = action.payload;
       })
@@ -128,8 +123,7 @@ const authSlice = createSlice({
 
 
 export const selectIsAuth = (state: RootState) => {
-  // console.log("authSlice SelectIsAuth STATE : Root_State : ", state)
-  console.log("authSlice SelectIsAuth STATE AUTH DATA : ", state.auth.data)
+  console.log("AuthSlice SelectIsAuth STATE.AUTH.DATA : ", state.auth.data)
   return state.auth.data !== null && typeof state.auth.data === 'object' && state.auth.data;
 };
 

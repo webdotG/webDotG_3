@@ -1,11 +1,17 @@
 export type typeUser = {
-  id?: string,
+  id?: string | number,
   email?: string,
   name?: string, 
   confirmed?: boolean,
-  token?: string
+  token?: string,
+  password?: string,
+  confirmPassword?: string
 }
 
+export interface typeUserData {
+  user: typeUser & { token: string } | null;
+  id?:  number; 
+}
 
 export interface typeFetchAuthFulfilledAction {
   type: string;

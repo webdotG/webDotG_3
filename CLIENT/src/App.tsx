@@ -19,7 +19,7 @@ import { selectIsAuth } from '../src/slices/auth/authSlice';
 function App() {
   const dispatch = useAppDispatch()
   const isAuth = useAppSelector(selectIsAuth);
-  console.log('SRC APP Slice Auth IS AUTH : ', isAuth)
+  // console.log('SRC APP Slice Auth IS AUTH : ', isAuth)
 
   useEffect(() => {
     dispatch(fetchAuth())
@@ -36,7 +36,8 @@ function App() {
         <Route index path="/confirmation" element={<ConfirmationToCart />} />
         <Route index path="/communism2.0" element={<CommunismPage />} />
         <Route index path="/communism2.0/:id" element={<FullPost />} />
-        <Route index path='/myPage' element={<MyPage />} />
+        {/* <Route index path='/myPage' element={<MyPage />} /> */}
+        {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null }
    </Routes>
   )
 }

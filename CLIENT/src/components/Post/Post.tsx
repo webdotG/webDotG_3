@@ -2,14 +2,15 @@ import { Link } from 'react-router-dom';
 import style from './post.module.scss';
 
 interface PostProps {
-  id: number | undefined;
-  title: string | undefined;
-  text: string | undefined;
-  tags: string[] | null | undefined;
-  user_name: string | undefined;
-  user_email: string | undefined;
-  created_at: string | undefined;
-  updated_at: string | undefined;
+  id: number | undefined,
+  title: string | undefined,
+  text: string | undefined,
+  tags: string[] | null | undefined,
+  user_name: string | undefined,
+  user_email: string | undefined,
+  created_at: string | undefined,
+  updated_at: string | undefined,
+  isEditable: boolean
 }
 
 const Post: React.FC<PostProps> = ({
@@ -20,11 +21,29 @@ const Post: React.FC<PostProps> = ({
   user_name,
   user_email,
   created_at,
-  updated_at
+  updated_at,
+  isEditable
 }) => {
+
+
+  const onClickRemove =() => {
+
+  }
 
   return (
     <div className={style.post}>
+      {isEditable && (
+        <div className={style['editButtons']}>
+          <Link to={`/posts/${id}/edit`}>
+            <button>
+              редактировать пост
+            </button>
+          </Link>
+          <button onClick={onClickRemove} >
+            удалить статью
+          </button>
+        </div>
+      )}
       <Link to={`/communism2.0/${id}`}>
         Link to ID POST
       </Link>

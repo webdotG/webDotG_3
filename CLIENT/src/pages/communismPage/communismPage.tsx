@@ -1,17 +1,21 @@
 import style from './communismPage.module.scss'
 import Footer from '../../components/footer/footer'
 import Header from '../../components/header/header'
+import Post from '../../components/Post/Post'
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { fetchPosts, fetchTags } from '../../slices/posts/postsSlice'
-import Post from '../../components/Post/Post'
+import { typeUserData } from '../../types'
 
 
 export default function CommunismPage() {
   const dispatch = useAppDispatch()
   const { posts, tags } = useAppSelector(state => state.posts)
-  // console.log('COMMUNISM PAGE POSTS : ', posts)
+  console.log('COMMUNISM PAGE POSTS : ', posts)
   // console.log('COMMUNISM PAGE TAGS : ', tags)
+  const userData: typeUserData | null  = useAppSelector((state) => state.auth.data)
+  console.log('COMMUNISM PAGE USERDATA : ', userData);
+
   const isPostsLoading = posts.status === 'loading'
 
   useEffect(() => {
@@ -55,6 +59,7 @@ export default function CommunismPage() {
                   user_email={obj.user_email}
                   created_at={obj.created_at}
                   updated_at={obj.updated_at}
+                  isEditable={userData?.id === Number(obj.user_id)}
                 />
               )
           )}
