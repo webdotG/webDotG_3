@@ -2,8 +2,8 @@ import style from './addPost.module.scss'
 import Footer from '../../components/footer/footer'
 import Header from '../../components/header/header'
 import { useNavigate, useParams } from 'react-router-dom'
-// import { useAppSelector } from '../../hooks'
-// import { selectIsAuth } from '../../slices/auth/authSlice'
+import { useAppSelector } from '../../hooks'
+import { selectIsAuth } from '../../slices/auth/authSlice'
 import { useState, FormEvent, ChangeEvent, useEffect } from 'react'
 import axios from '../../axios'
 
@@ -16,7 +16,7 @@ interface PostFields {
 export default function AddPostPage(): JSX.Element {
   const { id } = useParams()
   const isEditing = Boolean(id)
-  // const isAuth = useAppSelector(selectIsAuth)
+  const isAuth = useAppSelector(selectIsAuth)
   const navigate = useNavigate()
   const [title, setTitle] = useState<string>('')
   const [text, setText] = useState<string>('')
@@ -71,7 +71,7 @@ export default function AddPostPage(): JSX.Element {
     }
     if (!tags.trim()) {
       alert('необходимо указать хотя бы один тег!');
-      return; 
+      return;
     }
     if (title.trim().length < MIN_TITLE_LENGTH) {
       alert('минимальная длина текста должна быть не менее 5 символов!');
@@ -146,10 +146,22 @@ export default function AddPostPage(): JSX.Element {
             />
             <span>{errorTagsMessage}</span>
           </label>
-          <button className={style['btn-submit']}
-            type='submit'>
-            {isEditing ? 'сохранить' : 'опубликовать'}
-          </button>
+
+          {isAuth
+            ? (<button className={style['btn-submit']}
+              type='submit'>
+              {isEditing ? 'сохранить' : 'опубликовать'}
+            </button>)
+            : (<button className={style['btn-submit']}
+              type='submit'
+              disabled>
+                надо залогиниться что бы отправить
+            </button>
+
+            )
+          }
+
+
         </form>
       </div>
       <Footer />
