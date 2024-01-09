@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import Header from "../../components/header/header"
 import Footer from "../../components/footer/footer"
-import style from './confirmation.module.scss'
+import style from './confirmationOrder.module.scss'
 import JSConfetti from 'js-confetti';
 import { useEffect } from "react";
 
@@ -38,7 +38,7 @@ interface IAddConfettiConfig {
 }
 
 
-function ConfirmationToCart() {
+function ConfirmationOrder() {
 
   useEffect(() => {
     const jsConfetti = new JSConfetti();
@@ -62,16 +62,17 @@ function ConfirmationToCart() {
       <Header />
       
       <div className={style['confirmation-wrapper']}>
-        <h2 className={style['confirmation-title']}>вы добавили товары в корзину</h2>
+        <h2 className={style['confirmation-title']}>ваш заказ создан</h2>
+        <p  className={style['confirmation-text']}>скоро с вами свяжутся для подтверждения оплаты</p>
         <ul className={style['confirmation-list-link']}>
           <li>
-            <Link to='/cart'>
-              <p className={style['confirmation-link']}>подтвердить и оформить заказ</p>
+            <Link to='/'>
+              <p className={style['confirmation-link']}>вернуться на главную</p>
             </Link>
           </li>
           <li>
-            <Link to='/'>
-              <p className={style['home-link']}>вернуться на главную</p>
+            <Link to='/communism2.0'>
+              <p className={style['confirmation-link']}>узнать что такое коммунизм 2.0</p>
             </Link>
           </li>
         </ul>
@@ -83,4 +84,4 @@ function ConfirmationToCart() {
   )
 }
 
-export default ConfirmationToCart
+export default ConfirmationOrder

@@ -3,27 +3,28 @@ import Header from "../../components/header/header";
 import style from './cartPage.module.scss'
 import { clearCart, deleteItem, CartItem } from '../../slices/cart/cartSlice';
 import { useAppDispatch, useAppSelector } from "../../hooks";
+import { useNavigate } from "react-router-dom";
+import { selectIsAuth } from "../../slices/auth/authSlice";
 // import { PRICE } from "../../data";
 // import { useEffect } from 'react';
 // import { makeOrder } from 'path/to/makeOrder'; //функцию для создания заказа 
 
 function CartPage() {
-
+  const navigate = useNavigate()
   const dispatch = useAppDispatch();
   const selectedItems = useAppSelector((state) => state.cart.selectedItems);
-  // console.log('CART PAGE APPSELECTOR SELECET ITEMS : ', selectedItems)
-
-
+  console.log('CART PAGE APPSELECTOR SELECET ITEMS : ', selectedItems)
+  const isAuth = useAppSelector(selectIsAuth)
 
   // Рендеринг списка элементов корзины
   const cartItems = selectedItems.map((item: CartItem, index: number) => (
     <li className={style["cart-item"]} key={index}>
       <span className={style["item-name"]}>{item.name}</span>
-      <span className={style["item-price"]}>${item.price}</span>
+      <span className={style["item-price"]}>{item.price} Р</span>
 
       <button className={style["remove-btn"]}
         onClick={(event) => {
-          if(window.confirm('точно удалить ?')) {
+          if (window.confirm('точно удалить ?')) {
             event.preventDefault();
             dispatch(deleteItem(item.itemId));
           }
@@ -40,11 +41,26 @@ function CartPage() {
     </li>
   ))
 
+  const calculateTotal = () => {
+    return selectedItems.reduce((total: number, item: CartItem) => {
+      return total + item.price;
+    }, 0);
+  };
+
+  const totalAmount = calculateTotal();
+
+
   const sendOrder = () => {
-    // Вызов функции для создания заказа
-    // makeOrder(selectedItems);
-    dispatch(clearCart());
-    localStorage.removeItem('cartState');
+    if (isAuth) {
+      // Вызов функции для создания заказа
+      // makeOrder(selectedItems);
+
+      dispatch(clearCart());
+      localStorage.removeItem('cartState');
+      navigate('/confirmationOrder')
+    } else {
+      navigate('/login')
+    }
   };
 
   return (
@@ -60,7 +76,7 @@ function CartPage() {
           {cartItems}
         </ul>
         <div className={style["cart-total"]}>
-          <p>Итого: <span className={style["total-amount"]}>$50</span></p>
+          <p>Итого: <span className={style["total-amount"]}>{totalAmount} Р</span></p>
           <button className={style["checkout-btn"]}
             onClick={sendOrder}
           >Оформить заказ</button>

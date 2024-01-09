@@ -16,6 +16,7 @@ import { useEffect } from 'react';
 import { fetchAuth } from './slices/auth/authSlice';
 import { selectIsAuth } from '../src/slices/auth/authSlice';
 import AddPostPage from './pages/addPostPage/addPostPage';
+import ConfirmationOrder from './pages/confirmationOrder/confirmationOrder';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -35,6 +36,7 @@ function App() {
         <Route index path="/shop" element={<ShopPage />} />
         <Route index path="/cart" element={<CartPage />} />
         <Route index path="/confirmation" element={<ConfirmationToCart />} />
+        <Route index path="/confirmationOrder" element={<ConfirmationOrder />} />
         <Route index path="/communism2.0" element={<CommunismPage />} />
         <Route index path="/communism2.0/:id" element={<FullPost />} />
         <Route index path="/communism2.0/:id/edit" element={<AddPostPage />} />

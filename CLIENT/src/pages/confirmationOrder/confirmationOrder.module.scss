@@ -8,7 +8,6 @@
 
   .confirmation-wrapper {
     width: 100%;
-   
   }
 
   .confirmation-title {
@@ -22,7 +21,11 @@
     text-transform: uppercase;
   }
 
-  // .confirmation-list-link {}
+  .confirmation-text{
+    font-size: 18px;
+    text-align: center;
+    color: #eeeeee;
+  }
 
   .confirmation-link {
     width: 300px;
@@ -32,7 +35,7 @@
     margin-top: 80px;
     display: block;
     color: #eeeeee;
-    font-size: 18px;
+    font-size: 16px;
     border: #00ADB5 2px solid;
     border-radius: 8px;
     text-transform: uppercase;

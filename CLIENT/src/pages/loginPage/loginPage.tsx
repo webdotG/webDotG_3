@@ -89,7 +89,7 @@ const LoginPage: React.FC = () => {
     <div className={`${styles['login-form__title']} ${styles['page-container']}`} >
       <Header />
       <h2 className={styles['login-form-title']}>Войти</h2>
-
+      
       <form className={styles['login-form']} onSubmit={(e) => handleSubmit(e, user)}>
         <div className={styles['email-wrapper']}>
           <label className={styles['email-label']}>
