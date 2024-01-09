@@ -24,13 +24,13 @@ export default function AddPostPage(): JSX.Element {
   const [tags, setTags] = useState<string>('')
   // console.log('ADD POST FIELDS TITLE TEXT TAGS : ', title, text, tags)
 
-  const handleTitleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+  const handleTitleChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
     setTitle(e.target.value);
   };
   const handleTextChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
     setText(e.target.value);
   };
-  const handleTagsChange = (e: ChangeEvent<HTMLInputElement>): void => {
+  const handleTagsChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
     setTags(e.target.value);
   };
 
@@ -40,8 +40,8 @@ export default function AddPostPage(): JSX.Element {
       const fields: PostFields = { title, text, tags }
       // console.log('ADD POST FIELDS  : ', fields)
       const response = isEditing
-      ? await axios.patch(`/api/posts/${id}`, fields)
-      : await axios.post('/api/posts', fields)
+        ? await axios.patch(`/api/posts/${id}`, fields)
+        : await axios.post('/api/posts', fields)
       // console.log('ADD POST AXIOS POST API/POSTS RESPONSE : ', response)
       const id_Response: string = isEditing ? id : response.data.post.id
       // console.log('ADD POST RESPONSE DATA ID : ', id_Response)
@@ -72,25 +72,38 @@ export default function AddPostPage(): JSX.Element {
       <Header />
       <div className={style['add-post']}>
 
-        <form
+        <form className={style['form']}
           onSubmit={onSubmit}
         >
-          <input type='text'
-            value={title}
-            // onChange={(e) => setTitle(e.target.value)}
-            onChange={handleTitleChange}
-          />
-          <textarea
-            value={text}
-            // onChange={(e) => setText(e.target.value)}
-            onChange={handleTextChange}
-          />
-          <input type='text'
-            value={tags}
-            // onChange={(e) => setTags(e.target.value)}
-            onChange={handleTagsChange}
-          />
-          <button type='submit'>
+          <label className={style['label']}>
+            Что предлагаете
+            <textarea className={style['title-input']}
+              placeholder="научу готвить"
+              rows={2}
+              value={title}
+              onChange={handleTitleChange}
+            />
+          </label>
+          <label className={style['label']}>
+            Описание и что взамен
+            <textarea className={style['text-input']}
+              placeholder="более детальное описание предложения и хотите ли что ни будь за это или достаточно простого спаибо ?))"
+              rows={8}
+              value={text}
+              onChange={handleTextChange}
+            />
+          </label>
+          <label className={style['label']}>
+            # Тэги
+            <textarea className={style['tags-input']}
+              placeholder="приготовление еды, хачапури, массаж, погуляю с вашей собакой, посмотреть все части властелина колец "
+              rows={4}
+              value={tags}
+              onChange={handleTagsChange}
+            />
+          </label>
+          <button className={style['btn-submit']}
+          type='submit'>
             {isEditing ? 'сохранить' : 'опубликовать'}
           </button>
         </form>
