@@ -8,9 +8,10 @@ import { useState, FormEvent, ChangeEvent, useEffect } from 'react'
 import axios from '../../axios'
 
 interface PostFields {
-  title: string;
-  text: string;
-  tags: string;
+  title: string,
+  text: string,
+  tags: [''] | string,
+  noFormatTags?: [''] | string
 }
 
 export default function AddPostPage(): JSX.Element {
@@ -18,12 +19,13 @@ export default function AddPostPage(): JSX.Element {
   const isEditing = Boolean(id)
   const isAuth = useAppSelector(selectIsAuth)
   const navigate = useNavigate()
-  const [title, setTitle] = useState<string>('')
-  const [text, setText] = useState<string>('')
-  const [tags, setTags] = useState<string>('')
+  const [title, setTitle] = useState('')
+  const [text, setText] = useState('')
+  const [tags, setTags] = useState('')
+  const [noFormatTags, setNoFormatTags] = useState('')
   // console.log('ADD POST FIELDS TITLE TEXT TAGS : ', title, text, tags)
-  const [errorTitleMessage, setErrorTitleMesage] = useState<string>('')
-  const [errorTagsMessage, setErrorTagsMesage] = useState<string>('')
+  const [errorTitleMessage, setErrorTitleMesage] = useState('')
+  const [errorTagsMessage, setErrorTagsMesage] = useState('')
 
   const MIN_TITLE_LENGTH = 5;
   const handleTitleChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
@@ -39,42 +41,44 @@ export default function AddPostPage(): JSX.Element {
   const handleTextChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
     setText(e.target.value);
   };
+
   const handleTagsChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
-    setTags(e.target.value);
-  };
+    const inputTags = e.target.value;
 
-  const validateTags = (inputTags: string): boolean => {
-    const regex = /^(\s*,\s*\w{3,})*(\s*,\s*\w{3,}\s*)?$/;
-
-    if (!regex.test(inputTags)) {
-      setErrorTagsMesage('Необходимо поставить запятую перед пробелом между тегами и теги должны состоять минимум из трёх букв!')
-      return false;
+    setNoFormatTags(inputTags);
+    //валидация тегов
+    const tagsValidateArray = noFormatTags.split(',').map(tag => tag.trim());
+    const TAG_REGEX = /^#[A-Za-zА-Яа-я]{3,}$/;
+    const isValid = tagsValidateArray.every(tag => TAG_REGEX.test(tag));
+    if (!isValid) {
+      setErrorTagsMesage('Теги должны начинаться с # и состоять только из русских или английских букв, минимум из трех символов');
     } else {
-      setErrorTagsMesage('')
-      return true;
+      setErrorTagsMesage('');
     }
-  };
+    //обрезание и подготовка к отправке на сервер
+    const tagsArray = noFormatTags.split('#').filter(tag => tag.trim() !== '');
+    const formattedTags = tagsArray.map((tag) => {
+      const trimmedTag = tag.trim();
+      return `${trimmedTag}`;
+    });
 
-  const handleTagsKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>): void => {
-    if (e.key === ' ' && tags[tags.length - 1] !== ',') {
-      alert('Необходимо поставить запятую перед пробелом между тегами!');
-      e.preventDefault();
-    }
+    // Преобразовываю массив строк в одну строку через запятую
+    const tagsString = formattedTags.join(', ');
+    console.log('TAGS STRING , FOR DB : ', tagsString)
+    // устанавливаю эту строку в состояние
+    setTags(tagsString);
+
+    console.log('HANDLE TAGS INPUT TAGS : ', inputTags)
+    console.log('HANDLE TAGS FOREMATED TAGS  : ', formattedTags)
   };
+  console.log('NoFormatTags : ', noFormatTags)
+  console.log('TAGS : ', tags)
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
-    // Останавливаю отправку формы, если теги не прошли валидацию
-    if (!validateTags(tags)) {
-      alert('теги не валидны проверьте запятые перед пробелами и убедитесть что написали хотя бы один тег минимум из трёх ь=букв!');
-      return;
-    }
-    if (!tags.trim()) {
-      alert('необходимо указать хотя бы один тег!');
-      return;
-    }
+
     if (title.trim().length < MIN_TITLE_LENGTH) {
-      alert('минимальная длина текста должна быть не менее 5 символов!');
+      alert('заголовок должен быть не менее 5 символов');
       return;
     }
     try {
@@ -140,9 +144,8 @@ export default function AddPostPage(): JSX.Element {
             <textarea className={style['tags-input']}
               placeholder="приготовление еды, хачапури, массаж, погуляю с вашей собакой, посмотреть все части властелина колец "
               rows={4}
-              value={tags}
+              value={noFormatTags}
               onChange={handleTagsChange}
-              onKeyDown={handleTagsKeyDown}
             />
             <span>{errorTagsMessage}</span>
           </label>
@@ -155,7 +158,7 @@ export default function AddPostPage(): JSX.Element {
             : (<button className={style['btn-submit']}
               type='submit'
               disabled>
-                надо залогиниться что бы отправить
+              надо залогиниться что бы отправить
             </button>
 
             )
