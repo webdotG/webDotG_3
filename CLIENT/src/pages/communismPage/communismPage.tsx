@@ -7,7 +7,6 @@ import { useAppDispatch, useAppSelector } from '../../hooks'
 import { fetchPosts, fetchTags } from '../../slices/posts/postsSlice'
 import { typeUserData } from '../../types'
 import { Link } from 'react-router-dom'
-import FullPost from '../fullPostPage/fullPost'
 
 
 export default function CommunismPage() {
