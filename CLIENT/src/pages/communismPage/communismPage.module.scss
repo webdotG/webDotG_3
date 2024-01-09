@@ -14,10 +14,14 @@
       padding-top: 20px;
   }
 
+  .communism-about-wrapper{
+    padding-bottom: 35px;
+  }
+
   .communism-title{
     padding-top: 20px;
     padding-bottom: 20px;
-    font-size: 23px;
+    font-size: 21px;
     text-align: center;
     color: #eeeeee;
     font-weight: 200;
@@ -33,10 +37,54 @@
     text-align: left;
   }
 
-  .communism{
-    font-size: 25px;
+  .add-post-link{
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid #00ADB5;
+    border-radius: 8px;
+    font-size: 23px;
     color: #eeeeee;
-    
+    font-weight: 300;
+    text-transform: uppercase;
+    &:focus,
+    &:hover{
+      background-color: #eeeeee;
+      color: #393e46;
+    }
   }
 
+  .communism{
+    min-width: 300px;
+    margin-top: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .post-wrapper{
+    margin-bottom: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    border: 2px solid #00ADB5;
+    border-radius: 8px;
+  }
+
+  .link-to-post{
+    width: 280px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    color: #eeeeee;
+    font-weight: 200;
+    border: 2px solid #00ADB5;
+    border-radius: 6px;
+  }
 }

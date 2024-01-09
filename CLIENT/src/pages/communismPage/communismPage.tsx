@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 export default function CommunismPage() {
   const dispatch = useAppDispatch()
-  const { posts } = useAppSelector(state => state.posts) //, tags
+  const { posts, tags } = useAppSelector(state => state.posts)
   // console.log('COMMUNISM PAGE POSTS : ', posts)
   // console.log('COMMUNISM PAGE TAGS : ', tags)
   const userData: typeUserData | null = useAppSelector((state) => state.auth.data)
@@ -27,24 +27,21 @@ export default function CommunismPage() {
     <div className={style['page-container']}>
       <Header />
       <div className={style['communism-wrapper']}>
-
-        <h1 className={style['communism-title']}>что такое Коммунизм 2.0 ?</h1>
-        <p className={style['communism-about']}>
-          Это шутеечное название доски объявлений
-        </p>
-        <p className={style['communism-about']}>
-          Здесь можно предложить свои услуги
-        </p>
-        <p className={style['communism-about']}>
-          В замен получить другие услуги или обмен на необходимое
-        </p>
-
-        <section>
-
-          <Link to='/addPost'>
-            <h3>написать пост/обьявление</h3>
-          </Link>
-        </section>
+        <div className={style['communism-about-wrapper']}>
+          <h1 className={style['communism-title']}>что такое Коммунизм 2.0 ?</h1>
+          <p className={style['communism-about']}>
+            Это шутеечное название доски объявлений
+          </p>
+          <p className={style['communism-about']}>
+            Здесь можно предложить свои услуги
+          </p>
+          <p className={style['communism-about']}>
+            В замен получить другие услуги или обмен на необходимое
+          </p>
+        </div>
+        <Link className={style['add-post-link']} to='/addPost'>
+          написать пост
+        </Link>
 
         <section className={style['communism']}>
           {(isPostsLoading ? [...Array(3)] : posts.items).map((obj, index) =>
@@ -59,10 +56,7 @@ export default function CommunismPage() {
                 СКЕЛЕТОН КОТОРЫЙ НАРИСУЕТСЯ 3 РАЗА [ARRAY(3)]
               </div>)
               : (
-                <div key={obj.id} >
-                  <Link to={`/communism2.0/${obj.id}`}>
-                    Link to ID POST
-                  </Link>
+                <div className={style['post-wrapper']} key={obj.id} >
                   <Post
                     key={obj.id}
                     id={obj.id}
@@ -76,6 +70,9 @@ export default function CommunismPage() {
                     isEditable={userData?.email === obj.user_email}
                     confirmUser={userData?.email}
                   />
+                  <Link className={style['link-to-post']} to={`/communism2.0/${obj.id}`}>
+                    перейти к посту
+                  </Link>
                 </div>
               )
           )}
