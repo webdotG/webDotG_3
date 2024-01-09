@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 export default function CommunismPage() {
   const dispatch = useAppDispatch()
-  const { posts, tags } = useAppSelector(state => state.posts)
+  const { posts } = useAppSelector(state => state.posts) //, tags
   // console.log('COMMUNISM PAGE POSTS : ', posts)
   // console.log('COMMUNISM PAGE TAGS : ', tags)
   const userData: typeUserData | null = useAppSelector((state) => state.auth.data)
@@ -42,12 +42,10 @@ export default function CommunismPage() {
         <Link className={style['add-post-link']} to='/addPost'>
           написать пост
         </Link>
-
         <section className={style['communism']}>
           {(isPostsLoading ? [...Array(3)] : posts.items).map((obj, index) =>
-
             //так как при рендере сперва будет фэковый массив из трёх undefined
-            //а посты получаем позже так как запросу нужно время и сразу не получится взять данные из obj
+            //а посты получаю позже так как запросу нужно время и сразу не получится взять данные из obj
             //надо сделать дополнительную проверку
             //и если грузятся 3 фейковых undefined то грузить скелетон но пока временно строку ЗАГРУЖАЮ
             //а если данные получены то уже рендерить нормальные посты
@@ -76,9 +74,7 @@ export default function CommunismPage() {
                 </div>
               )
           )}
-
         </section>
-
       </div>
       <Footer />
     </div>

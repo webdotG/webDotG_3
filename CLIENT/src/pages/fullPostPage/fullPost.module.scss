@@ -6,4 +6,61 @@
     background-color: #393e46;
     color: #eeeeee;
   }
+
+  .back-to-allpost{
+    width: 225px;
+    padding-left: 25px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+    color: #eeeeee;
+
+    svg{
+      margin-right: 10px;
+    }
+
+    &:focus,
+    &:hover{
+      color: #00ADB5;
+
+      svg{
+        background-color: #eeeeee;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .full-post-content{
+    min-width: 320px;
+    margin: 0 auto ;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px solid #00ADB5;
+    border-radius: 8px;
+  }
+
+  .full-post-title{
+    font-size: 27px;
+    padding-bottom: 15px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  .full-post-text{
+    padding-bottom: 15px;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 19px;
+  }
+
+  .full-post-tags{
+    font-size: 16px;
+    font-weight: 300;
+  }
+
 }
