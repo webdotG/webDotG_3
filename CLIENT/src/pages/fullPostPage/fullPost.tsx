@@ -2,26 +2,23 @@ import style from './fullPost.module.scss'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { typeUserData } from '../../types'
+import { useAppSelector } from '../../hooks'
 import axios from '../../axios'
 import Post from '../../components/Post/Post'
+import Header from '../../components/header/header'
+import Footer from '../../components/footer/footer'
+import { PostData } from '../../types'
 
-type PostData = {
-  id: number;
-  title: string;
-  text: string;
-  tags: string | null; 
-  user_name: string;
-  user_email: string;
-  created_at: string;
-  updated_at: string;
-};
 
 export default function FullPost() {
   const { id } = useParams()
   // console.log('FULL POST USEPARAMS PARAMS : ', id)
   const [postData, setPostData] = useState<PostData>({id: 0,title: '',text: '',tags: '',user_name: '',user_email: '',created_at: '',updated_at: '',});
   // console.log('FULLPOST SETDATAPOST POSTDATA : ', postData)
-  
+  const userData: typeUserData | null = useAppSelector((state) => state.auth.data)
+  // console.log('COMMUNISM PAGE USERDATA : ', userData);
+
   useEffect(() => {
     axios.get(`/api/posts/${id}`)
       .then(res => {
@@ -37,6 +34,7 @@ export default function FullPost() {
 
   return (
     <div className={style['page-container']}>
+      <Header />
       <h2>FullPost</h2>
       <Post
         id={postData.id}
@@ -48,6 +46,7 @@ export default function FullPost() {
         created_at={postData.created_at}
         updated_at={postData.updated_at}
         isEditable
+        confirmUser={userData?.email}
       >
       </Post>
       <Link to='/communism2.0'>перейти ко всем постам</Link>
@@ -55,6 +54,7 @@ export default function FullPost() {
       <h1>{postData.title}</h1>
       <h2>{postData.text}</h2>
       <h3>{postData.tags}</h3>
+      <Footer />
     </div>
   )
 }

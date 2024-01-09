@@ -47,22 +47,24 @@ export default function CommunismPage() {
         </section>
 
         <section className={style['communism']}>
-          {(isPostsLoading ? [...Array(3)] : posts.items).map((obj, index) => 
-          
+          {(isPostsLoading ? [...Array(3)] : posts.items).map((obj, index) =>
+
             //так как при рендере сперва будет фэковый массив из трёх undefined
             //а посты получаем позже так как запросу нужно время и сразу не получится взять данные из obj
             //надо сделать дополнительную проверку
             //и если грузятся 3 фейковых undefined то грузить скелетон но пока временно строку ЗАГРУЖАЮ
             //а если данные получены то уже рендерить нормальные посты
             isPostsLoading
-              ? 'ЗАГРУЖАЮ ЗДЕСЬ НАДО НАРИСОВАТЬ СКЕЛЕТОН КОТОРЫЙ НАРИСУЕТСЯ 3 РАЗА [ARRAY(3)]'
+              ? (<div key={index}>
+                СКЕЛЕТОН КОТОРЫЙ НАРИСУЕТСЯ 3 РАЗА [ARRAY(3)]
+              </div>)
               : (
-                <div>
+                <div key={obj.id} >
                   <Link to={`/communism2.0/${obj.id}`}>
                     Link to ID POST
                   </Link>
                   <Post
-                    key={index}
+                    key={obj.id}
                     id={obj.id}
                     title={obj.title}
                     text={obj.text}

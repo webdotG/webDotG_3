@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from '../../axios'
+import { RootState } from "../../types";
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   const {data} = await axios.get('/api/posts/')
@@ -19,7 +20,7 @@ export const fetchRemovePost = createAsyncThunk('posts/fetchRemovePost', async (
   return data 
 })
 
-const initialState = {
+const initialState: RootState = {
   posts: {
     items: [],
     status: 'loading'
@@ -28,7 +29,7 @@ const initialState = {
     items: [],
     status: 'loading'
   }
-}
+};
 
 const postsSlice = createSlice({
   name: 'posts',
@@ -68,6 +69,14 @@ const postsSlice = createSlice({
     //удаление поста
     .addCase(fetchRemovePost.pending, (state, action) =>{
       state.posts.items = state.posts.items.filter(obj => obj.id !== action.payload)
+    })
+    .addCase(fetchRemovePost.fulfilled, (state, action) => {
+      // action.payload здесь содержит данные, возвращенные  санком fetchRemovePost
+      const deletedPostId = action.payload?.id; 
+      // state.posts.items = state.posts.items.filter((post) => post.id !== deletedPostId);
+      if (deletedPostId) {
+        state.posts.items = state.posts.items.filter((post) => post.id !== deletedPostId);
+      }
     })
     .addCase(fetchRemovePost.rejected, (state) =>{
       state.posts.status = 'error'
