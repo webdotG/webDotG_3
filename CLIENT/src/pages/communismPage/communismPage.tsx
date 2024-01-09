@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 export default function CommunismPage() {
   const dispatch = useAppDispatch()
-  const { posts, tags } = useAppSelector(state => state.posts)
+  const { posts } = useAppSelector(state => state.posts) //, tags
   // console.log('COMMUNISM PAGE POSTS : ', posts)
   // console.log('COMMUNISM PAGE TAGS : ', tags)
   const userData: typeUserData | null = useAppSelector((state) => state.auth.data)
