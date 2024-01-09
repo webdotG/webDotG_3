@@ -45,25 +45,35 @@ export default function FullPost() {
 
       <div className={style['full-post-content']}>
         <h1 className={style['full-post-title']}>{postData.title}</h1>
-        <p className={style['full-post-text']}>{postData.text}</p>
+
+        <p className={style['full-post-text']}>
+          {postData.text && postData.text.length >= 3
+            ? (postData.text)
+            : (
+              <code className={style['full-post-text-error']}>
+                {JSON.stringify(postData.text)}
+              </code>
+            )}
+        </p>
+
         <p className={style['full-post-tags']}># {postData.tags}</p>
         <section className={style['post-data']}>
-        <Post
-          id={postData.id}
-          title={postData.title}
-          text={postData.text}
-          tags={postData.tags}
-          user_name={postData.user_name}
-          user_email={postData.user_email}
-          created_at={postData.created_at}
-          updated_at={postData.updated_at}
-          isEditable
-          confirmUser={userData?.email}
-        >
-        </Post>
-      </section>
+          <Post
+            id={postData.id}
+            title={postData.title}
+            text={postData.text}
+            tags={postData.tags}
+            user_name={postData.user_name}
+            user_email={postData.user_email}
+            created_at={postData.created_at}
+            updated_at={postData.updated_at}
+            isEditable
+            confirmUser={userData?.email}
+          >
+          </Post>
+        </section>
       </div>
-      
+
 
       <Footer />
     </div>
