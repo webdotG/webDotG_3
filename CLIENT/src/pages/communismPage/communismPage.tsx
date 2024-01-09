@@ -55,6 +55,7 @@ export default function CommunismPage() {
               </div>)
               : (
                 <div className={style['post-wrapper']} key={obj.id} >
+                    <h2 className={style['post-title']} >{obj.title}</h2>
                   <Post
                     key={obj.id}
                     id={obj.id}

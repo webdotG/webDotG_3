@@ -39,13 +39,12 @@
     padding-bottom: 25px;
     padding-left: 10px;
     padding-right: 10px;
-    border-top: 2px solid #00ADB5;
-    border-bottom: 2px solid #00ADB5 ;
   }
 
   .full-post-title{
     font-size: 27px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
+    // border-bottom: #00ADB5 2px solid;
     font-weight: 400;
     text-align: center;
     text-decoration: underline;
@@ -55,11 +54,16 @@
     padding-bottom: 15px;
     padding-left: 10px;
     text-align: left;
-    font-size: 19px;
+    font-size: 21px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    font-weight: 300;
   }
 
   .full-post-tags{
-    font-size: 16px;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 18px;
     font-weight: 300;
   }
 

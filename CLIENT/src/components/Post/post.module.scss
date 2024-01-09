@@ -1,5 +1,9 @@
 @media (min-width:320px) {
 
+  .display-none{
+    display: none;
+  }
+
   .page-container {
     display: flex;
     flex-direction: column;
@@ -8,15 +12,25 @@
   }
 
   .post-data {
-    padding-top: 25px;
+    padding-top: 20px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .user-name{
+    padding-right: 15px;
+    font-size: 18px;
+    color: #eeeeee;
+  }
+
+  .update-at{
+    margin-top: 5px;
+    font-size: 12px;
+    color: #eeeeee;
   }
 
   .control-buttons {
-    width: 300px;
-    margin: 0 auto;
-    margin-top: 25px;
-    padding-left: 10px;
-    padding-right: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     display: flex;

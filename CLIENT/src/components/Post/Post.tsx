@@ -43,17 +43,23 @@ const Post: React.FC<PostProps> = ({
   // console.log('user_email : ', user_email)
   const canEditOrDelete = confirmUser === user_email;
 
+  let dateOnly: string | undefined;
+  if (updated_at) {
+    dateOnly = updated_at.split(' ')[0];
+  }
+
   return (
     <div className={style.post}>
       <section className={style['post-data']}>
-        <p className={style['']}>ID: {id}</p>
-        <p className={style['']}>Title: {title}</p>
-        <p className={style['']}>Text: {text}</p>
-        <p className={style['']}>Tags: {tags}</p>
-        <p className={style['']}>User Name: {user_name}</p>
-        <p className={style['']}>User Email: {user_email}</p>
-        <p className={style['']}>Created At: {created_at}</p>
-        <p className={style['']}>Updated At: {updated_at}</p>
+        <p className={style['display-none']}>ID: {id}</p>
+        <p className={style['display-none']}>Title: {title}</p>
+        <p className={style['display-none']}>Text: {text}</p>
+        <p className={style['display-none']}>Tags: {tags}</p>
+        <p className={style['user-name']}>{user_name}</p>
+        <p className={style['display-none']}>{user_email}</p>
+        <p className={style['display-none']}>{created_at}</p>
+        <p className={style['update-at']}>{dateOnly} </p>
+        
       </section>
       {canEditOrDelete && isEditable && (
         <div className={style['control-buttons']}>

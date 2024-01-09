@@ -69,9 +69,14 @@
     padding-bottom: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    
     border: 2px solid #00ADB5;
     border-radius: 8px;
+  }
+
+  .post-title{
+    font-size: 25px;
+    color: #eeeeee;
+    text-align: center;
   }
 
   .link-to-post{
@@ -86,5 +91,11 @@
     font-weight: 200;
     border: 2px solid #00ADB5;
     border-radius: 6px;
+
+    &:focus,
+    &:hover{
+      background-color: #eeeeee;
+      color: #393e46;
+    }
   }
 }
