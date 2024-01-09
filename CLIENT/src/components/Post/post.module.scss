@@ -1,10 +1,57 @@
 @media (min-width:320px) {
-  
+
   .page-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
     background-color: #393e46;
   }
+
+  .post-data {
+    padding-top: 25px;
+  }
+
+  .control-buttons {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .edit-link {
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    border: transparent 2px solid;
+    border-radius: 6px;
+    color: #eeeeee;
+
+    svg {
+      margin-right: 7px;
+    }
+  }
+
+  .remove-btn {
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    border: transparent 2px solid;
+    border-radius: 6px;
+    color: #eeeeee;
+    background-color: transparent;
+    cursor: pointer;
+
+    svg {
+      margin-right: 7px;
+    }
+  }
+
 
 }

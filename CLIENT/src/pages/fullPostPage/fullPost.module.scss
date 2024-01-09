@@ -35,12 +35,12 @@
   .full-post-content{
     min-width: 320px;
     margin: 0 auto ;
-    padding-top: 20px;
-    padding-bottom: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     padding-left: 10px;
     padding-right: 10px;
-    border: 2px solid #00ADB5;
-    border-radius: 8px;
+    border-top: 2px solid #00ADB5;
+    border-bottom: 2px solid #00ADB5 ;
   }
 
   .full-post-title{
@@ -61,6 +61,11 @@
   .full-post-tags{
     font-size: 16px;
     font-weight: 300;
+  }
+
+  .post-data{
+    width: 100%;
+    margin: 0 auto;
   }
 
 }
