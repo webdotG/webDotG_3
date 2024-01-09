@@ -13,7 +13,6 @@ interface PostFields {
   tags: string;
 }
 
-
 export default function AddPostPage(): JSX.Element {
   const { id } = useParams()
   const isEditing = Boolean(id)
@@ -23,16 +22,20 @@ export default function AddPostPage(): JSX.Element {
   const [text, setText] = useState<string>('')
   const [tags, setTags] = useState<string>('')
   // console.log('ADD POST FIELDS TITLE TEXT TAGS : ', title, text, tags)
+  const [errorTitleMessage, setErrorTitleMesage] = useState<string>('')
+  const [errorTagsMessage, setErrorTagsMesage] = useState<string>('')
 
   const MIN_TITLE_LENGTH = 5;
   const handleTitleChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
     const inputValue = e.target.value;
-
     if (inputValue.length < MIN_TITLE_LENGTH) {
-      alert('Минимальная длина текста должна быть не менее 5 символов!');
+      setErrorTitleMesage('Минимальная длина текста должна быть не менее 5 символов!')
+    } else {
+      setErrorTitleMesage('')
     }
     setTitle(inputValue);
   };
+
   const handleTextChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
     setText(e.target.value);
   };
@@ -41,17 +44,15 @@ export default function AddPostPage(): JSX.Element {
   };
 
   const validateTags = (inputTags: string): boolean => {
-    // Регулярное выражение для проверки наличия запятой перед пробелом
-    // const regex = /^(\s*,\s*\w+)*(\s*,\s*\w+\s*)?$/; 
-    // Регулярное выражение для проверки тегов минимум из трёх букв
     const regex = /^(\s*,\s*\w{3,})*(\s*,\s*\w{3,}\s*)?$/;
 
     if (!regex.test(inputTags)) {
-      // alert('Необходимо поставить запятую перед пробелом между тегами!');
-      // alert('Необходимо поставить запятую перед пробелом между тегами и теги должны состоять минимум из трёх букв!');
+      setErrorTagsMesage('Необходимо поставить запятую перед пробелом между тегами и теги должны состоять минимум из трёх букв!')
       return false;
+    } else {
+      setErrorTagsMesage('')
+      return true;
     }
-    return true;
   };
 
   const handleTagsKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>): void => {
@@ -123,6 +124,7 @@ export default function AddPostPage(): JSX.Element {
               value={title}
               onChange={handleTitleChange}
             />
+            <span>{errorTitleMessage}</span>
           </label>
           <label className={style['label']}>
             Описание и что взамен
@@ -142,6 +144,7 @@ export default function AddPostPage(): JSX.Element {
               onChange={handleTagsChange}
               onKeyDown={handleTagsKeyDown}
             />
+            <span>{errorTagsMessage}</span>
           </label>
           <button className={style['btn-submit']}
             type='submit'>
