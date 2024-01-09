@@ -16,7 +16,7 @@ export interface typeUserData {
 
 
 export interface PostData {
-  id?: number,
+  id?: number ,
   title?: string,
   text?: string,
   tags?: string,

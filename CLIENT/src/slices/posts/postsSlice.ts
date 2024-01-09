@@ -14,9 +14,12 @@ export const fetchTags = createAsyncThunk('posts/fetchTags', async () => {
   return data 
 })
 
-export const fetchRemovePost = createAsyncThunk('posts/fetchRemovePost', async (id) => {
-  const {data} = await axios.delete(`/api/posts/${id}`)
-  // console.log('POSTSLICE AXIOS DELETE API/POSTS ID, DATA : ', id, data)
+interface DeleteResponse {
+  id: number;
+}
+export const fetchRemovePost = createAsyncThunk<DeleteResponse, number>('posts/fetchRemovePost', async (id) => {
+  const {data} = await axios.delete<DeleteResponse>(`/api/posts/${id}`)
+  console.log('POSTSLICE AXIOS DELETE API/POSTS ID, DATA : ', id, data)
   return data 
 })
 
@@ -67,8 +70,9 @@ const postsSlice = createSlice({
       state.tags.items = []
     })
     //удаление поста
-    .addCase(fetchRemovePost.pending, (state, action) =>{
-      state.posts.items = state.posts.items.filter(obj => obj.id !== action.payload)
+    .addCase(fetchRemovePost.pending, (state) =>{ //, action
+      state.posts.status = 'loading';
+      // state.posts.items = state.posts.items.filter(obj => obj.id !== action.payload)
     })
     .addCase(fetchRemovePost.fulfilled, (state, action) => {
       // action.payload здесь содержит данные, возвращенные  санком fetchRemovePost

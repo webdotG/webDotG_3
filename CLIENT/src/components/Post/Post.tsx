@@ -31,9 +31,9 @@ const Post: React.FC<PostProps> = ({
 
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-
+  console.log('id :', id)
   const onClickRemove = () => {
-    if (window.confirm('Удалить пост?')) {
+    if (window.confirm('Удалить пост?') && id !== undefined) {
       dispatch(fetchRemovePost(id))
       navigate('/communism2.0')
     }
