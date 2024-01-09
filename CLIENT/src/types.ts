@@ -9,9 +9,10 @@ export type typeUser = {
 }
 
 export interface typeUserData {
-  user: typeUser & { token: string } | null;
-  id?:  string | undefined; 
-  email?:  string | undefined ; 
+  user: typeUser & { token: string } | null,
+  id?:  string | undefined, 
+  email?:  string | undefined, 
+  name?: string | undefined
 }
 
 
@@ -34,20 +35,20 @@ export interface PostsState {
 
 export interface TagsState {
   items: []
-  status: string;
+  status: string,
 }
 
 export interface RootState {
-  posts: PostsState;
-  tags: TagsState;
+  posts: PostsState,
+  tags: TagsState,
 }
 
 export interface typeFetchAuthFulfilledAction {
-  type: string;
-  payload: typeUser;
+  type: string,
+  payload: typeUser,
   meta: {
-    arg: { email: string; password: string };
-    requestId: string;
-    requestStatus: 'fulfilled';
+    arg: { email: string, password: string },
+    requestId: string,
+    requestStatus: 'fulfilled',
   };
 }

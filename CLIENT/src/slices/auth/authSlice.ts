@@ -127,6 +127,11 @@ export const selectIsAuth = (state: RootState) => {
   return state.auth.data !== null && typeof state.auth.data === 'object' && state.auth.data;
 };
 
+export const selectUserName = (state: RootState) => {
+  console.log("AuthSlice SelectIsAuth STATE.AUTH.DATA : ", state.auth.data)
+  return state.auth.data?.name; 
+};
+
 export const authReducer = authSlice.reducer;
 
 export const { logOut } = authSlice.actions
