@@ -2,8 +2,8 @@ import style from './addPost.module.scss'
 import Footer from '../../components/footer/footer'
 import Header from '../../components/header/header'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useAppSelector } from '../../hooks'
-import { selectIsAuth } from '../../slices/auth/authSlice'
+// import { useAppSelector } from '../../hooks'
+// import { selectIsAuth } from '../../slices/auth/authSlice'
 import { useState, FormEvent, ChangeEvent, useEffect } from 'react'
 import axios from '../../axios'
 
@@ -17,15 +17,21 @@ interface PostFields {
 export default function AddPostPage(): JSX.Element {
   const { id } = useParams()
   const isEditing = Boolean(id)
-  const isAuth = useAppSelector(selectIsAuth)
+  // const isAuth = useAppSelector(selectIsAuth)
   const navigate = useNavigate()
   const [title, setTitle] = useState<string>('')
   const [text, setText] = useState<string>('')
   const [tags, setTags] = useState<string>('')
   // console.log('ADD POST FIELDS TITLE TEXT TAGS : ', title, text, tags)
 
+  const MIN_TITLE_LENGTH = 5;
   const handleTitleChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
-    setTitle(e.target.value);
+    const inputValue = e.target.value;
+
+    if (inputValue.length < MIN_TITLE_LENGTH) {
+      alert('Минимальная длина текста должна быть не менее 5 символов!');
+    }
+    setTitle(inputValue);
   };
   const handleTextChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
     setText(e.target.value);
@@ -34,8 +40,42 @@ export default function AddPostPage(): JSX.Element {
     setTags(e.target.value);
   };
 
+  const validateTags = (inputTags: string): boolean => {
+    // Регулярное выражение для проверки наличия запятой перед пробелом
+    // const regex = /^(\s*,\s*\w+)*(\s*,\s*\w+\s*)?$/; 
+    // Регулярное выражение для проверки тегов минимум из трёх букв
+    const regex = /^(\s*,\s*\w{3,})*(\s*,\s*\w{3,}\s*)?$/;
+
+    if (!regex.test(inputTags)) {
+      // alert('Необходимо поставить запятую перед пробелом между тегами!');
+      // alert('Необходимо поставить запятую перед пробелом между тегами и теги должны состоять минимум из трёх букв!');
+      return false;
+    }
+    return true;
+  };
+
+  const handleTagsKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>): void => {
+    if (e.key === ' ' && tags[tags.length - 1] !== ',') {
+      alert('Необходимо поставить запятую перед пробелом между тегами!');
+      e.preventDefault();
+    }
+  };
+
   const onSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
+    // Останавливаю отправку формы, если теги не прошли валидацию
+    if (!validateTags(tags)) {
+      alert('теги не валидны проверьте запятые перед пробелами и убедитесть что написали хотя бы один тег минимум из трёх ь=букв!');
+      return;
+    }
+    if (!tags.trim()) {
+      alert('необходимо указать хотя бы один тег!');
+      return; 
+    }
+    if (title.trim().length < MIN_TITLE_LENGTH) {
+      alert('минимальная длина текста должна быть не менее 5 символов!');
+      return;
+    }
     try {
       const fields: PostFields = { title, text, tags }
       // console.log('ADD POST FIELDS  : ', fields)
@@ -63,9 +103,9 @@ export default function AddPostPage(): JSX.Element {
     }
   }, [])
 
-  if (!isAuth) {
-    navigate('/login')
-  }
+  // if (!isAuth) {
+  //   navigate('/login')
+  // }
 
   return (
     <div className={style['page-container']}>
@@ -100,10 +140,11 @@ export default function AddPostPage(): JSX.Element {
               rows={4}
               value={tags}
               onChange={handleTagsChange}
+              onKeyDown={handleTagsKeyDown}
             />
           </label>
           <button className={style['btn-submit']}
-          type='submit'>
+            type='submit'>
             {isEditing ? 'сохранить' : 'опубликовать'}
           </button>
         </form>
