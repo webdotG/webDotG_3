@@ -10,6 +10,16 @@ export default function RemovePost() {
   const deletePostMessage = useAppSelector((state) => state.posts.deletePostMessage);
   const deletePostData = useAppSelector((state) => state.posts.deletePostData);
 
+  let date: string | undefined = deletePostData?.created_at;
+  if (deletePostData?.updated_at) {
+    date = deletePostData.updated_at.split(' ')[0];
+  }
+
+  let update: string | undefined = deletePostData?.updated_at;
+  if (deletePostData?.updated_at) {
+    update = deletePostData.updated_at.split(' ')[0];
+  }
+
 
   return (
     <div className={style['page-container']}>
@@ -21,17 +31,31 @@ export default function RemovePost() {
         </svg>
         обратно к постам
       </Link>
-        {deletePostMessage &&
-          <p>{deletePostMessage}</p>
+         {deletePostMessage &&
+          <h2 className={style['delete-title']}>{deletePostMessage} </h2>
         }
         {deletePostData && (
           <div>
-            <p>ID удаленного поста: {deletePostData.id}</p>
-            <p>Заголовок: {deletePostData.title}</p>
-            <p>Теги: {deletePostData.tags}</p>
-            {/* Дополнительная информация об удаленном посте */}
+            <h3 className={style['delete-info-title']}>данные поста :</h3>
+            <p className={style['delete-info']}>Пользователь: <span>{deletePostData.user_name}</span></p>
+            <p className={style['delete-info']}>Email: <span>{deletePostData.user_email}</span></p>
+            <p className={style['delete-info']}>ID поста: <span>{deletePostData.id}</span></p>
+            <p className={style['delete-info']}>Заголовок: <span>{deletePostData.title}</span></p>
+            <p className={style['delete-info']}>Теги: <span>{deletePostData.tags}</span></p>
+            <p className={style['delete-info']}>Текст: <span>{deletePostData.text}</span></p>
+            <p className={style['delete-info']}>Создано: <span>{date}</span></p>
+            <p className={style['delete-info']}>Обновлено: <span>{update}</span></p>
           </div>
         )}
+        {/* {deletePostData && (
+          <div>
+            {Object.entries(deletePostData).map(([key, value]) => (
+              <p key={key}>
+                {key}: {value}
+              </p>
+            ))}
+          </div>
+        )} */}
       </div>
       <Footer />
     </div>
