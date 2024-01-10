@@ -134,7 +134,7 @@ export default function AddPostPage(): JSX.Element {
           <label className={style['label']}>
             Описание и что взамен
             <textarea className={style['text-input']}
-              placeholder="более детальное описание предложения и хотите ли что ни будь за это или достаточно простого спаибо ?))"
+              placeholder="более детальное описание предложения и хотите ли что ни будь за это а может вам достаточно искреннего спаибо ?))"
               rows={8}
               value={text}
               onChange={handleTextChange}
@@ -143,7 +143,7 @@ export default function AddPostPage(): JSX.Element {
           <label className={style['label']}>
             # Тэги
             <textarea className={style['tags-input']}
-              placeholder="приготовление еды, хачапури, массаж, погуляю с вашей собакой, посмотреть все части властелина колец "
+              placeholder="#приготовление еды #хачапури #массаж #погуляю с вашей собакой #составить компанию для просмотра вего властелина колец "
               rows={4}
               value={noFormatTags}
               onChange={handleTagsChange}
