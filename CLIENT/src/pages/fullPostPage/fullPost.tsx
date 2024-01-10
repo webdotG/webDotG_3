@@ -51,7 +51,9 @@ export default function FullPost() {
             ? (postData.text)
             : (
               <code className={style['full-post-text-error']}>
-                {JSON.stringify(postData.text)}
+                {postData.user_name}<br/>
+                'не написал текст'<br/>
+                'ай ай ай'
               </code>
             )}
         </p>

@@ -17,6 +17,7 @@ import { fetchAuth } from './slices/auth/authSlice';
 import { selectIsAuth } from '../src/slices/auth/authSlice';
 import AddPostPage from './pages/addPostPage/addPostPage';
 import ConfirmationOrder from './pages/confirmationOrder/confirmationOrder';
+import RemovePost from './pages/removePost/removePost';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -41,6 +42,7 @@ function App() {
         <Route index path="/communism2.0/:id" element={<FullPost />} />
         <Route index path="/communism2.0/:id/edit" element={<AddPostPage />} />
         <Route index path="/addPost" element={<AddPostPage />} />
+        <Route index path="/removePost" element={<RemovePost />} />
         {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null }
    </Routes>
   )

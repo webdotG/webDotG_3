@@ -11,7 +11,7 @@ interface PostFields {
   title: string,
   text: string,
   tags: [''] | string,
-  noFormatTags?: [''] | string
+  noFormatTags?: ['']
 }
 
 export default function AddPostPage(): JSX.Element {
@@ -44,14 +44,13 @@ export default function AddPostPage(): JSX.Element {
 
   const handleTagsChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
     const inputTags = e.target.value;
-
     setNoFormatTags(inputTags);
     //валидация тегов
     const tagsValidateArray = noFormatTags.split(',').map(tag => tag.trim());
     const TAG_REGEX = /^#[A-Za-zА-Яа-я]{3,}$/;
     const isValid = tagsValidateArray.every(tag => TAG_REGEX.test(tag));
     if (!isValid) {
-      setErrorTagsMesage('Теги должны начинаться с # и состоять только из русских или английских букв, минимум из трех символов');
+      setErrorTagsMesage('Теги должны начинаться с # и состоять минимум из трех символов');
     } else {
       setErrorTagsMesage('');
     }
@@ -61,22 +60,24 @@ export default function AddPostPage(): JSX.Element {
       const trimmedTag = tag.trim();
       return `${trimmedTag}`;
     });
-
     // Преобразовываю массив строк в одну строку через запятую
     const tagsString = formattedTags.join(', ');
     console.log('TAGS STRING , FOR DB : ', tagsString)
     // устанавливаю эту строку в состояние
     setTags(tagsString);
-
-    console.log('HANDLE TAGS INPUT TAGS : ', inputTags)
-    console.log('HANDLE TAGS FOREMATED TAGS  : ', formattedTags)
+    // console.log('HANDLE TAGS INPUT TAGS : ', inputTags)
+    // console.log('HANDLE TAGS FOREMATED TAGS  : ', formattedTags)
   };
-  console.log('NoFormatTags : ', noFormatTags)
-  console.log('TAGS : ', tags)
+  // console.log('NoFormatTags : ', noFormatTags)
+  // console.log('TAGS : ', tags)
+
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
-
+    if(!tags || tags.length < 3){
+      alert('надо указать хотя бы один тег');
+      return;
+    }
     if (title.trim().length < MIN_TITLE_LENGTH) {
       alert('заголовок должен быть не менее 5 символов');
       return;
@@ -128,7 +129,7 @@ export default function AddPostPage(): JSX.Element {
               value={title}
               onChange={handleTitleChange}
             />
-            <span>{errorTitleMessage}</span>
+            <span className={style['error-message']}>{errorTitleMessage}</span>
           </label>
           <label className={style['label']}>
             Описание и что взамен
@@ -147,7 +148,7 @@ export default function AddPostPage(): JSX.Element {
               value={noFormatTags}
               onChange={handleTagsChange}
             />
-            <span>{errorTagsMessage}</span>
+            <span className={style['error-message']}>{errorTagsMessage}</span>
           </label>
 
           {isAuth
