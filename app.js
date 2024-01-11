@@ -32,16 +32,16 @@ app.use('/api/tags', require('./routes/tag'))
 
 app.use('/api/cart', require('./routes/cart'));
 
-//esli zapros ne proshel ne po odnomu routu vishe express otdset prosto statichnii faili v papke dist
+//если запрос не прошёл ни по одному роуту оаисаных выше то express отдаст просто статичный файл в папке dist
 app.use('/', express.static(path.join(__dirname, './CLIENT/dist')));
 
-//esli voobshe ni chego ne srabotalo to prosto otday index.html
-//mini nginx )))
+//если соовсем ни чего не сработало то просто отдаст index.html
+//своеобразная версия мини NGINX
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './CLIENT/dist/index.html'));
 });
 
-const PORT = 1111 //process.env.PORT; 
+const PORT = process.env.PORT  //1111; 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 
