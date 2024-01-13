@@ -3,9 +3,8 @@ import Header from '../../components/header/header'
 import styles from './communityPage.module.scss'
 // import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks'
-import { fetchAddUserCommunity, fetchCommunity, selectUsersCommunity } from '../../slices/community/communitySlice'
+import { fetchAddUserCommunity, fetchAllUserCommunity,  selectUsersCommunity} from '../../slices/community/communitySlice'
 import { ChangeEvent, useEffect, useState } from 'react'
-// import { fetchCommunity } from '../../slices/community/communitySlice'
 
 
 export default function CommunityPgae() {
@@ -61,24 +60,21 @@ export default function CommunityPgae() {
     dispatch(fetchAddUserCommunity({ name, dateOfBirth: formattedDateOfBirth }));
   };
 
-  useEffect(() => {
-    fetchCommunity()
-  },[dispatch])
+ useEffect(() => {
+  // console.log('communityUsers type:', typeof communityUsers); // Добавьте эту строку
+  dispatch(fetchAllUserCommunity())
+ }, [])
 
   return (
     <div className={styles['page-container']}>
       <Header />
       <div className={styles['community']}>
         <h1 className={styles['community-title']}></h1>
-
+<button onClick={() => dispatch(fetchAllUserCommunity())}></button>
         <form className={styles['form-add-user']}
           onSubmit={handleSubmit}
         >
-          <button className={styles['add-user']}
-            type='submit'
-          >
-            добавить человека
-          </button>
+         
           <label>
             <input type='text'
               placeholder='имя'
@@ -94,15 +90,24 @@ export default function CommunityPgae() {
               onChange={handleDateOfBirthChange}
             />
           </label>
+          <button className={styles['add-user']}
+            type='submit'
+          >
+            добавить человека
+          </button>
+
         </form>
 
         <ul className={styles['users-list']}>
           
-          {communityUsers.map((user) => (
-            <li key={user.id} className={styles['users-item']}>
-              {user.name}, {user.age}
+            {communityUsers.map((user, index) => (
+            <li key={index} className={styles['users-item']}>
+              {user.id}
+              {user.date_of_birth}
+              {user.name}
+              {user.created_by_user_name}
             </li>
-          ))} 
+          ))}   
 
         </ul>
       </div>

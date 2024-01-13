@@ -1,30 +1,30 @@
 const pool = require('../db');
 
+
 const AddUser = async (req, res) => {
   try {
     const { name, dateOfBirth } = req.body;
+    const createdByUserId = req.userId;
+    // Получение информации о пользователе по createdByUserId
+    const createdByUserQuery = `
+      SELECT name as created_by_user_name FROM webdotg.users WHERE id = $1;
+    `;
+    const createdByUserValues = [createdByUserId];
+    const createdByUserResult = await pool.query(createdByUserQuery, createdByUserValues);
 
-    const userId = req.userId;
-    // Получение информации о пользователе по userId
-    const userQuery = `
-  SELECT name, email FROM webdotg.users WHERE id = $1;
-  `;
-    const userValues = [userId];
-    const userResult = await pool.query(userQuery, userValues);
-
-    if (userResult.rows.length === 0) {
-      throw new Error('Пользователь не найден');
+    if (createdByUserResult.rows.length === 0) {
+      throw new Error('Пользователь, создавший нового пользователя, не найден');
     }
 
-    
+    const createdByUserName = createdByUserResult.rows[0].created_by_user_name;
 
     // SQL запрос для вставки нового пользователя в базу данных
     const insertUserQuery = `
-      INSERT INTO webdotg.community (name, date_of_birth, created_by_user_id)
-      VALUES ($1, $2, $3)
+      INSERT INTO webdotg.community (name, date_of_birth, created_by_user_id, created_by_user_name)
+      VALUES ($1, $2, $3, $4)
       RETURNING *;
     `;
-    const values = [name, dateOfBirth, userId];
+    const values = [name, dateOfBirth, createdByUserId, createdByUserName];
     const result = await pool.query(insertUserQuery, values);
 
     // Проверка успешности выполнения запроса и возвращение созданного пользователя
@@ -40,15 +40,18 @@ const AddUser = async (req, res) => {
   }
 };
 
+
 const GetAllUsers = async (req, res) => {
   try {
     const getAllUsersQuery = `
-      SELECT * FROM webdotg.community;
+    SELECT c.*, u.name AS created_by_user_name
+    FROM webdotg.community c
+    LEFT JOIN webdotg.users u ON c.created_by_user_id::integer = u.id;
     `;
   
     const allUsers = await pool.query(getAllUsersQuery);
   
-    // Проверка успешности выполнения запроса и возвращение списка пользователей
+    // проверка выполнения запроса и возвращение списка пользователей
     if (allUsers.rows.length > 0) {
       const usersList = allUsers.rows;
       res.status(200).json({ message: 'Список пользователей успешно получен', users: usersList });
@@ -60,10 +63,6 @@ const GetAllUsers = async (req, res) => {
     res.status(500).json({ message: 'Внутренняя ошибка сервера' });
   }
 };
- 
- 
-
-
 
 
 module.exports = { AddUser, GetAllUsers };
