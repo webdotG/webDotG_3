@@ -4,7 +4,7 @@
 
   export const fetchAddUserCommunity = createAsyncThunk(
     'posts/fetchAddUserCommunity',
-    async ( {name, dateOfBirth}: { name: string; dateOfBirth: Date | null }  ) => {
+    async ( {name, dateOfBirth}: { name: string; dateOfBirth: string | null }  ) => {
       try {
         console.log("COMMUNITY SLICE AXIOS NAME AGE: ", name, dateOfBirth);
 

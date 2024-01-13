@@ -19,16 +19,28 @@ export default function CommunityPgae() {
     const name = e.target.value;
     setName(name);
   };
-  
+
   const handleDateOfBirthChange = (e: ChangeEvent<HTMLInputElement>) => {
     const dateValue = e.target.value;
     setDateOfBirth(dateValue);
   };
 
+  const formattedDate = (date: Date | null): string => {
+    if (!date) return '';
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}.${month}.${year}`;
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    
+    // Проверка имени
+    if (name.length < 3) {
+      alert('Имя должно содержать не менее 3 символов.');
+      return;
+    }
     // Проверка возраста
     if (dateOfBirth) {
       const currentDate = new Date();
@@ -40,12 +52,14 @@ export default function CommunityPgae() {
         return;
       }
     }
-// Преобразование строки даты рождения в объект Date
-const dateOfBirthDate = dateOfBirth ? new Date(dateOfBirth) : null;
-    // Остальная логика обработки данных
-    dispatch(fetchAddUserCommunity({ name, dateOfBirth: dateOfBirthDate }));
-  };
 
+    // преобразование строки даты рождения в объект Date
+    const dateOfBirthDate = dateOfBirth ? new Date(dateOfBirth) : null;
+    // преобразование объекта Date в строку в нужном формате
+    const formattedDateOfBirth = formattedDate(dateOfBirthDate);
+    // Остальная логика обработки данных
+    dispatch(fetchAddUserCommunity({ name, dateOfBirth: formattedDateOfBirth }));
+  };
 
   return (
     <div className={styles['page-container']}>
@@ -70,16 +84,16 @@ const dateOfBirthDate = dateOfBirth ? new Date(dateOfBirth) : null;
             имя
           </label>
           <label>
-          дата рождения (день.месяц.год):
-          <input type='date'
+            дата рождения (день.месяц.год):
+            <input type='date'
 
-            onChange={handleDateOfBirthChange}
-          />
+              onChange={handleDateOfBirthChange}
+            />
           </label>
         </form>
 
         <ul className={styles['users-list']}>
-{/* 
+          {/* 
           {communityUsers.map((user) => (
             <li key={user.id} className={style['users-item']}>
               {user.name}, {user.age}
