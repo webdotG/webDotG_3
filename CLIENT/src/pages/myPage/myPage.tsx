@@ -3,7 +3,7 @@ import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import { selectUserName } from '../../slices/auth/authSlice';
 import { useAppSelector } from '../../hooks';
-
+import { Link } from 'react-router-dom';
 
 function MyPage() {
 
@@ -16,6 +16,12 @@ function MyPage() {
         <h2 className={style['hello']}>Здравствуй
           <p className={style['user-name']}>{userName}</p>
         </h2>
+        <div className={style['community-link-wrapper']}>
+        <Link className={style['community-link']}
+            to="/community_no_verified">
+            orgy band
+          </Link>
+        </div>
       </div>
       <Footer />
     </div>

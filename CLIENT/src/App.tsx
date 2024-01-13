@@ -45,7 +45,7 @@ function App() {
         <Route index path="/addPost" element={<AddPostPage />} />
         <Route index path="/removePost" element={<RemovePost />} />
         {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null }
-        <Route index path="/community_no_verified" element={<CommunityPgae />} />
+        {isAuth ? <Route index path="/community_no_verified" element={<CommunityPgae />} /> : null }
    </Routes>
   )
 }

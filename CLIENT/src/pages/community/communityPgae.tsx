@@ -110,16 +110,16 @@ export default function CommunityPgae() {
           {communityUsers.map((user, index) => (
             <li key={index} className={styles['candidates-item']}>
               <p className={styles['candidates-id']}>
-                <span>id заявки : {user.id}</span>
+              id заявки : <span className={styles['canditate-data']}>{user.id}</span>
               </p>
               <p className={styles['candidates-name']}>
-                <span>имя : {user.name}</span>
+              имя : <span className={styles['canditate-data']}>{user.name}</span>
               </p>
               <p className={styles['candidates-date-birthday']}>
-                <span>дата рождения : {user.date_of_birth}</span>
+              дата рождения : <span className={styles['canditate-data']}>{user.date_of_birth}</span>
               </p>
               <p className={styles['candidates-who-add']}>
-                <span>пригласил : {user.created_by_user_name}</span>
+              пригласил : <span className={styles['canditate-data']}>{user.created_by_user_name}</span>
               </p>
             </li>
           ))}
