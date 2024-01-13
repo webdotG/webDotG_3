@@ -13,6 +13,7 @@ export interface typeUserData {
   id?: string | undefined,
   email?: string | undefined,
   name?: string | undefined
+  isAdmin?: boolean | undefined
 }
 
 
@@ -27,20 +28,7 @@ export interface PostData {
   user_name?: string,
   user_email?: string,
 }
-// export interface deletePostState {
-//   deletePostMessage: string;
-//   deletePostData: {
-//     created_at: string
-//     id: number
-//     tags: string
-//     text: string
-//     title: string
-//     updated_at: string
-//     user_email: string
-//     user_id: string
-//     user_name: string
-//   } | null;
-// }
+
 export interface PostsState {
   items: PostData[],
   status: string,
