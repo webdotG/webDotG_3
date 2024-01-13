@@ -32,6 +32,8 @@ app.use('/api/tags', require('./routes/tag'))
 
 app.use('/api/cart', require('./routes/cart'));
 
+app.use('/api/community', require('./routes/community'))
+
 //если запрос не прошёл ни по одному роуту оаисаных выше то express отдаст просто статичный файл в папке dist
 app.use('/', express.static(path.join(__dirname, './CLIENT/dist')));
 

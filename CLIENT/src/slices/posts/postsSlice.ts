@@ -31,7 +31,6 @@ interface DeleteResponse {
   }
 }
 
-
 export const fetchRemovePost = createAsyncThunk<DeleteResponse, number>('posts/fetchRemovePost', async (id) => {
   const { data } = await axios.delete<DeleteResponse>(`/api/posts/${id}`)
   // const deletePostMessage = (data.message);

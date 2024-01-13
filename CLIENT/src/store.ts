@@ -2,6 +2,7 @@ import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit'
 import { authReducer } from '../src/slices/auth/authSlice'
 import { postsReducer } from './slices/posts/postsSlice';
 import cartReducer, { loadCartState } from './slices/cart/cartSlice';
+import { communityReducer } from './slices/community/communitySlice';
 
 
 // Функция, которая проверяет localStorage и загружает данные
@@ -26,7 +27,8 @@ export const store = configureStore({
   reducer: {
     cart: cartReducer,
     auth: authReducer,
-    posts: postsReducer
+    posts: postsReducer,
+    community: communityReducer
   },
   preloadedState: {
     cart: {

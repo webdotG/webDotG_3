@@ -18,6 +18,7 @@ import { selectIsAuth } from '../src/slices/auth/authSlice';
 import AddPostPage from './pages/addPostPage/addPostPage';
 import ConfirmationOrder from './pages/confirmationOrder/confirmationOrder';
 import RemovePost from './pages/removePost/removePost';
+import CommunityPgae from './pages/community/communityPgae';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -44,6 +45,7 @@ function App() {
         <Route index path="/addPost" element={<AddPostPage />} />
         <Route index path="/removePost" element={<RemovePost />} />
         {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null }
+        <Route index path="/community" element={<CommunityPgae />} />
    </Routes>
   )
 }
