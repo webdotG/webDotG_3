@@ -3,8 +3,8 @@ import Header from '../../components/header/header'
 import styles from './communityPage.module.scss'
 // import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks'
-import { fetchAddUserCommunity, selectUsersCommunity } from '../../slices/community/communitySlice'
-import { ChangeEvent, useState } from 'react'
+import { fetchAddUserCommunity, fetchCommunity, selectUsersCommunity } from '../../slices/community/communitySlice'
+import { ChangeEvent, useEffect, useState } from 'react'
 // import { fetchCommunity } from '../../slices/community/communitySlice'
 
 
@@ -57,15 +57,19 @@ export default function CommunityPgae() {
     const dateOfBirthDate = dateOfBirth ? new Date(dateOfBirth) : null;
     // преобразование объекта Date в строку в нужном формате
     const formattedDateOfBirth = formattedDate(dateOfBirthDate);
-    // Остальная логика обработки данных
+    
     dispatch(fetchAddUserCommunity({ name, dateOfBirth: formattedDateOfBirth }));
   };
+
+  useEffect(() => {
+    fetchCommunity()
+  },[dispatch])
 
   return (
     <div className={styles['page-container']}>
       <Header />
       <div className={styles['community']}>
-        <h1 className={styles['community-title']}>community</h1>
+        <h1 className={styles['community-title']}></h1>
 
         <form className={styles['form-add-user']}
           onSubmit={handleSubmit}
@@ -84,7 +88,7 @@ export default function CommunityPgae() {
             имя
           </label>
           <label>
-            дата рождения (день.месяц.год):
+            дата рождения (месяц.день.год):
             <input type='date'
 
               onChange={handleDateOfBirthChange}
@@ -93,12 +97,12 @@ export default function CommunityPgae() {
         </form>
 
         <ul className={styles['users-list']}>
-          {/* 
+          
           {communityUsers.map((user) => (
-            <li key={user.id} className={style['users-item']}>
+            <li key={user.id} className={styles['users-item']}>
               {user.name}, {user.age}
             </li>
-          ))} */}
+          ))} 
 
         </ul>
       </div>

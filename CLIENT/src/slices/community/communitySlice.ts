@@ -53,7 +53,7 @@
         })
         .addCase(fetchAddUserCommunity.fulfilled, (state, action) => {
           state.community.status = 'loaded'
-          state.community.users.push({ name: action.payload, dateOfBirth: action.payload });
+          state.community.users.push(action.payload);
         })
         .addCase(fetchAddUserCommunity.rejected, (state) => {
           state.community.status = 'error'
