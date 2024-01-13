@@ -46,8 +46,8 @@ export default function CommunityPgae() {
       const birthDate = new Date(dateOfBirth);
       const ageDifference = currentDate.getFullYear() - birthDate.getFullYear();
 
-      if (ageDifference < 18) {
-        alert('Возраст должен быть не менее 18 лет.');
+      if (ageDifference < 18 || ageDifference > 65 ) {
+        alert('Возраст должен быть от 18 до 65 лет.');
         return;
       }
     }
@@ -73,11 +73,6 @@ export default function CommunityPgae() {
         <form className={styles['form-add-user']}
           onSubmit={handleSubmit}
         >
-          <button className={styles['add-user']}
-            type='submit'
-          >
-            пердложить кандидата
-          </button>
 
           <label className={styles['community-label']}>
             <span className={styles['community-label-text']}>
@@ -102,6 +97,12 @@ export default function CommunityPgae() {
               onChange={handleDateOfBirthChange}
             />
           </label>
+          
+          <button className={styles['add-user']}
+            type='submit'
+          >
+            пердложить кандидата
+          </button>
 
         </form>
         <h2 className={styles['community-candidates-title']}>в очереди на вступление :</h2>
