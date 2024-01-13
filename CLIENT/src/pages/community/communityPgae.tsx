@@ -3,7 +3,7 @@ import Header from '../../components/header/header'
 import styles from './communityPage.module.scss'
 // import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks'
-import { fetchAddUserCommunity, fetchAllUserCommunity,  selectUsersCommunity} from '../../slices/community/communitySlice'
+import { fetchAddUserCommunity, fetchAllUserCommunity, selectUsersCommunity } from '../../slices/community/communitySlice'
 import { ChangeEvent, useEffect, useState } from 'react'
 
 
@@ -34,7 +34,7 @@ export default function CommunityPgae() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     // Проверка имени
     if (name.length < 3) {
       alert('Имя должно содержать не менее 3 символов.');
@@ -56,58 +56,65 @@ export default function CommunityPgae() {
     const dateOfBirthDate = dateOfBirth ? new Date(dateOfBirth) : null;
     // преобразование объекта Date в строку в нужном формате
     const formattedDateOfBirth = formattedDate(dateOfBirthDate);
-    
+
     dispatch(fetchAddUserCommunity({ name, dateOfBirth: formattedDateOfBirth }));
   };
 
- useEffect(() => {
-  // console.log('communityUsers type:', typeof communityUsers); // Добавьте эту строку
-  dispatch(fetchAllUserCommunity())
- }, [])
+  useEffect(() => {
+    // console.log('communityUsers type:', typeof communityUsers); // Добавьте эту строку
+    dispatch(fetchAllUserCommunity())
+  }, [])
 
   return (
     <div className={styles['page-container']}>
       <Header />
       <div className={styles['community']}>
         <h1 className={styles['community-title']}></h1>
-<button onClick={() => dispatch(fetchAllUserCommunity())}></button>
         <form className={styles['form-add-user']}
           onSubmit={handleSubmit}
         >
-         
-          <label>
-            <input type='text'
+        <button className={styles['add-user']}
+            type='submit'
+          >
+            пердложить кандидата
+          </button>
+
+          <label className={styles['community-label']}>
+            <span className={styles['community-label-text']}>
+              имя
+            </span>
+            <input className={styles['name-input']}
+              type='text'
               placeholder='имя'
               value={name}
               onChange={handleNameChange}
             />
-            имя
           </label>
-          <label>
-            дата рождения (месяц.день.год):
-            <input type='date'
-
+          <label className={styles['community-label']}>
+            <span className={styles['community-label-text']}>
+              дата рождения :
+            </span>
+            <span className={styles['community-label-date']}>
+              (месяц.день.год)
+            </span>
+            <input className={styles['name-input-date']}
+              type='date'
               onChange={handleDateOfBirthChange}
             />
           </label>
-          <button className={styles['add-user']}
-            type='submit'
-          >
-            добавить человека
-          </button>
 
         </form>
 
         <ul className={styles['users-list']}>
-          
-            {communityUsers.map((user, index) => (
+
+          {communityUsers.map((user, index) => (
             <li key={index} className={styles['users-item']}>
               {user.id}
               {user.date_of_birth}
               {user.name}
               {user.created_by_user_name}
             </li>
-          ))}   
+          ))}
 
         </ul>
       </div>
