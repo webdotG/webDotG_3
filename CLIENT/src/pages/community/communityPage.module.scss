@@ -22,8 +22,8 @@
     padding-top: 25px;
     padding-bottom: 25px;
     margin: 0 auto;
-    border: 2px solid #00ADB5;
-    border-radius: 8px;
+    // border: 2px solid #00ADB5;
+    // border-radius: 8px;
   }
 
   .community-label{
@@ -62,11 +62,53 @@
     display: flex;
     margin: 0 auto;
     margin-bottom: 25px;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 200;
     text-transform: uppercase;
     border: 2px solid #00ADB5;
     border-radius: 6px;
     background-color: transparent;
     color: #eeeeee;
+  }
+
+  .community-candidates-title{
+    padding-bottom: 25px;
+    font-size: 18px;
+    color: #eeeeee;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .candidates-list{
+    width: 320px;
+    margin: 0 auto;
+  }
+
+  .candidates-item{
+    padding-top: 10px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 5px;
+    position: relative;
+
+    &::after{
+      content: '';
+      display: block;
+      width: 250px;
+      height: 2px;
+      background-color: #00ADB5;
+      border-radius: 8px;
+      position: absolute;
+      bottom: 10px;
+    }
+  }
+
+  .candidates-id,
+  .candidates-name,
+  .candidates-date-birthday,
+  .candidates-who-add{
+    font-size: 16px;
+    color: #eeeeee;
+    text-align: left;
   }
 }

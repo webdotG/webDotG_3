@@ -73,7 +73,7 @@ export default function CommunityPgae() {
         <form className={styles['form-add-user']}
           onSubmit={handleSubmit}
         >
-        <button className={styles['add-user']}
+          <button className={styles['add-user']}
             type='submit'
           >
             пердложить кандидата
@@ -104,15 +104,23 @@ export default function CommunityPgae() {
           </label>
 
         </form>
-
-        <ul className={styles['users-list']}>
+        <h2 className={styles['community-candidates-title']}>в очереди на вступление :</h2>
+        <ul className={styles['candidates-list']}>
 
           {communityUsers.map((user, index) => (
-            <li key={index} className={styles['users-item']}>
-              {user.id}
-              {user.date_of_birth}
-              {user.name}
-              {user.created_by_user_name}
+            <li key={index} className={styles['candidates-item']}>
+              <p className={styles['candidates-id']}>
+                <span>id заявки : {user.id}</span>
+              </p>
+              <p className={styles['candidates-name']}>
+                <span>имя : {user.name}</span>
+              </p>
+              <p className={styles['candidates-date-birthday']}>
+                <span>дата рождения : {user.date_of_birth}</span>
+              </p>
+              <p className={styles['candidates-who-add']}>
+                <span>пригласил : {user.created_by_user_name}</span>
+              </p>
             </li>
           ))}
 
