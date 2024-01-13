@@ -72,7 +72,7 @@ export default function Header() {
             </li>
 
             <li className={style.header_nav__item}>
-              {!isAuth
+              {isAuth
                 ? (<Link className={style.header_nav__link} to="/community">
                   сообщество
                 </Link>)

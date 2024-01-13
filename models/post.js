@@ -3,12 +3,6 @@ const pool = require('../db');
 const GetAll = async (req, res) => {
   try {
 
-    //   // SQL-запрос для выборки всех постов из таблицы с добавлением информации о пользователе
-    //   const query = `
-    //  SELECT p.*, u.name AS user_name, u.email AS user_email
-    //  FROM webdotg.posts AS p
-    //  LEFT JOIN webdotg.users AS u ON p.user_id::integer = u.id`
-    // SQL-запрос для выборки всех постов из таблицы с добавлением информации о пользователе
     const query = `
  SELECT 
    p.*, 
