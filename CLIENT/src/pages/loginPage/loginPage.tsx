@@ -9,9 +9,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 const LoginPage: React.FC = () => {
   const dispatch = useAppDispatch()
   const isAuth = useAppSelector(selectIsAuth)
-  const navigate = useNavigate(
-
-  )
+  const navigate = useNavigate()
   const [user, setUser] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState({ email: '', password: '' });
