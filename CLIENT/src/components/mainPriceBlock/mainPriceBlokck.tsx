@@ -27,7 +27,6 @@ function MainPriceBlokck() {
           onClick={() => toggleTab(3)}>
           <p>приложения</p>
         </li>
-
       </ul>
       <ul className={styles['content_tabs']}>
       <li className={toggleState === 1 ? `${styles['content']} ${styles['active_content']}` : styles['content']}>
