@@ -19,6 +19,7 @@ import { useAppDispatch, useAppSelector } from './hooks';
 import { useEffect } from 'react';
 import { fetchAuth } from './slices/auth/authSlice';
 import { selectIsAuth } from '../src/slices/auth/authSlice';
+import ConfirmationRemoveUser from './pages/confirmationRemoveUser/confirmationRemoveUser';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
         <Route index path="/removePost" element={<RemovePost />} />
         {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null }
         {isAuth ? <Route index path="/community_no_verified" element={<CommunityPgae />} /> : null }
+        {isAuth ? <Route index path="/confirm_remove_user" element={<ConfirmationRemoveUser />} /> : null }
    </Routes>
   )
 }

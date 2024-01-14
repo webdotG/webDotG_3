@@ -32,13 +32,13 @@ export const fetchAllUserCommunity = createAsyncThunk(
 
 export const fetchRemoveUser = createAsyncThunk(
   'users/fetchRemoveUser',
-  async (userId : number | null) => {
+  async (userId: number | null) => {
     console.log('FETCH REMOVE USER ISADMIN USER ID : ', userId)
     try {
       // Отправка DELETE-запроса для удаления пользователя
-      await axios.delete(`/api/community/${userId}`,{ data: { userId } });
-
-      return userId; 
+      const response = await axios.delete(`/api/community/${userId}`, { data: { userId } });
+      // Возвращаю объект с информацией об удаленном пользователе
+      return response.data.removedUser;
     } catch (error) {
       console.error('Error in removeUser:', error);
     }
@@ -54,7 +54,13 @@ const initialState = {
         created_by_user_name: ''
       }
     ],
-    status: 'loading'
+    status: 'loading',
+    removedUser: null as null | {
+      id: null;
+      name: string;
+      date_of_birth: null;
+      created_by_user_name: string;
+    },
   }
 }
 
@@ -95,8 +101,8 @@ const communitySlice = createSlice({
       })
       .addCase(fetchRemoveUser.fulfilled, (state, action) => {
         state.community.status = 'loaded';
-        const removedUserId = action.payload;
-        state.community.users = state.community.users.filter(user => user.id !== removedUserId);
+        state.community.users = state.community.users.filter(user => user.id !== action.payload.id);
+        state.community.removedUser = action.payload;
       })
       .addCase(fetchRemoveUser.rejected, (state) => {
         state.community.status = 'error';
@@ -108,3 +114,5 @@ const communitySlice = createSlice({
 export const communityReducer = communitySlice.reducer
 
 export const selectUsersCommunity = (state: RootState) => state.community.community.users;
+
+export const selectRemoveUserCommunity = (state: RootState) => state.community.community.removedUser

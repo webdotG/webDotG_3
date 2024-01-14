@@ -5,9 +5,10 @@ import { useAppDispatch, useAppSelector } from '../../hooks'
 import { fetchAddUserCommunity, fetchAllUserCommunity, fetchRemoveUser, selectUsersCommunity } from '../../slices/community/communitySlice'
 import { selectIsAdmin } from '../../slices/auth/authSlice'
 import { ChangeEvent, useEffect, useState } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 
 export default function CommunityPgae() {
+  const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const communityUsers = useAppSelector(selectUsersCommunity)
   const isAdmin = useAppSelector(selectIsAdmin);
@@ -38,7 +39,8 @@ export default function CommunityPgae() {
       dispatch(fetchRemoveUser(userId))
     } else {
       alert('Вы не являетесь администратором и не можете удалять пользователей.');
-    }
+    } 
+    navigate('/confirm_remove_user')
   };
 
 

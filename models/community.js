@@ -65,15 +65,50 @@ const GetAllUsers = async (req, res) => {
 };
 
 
+// const RemoveUser = async (req, res) => {
+//   try {
+//     // Получение идентификатора пользователя из запроса
+//     const userId = req.params.userId; // Параметр userId из URL
+//     console.log('REMOVE USER COMMUNITY ISADMIN REQ.USER.ID : ', req.user.id)
+//     // Проверка наличия идентификатора пользователя
+//     if (!userId) {
+//       return res.status(400).json({ message: 'Идентификатор пользователя не предоставлен' });
+//     }
+
+//     // SQL-запрос для удаления пользователя
+//     const removeUserQuery = `
+//       DELETE FROM webdotg.community
+//       WHERE id = $1
+//     `;
+
+//     await pool.query(removeUserQuery, [userId]);
+
+//     // Возвращение успешного ответа
+//     res.status(200).json({ message: 'Пользователь успешно удален' });
+//   } catch (error) {
+//     console.error('Ошибка при удалении пользователя:', error);
+//     res.status(500).json({ message: 'Внутренняя ошибка сервера' });
+//   }
+// };
+
 const RemoveUser = async (req, res) => {
   try {
     // Получение идентификатора пользователя из запроса
-    const userId = req.params.userId; // Параметр userId из URL
-    console.log('REMOVE USER COMMUNITY ISADMIN REQ.USER.ID : ', req.user.id)
+    const userId = req.params.userId; 
+
     // Проверка наличия идентификатора пользователя
     if (!userId) {
       return res.status(400).json({ message: 'Идентификатор пользователя не предоставлен' });
     }
+
+    // SQL-запрос для получения информации об удаляемом пользователе
+    const getUserQuery = `
+      SELECT * FROM webdotg.community
+      WHERE id = $1
+    `;
+
+    // Получение данных пользователя перед удалением
+    const userBeforeRemoval = await pool.query(getUserQuery, [userId]);
 
     // SQL-запрос для удаления пользователя
     const removeUserQuery = `
@@ -83,13 +118,17 @@ const RemoveUser = async (req, res) => {
 
     await pool.query(removeUserQuery, [userId]);
 
-    // Возвращение успешного ответа
-    res.status(200).json({ message: 'Пользователь успешно удален' });
+    // Возвращение успешного ответа вместе с информацией об удаленном пользователе
+    res.status(200).json({
+      message: 'Пользователь успешно удален',
+      removedUser: userBeforeRemoval.rows[0], // Первый (и единственный) результат запроса
+    });
   } catch (error) {
     console.error('Ошибка при удалении пользователя:', error);
     res.status(500).json({ message: 'Внутренняя ошибка сервера' });
   }
 };
+
 
 
 

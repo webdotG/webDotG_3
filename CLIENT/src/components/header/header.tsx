@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import style from './header.module.scss'
 import LogoG from '../../svg/logoG';
@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 
 
 export default function Header() {
+  const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const [onClickBtn, setOnCliclBtn] = useState(false)
   const isAuth = useAppSelector(selectIsAuth)
@@ -27,6 +28,7 @@ export default function Header() {
       dispatch(logOut())
       window.localStorage.removeItem('token')
     }
+    navigate('/login')
   }
 
   return (
