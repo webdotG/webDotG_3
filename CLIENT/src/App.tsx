@@ -30,6 +30,17 @@ function App() {
   useEffect(() => {
     dispatch(fetchAuth())
   }, [dispatch])
+  console.log(' APP ISAUTH AFTER FETCH AUTH : ', isAuth);
+
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     await dispatch(fetchAuth());
+  //     console.log('isAuth after fetchAuth:', isAuth);
+  //   };
+
+  //   fetchData();
+  // }, [dispatch, isAuth]);
 
   return (
       <Routes>

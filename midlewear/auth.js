@@ -23,8 +23,12 @@ const Auth = async (req, res, next) => {
     const userId = decoded.id;
     console.log('MIDLEWEAR AUTH USER ID : ', userId);
 
-    // запрос на проверку в таблице users
-    const getUserQuery = 'SELECT * FROM webdotg.users WHERE id = $1';
+    // запрос на проверку в таблице users и в таблице admins
+    const getUserQuery = `
+  (SELECT id, email, name, password FROM webdotg.users WHERE id = $1)
+  UNION
+  (SELECT id, email, name, password FROM webdotg.admins WHERE id = $1)
+`;
     console.log('MIDLEWEAR AUTH GET USER QUERY : ', getUserQuery);
 
     const userResult = await pool.query(getUserQuery, [userId]);

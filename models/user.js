@@ -1,58 +1,6 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const pool = require('../db');
-// const { Auth } = require('../midlewear/auth');
-
-/**
- * 
- * @route POST /api/user/register
- * @desc Регистрация
- * @access Public
- */
-//регистрация Админа
-const RegisterAdmin = async (req, res) => {
-  const { email, name, password, confirmPassword } = req.body;
-
-  if (!email || !password || !name || !confirmPassword) {
-    return res.status(400).json({ message: 'пожалуйста, заполните обязательные поля' });
-  }
-
-  try {
-    const checkUserQuery = 'SELECT * FROM webdotg.admins WHERE email = $1';
-    const existingUser = await pool.query(checkUserQuery, [email]);
-
-    if (existingUser.rows.length > 0) {
-      return res.status(400).json({ message: 'Пользователь  с таким email уже существует' });
-    }
-
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
-
-    const createUserQuery = 'INSERT INTO webdotg.users (name, email, password) VALUES ($1, $2, $3) RETURNING *';
-    const newUser = await pool.query(createUserQuery, [name, email, hashedPassword]);
-
-    const secret = process.env.JWT_SECRET;
-    if (newUser.rows.length > 0 && secret) {
-      const user = newUser.rows[0];
-      res.status(201).json({
-        id: user.id,
-        email: user.email,
-        name: user.name,
-        confirmPassword: user.confirmPassword,
-        token: jwt.sign({ id: user.id }, secret, { expiresIn: '30d' }),
-      });
-    } else {
-      res.status(400).json({ message: 'Не удалось создать пользователя' });
-    }
-
-    return res;
-
-  } catch (error) {
-    console.error('Ошибка при регистрации пользователя:', error);
-    return res.status(500).json({ message: 'Внутренняя ошибка сервера' });
-  }
-};
-
 
 
 const Register = async (req, res) => {
@@ -99,7 +47,6 @@ const Register = async (req, res) => {
 };
 
 
-
 const Login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -118,6 +65,8 @@ const Login = async (req, res) => {
     const adminResult = await pool.query(adminQuery, [email]);
 
     let user; // переменная для хранения данных пользователя
+    // получение секретного ключа для JWT 
+    const secret = process.env.JWT_SECRET;
 
     // если пользователь не найден в таблице users, проверяем таблицу admins
     if (userResult.rows.length === 0 && adminResult.rows.length > 0) {
@@ -131,7 +80,7 @@ const Login = async (req, res) => {
           email: admin.email,
           name: admin.name,
           isAdmin: true,
-          token: jwt.sign({ id: admin.id }, process.env.JWT_SECRET, { expiresIn: '1d' }),
+          token: jwt.sign({ id: admin.id }, process.env.JWT_SECRET, { expiresIn: '30d' }),
         });
       } else {
         // если пароль администратора неверен, возвращаю ошибку
@@ -155,16 +104,14 @@ const Login = async (req, res) => {
       }
     }
 
-    // получение секретного ключа для JWT 
-    const secret = process.env.JWT_SECRET;
 
     // генерация токена и возвращение успешного ответа
     return res.status(200).json({
       id: user.id,
       email: user.email,
       name: user.name,
-      isAdmin: user.isAdmin,
-      token: jwt.sign({ id: user.id }, secret, { expiresIn: '1d' }),
+      isAdmin: false,
+      token: jwt.sign({ id: user.id }, secret, { expiresIn: '30d' }),
     });
   } catch (error) {
     // обработка ошибок при выполнении запроса
@@ -183,5 +130,4 @@ module.exports = {
   Register,
   Login,
   Current,
-  RegisterAdmin
 };

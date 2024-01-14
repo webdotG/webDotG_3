@@ -55,7 +55,7 @@ export const fetchRegister = createAsyncThunk<typeUserData, {
 export const fetchAuth = createAsyncThunk('auth/fetchAuth', async () => {
   try {
     const { data } = await axios.get('/api/user/current');
-    // console.log("FETCH AUTH API/USER/CURRENT DATA : ", data);
+    console.log("FETCH AUTH API/USER/CURRENT DATA : ", data);
     return data;
   } catch (error) {
     throw Error("Ошибка при получении данных пользователя");
