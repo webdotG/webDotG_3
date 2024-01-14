@@ -102,7 +102,7 @@ const MainOrder: React.FC = () => {
             id='main-order__comment-input'
             name="comment"
             cols={40}
-            rows={6}
+            rows={3}
             onChange={handleInputChange}
           />
           <span className={style['error-message']}>{errors['main-order__comment-input']}</span>

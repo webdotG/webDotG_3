@@ -167,11 +167,27 @@
     margin-top: -20px;
   }
 
+  .main-order__input-wrapper{
+    height: auto;
+  }
   .main-order__comment-input{
+    padding: 15px 10px;
     width: 700px;
-    height: 500px;
+    font-size: 21px;
+   
   }
   .main-order__btn-submit{
-    
+    width: 350px;
+    height: 50px;
+    display: block;
+    border: #00ADB5 3px solid;
+    background-color: #eeeeee;
+    color: #222831;
+
+    &:hover{
+      background-color: #00ADB5;
+     color:#222831; 
+     border: #eeeeee 3px solid;
+    }
   }
 }
