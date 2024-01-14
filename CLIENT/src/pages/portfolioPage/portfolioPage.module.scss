@@ -84,3 +84,46 @@
     color: #eeeeee;
   }
 }
+
+@media (min-width:760px) {
+
+  .portfolio-item {
+    border: none;
+    }
+
+  .portfolio-item-title {
+    padding-top: 20px;
+    padding-bottom: 25px;
+    font-size: 25px;
+    color: #eeeeee;
+    font-weight: 400;
+    text-align: center;
+  }
+  
+  .portfolio-item-img{
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+    height: 300px;
+    margin-bottom: 45px;
+    border-radius: 8px;
+    border-radius: 15px;
+  }
+
+  .task-link{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 23px;
+    font-weight: 200;
+    border: #00ADB5 2px solid;
+    border-radius: 6px;
+    color: #eeeeee;
+  }
+
+
+
+}
