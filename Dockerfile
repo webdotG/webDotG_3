@@ -55,5 +55,4 @@ WORKDIR /app
 CMD ["npm", "run", "deploy"]
 # Запустит NPM RUN START и NPM RUN CLIENT-BUILD
 # NPM RUN START запустит NODE и папку ./BIN/WWW
-#udalil client build
 # NPM RUN CLIENT-BUILD запустит из папки client NPM RUN BUILD а он запустит TSC && VITE BUILD
