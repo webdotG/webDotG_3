@@ -1,15 +1,16 @@
 import Footer from '../../components/footer/footer'
 import Header from '../../components/header/header'
 import styles from './communityPage.module.scss'
-// import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks'
-import { fetchAddUserCommunity, fetchAllUserCommunity, selectUsersCommunity } from '../../slices/community/communitySlice'
+import { fetchAddUserCommunity, fetchAllUserCommunity, fetchRemoveUser, selectUsersCommunity } from '../../slices/community/communitySlice'
+import { selectIsAdmin } from '../../slices/auth/authSlice'
 import { ChangeEvent, useEffect, useState } from 'react'
 
 
 export default function CommunityPgae() {
   const dispatch = useAppDispatch()
   const communityUsers = useAppSelector(selectUsersCommunity)
+  const isAdmin = useAppSelector(selectIsAdmin);
 
   const [name, setName] = useState('')
   const [dateOfBirth, setDateOfBirth] = useState<string | null>(null)
@@ -32,9 +33,17 @@ export default function CommunityPgae() {
     return `${day}.${month}.${year}`;
   };
 
+  const handleRemoveUser = (userId: number) => {
+    if (isAdmin) {
+      dispatch(fetchRemoveUser(userId))
+    } else {
+      alert('Вы не являетесь администратором и не можете удалять пользователей.');
+    }
+  };
+
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     // Проверка имени
     if (name.length < 3) {
       alert('Имя должно содержать не менее 3 символов.');
@@ -46,7 +55,7 @@ export default function CommunityPgae() {
       const birthDate = new Date(dateOfBirth);
       const ageDifference = currentDate.getFullYear() - birthDate.getFullYear();
 
-      if (ageDifference < 18 || ageDifference > 65 ) {
+      if (ageDifference < 18 || ageDifference > 65) {
         alert('Возраст должен быть от 18 до 65 лет.');
         return;
       }
@@ -57,8 +66,6 @@ export default function CommunityPgae() {
     // преобразование объекта Date в строку в нужном формате
     const formattedDateOfBirth = formattedDate(dateOfBirthDate);
 
-    // dispatch(fetchAddUserCommunity({ name, dateOfBirth: formattedDateOfBirth }));
-  
     dispatch(fetchAddUserCommunity({ name, dateOfBirth: formattedDateOfBirth }))
     .then(() => {
       // После успешной отправки запроса, перезагрузите страницу
@@ -72,7 +79,7 @@ export default function CommunityPgae() {
   };
 
   useEffect(() => {
-    // console.log('communityUsers type:', typeof communityUsers); // Добавьте эту строку
+    // console.log('communityUsers type:', typeof communityUsers); 
     dispatch(fetchAllUserCommunity())
   }, [])
 
@@ -108,7 +115,7 @@ export default function CommunityPgae() {
               onChange={handleDateOfBirthChange}
             />
           </label>
-          
+
           <button className={styles['add-user']}
             type='submit'
           >
@@ -122,17 +129,24 @@ export default function CommunityPgae() {
           {communityUsers.map((user, index) => (
             <li key={index} className={styles['candidates-item']}>
               <p className={styles['candidates-id']}>
-              id заявки : <span className={styles['canditate-data']}>{user.id}</span>
+                id заявки : <span className={styles['canditate-data']}>{user.id}</span>
               </p>
               <p className={styles['candidates-name']}>
-              имя : <span className={styles['canditate-data']}>{user.name}</span>
+                имя : <span className={styles['canditate-data']}>{user.name}</span>
               </p>
               <p className={styles['candidates-date-birthday']}>
-              дата рождения : <span className={styles['canditate-data']}>{user.date_of_birth}</span>
+                дата рождения : <span className={styles['canditate-data']}>{user.date_of_birth}</span>
               </p>
               <p className={styles['candidates-who-add']}>
-              пригласил : <span className={styles['canditate-data']}>{user.created_by_user_name}</span>
+                пригласил : <span className={styles['canditate-data']}>{user.created_by_user_name}</span>
               </p>
+              <button
+                className={`${styles['remove-user']} ${!isAdmin ? styles['display-none'] : ''}`}
+                onClick={() => user.id !== null && handleRemoveUser(user.id)}
+                disabled={!isAdmin || user.id === null}
+              >
+                Удалить пользователя
+              </button>
             </li>
           ))}
 

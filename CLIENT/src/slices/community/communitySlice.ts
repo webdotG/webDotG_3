@@ -7,18 +7,14 @@ export const fetchAddUserCommunity = createAsyncThunk(
   async ({ name, dateOfBirth }: { name: string; dateOfBirth: string | null }) => {
     try {
       // console.log("COMMUNITY SLICE AXIOS NAME AGE: ", name, dateOfBirth);
-
       const response = await axios.post('/api/community', { name, dateOfBirth });
-
       console.log('Server Response:', response.data);
-
       return response.data;
     } catch (err) {
       console.error('Error:', err);
     }
   }
 );
-
 
 export const fetchAllUserCommunity = createAsyncThunk(
   'posts/fetchAllUserCommunity',
@@ -29,10 +25,24 @@ export const fetchAllUserCommunity = createAsyncThunk(
       return response.data;
     } catch (err) {
       console.error('Error in fetchAllUserCommunity:', err);
-      throw err; // Ретранслировать ошибку для обработки в компоненте
     }
   }
 );
+
+
+export const fetchRemoveUser = createAsyncThunk(
+  'users/fetchRemoveUser',
+  async (userId : number | null) => {
+    console.log('FETCH REMOVE USER ISADMIN USER ID : ', userId)
+    try {
+      // Отправка DELETE-запроса для удаления пользователя
+      await axios.delete(`/api/community/${userId}`,{ data: { userId } });
+
+      return userId; 
+    } catch (error) {
+      console.error('Error in removeUser:', error);
+    }
+  })
 
 const initialState = {
   community: {
@@ -51,9 +61,8 @@ const initialState = {
 const communitySlice = createSlice({
   name: 'community',
   initialState,
-  reducers: {
+  reducers: {},
 
-  },
   extraReducers(builder) {
     builder
       .addCase(fetchAddUserCommunity.pending, (state) => {
@@ -80,6 +89,19 @@ const communitySlice = createSlice({
         state.community.status = 'error'
         state.community.users = []
       })
+      .addCase(fetchRemoveUser.pending, (state) => {
+        state.community.status = 'loading';
+        state.community.users = []
+      })
+      .addCase(fetchRemoveUser.fulfilled, (state, action) => {
+        state.community.status = 'loaded';
+        const removedUserId = action.payload;
+        state.community.users = state.community.users.filter(user => user.id !== removedUserId);
+      })
+      .addCase(fetchRemoveUser.rejected, (state) => {
+        state.community.status = 'error';
+        state.community.users = []
+      });
   },
 })
 

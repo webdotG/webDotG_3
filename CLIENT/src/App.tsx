@@ -52,5 +52,3 @@ function App() {
 }
 
 export default App
-
-// {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null }

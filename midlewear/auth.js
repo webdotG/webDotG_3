@@ -4,18 +4,18 @@ const pool = require('../db'); // Подключение к базе данны�
 const Auth = async (req, res, next) => {
   try {
     const token = (req.headers.authorization || '').replace(/Bearer\s?/, '');
-    console.log('MIDLEWEAR AUTH TOKEN : ', token);
+    // console.log('MIDLEWEAR AUTH TOKEN : ', token);
 
     let decoded;
     try {
       decoded = jwt.verify(token, process.env.JWT_SECRET);
-      console.log('MIDLEWEAR AUTH DECODED JWT : ', decoded);
+      // console.log('MIDLEWEAR AUTH DECODED JWT : ', decoded);
     } catch (decodeErr) {
       if (decodeErr.name === 'TokenExpiredError') {
-        console.error('TOKEN EXPIRED : ', decodeErr.message);
+        // console.error('TOKEN EXPIRED : ', decodeErr.message);
         throw new Error('Срок действия токена истек');
       } else {
-        console.error('ERROR DECODING TOKEN : ', decodeErr.message);
+        // console.error('ERROR DECODING TOKEN : ', decodeErr.message);
         throw new Error('Ошибка декодирования токена');
       }
     }
@@ -29,7 +29,7 @@ const Auth = async (req, res, next) => {
   UNION
   (SELECT id, email, name, password FROM webdotg.admins WHERE id = $1)
 `;
-    console.log('MIDLEWEAR AUTH GET USER QUERY : ', getUserQuery);
+    // console.log('MIDLEWEAR AUTH GET USER QUERY : ', getUserQuery);
 
     const userResult = await pool.query(getUserQuery, [userId]);
     // console.log('MIDLEWEAR AUTH USER RESULT : ', userResult);
