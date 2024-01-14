@@ -14,7 +14,6 @@ import AddPostPage from './pages/addPostPage/addPostPage';
 import ConfirmationOrder from './pages/confirmationOrder/confirmationOrder';
 import RemovePost from './pages/removePost/removePost';
 import CommunityPgae from './pages/community/communityPgae';
-import AdminLoginPage from './pages/ADMINLoginPage/adminLoginPage';
 
 import { useAppDispatch, useAppSelector } from './hooks';
 import { useEffect } from 'react';
@@ -30,24 +29,12 @@ function App() {
   useEffect(() => {
     dispatch(fetchAuth())
   }, [dispatch])
-  console.log(' APP ISAUTH AFTER FETCH AUTH : ', isAuth);
-
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await dispatch(fetchAuth());
-  //     console.log('isAuth after fetchAuth:', isAuth);
-  //   };
-
-  //   fetchData();
-  // }, [dispatch, isAuth]);
 
   return (
       <Routes>
         <Route index path="/" element={<HomePage />} />
         <Route index path="/register" element={<RegistrPage />} />
         <Route index path="/login" element={<LoginPage />} />
-        <Route index path="/admin_login" element={<AdminLoginPage/>} />
         <Route index path="/portfolio" element={<PortfolioPage />} />
         <Route index path="/shop" element={<ShopPage />} />
         <Route index path="/cart" element={<CartPage />} />

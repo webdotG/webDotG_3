@@ -123,7 +123,7 @@ const authSlice = createSlice({
 
 
 export const selectIsAuth = (state: RootState) => {
-  console.log("AuthSlice SelectIsAuth STATE.AUTH.DATA : ", state.auth.data)
+  // console.log("AuthSlice SelectIsAuth STATE.AUTH.DATA : ", state.auth.data)
   return state.auth.data !== null && typeof state.auth.data === 'object' && state.auth.data;
 };
 

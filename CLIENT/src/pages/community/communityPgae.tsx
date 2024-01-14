@@ -57,7 +57,18 @@ export default function CommunityPgae() {
     // преобразование объекта Date в строку в нужном формате
     const formattedDateOfBirth = formattedDate(dateOfBirthDate);
 
-    dispatch(fetchAddUserCommunity({ name, dateOfBirth: formattedDateOfBirth }));
+    // dispatch(fetchAddUserCommunity({ name, dateOfBirth: formattedDateOfBirth }));
+  
+    dispatch(fetchAddUserCommunity({ name, dateOfBirth: formattedDateOfBirth }))
+    .then(() => {
+      // После успешной отправки запроса, перезагрузите страницу
+      window.location.reload();
+    })
+    .catch((error) => {
+      // Обработка ошибки запроса, если необходимо
+      console.error('Error adding user community:', error);
+    });
+
   };
 
   useEffect(() => {

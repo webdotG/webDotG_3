@@ -32,7 +32,7 @@ const Auth = async (req, res, next) => {
     console.log('MIDLEWEAR AUTH GET USER QUERY : ', getUserQuery);
 
     const userResult = await pool.query(getUserQuery, [userId]);
-    console.log('MIDLEWEAR AUTH USER RESULT : ', userResult);
+    // console.log('MIDLEWEAR AUTH USER RESULT : ', userResult);
 
     if (userResult.rows.length === 0) {
       throw new Error('Пользователь не найден');
@@ -41,10 +41,10 @@ const Auth = async (req, res, next) => {
     // запрос на проверку в таблице admins
     const checkAdminQuery = 'SELECT * FROM webdotg.admins WHERE email = $1';
     const checkAdminValues = [userResult.rows[0].email];
-    console.log('MIDLEWEAR AUTH CHECK ADMIN QUERY : ', checkAdminQuery);
+    // console.log('MIDLEWEAR AUTH CHECK ADMIN QUERY : ', checkAdminQuery);
 
     const adminResult = await pool.query(checkAdminQuery, checkAdminValues);
-    console.log('MIDLEWEAR AUTH ADMIN RESULT : ', adminResult);
+    // console.log('MIDLEWEAR AUTH ADMIN RESULT : ', adminResult);
 
     req.userId = userId;
     req.user = {
