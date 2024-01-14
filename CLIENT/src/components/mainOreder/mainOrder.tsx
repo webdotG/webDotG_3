@@ -64,8 +64,8 @@ const MainOrder: React.FC = () => {
     <div className={style['main-order']}>
       <h2 className={style['main-order__title']}>сделать заказ</h2>
       <MContactsList />
+      <h4 className={style['main-order__form-title']}>оставить заявку</h4>
       <form className={style['main-order__form']} onSubmit={handleSubmit}>
-        <h4 className={style['main-order__form-title']}>оставить заявку</h4>
         <div className={style['main-order__input-wrapper']}>
           <label className={style['main-order__name-label']} htmlFor='main-order__name-input'>имя</label>
           <input
@@ -86,7 +86,7 @@ const MainOrder: React.FC = () => {
           />
           <span className={style['error-message']}>{errors['main-order__email-input']}</span>
         </div>
-        <div className={style['main-order__input-wrapper']}>
+        <div className={`${style['main-order__input-wrapper']} ${style['main-order__input-tel']}`}>
           <label className={style['main-order__tel-label']} htmlFor='main-order__tel-input'>телефон</label>
           <input
             type='tel'
@@ -98,12 +98,11 @@ const MainOrder: React.FC = () => {
         </div>
         <div className={style['main-order__input-wrapper']}>
           <p className={style['main-order__comment-label']}>комментарий</p>
-          <textarea
+          <textarea className={style['main-order__comment-input']}
             id='main-order__comment-input'
-            className={style['main-order__comment-input']}
             name="comment"
             cols={40}
-            rows={3}
+            rows={6}
             onChange={handleInputChange}
           />
           <span className={style['error-message']}>{errors['main-order__comment-input']}</span>
