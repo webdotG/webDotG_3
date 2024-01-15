@@ -5,7 +5,6 @@ import { useState, ChangeEvent } from 'react';
 import { useAppDispatch } from '../../hooks'; //, useAppSelector 
 import { addToCart } from '../../slices/cart/cartSlice';
 import { useNavigate } from 'react-router-dom';
-// import { selectIsAuth } from '../../slices/auth/authSlice';
 
 const PRICE = [
   { id: 1, name: 'Шаблон', price: 1 },
@@ -29,7 +28,6 @@ const PRICE = [
 export default function ShopPage() {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  //состояния для управления видимостью блоков
   const [showFirstRadio] = useState(true);
   const [showSecondeRadio, setShowSecondeRadio] = useState(false);
   const [showSite, setShowSite] = useState(false);
@@ -151,7 +149,6 @@ export default function ShopPage() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Удаление старых данных из localStorage перед добавлением новых данных
     localStorage.removeItem('cartState');
 
 
@@ -165,20 +162,15 @@ export default function ShopPage() {
       const selectedItem = PRICE.find((item) => item.id.toString() === selectedItemId);
       return selectedItem
         ? {
-          itemId: selectedItem.id, // Присваиваем значение свойства itemId объекта CartItem
+          itemId: selectedItem.id, 
           name: selectedItem.name,
           price: selectedItem.price,
         }
-        : { itemId: -1, name: '', price: 0 }; // В случае ошибки или несоответствия типам, указываем значения по умолчанию
+        : { itemId: -1, name: '', price: 0 }; 
     });
-    // Передача объектов элементов корзины в Redux для добавления
     allSelectedItems.forEach(item => {
-      dispatch(addToCart(item)); // Добавляем каждый выбранный объект в корзину
-      // Перезагрузка страницы после выполнения определенных действий
-      // window.location.reload(); // Параметр false означает, что страница будет загружена с сервера, а не из кэша
-
+      dispatch(addToCart(item)); 
     });
-    // Очистка выбранных элементов
     setSelectedItems([]);
     setSelectedItems2([]);
     setSelectedItems3([]);

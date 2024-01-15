@@ -13,7 +13,6 @@ const LoginPage: React.FC = () => {
   const [user, setUser] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState({ email: '', password: '' });
-  // const [setMessageError] = useState('')
 
   const isValidPassword = (password: string): boolean => {
     return password.length >= 3;
@@ -34,11 +33,7 @@ const LoginPage: React.FC = () => {
       default:
         break;
     }
-    if (name === 'email' && !emailRegex.test(value)) {
-      // setMessageError('Некорректный email');
-    } else {
-      // setMessageError('');
-    }
+
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
@@ -52,17 +47,15 @@ const LoginPage: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, values: { email: string, password: string }) => {
-    console.log("LOGIN PAGE HANDLE SUBMIT VALUES : ", values)
+    console.log("LOGIN PAGE HANDLE SUBMIT VALUES ! ")
     e.preventDefault();
     if (!error.email && !error.password) {
       try {
         dispatch(fetchLogin(values))
         //проверка на промис 
         const data = await dispatch(fetchLogin(values))
-        // console.log("DISPATCH fetchLogin VALUES , PROMISE ??? : ", data)
-        // Проверка, что data.payload не является unknown
+        console.log("DISPATCH fetchLogin VALUES , PROMISE ! ")
         if (typeof data.payload === 'object' && data.payload !== null && 'token' in data.payload) {
-          //збс сохраняю в локалсторадж
           const token: string = data.payload.token as string;
           window.localStorage.setItem('token', token);
         } else {

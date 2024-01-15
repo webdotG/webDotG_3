@@ -14,7 +14,6 @@ const loadState = () => {
       return cartState;
     }
   } catch (error) {
-    // Можно обработать ошибку
     return undefined;
   }
 }
@@ -37,7 +36,7 @@ export const store = configureStore({
   },
 })
 
-// Если данные были загружены из localStorage, обновляем состояние в хранилище
+// Если данные были загружены из localStorage, обновляю состояние в хранилище
 if (preloadedState) {
   store.dispatch(loadCartState(preloadedState.selectedItems));
 }

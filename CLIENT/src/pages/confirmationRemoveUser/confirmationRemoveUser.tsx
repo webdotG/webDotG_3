@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 export default function ConfirmationRemoveUser() {
 
   const removedUser = useAppSelector(selectRemoveUserCommunity)
-  // console.log(removedUser)
+  console.log('removedUser')
   return (
     <div className={style['page-container']}>
       <Header />

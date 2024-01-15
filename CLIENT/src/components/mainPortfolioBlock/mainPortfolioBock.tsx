@@ -44,7 +44,6 @@ function MainPortfolioBock() {
             <Link className={style.link_btn} to='/portfolio'>открыть</Link>
           </div>
         </div> */}
-        
       </Carousel>
     </div>
 

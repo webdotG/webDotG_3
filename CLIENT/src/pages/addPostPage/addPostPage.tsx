@@ -23,7 +23,7 @@ export default function AddPostPage(): JSX.Element {
   const [text, setText] = useState('')
   const [tags, setTags] = useState('')
   const [noFormatTags, setNoFormatTags] = useState('')
-  // console.log('ADD POST FIELDS TITLE TEXT TAGS : ', title, text, tags)
+  // console.log('ADD POST FIELDS TITLE TEXT TAGS ! ')
   const [errorTitleMessage, setErrorTitleMesage] = useState('')
   const [errorTagsMessage, setErrorTagsMesage] = useState('')
 
@@ -45,7 +45,6 @@ export default function AddPostPage(): JSX.Element {
   const handleTagsChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
     const inputTags = e.target.value;
     setNoFormatTags(inputTags);
-    //валидация тегов
     const tagsValidateArray = noFormatTags.split(',').map(tag => tag.trim());
     const TAG_REGEX = /^#[A-Za-zА-Яа-я]{3,}$/;
     const isValid = tagsValidateArray.every(tag => TAG_REGEX.test(tag));
@@ -62,11 +61,11 @@ export default function AddPostPage(): JSX.Element {
     });
     // Преобразовываю массив строк в одну строку через запятую
     const tagsString = formattedTags.join(', ');
-    console.log('TAGS STRING , FOR DB : ', tagsString)
+    console.log('TAGS STRING , FOR DB ! ')
     // устанавливаю эту строку в состояние
     setTags(tagsString);
-    // console.log('HANDLE TAGS INPUT TAGS : ', inputTags)
-    // console.log('HANDLE TAGS FOREMATED TAGS  : ', formattedTags)
+    // console.log('HANDLE TAGS INPUT TAGS ! ')
+    // console.log('HANDLE TAGS FOREMATED TAGS  ! ')
   };
   // console.log('NoFormatTags : ', noFormatTags)
   // console.log('TAGS : ', tags)
@@ -84,13 +83,13 @@ export default function AddPostPage(): JSX.Element {
     }
     try {
       const fields: PostFields = { title, text, tags }
-      // console.log('ADD POST FIELDS  : ', fields)
+      // console.log('ADD POST FIELDS  ! ')
       const response = isEditing
         ? await axios.patch(`/api/posts/${id}`, fields)
         : await axios.post('/api/posts', fields)
-      // console.log('ADD POST AXIOS POST API/POSTS RESPONSE : ', response)
+      console.log('ADD POST AXIOS POST API/POSTS RESPONSE ! ')
       const id_Response: string = isEditing ? id : response.data.post.id
-      // console.log('ADD POST RESPONSE DATA ID : ', id_Response)
+      console.log('ADD POST RESPONSE DATA ID ! ')
       navigate(`/communism2.0/${id_Response}`)
     } catch (err) {
       console.error('ошибка при создании поста', err)
@@ -101,7 +100,7 @@ export default function AddPostPage(): JSX.Element {
   useEffect(() => {
     if (id) {
       axios.get(`/api/posts/${id}`).then(({ data }) => {
-        // console.log('ADDPOST USEEFFECT AXIOS.GET RES : ', data)
+        // console.log('ADDPOST USEEFFECT AXIOS.GET RES ! ')
         setTitle(data.title)
         setText(data.text)
         setTags(data.tags)
@@ -109,9 +108,6 @@ export default function AddPostPage(): JSX.Element {
     }
   }, [])
 
-  // if (!isAuth) {
-  //   navigate('/login')
-  // }
 
   return (
     <div className={style['page-container']}>

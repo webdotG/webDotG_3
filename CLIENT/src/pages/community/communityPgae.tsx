@@ -46,12 +46,10 @@ export default function CommunityPgae() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Проверка имени
     if (name.length < 3) {
       alert('Имя должно содержать не менее 3 символов.');
       return;
     }
-    // Проверка возраста
     if (dateOfBirth) {
       const currentDate = new Date();
       const birthDate = new Date(dateOfBirth);
@@ -70,18 +68,15 @@ export default function CommunityPgae() {
 
     dispatch(fetchAddUserCommunity({ name, dateOfBirth: formattedDateOfBirth }))
     .then(() => {
-      // После успешной отправки запроса, перезагрузите страницу
       window.location.reload();
     })
     .catch((error) => {
-      // Обработка ошибки запроса, если необходимо
       console.error('Error adding user community:', error);
     });
 
   };
 
   useEffect(() => {
-    // console.log('communityUsers type:', typeof communityUsers); 
     dispatch(fetchAllUserCommunity())
   }, [])
 

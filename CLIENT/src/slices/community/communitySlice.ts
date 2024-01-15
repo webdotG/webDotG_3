@@ -35,9 +35,7 @@ export const fetchRemoveUser = createAsyncThunk(
   async (userId: number | null) => {
     console.log('FETCH REMOVE USER ISADMIN USER ID : ', userId)
     try {
-      // Отправка DELETE-запроса для удаления пользователя
       const response = await axios.delete(`/api/community/${userId}`, { data: { userId } });
-      // Возвращаю объект с информацией об удаленном пользователе
       return response.data.removedUser;
     } catch (error) {
       console.error('Error in removeUser:', error);

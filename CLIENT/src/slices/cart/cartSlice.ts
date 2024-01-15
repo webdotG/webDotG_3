@@ -21,8 +21,8 @@ const cartSlice = createSlice({
   reducers: {
 
     addToCart(state, action: PayloadAction<CartItem>) {
-      // // Удаление старых данных из localStorage перед добавлением новых данных
-      // localStorage.removeItem('cartState');
+      // Удаление старых данных из localStorage перед добавлением новых данных
+      localStorage.removeItem('cartState');
 
       state.selectedItems = [
         ...state.selectedItems, action.payload
@@ -40,10 +40,8 @@ const cartSlice = createSlice({
       const itemIdToRemove = action.payload;
       const updatedItems = state.selectedItems.filter(item => item.itemId !== itemIdToRemove);
 
-      // Обновляем состояние в Redux хранилище
       state.selectedItems = updatedItems;
 
-      // Обновляем данные в localStorage после удаления элемента
       localStorage.setItem('cartState', JSON.stringify({ selectedItems: updatedItems }));
     },
 

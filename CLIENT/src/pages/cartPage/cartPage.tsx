@@ -5,18 +5,14 @@ import { clearCart, deleteItem, CartItem } from '../../slices/cart/cartSlice';
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 import { selectIsAuth } from "../../slices/auth/authSlice";
-// import { PRICE } from "../../data";
-// import { useEffect } from 'react';
-// import { makeOrder } from 'path/to/makeOrder'; //функцию для создания заказа 
 
 function CartPage() {
   const navigate = useNavigate()
   const dispatch = useAppDispatch();
   const selectedItems = useAppSelector((state) => state.cart.selectedItems);
-  console.log('CART PAGE APPSELECTOR SELECET ITEMS : ', selectedItems)
+  console.log('CART PAGE APPSELECTOR SELECET ITEMS ! ')
   const isAuth = useAppSelector(selectIsAuth)
 
-  // Рендеринг списка элементов корзины
   const cartItems = selectedItems.map((item: CartItem, index: number) => (
     <li className={style["cart-item"]} key={index}>
       <span className={style["item-name"]}>{item.name}</span>

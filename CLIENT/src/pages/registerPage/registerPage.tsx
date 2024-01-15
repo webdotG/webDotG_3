@@ -63,13 +63,13 @@ function RegistrPage () {
     try {
       if (!error.email && !error.password && !error.confirmPassword && !error.name) {
         const data = await dispatch(fetchRegister(user));
-        console.log("DISPATCH fetchREGISTER USER, PROMISE ??? : ", data);
+        console.log("DISPATCH fetchREGISTER USER, PROMISE ??? ! ");
   
         if (data.payload !== null && typeof data.payload === 'object' && 'token' in data.payload) {
 
           const token: string = data.payload.token as string;
           window.localStorage.setItem('token', token);
-          console.log('зарегался токен в локалсторадже', token);
+          console.log('зарегался токен в локалсторадже');
         } else {
           console.error('нет токена из  response:', data);
           alert('Ошибка при получении токена регистрации!');
@@ -85,8 +85,7 @@ function RegistrPage () {
   
 
 
-  // console.log('SELECT IS AUTH : ', isAuth)
-  //если залогинился то надо сразу отправлять на главную страницу
+  console.log('SELECT IS AUTH ! ')
   if (isAuth) {
     navigate('/')
   }

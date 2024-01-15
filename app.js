@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const app = express();
 
-// console.log("APP USE >>>>>>>,,,,,,,,,,,, : ", app.use )
+// console.log("APP USE ! : " )
 // app.use((req, res, next) => {
 //   console.log('express.json(): ', req, res, next);
 //   next();

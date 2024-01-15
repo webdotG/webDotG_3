@@ -49,7 +49,6 @@ function HomePage() {
           <li className={style.main_title__text}>приложения</li>
         </ul>
       </div>
-      {/* <ForCoders /> */}
       <MainPriceBlokck />
       <MainPortfolioBock />
       <MainAboutBlok />

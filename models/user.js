@@ -68,13 +68,13 @@ const Login = async (req, res) => {
     // получение секретного ключа для JWT 
     const secret = process.env.JWT_SECRET;
 
-    // если пользователь не найден в таблице users, проверяем таблицу admins
+    // если пользователь не найден в таблице users, проверяю таблицу admins
     if (userResult.rows.length === 0 && adminResult.rows.length > 0) {
       const admin = adminResult.rows[0];
-      // проверяем хешированный пароль администратора
+      // проверяю хешированный пароль администратора
       const isPasswordCorrect = await bcrypt.compare(password, admin.password);
       if (isPasswordCorrect) {
-        // устанавливаем флаг isAdmin в true, так как пользователь является администратором
+        // устанавливаю флаг isAdmin в true, так как пользователь является администратором
         return res.status(200).json({
           id: admin.id,
           email: admin.email,

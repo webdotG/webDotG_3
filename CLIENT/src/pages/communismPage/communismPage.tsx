@@ -12,10 +12,10 @@ import { Link } from 'react-router-dom'
 export default function CommunismPage() {
   const dispatch = useAppDispatch()
   const { posts } = useAppSelector(state => state.posts) //, tags
-  // console.log('COMMUNISM PAGE POSTS : ', posts)
-  // console.log('COMMUNISM PAGE TAGS : ', tags)
+  console.log('COMMUNISM PAGE POSTS ! ')
+  console.log('COMMUNISM PAGE TAGS ! ')
   const userData: typeUserData | null = useAppSelector((state) => state.auth.data)
-  // console.log('COMMUNISM PAGE USERDATA : ', userData);
+  console.log('COMMUNISM PAGE USERDATA ! ');
   const isPostsLoading = posts.status === 'loading'
 
   useEffect(() => {
@@ -45,13 +45,13 @@ export default function CommunismPage() {
         <section className={style['communism']}>
           {(isPostsLoading ? [...Array(3)] : posts.items).map((obj, index) =>
             //так как при рендере сперва будет фэковый массив из трёх undefined
-            //а посты получаю позже так как запросу нужно время и сразу не получится взять данные из obj
+            //а посты получаю позже запросу нужно время и сразу не получится взять данные из obj
             //надо сделать дополнительную проверку
-            //и если грузятся 3 фейковых undefined то грузить скелетон но пока временно строку ЗАГРУЖАЮ
+            //и если грузятся 3 фейковых undefined то грузить скелетон но пока временно строку 
             //а если данные получены то уже рендерить нормальные посты
             isPostsLoading
               ? (<div key={index}>
-                СКЕЛЕТОН КОТОРЫЙ НАРИСУЕТСЯ 3 РАЗА [ARRAY(3)]
+                загрузка [ARRAY(3)]
               </div>)
               : (
                 <div className={style['post-wrapper']} key={obj.id} >

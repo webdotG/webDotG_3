@@ -25,7 +25,7 @@ import ConfirmationRemoveUser from './pages/confirmationRemoveUser/confirmationR
 function App() {
   const dispatch = useAppDispatch()
   const isAuth = useAppSelector(selectIsAuth);
-  // console.log('SRC APP Slice Auth IS AUTH : ', isAuth)
+  console.log('SRC APP Slice Auth IS AUTH ! ')
 
   useEffect(() => {
     dispatch(fetchAuth())

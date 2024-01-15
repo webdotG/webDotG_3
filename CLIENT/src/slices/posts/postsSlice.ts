@@ -5,13 +5,13 @@ import { RootState } from "../../types";
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   const { data } = await axios.get('/api/posts/')
-  // console.log('POSTSLICE AXIOS GET API/POSTS DATA : ', data)
+  console.log('POSTSLICE AXIOS GET API/POSTS DATA ! ')
   return data
 })
 
 export const fetchTags = createAsyncThunk('posts/fetchTags', async () => {
   const { data } = await axios.get('/api/tags')
-  // console.log('POSTSLICE AXIOS GET API/TAGS DATA : ', data)
+  console.log('POSTSLICE AXIOS GET API/TAGS DATA ! ')
   return data
 })
 
@@ -35,7 +35,7 @@ export const fetchRemovePost = createAsyncThunk<DeleteResponse, number>('posts/f
   const { data } = await axios.delete<DeleteResponse>(`/api/posts/${id}`)
   // const deletePostMessage = (data.message);
   // const deletePostData = (data.deletedPost);
-  console.log('POSTSLICE AXIOS DELETE API/POSTS ID, DATA : ', id, data)
+  console.log('POSTSLICE AXIOS DELETE API/POSTS ID, DATA ! ')
   return data
 })
 
@@ -61,7 +61,6 @@ const postsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      //получение постов
       .addCase(fetchPosts.pending, (state) => {
         state.posts.status = 'loading'
         state.posts.items = []
@@ -74,7 +73,6 @@ const postsSlice = createSlice({
         state.posts.status = 'error'
         state.posts.items = []
       })
-      //получение тегов
       .addCase(fetchTags.pending, (state) => {
         state.tags.status = 'loading'
         state.tags.items = []
@@ -87,7 +85,6 @@ const postsSlice = createSlice({
         state.tags.status = 'error'
         state.tags.items = []
       })
-      //удаление поста
       .addCase(fetchRemovePost.pending, (state) => { //, action
         state.posts.status = 'loading';
         // state.posts.items = state.posts.items.filter(obj => obj.id !== action.payload)
@@ -96,9 +93,7 @@ const postsSlice = createSlice({
         const { message, deletedPost } = action.payload;
         state.deletePostMessage = message;
         state.deletePostData = deletedPost;
-        // action.payload здесь содержит данные, возвращенные  санком fetchRemovePost
         const deletedPostId = action.payload?.id;
-        // state.posts.items = state.posts.items.filter((post) => post.id !== deletedPostId);
         if (deletedPostId) {
           state.posts.items = state.posts.items.filter((post) => post.id !== deletedPostId);
         }

@@ -1,6 +1,6 @@
 const { Pool } = require('pg');
-require('dotenv').config(); // Подключаем пакет для чтения переменных среды из файла .env
-// console.log('POOL DB JS SERVER : ', process.env)
+require('dotenv').config(); // пакет для чтения из файла .env
+console.log('POOL DB JS SERVER ! ')
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -9,11 +9,8 @@ const pool = new Pool({
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT
 })
-// console.log("POOL IMPORT>META>ENV>VITE_USER : ", process.env.DB_USER) 
+console.log("POOL IMPORT process.env.DB_USER ! " ) 
 
 // pool.query('SELECT NOW()').then() //x => console.log(x)
-// pool.query('SELECT NOW()', function (err, rows) {
-//   console.log(rows);
-// });
 
 module.exports = pool;

@@ -50,8 +50,7 @@ function ConfirmationOrder() {
         ...opts,
       });
     }
-    fire(5, {} as IAddConfettiConfig); // Изменение параметра particleRatio изменит количество конфетти
-    setTimeout(() => {
+    fire(5, {} as IAddConfettiConfig);     setTimeout(() => {
       jsConfetti.clearCanvas();
     }, 5000);
   }, []);
