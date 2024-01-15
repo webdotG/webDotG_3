@@ -119,6 +119,12 @@
     margin-top: 40px;
     margin-bottom: 25px;
 
+    &:focus,
+    &:hover{
+      background-color: #eeeeee;
+      color: #393e46;
+    }
+
   }
 
   .portfolio-item-about {
