@@ -190,7 +190,7 @@
 
 
 	.header_nav__item {
-		font-size: 17px;
+		font-size: 12px;
 		padding-bottom: 5px;
 		display: flex;
 		align-items: center;
@@ -229,7 +229,7 @@
 @media (min-width:880px) {
 
 	.header_nav__item {
-		font-size: 20px;
+		font-size: 14px;
 	}
 
 }
@@ -237,7 +237,13 @@
 @media (min-width:980px) {
 
 	.header_nav__item {
-		font-size: 23px;
+		font-size: 16px;
 	}
 
+}
+
+@media (min-width:980px) { 
+	.header_nav__item{
+		font-size: 18px;
+	}
 }

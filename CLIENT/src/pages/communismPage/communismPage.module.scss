@@ -99,3 +99,43 @@
     }
   }
 }
+
+@media (min-width: 760px) { 
+
+  .communism-title{
+    font-size: 28px;
+  }
+  .communism-about{
+    padding-left: 33px;
+    font-size: 20px;
+  }
+
+  .add-post-link{
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+  .post-wrapper{
+    
+      width: 600px;
+      margin: 0 auto;
+        margin-bottom: 40px;
+      padding-bottom: 33px;
+      padding-top: 33px;
+      padding-left: 30x;
+  }
+
+  .post-title{
+    font-size: 28px;
+  }
+
+  .user-name{
+    font-size: 25px;
+    padding-left: 40px;
+  }
+
+  .link-to-post{
+    margin-top: 40px;
+  }
+}

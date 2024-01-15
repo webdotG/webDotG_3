@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './loginPage.module.scss';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import { fetchLogin, selectIsAuth } from '../../slices/auth/authSlice';
@@ -156,6 +156,7 @@ const LoginPage: React.FC = () => {
         <button disabled={!!(error.email || error.password)} type="submit" className={styles['submit-button']}>Войти</button>
       </form>
 
+<Link className={styles['to-register']} to='/register'><p>зарегистрироваться</p></Link>
 
       <Footer />
     </div>
