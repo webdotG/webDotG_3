@@ -100,7 +100,7 @@ export default function AddPostPage(): JSX.Element {
   useEffect(() => {
     if (id) {
       axios.get(`/api/posts/${id}`).then(({ data }) => {
-        // console.log('ADDPOST USEEFFECT AXIOS.GET RES ! ')
+        console.log('ADDPOST USEEFFECT AXIOS.GET RES ! ')
         setTitle(data.title)
         setText(data.text)
         setTags(data.tags)
@@ -120,7 +120,7 @@ export default function AddPostPage(): JSX.Element {
           <label className={style['label']}>
             Что предлагаете
             <textarea className={style['title-input']}
-              placeholder="научу готвить"
+              placeholder="научу готовить"
               rows={2}
               value={title}
               onChange={handleTitleChange}

@@ -23,7 +23,7 @@ function PortfolioPage() {
             <h4 className={style["portfolio-task-title"]}>Реализованные задачи :</h4>
             <ul className={style['task-list']}>
               <li className={style['task-item']}>
-               - каталог номеров и аппартаментов 
+               - каталог номеров и апартаментов 
               </li>
               <li className={style['task-item']}>
                - регистрация и логин 
@@ -32,13 +32,13 @@ function PortfolioPage() {
                - реализована сортировка (по городам и рейтингу)
               </li>
               <li className={style['task-item']}>
-               - бронирование номеров по дате и колличеству постояльцев
+               - бронирование номеров по дате и количеству постояльцев
               </li>
               <li className={style['task-item']}>
                - возможность просмотра номеров на карте
               </li>
               <li className={style['task-item']}>
-               - оставление комментариев и рейтинга для зарегестрированных пользователей
+               - оставление комментариев и рейтинга для зарегистрированных пользователей
               </li>
             </ul>
             <a  className={style['task-link']}
@@ -48,7 +48,7 @@ function PortfolioPage() {
           <li className={style["portfolio-item"]}>
             <h3 className={style["portfolio-item-title"]}>Rental</h3>
             <img src={Rental} className={style['portfolio-item-img']} width='250px' height='150px' alt='six sities' />
-            <p className={style["portfolio-item-about"]}>Сайт аренды сторительной техники</p>
+            <p className={style["portfolio-item-about"]}>Сайт аренды строительной техники</p>
             <h4 className={style["portfolio-task-title"]}>Реализованные задачи :</h4>
             <ul className={style['task-list']}>
               <li className={style['task-item']}>

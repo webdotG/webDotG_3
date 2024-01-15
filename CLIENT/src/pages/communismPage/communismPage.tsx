@@ -36,7 +36,7 @@ export default function CommunismPage() {
             Здесь можно предложить свои услуги
           </p>
           <p className={style['communism-about']}>
-            В замен получить другие услуги или обмен на необходимое
+            Взамен получить другие услуги или обмен на необходимое
           </p>
         </div>
         <Link className={style['add-post-link']} to='/addPost'>
