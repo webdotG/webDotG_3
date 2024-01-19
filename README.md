@@ -4,6 +4,20 @@
 
 WebDotG - это SPA приложение портфолио/магазин, состоящее из трех основных компонентов:
 
+## Стэк
++ JavaScript
++ TypeScript
++ Sass (.module.scss)
++ React Rouer Dom 6
++ ReduxToolkit (AsuncThunk)
++ Axios
++ JsonWebToken
++ Bcrypt
++ PG
++ Framer-Motion
++ NodeJs
++ ExpressJs 
+
 ### Клиент
 
 Фронтенд-часть проекта построена с использованием **Vite**, **React** и **TypeScript**. 
