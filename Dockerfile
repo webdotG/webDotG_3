@@ -58,4 +58,10 @@ CMD ["npm", "run", "deploy"]
 # NPM RUN CLIENT-BUILD запустит из папки client NPM RUN BUILD а он запустит TSC && VITE BUILD
 #
 
+# docker build -t webdotgmaster/webdotg .
+# docker push webdotgmaster/webdotg:latest
+# docker rmi webdotgmaster/webdotg:latest
+# docker pull webdotgmaster/webdotg:latest
+# docker images
 # docker run -d -p 80:1111 --name webdotg --rm webdotgmaster/webdotg
+# docker ps
