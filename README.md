@@ -129,5 +129,5 @@ CMD ["npm", "run", "deploy"]
 
 ```
 
-### [Более полное описание находится здесь]  
-([http://www.example.com](https://github.com/webdotG/project_description_WebDotg3.0/blob/11279c44f40a8dc5a509749d3c1bb9c66c213037/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F%203.0%20WebdotG3.0.pdf)https://github.com/webdotG/project_description_WebDotg3.0/blob/11279c44f40a8dc5a509749d3c1bb9c66c213037/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F%203.0%20WebdotG3.0.pdf)
+### Более полное описание находится здесь  
+[ссылка на PDF описания проекта](https://github.com/webdotG/project_description_WebDotg3.0/blob/11279c44f40a8dc5a509749d3c1bb9c66c213037/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F%203.0%20WebdotG3.0.pdf)
