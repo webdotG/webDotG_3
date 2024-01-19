@@ -7,6 +7,14 @@ require('dotenv').config();
 
 const app = express();
 
+// Разрешить запросы с других источников
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 // console.log("APP USE ! : " )
 // app.use((req, res, next) => {
 //   console.log('express.json(): ', req, res, next);
