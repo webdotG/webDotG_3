@@ -16,7 +16,10 @@ WebDotG - это SPA приложение портфолио/магазин, с�
 + PG
 + Framer-Motion
 + NodeJs
-+ ExpressJs 
++ ExpressJs
++ PostgeSQL
++ RestAPI с CRUD
++ SQL queries
 
 ### Клиент
 
