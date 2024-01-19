@@ -7,13 +7,7 @@ require('dotenv').config();
 
 const app = express();
 
-// Разрешить запросы с других источников
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+
 
 // console.log("APP USE ! : " )
 // app.use((req, res, next) => {
@@ -30,16 +24,30 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// // Разрешить запросы с других источников
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+//   next();
+// });
 
-app.use('/api/user', require('./routes/user'));
+// Настройка CORS для конкретных маршрутов
+const corsOptions = {
+  origin: '*',
+  methods: 'GET, POST, PUT, DELETE',
+  allowedHeaders: 'Content-Type',
+};
 
-app.use('/api/posts', require('./routes/post'))
+app.use('/api/user', cors(corsOptions), require('./routes/user'));
 
-app.use('/api/tags', require('./routes/tag'))
+app.use('/api/posts', cors(corsOptions), require('./routes/post'))
 
-app.use('/api/cart', require('./routes/cart'));
+app.use('/api/tags', cors(corsOptions), require('./routes/tag'))
 
-app.use('/api/community', require('./routes/community'))
+app.use('/api/cart', cors(corsOptions), require('./routes/cart'));
+
+app.use('/api/community', cors(corsOptions), require('./routes/community'))
 
 //если запрос не прошёл ни по одному роуту оаисаных выше то express отдаст просто статичный файл в папке dist
 app.use('/', express.static(path.join(__dirname, './CLIENT/dist')));
