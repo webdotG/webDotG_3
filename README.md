@@ -1,5 +1,5 @@
 # WebDotG Portfolio Project
-![WebDotG Logo](https://raw.githubusercontent.com/webdotG/webDotG_3/e1ecad227de578334d498b8b95c9f28d7aa92ed5/CLIENT/src/svg/G_01.svg){width=75px height=75px}
+![WebDotG Logo](https://raw.githubusercontent.com/webdotG/webDotG_3/e1ecad227de578334d498b8b95c9f28d7aa92ed5/CLIENT/src/svg/G_01.svg =75x75)
 
 
 ## Overview
