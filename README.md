@@ -1,62 +1,62 @@
-# WebDotG Portfolio Project
+# Проект портфолио WebDotG
 
-## Overview
+## Обзор
 
-WebDotG is a portfolio project consisting of three main components:
+WebDotG - это проект портфолио, состоящий из трех основных компонентов:
 
-### Client
+### Клиент
 
-The frontend part of the project is built using <u>Vite</u>, <u>React</u>, and <u>TypeScript</u>. It represents an online store without online payment functionality. It includes the following pages: <u>Home</u>, <u>Portfolio</u>, <u>Shop</u>, <u>Login</u>, <u>Registration</u>, <u>Bulletin Board</u>, and <u>Cabinet</u>.
+Фронтенд-часть проекта построена с использованием Vite, React и TypeScript. Представляет собой интернет-магазин без функции онлайн-оплаты. Включает следующие страницы: Home, Portfolio, Shop, Login, Registration, Bulletin Board и Cabinet.
 
-### Server
+### Сервер
 
-The backend part of the project is built with ExpressJS and interacts with the database through SQL queries. It has routes for users, posts, tags, and the shopping cart.
+Бэкенд-часть проекта построена на ExpressJS и взаимодействует с базой данных через SQL-запросы. Имеет маршруты для пользователей, постов, тегов и корзины.
 
-### Database (DB)
+### База данных (БД)
 
-The database is hosted on a remote server and uses PostgreSQL with tables for users, orders, posts, and tags. Database settings (server address, login, password) are stored in the server-side project's .ENV file. SQL queries using the pg library are employed to interact with the database.
+База данных размещена на удаленном сервере и использует PostgreSQL с таблицами для пользователей, заказов, постов и тегов. Настройки базы данных (адрес сервера, логин, пароль) хранятся в файле .ENV серверной части проекта. Для взаимодействия с базой данных используются SQL-запросы с использованием библиотеки pg.
 
-## Hosting and Domains
+## Хостинг и домены
 
-The project has been transferred to a remote server using Docker. The project's image is hosted on Docker Hub. On the remote server, the Docker image is pulled, and a container is deployed, specifying external port 80 and internal port 1111. The domain www.webdotg.ru is linked to the server's IP address (http://89.111.171.246/) by modifying the A record in the DNS settings.
+Проект был перенесен на удаленный сервер с использованием Docker. Образ проекта размещен на Docker Hub. На удаленном сервере образ Docker загружается, и контейнер разворачивается с указанием внешнего порта 80 и внутреннего порта 1111. Домен www.webdotg.ru привязан к IP-адресу сервера (http://89.111.171.246/) путем изменения записи A в настройках DNS.
 
 ## Dockerfile
 
-The Dockerfile is used to build a Docker image that includes both the server and client parts of the project.
+Dockerfile используется для создания образа Docker, включающего в себя как серверную, так и клиентскую части проекта.
 
 ```Dockerfile
-# Specify the base image for Node.js
+# Указываем базовый образ для Node.js
 FROM node AS build
 
-# Set the working directory
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Copy package.json and package-lock.json files
+# Копируем файлы package.json и package-lock.json
 COPY package*.json /app
 
-# Install dependencies for the server
+# Устанавливаем зависимости для серверной части
 RUN npm install
 
-# Copy the server part
+# Копируем серверную часть
 COPY . .
 
-# Move to the client directory
+# Переходим в директорию клиента
 WORKDIR /app/CLIENT
 
-# Install dependencies for the client
+# Устанавливаем зависимости для клиентской части
 RUN npm install
 
-# Build the client
+# Собираем клиентскую часть
 RUN npm run build
 
-# Return to the root directory
+# Возвращаемся в корневую директорию
 WORKDIR /app
 
-# Expose port 1111 in the container to make it accessible externally
+# Открываем порт 1111 в контейнере для доступа извне
 EXPOSE 1111
 
-# Command to run the server and client
+# Команда для запуска сервера и клиента
 CMD ["npm", "run", "deploy"]
-# This will run NPM RUN START and NPM RUN CLIENT-BUILD
-# NPM RUN START will start NODE and the ./BIN/WWW folder
-# NPM RUN CLIENT-BUILD will run NPM RUN BUILD from the client folder, which will execute TSC && VITE BUILD
+# Это запустит NPM RUN START и NPM RUN CLIENT-BUILD
+# NPM RUN START запустит NODE и папку ./BIN/WWW
+# NPM RUN CLIENT-BUILD запустит из папки client NPM RUN BUILD, который выполнит TSC && VITE BUILD
