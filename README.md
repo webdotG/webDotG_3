@@ -6,7 +6,7 @@ WebDotG is a portfolio project consisting of three main components:
 
 ### Client
 
-The frontend part of the project is built using Vite, React, and TypeScript. It represents an online store without online payment functionality. It includes the following pages: Home, Portfolio, Shop, Login, Registration, Bulletin Board, and Cabinet.
+The frontend part of the project is built using _Vite_, _React_, and _TypeScript_. It represents an online store without online payment functionality. It includes the following pages: _Home_, _Portfolio_, _Shop_, _Login_, _Registration_, _Bulletin Board_, and _Cabinet_.
 
 ### Server
 
