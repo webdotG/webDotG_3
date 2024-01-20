@@ -4,13 +4,10 @@ const cookieParser = require('cookie-parser');
 require('dotenv').config();
 const cors = require('cors');
 // const morganLogger = require('morgan');
-const { winstonLogger, logMiddleware } = require('./winstonConfig');
-
-
-
+const { winstonLogger, logMiddleware, handleCorsError } = require('./winstonConfig');
 
 const app = express();
-
+app.use(handleCorsError);
 app.use(logMiddleware);
 // app.use(morganLogger('dev'));
 app.use(cors());
@@ -44,7 +41,11 @@ app.get('*', (req, res) => {
 const PORT = 1111 //process.env.PORT  ; 
 app.listen(PORT, () => {
   winstonLogger.info(`Сервер работает на порту ${PORT}`);
-
+  // winstonLogger.info("This is a info log");
+  // winstonLogger.debug("This is a debug log");
+  // winstonLogger.error("This is an error log");
+  // winstonLogger.warn("This is a warn log");
+  // winstonLogger.http("This is a http log");
 });
 
 module.exports = app;
