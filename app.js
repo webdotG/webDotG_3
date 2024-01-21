@@ -41,15 +41,17 @@ app.get('*', (req, res) => {
 
 
 // Загрузка SSL-сертификатов из файловой системы
-const privateKey = fs.readFileSync('/etc/ssl/', 'utf8');
-const certificate = fs.readFileSync('/etc/ssl/webdotg.ru/certificate.crt', 'utf8');
-const ca = fs.readFileSync('/etc/ssl/webdotg.ru/certificate_ca.crt', 'utf8');
+const privateKey = fs.readFileSync('/etc/ssl/webdotg.ru/webdotg.ru.key.', 'utf8');
+const certificate = fs.readFileSync('/etc/ssl/webdotg.ru/webdotg.ru.crt', 'utf8');
+const ca = fs.readFileSync('/etc/ssl/webdotg.ru/webdotg.ru.crt/webdotg.ru_ca.crt.', 'utf8');
 
 const credentials = { key: privateKey, cert: certificate, ca: ca };
 
 const httpsServer = https.createServer(credentials, app);
 
 const PORT = 1111 //process.env.PORT  ; 
+
+
 httpsServer.listen(PORT, () => {
   winstonLogger.info(`Сервер Express работает по протоколу HTTPS на порту ${PORT}`);
 });

@@ -10,6 +10,7 @@ const levels = {
   error: 2,
   warn: 3,
   http: 4,
+  
 };
 
 //определяю функцию для выбора уровня в зависимости от окружения
@@ -43,11 +44,11 @@ const formatForConsoleAndFile = format.combine(
 //создаю транспорты для вывода в консоль и в файл
 const consoleTransport = new transports.Console();
 //и для вывода в файл
-// const fileTransportError = new transports.File({
-//   filename: 'logs/error.log',
-//   level: 'error',
-// });
-// const fileTransportAll = new transports.File({ filename: 'logs/all.log' });
+const fileTransportError = new transports.File({
+  filename: 'logs/error.log',
+  level: 'error',
+});
+const fileTransportAll = new transports.File({ filename: 'logs/all.log' });
 
 //cоздаю логгер с настройками
 const createWinstonLogger = () => {
