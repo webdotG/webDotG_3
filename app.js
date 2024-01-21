@@ -5,7 +5,6 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 const cors = require('cors');
-// const morganLogger = require('morgan');
 const { winstonLogger, logMiddleware, handleCorsError } = require('./winstonConfig');
 
 const app = express();
@@ -20,7 +19,6 @@ app.use(cors(corsOptions))
 
 app.use(handleCorsError);
 app.use(logMiddleware);
-// app.use(morganLogger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
