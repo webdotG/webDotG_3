@@ -5,11 +5,11 @@ const { createLogger, transports, format } = winston;
 
 //определяю уровни логирования и их порядок
 const levels = {
-  error: 0,
-  warn: 1,
-  info: 2,
-  http: 3,
-  debug: 4,
+  info: 0,
+  debug: 1,
+  error: 2,
+  warn: 3,
+  http: 4,
 };
 
 //определяю функцию для выбора уровня в зависимости от окружения
