@@ -1,4 +1,6 @@
 const express = require('express');
+const https = require('https');
+const fs = require('fs');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
@@ -7,13 +9,6 @@ const cors = require('cors');
 const { winstonLogger, logMiddleware, handleCorsError } = require('./winstonConfig');
 
 const app = express();
-app.use(handleCorsError);
-app.use(logMiddleware);
-// app.use(morganLogger('dev'));
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 
 // Настройка CORS для конкретных маршрутов
 const corsOptions = {
@@ -22,6 +17,15 @@ const corsOptions = {
   allowedHeaders: 'Content-Type',
 };
 app.use(cors(corsOptions))
+
+app.use(handleCorsError);
+app.use(logMiddleware);
+// app.use(morganLogger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+
 app.use('/api/user', cors(corsOptions), require('./routes/user'));
 app.use('/api/posts', cors(corsOptions), require('./routes/post'))
 app.use('/api/tags', cors(corsOptions), require('./routes/tag'))
@@ -38,15 +42,29 @@ app.get('*', (req, res) => {
 });
 
 
+// Загрузка SSL-сертификатов из файловой системы
+const privateKey = fs.readFileSync('/etc/ssl/', 'utf8');
+const certificate = fs.readFileSync('/etc/ssl/webdotg.ru/certificate.crt', 'utf8');
+const ca = fs.readFileSync('/etc/ssl/webdotg.ru/certificate_ca.crt', 'utf8');
+
+const credentials = { key: privateKey, cert: certificate, ca: ca };
+
+const httpsServer = https.createServer(credentials, app);
+
 const PORT = 1111 //process.env.PORT  ; 
-app.listen(PORT, () => {
-  winstonLogger.info(`Сервер работает на порту ${PORT}`);
-  // winstonLogger.info("This is a info log");
-  // winstonLogger.debug("This is a debug log");
-  // winstonLogger.error("This is an error log");
-  // winstonLogger.warn("This is a warn log");
-  // winstonLogger.http("This is a http log");
+httpsServer.listen(PORT, () => {
+  winstonLogger.info(`Сервер Express работает по протоколу HTTPS на порту ${PORT}`);
 });
+
+
+// app.listen(PORT, () => {
+//   winstonLogger.info(`Сервер работает на порту ${PORT}`);
+//   // winstonLogger.info("This is a info log");
+//   // winstonLogger.debug("This is a debug log");
+//   // winstonLogger.error("This is an error log");
+//   // winstonLogger.warn("This is a warn log");
+//   // winstonLogger.http("This is a http log");
+// });
 
 module.exports = app;
 
