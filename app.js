@@ -41,9 +41,9 @@ app.get('*', (req, res) => {
 
 
 // Загрузка SSL-сертификатов из файловой системы
-// const privateKey = fs.readFileSync('/etc/ssl/webdotg.ru/webdotg.ru.key.', 'utf8');
-// const certificate = fs.readFileSync('/etc/ssl/webdotg.ru/webdotg.ru.crt', 'utf8');
-// const ca = fs.readFileSync('/etc/ssl/webdotg.ru/webdotg.ru.crt/webdotg.ru_ca.crt.', 'utf8');
+// const privateKey = fs.readFileSync('/.', 'utf8');
+// const certificate = fs.readFileSync('/', 'utf8');
+// const ca = fs.readFileSync('/', 'utf8');
 
 // const credentials = { key: privateKey, cert: certificate, ca: ca };
 
