@@ -20,6 +20,7 @@ import { useEffect } from 'react';
 import { fetchAuth } from './slices/auth/authSlice';
 import { selectIsAuth } from '../src/slices/auth/authSlice';
 import ConfirmationRemoveUser from './pages/confirmationRemoveUser/confirmationRemoveUser';
+import Dreamcatcher from './pages/Dreamcatcher/dreamcatcher';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
   return (
       <Routes>
         <Route index path="/" element={<HomePage />} />
+        <Route index path="/dreamcatcher" element={<Dreamcatcher />} />
         <Route index path="/register" element={<RegistrPage />} />
         <Route index path="/login" element={<LoginPage />} />
         <Route index path="/portfolio" element={<PortfolioPage />} />

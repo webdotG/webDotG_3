@@ -62,11 +62,10 @@ CMD ["npm", "run", "deploy"]
 # docker push webdotgmaster/webdotg:latest
 # docker rmi webdotgmaster/webdotg:latest
 # docker pull webdotgmaster/webdotg:latest
-# docker images
-# docker run -d -p 80:1111 --name webdotg --rm webdotgmaster/webdotg
-# docker ps
+
 
 # docker run --name webdotg -v /etc/ssl/webdotg.ru:/etc/ssl/webdotg.ru:ro -d  webdotgmaster/webdotg
 # docker run --name webdotg  -p 80:1111 -v /etc/ssl/webdotg.ru:/etc/ssl/webdotg.ru:ro -d webdotg
 # ssh root@89.111.171.246
 # 
+# docker run --name webdotg  -p 80:1111 -d webdotg

@@ -16,8 +16,11 @@ function MyPage() {
         <h2 className={style['hello']}>Здравствуй
           <p className={style['user-name']}>{userName}</p>
         </h2>
+        <Link className={style['dreamcatcher-link']} to="/dreamcatcher">
+          сонник
+        </Link>
         <div className={style['community-link-wrapper']}>
-        <Link className={style['community-link']}
+          <Link className={style['community-link']}
             to="/community_no_verified">
             orgy band
           </Link>
