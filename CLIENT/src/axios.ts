@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: 'http://localhost:1111/'
+  baseURL: 'http://89.111.171.246/'
 })
 
 //создаю midlweare чтоб при каждом запросе проверять есть токен или нет 
