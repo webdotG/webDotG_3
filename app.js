@@ -41,30 +41,30 @@ app.get('*', (req, res) => {
 
 
 // Загрузка SSL-сертификатов из файловой системы
-const privateKey = fs.readFileSync('/etc/ssl/webdotg.ru/webdotg.ru.key.', 'utf8');
-const certificate = fs.readFileSync('/etc/ssl/webdotg.ru/webdotg.ru.crt', 'utf8');
-const ca = fs.readFileSync('/etc/ssl/webdotg.ru/webdotg.ru.crt/webdotg.ru_ca.crt.', 'utf8');
+// const privateKey = fs.readFileSync('/etc/ssl/webdotg.ru/webdotg.ru.key.', 'utf8');
+// const certificate = fs.readFileSync('/etc/ssl/webdotg.ru/webdotg.ru.crt', 'utf8');
+// const ca = fs.readFileSync('/etc/ssl/webdotg.ru/webdotg.ru.crt/webdotg.ru_ca.crt.', 'utf8');
 
-const credentials = { key: privateKey, cert: certificate, ca: ca };
+// const credentials = { key: privateKey, cert: certificate, ca: ca };
 
-const httpsServer = https.createServer(credentials, app);
+// const httpsServer = https.createServer(credentials, app);
 
 const PORT = 1111 //process.env.PORT  ; 
 
 
-httpsServer.listen(PORT, () => {
-  winstonLogger.info(`Сервер Express работает по протоколу HTTPS на порту ${PORT}`);
-});
+// httpsServer.listen(PORT, () => {
+  // winstonLogger.info(`Сервер Express работает по протоколу HTTPS на порту ${PORT}`);
+// });
 
 
-// app.listen(PORT, () => {
-//   winstonLogger.info(`Сервер работает на порту ${PORT}`);
+app.listen(PORT, () => {
+  winstonLogger.info(`Сервер работает на порту ${PORT}`);
 //   // winstonLogger.info("This is a info log");
 //   // winstonLogger.debug("This is a debug log");
 //   // winstonLogger.error("This is an error log");
 //   // winstonLogger.warn("This is a warn log");
 //   // winstonLogger.http("This is a http log");
-// });
+});
 
 module.exports = app;
 
