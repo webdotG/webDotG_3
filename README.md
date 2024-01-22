@@ -1,4 +1,4 @@
-# WebDotG  
+# <img src="https://raw.githubusercontent.com/webdotG/webDotG_3/93b00ef83ac30d3f89aadc2b96f0bd7d7dd1722c/CLIENT/src/svg/G_md.svg" width="100px" height="100px"> WebDotG  
 (релиз 2.0 в июне 2024)
 
 ## Обзор
