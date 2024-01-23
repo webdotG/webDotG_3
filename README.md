@@ -92,48 +92,5 @@ npm run dev
 npm run server
 ```
  
-## Dockerfile
-
-Dockerfile для создания образа Docker, включающего в себя как серверную, так и клиентскую части проекта.
-
-```Dockerfile
-# Указываем базовый образ для Node.js
-FROM node AS build
-
-# Устанавливаем рабочую директорию
-WORKDIR /app
-
-# Копируем файлы package.json и package-lock.json
-COPY package*.json /app
-
-# Устанавливаем зависимости для серверной части
-RUN npm install
-
-# Копируем серверную часть
-COPY . .
-
-# Переходим в директорию клиента
-WORKDIR /app/CLIENT
-
-# Устанавливаем зависимости для клиентской части
-RUN npm install
-
-# Собираем клиентскую часть
-RUN npm run build
-
-# Возвращаемся в корневую директорию
-WORKDIR /app
-
-# Открываем порт 1111 в контейнере для доступа извне
-EXPOSE 1111
-
-# Команда для запуска сервера и клиента
-CMD ["npm", "run", "deploy"]
-# Это запустит NPM RUN START и NPM RUN CLIENT-BUILD
-# NPM RUN START запустит NODE и папку ./BIN/WWW
-# NPM RUN CLIENT-BUILD запустит из папки client NPM RUN BUILD, который выполнит TSC && VITE BUILD
-
-```
-
 ### Более полное описание находится здесь  
 [ссылка на PDF описания проекта](https://github.com/webdotG/project_description_WebDotg3.0/blob/11279c44f40a8dc5a509749d3c1bb9c66c213037/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F%203.0%20WebdotG3.0.pdf)
