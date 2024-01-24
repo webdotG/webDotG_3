@@ -1,12 +1,87 @@
 .page-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; 
+  min-height: 100vh;
   background-color: #393e46;
   color: #eeeeee;
 }
 
-@media (min-widt:320px) {
-  
-  
+
+@media (min-width: 320px) {
+
+
+  .dreams-count {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 200;
+  }
+
+  .dreams-form {
+    width: 300px;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border: 2px solid #00ADB5;
+    border-radius: 8px;
+  }
+
+  .dreams-label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: stretch;
+    padding-left: 0;
+
+    span{
+      font-size: 20px;
+      padding-bottom: 15px;
+
+      b{
+        padding-left: 5px;
+        font-size: 9px;
+        letter-spacing: 0.2px;
+        font-weight: 300;
+      }
+
+    }
+
+  }
+
+  .dreams-input{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 18px;
+    color: #393e46;
+    border: 2px #00ADB5 solid ;
+    border-radius: 6px;
+    outline: none;
+  }
+
+  .dreams-btn-submit{
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 18px;
+    background-color: transparent;
+    border: #00ADB5 2px solid;
+    border-radius: 8px;
+
+    &:hover{
+      background-color: #eeeeee;
+      color: #393e46;
+    }
+  }
+
 }

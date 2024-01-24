@@ -44,11 +44,6 @@ WORKDIR /app
 EXPOSE 1111:1111
 
 
-#ИЗМЕНИТЬ ДОКУМЕНТАЦИЮ !!!!!!!!!
-# docker build . -t webdotg
-
-# docker run -p 2525:1111 webdotg
-
 # 1111 server app my!!!
 
 # Команда для запуска сервера и клиента
@@ -58,14 +53,8 @@ CMD ["npm", "run", "deploy"]
 # NPM RUN CLIENT-BUILD запустит из папки client NPM RUN BUILD а он запустит TSC && VITE BUILD
 #
 
+# docker build . -t webdotg
 # docker build -t webdotgmaster/webdotg .
 # docker push webdotgmaster/webdotg:latest
 # docker rmi webdotgmaster/webdotg:latest
 # docker pull webdotgmaster/webdotg:latest
-
-
-# docker run --name webdotg -v /etc/ssl/webdotg.ru:/etc/ssl/webdotg.ru:ro -d  webdotgmaster/webdotg
-# docker run --name webdotg  -p 80:1111 -v /etc/ssl/webdotg.ru:/etc/ssl/webdotg.ru:ro -d webdotg
-# ssh root@89.111.171.246
-# 
-# docker run --name webdotg  -p 80:1111 -d webdotg

@@ -1,6 +1,4 @@
 const express = require('express');
-// const https = require('https');
-// const fs = require('fs');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
@@ -9,26 +7,19 @@ const { winstonLogger, logMiddleware, handleCorsError } = require('./winstonConf
 
 const app = express();
 
-// Настройка CORS для конкретных маршрутов
-const corsOptions = {
-  origin: '*',
-  methods: 'GET, POST, PUT, DELETE',
-  allowedHeaders: 'Content-Type',
-};
-app.use(cors(corsOptions))
-
-app.use(handleCorsError);
-app.use(logMiddleware);
+// app.options('*', cors());
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(handleCorsError);
+app.use(logMiddleware);
 
-
-app.use('/api/user', cors(corsOptions), require('./routes/user'));
-app.use('/api/posts', cors(corsOptions), require('./routes/post'))
-app.use('/api/tags', cors(corsOptions), require('./routes/tag'))
-app.use('/api/cart', cors(corsOptions), require('./routes/cart'));
-app.use('/api/community', cors(corsOptions), require('./routes/community'))
+app.use('/api/user', require('./routes/user'));
+app.use('/api/posts', require('./routes/post'))
+app.use('/api/tags', require('./routes/tag'))
+app.use('/api/cart', require('./routes/cart'));
+app.use('/api/community', require('./routes/community'))
 
 //если запрос не прошёл ни по одному роуту оаисаных выше то express отдаст просто статичный файл в папке dist
 app.use('/', express.static(path.join(__dirname, './CLIENT/dist')));
@@ -39,24 +30,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './CLIENT/dist/index.html'));
 });
 
-
-// Загрузка SSL-сертификатов из файловой системы
-// const privateKey = fs.readFileSync('/.', 'utf8');
-// const certificate = fs.readFileSync('/', 'utf8');
-// const ca = fs.readFileSync('/', 'utf8');
-
-// const credentials = { key: privateKey, cert: certificate, ca: ca };
-
-// const httpsServer = https.createServer(credentials, app);
-
 const PORT = 1111 //process.env.PORT  ; 
-
-
-// httpsServer.listen(PORT, () => {
-  // winstonLogger.info(`Сервер Express работает по протоколу HTTPS на порту ${PORT}`);
-// });
-
-
 app.listen(PORT, () => {
   winstonLogger.info(`Сервер работает на порту ${PORT}`);
 //   // winstonLogger.info("This is a info log");

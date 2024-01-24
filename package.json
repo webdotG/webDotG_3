@@ -2,7 +2,6 @@
   "name": "a-webdotg-3",
   "version": "0.0.0",
   "private": true,
-  "proxy": "http://localhost:1111",
   "scripts": {
     "server": "nodemon ./bin/www",
     "client": "npm run dev --prefix client",

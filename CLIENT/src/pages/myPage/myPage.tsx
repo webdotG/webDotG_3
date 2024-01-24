@@ -26,6 +26,11 @@ function MyPage() {
           </Link>
         </div>
       </div>
+      <ul>
+        <li>
+          <a href='https://dewatermark.ai/'>сетка удаляющая вотермарки</a>
+        </li>
+      </ul>
       <Footer />
     </div>
   );

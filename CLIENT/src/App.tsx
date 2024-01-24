@@ -35,7 +35,6 @@ function App() {
   return (
       <Routes>
         <Route index path="/" element={<HomePage />} />
-        <Route index path="/dreamcatcher" element={<Dreamcatcher />} />
         <Route index path="/register" element={<RegistrPage />} />
         <Route index path="/login" element={<LoginPage />} />
         <Route index path="/portfolio" element={<PortfolioPage />} />
@@ -51,6 +50,7 @@ function App() {
         {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null }
         {isAuth ? <Route index path="/community_no_verified" element={<CommunityPgae />} /> : null }
         {isAuth ? <Route index path="/confirm_remove_user" element={<ConfirmationRemoveUser />} /> : null }
+        <Route index path="/dreamcatcher" element={<Dreamcatcher />} />
    </Routes>
   )
 }
