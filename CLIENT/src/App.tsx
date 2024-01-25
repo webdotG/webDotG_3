@@ -22,6 +22,7 @@ import { useEffect } from 'react';
 import { fetchAuth } from './slices/auth/authSlice';
 import { selectIsAuth } from '../src/slices/auth/authSlice';
 import { ThemeProvider } from './components/provider/themeProvider';
+import Layout from './components/layout/layout';
 
 
 function App() {
@@ -35,25 +36,27 @@ function App() {
 
   return (
     <ThemeProvider>
-      <Routes>
-        <Route index path="/" element={<HomePage />} />
-        <Route index path="/register" element={<RegistrPage />} />
-        <Route index path="/login" element={<LoginPage />} />
-        <Route index path="/portfolio" element={<PortfolioPage />} />
-        <Route index path="/shop" element={<ShopPage />} />
-        <Route index path="/cart" element={<CartPage />} />
-        <Route index path="/confirmation" element={<ConfirmationToCart />} />
-        <Route index path="/confirmationOrder" element={<ConfirmationOrder />} />
-        <Route index path="/communism2.0" element={<CommunismPage />} />
-        <Route index path="/communism2.0/:id" element={<FullPost />} />
-        <Route index path="/communism2.0/:id/edit" element={<AddPostPage />} />
-        <Route index path="/addPost" element={<AddPostPage />} />
-        <Route index path="/removePost" element={<RemovePost />} />
-        {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null}
-        {isAuth ? <Route index path="/community_no_verified" element={<CommunityPgae />} /> : null}
-        {isAuth ? <Route index path="/confirm_remove_user" element={<ConfirmationRemoveUser />} /> : null}
-        <Route index path="/dreamcatcher" element={<Dreamcatcher />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route index path="/" element={<HomePage />} />
+          <Route index path="/register" element={<RegistrPage />} />
+          <Route index path="/login" element={<LoginPage />} />
+          <Route index path="/portfolio" element={<PortfolioPage />} />
+          <Route index path="/shop" element={<ShopPage />} />
+          <Route index path="/cart" element={<CartPage />} />
+          <Route index path="/confirmation" element={<ConfirmationToCart />} />
+          <Route index path="/confirmationOrder" element={<ConfirmationOrder />} />
+          <Route index path="/communism2.0" element={<CommunismPage />} />
+          <Route index path="/communism2.0/:id" element={<FullPost />} />
+          <Route index path="/communism2.0/:id/edit" element={<AddPostPage />} />
+          <Route index path="/addPost" element={<AddPostPage />} />
+          <Route index path="/removePost" element={<RemovePost />} />
+          {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null}
+          {isAuth ? <Route index path="/community_no_verified" element={<CommunityPgae />} /> : null}
+          {isAuth ? <Route index path="/confirm_remove_user" element={<ConfirmationRemoveUser />} /> : null}
+          <Route index path="/dreamcatcher" element={<Dreamcatcher />} />
+        </Routes>
+      </Layout>
     </ThemeProvider>
   )
 }
