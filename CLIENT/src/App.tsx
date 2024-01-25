@@ -14,13 +14,14 @@ import AddPostPage from './pages/addPostPage/addPostPage';
 import ConfirmationOrder from './pages/confirmationOrder/confirmationOrder';
 import RemovePost from './pages/removePost/removePost';
 import CommunityPgae from './pages/community/communityPgae';
+import ConfirmationRemoveUser from './pages/confirmationRemoveUser/confirmationRemoveUser';
+import Dreamcatcher from './pages/Dreamcatcher/dreamcatcher';
 
 import { useAppDispatch, useAppSelector } from './hooks';
 import { useEffect } from 'react';
 import { fetchAuth } from './slices/auth/authSlice';
 import { selectIsAuth } from '../src/slices/auth/authSlice';
-import ConfirmationRemoveUser from './pages/confirmationRemoveUser/confirmationRemoveUser';
-import Dreamcatcher from './pages/Dreamcatcher/dreamcatcher';
+import { ThemeProvider } from './components/provider/themeProvider';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
   }, [dispatch])
 
   return (
+    <ThemeProvider>
       <Routes>
         <Route index path="/" element={<HomePage />} />
         <Route index path="/register" element={<RegistrPage />} />
@@ -47,11 +49,12 @@ function App() {
         <Route index path="/communism2.0/:id/edit" element={<AddPostPage />} />
         <Route index path="/addPost" element={<AddPostPage />} />
         <Route index path="/removePost" element={<RemovePost />} />
-        {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null }
-        {isAuth ? <Route index path="/community_no_verified" element={<CommunityPgae />} /> : null }
-        {isAuth ? <Route index path="/confirm_remove_user" element={<ConfirmationRemoveUser />} /> : null }
+        {isAuth ? <Route index path="/myPage" element={<MyPage />} /> : null}
+        {isAuth ? <Route index path="/community_no_verified" element={<CommunityPgae />} /> : null}
+        {isAuth ? <Route index path="/confirm_remove_user" element={<ConfirmationRemoveUser />} /> : null}
         <Route index path="/dreamcatcher" element={<Dreamcatcher />} />
-   </Routes>
+      </Routes>
+    </ThemeProvider>
   )
 }
 export default App
