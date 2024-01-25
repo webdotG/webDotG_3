@@ -8,6 +8,8 @@ type typeProps = {
 }
 
 export default function Layout({children}: typeProps) {
+
+  
   return (
     <div className={style.layout}>
       <Header/>

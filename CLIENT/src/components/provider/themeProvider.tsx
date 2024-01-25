@@ -3,16 +3,18 @@ import { Dispatch, SetStateAction, createContext, useState, ReactNode } from "re
 type typeSetState<T> = Dispatch<SetStateAction<T>>
 
 interface Context {
-  type: 'dotG' | 'unicorn' | 'hardG'
-  setType: typeSetState<'dotG' | 'unicorn' | 'hardG'>
+  type: 'dotG' | 'unicorn' | 'hardG'; 
+  setType: typeSetState<'dotG' | 'unicorn' | 'hardG'>;
 }
+
 interface ThemeProviderProps {
   children: ReactNode;
 }
 
-const ThemeContext = createContext<Context>({type: 'dotG', setType: () => {} })
+export const ThemeContext = createContext<Context>({type: 'dotG', setType: () => {} })
 
 export const ThemeProvider = ({children}: ThemeProviderProps) => {
+  //состояние текущего типа темы
   const [type, setType] = useState<'dotG' | 'unicorn' | 'hardG'>('dotG')
 
   return <ThemeContext.Provider value={{type, setType}}>
