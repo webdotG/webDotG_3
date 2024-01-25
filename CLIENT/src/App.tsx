@@ -1,4 +1,3 @@
-import './App.module.scss'
 import { Routes, Route } from 'react-router-dom'
 import LoginPage from "./pages/loginPage/loginPage";
 import RegistrPage from './pages/registerPage/registerPage';
@@ -16,13 +15,13 @@ import RemovePost from './pages/removePost/removePost';
 import CommunityPgae from './pages/community/communityPgae';
 import ConfirmationRemoveUser from './pages/confirmationRemoveUser/confirmationRemoveUser';
 import Dreamcatcher from './pages/Dreamcatcher/dreamcatcher';
+import Layout from './components/layout/layout';
 
 import { useAppDispatch, useAppSelector } from './hooks';
 import { useEffect } from 'react';
 import { fetchAuth } from './slices/auth/authSlice';
 import { selectIsAuth } from '../src/slices/auth/authSlice';
 import { ThemeProvider } from './components/provider/themeProvider';
-import Layout from './components/layout/layout';
 
 
 function App() {
