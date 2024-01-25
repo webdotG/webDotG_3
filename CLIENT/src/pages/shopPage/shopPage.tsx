@@ -182,8 +182,7 @@ export default function ShopPage() {
   };
 
   return (
-    <div className={style['wrapper']}>
-      <Header />
+    <>
       <div className={style['form-wrapper']}>
         <h2 className={style['form-title']}>выберите желаемое</h2>
 
@@ -457,8 +456,7 @@ export default function ShopPage() {
           </div>
         </form>
       </div>
-      <Footer />
-    </div>
+    </>
   )
 
 }

@@ -50,17 +50,14 @@ function ConfirmationToCart() {
         ...opts,
       });
     }
-    fire(5, {} as IAddConfettiConfig); 
+    fire(5, {} as IAddConfettiConfig);
     setTimeout(() => {
       jsConfetti.clearCanvas();
     }, 5000);
   }, []);
 
   return (
-    <div className={style['page-container']}>
-
-      <Header />
-      
+    <>
       <div className={style['confirmation-wrapper']}>
         <h2 className={style['confirmation-title']}>вы добавили товары в корзину</h2>
         <ul className={style['confirmation-list-link']}>
@@ -76,10 +73,8 @@ function ConfirmationToCart() {
           </li>
         </ul>
       </div>
-      <canvas id="confettiCanvas"></canvas>  
-      <Footer />
-      
-    </div>
+      <canvas id="confettiCanvas"></canvas>
+    </>
   )
 }
 

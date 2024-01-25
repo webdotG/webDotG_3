@@ -10,8 +10,7 @@ function MyPage() {
   const userName = useAppSelector(selectUserName)
 
   return (
-    <div className={style['page-container']}>
-      <Header />
+    <>
       <div className={style['mypage-wrapper']}>
         <h2 className={style['hello']}>Здравствуй
           <p className={style['user-name']}>{userName}</p>
@@ -31,8 +30,7 @@ function MyPage() {
           <a href='https://dewatermark.ai/'>сетка удаляющая вотермарки</a>
         </li>
       </ul>
-      <Footer />
-    </div>
+    </>
   );
 }
 

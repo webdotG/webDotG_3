@@ -30,8 +30,6 @@ function HomePage() {
   return (
     <>
 
-      <Header />
-
       <div className={style.mainTitleBlock}>
         <motion.div
           initial='hidden'
@@ -54,8 +52,6 @@ function HomePage() {
       <MainAboutBlok />
       <MainFeedback />
       <MainOrder />
-
-      <Footer />
     </>
   )
 }

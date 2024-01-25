@@ -60,8 +60,6 @@ function CartPage() {
   };
 
   return (
-    <div className={style['page-container']}>
-      <Header />
       <section className={style["cart"]}>
         <h2 className={style["cart_title"]}>Ваш заказ:</h2>
         <button className={style["all-clear-btn"]}
@@ -79,8 +77,6 @@ function CartPage() {
         </div>
 
       </section>
-      <Footer />
-    </div>
   )
 }
 

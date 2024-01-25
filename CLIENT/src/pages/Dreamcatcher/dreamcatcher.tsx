@@ -59,8 +59,6 @@ export default function Dreamcatcher() {
   }
 
   return (
-    <div className={style['page-container']}>
-      <Header />
 
       <div className={style['dreamcatcher']}>
         <h2 className={style['dreams-count']} >Записано снов: {dreams.length}</h2>
@@ -116,8 +114,6 @@ export default function Dreamcatcher() {
           ))}
         </ul>
 
-        i</div>
-      <Footer />
-    </div>
+        </div>
   )
 }

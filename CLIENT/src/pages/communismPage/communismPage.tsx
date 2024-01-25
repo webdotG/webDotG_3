@@ -24,8 +24,6 @@ export default function CommunismPage() {
   }, [])
 
   return (
-    <div className={style['page-container']}>
-      <Header />
       <div className={style['communism-wrapper']}>
         <div className={style['communism-about-wrapper']}>
           <h1 className={style['communism-title']}>что такое Коммунизм 2.0 ?</h1>
@@ -76,8 +74,6 @@ export default function CommunismPage() {
               )
           )}
         </section>
-      </div>
-      <Footer />
     </div>
   )
 }

@@ -93,8 +93,7 @@ function RegistrPage () {
 
   return (
     <>
-      <Header />
-      <div className={`${styles['registration-form-container']} ${styles['page-container']}`}>
+      <div className={`${styles['registration-form-container']}`}>
         <h2 className={styles['register-form-title']}>Форма регистрации</h2>
         <form className={styles['register-form']}
           onSubmit={(e) => handleSubmit(e, user)}>
@@ -199,7 +198,6 @@ function RegistrPage () {
             Зарегистрироваться
           </button>
         </form>
-        <Footer />
       </div>
     </>
   );

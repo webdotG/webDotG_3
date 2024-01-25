@@ -77,8 +77,7 @@ const LoginPage: React.FC = () => {
   }, [isAuth, navigate])
 
   return (
-    <div className={`${styles['login-form__title']} ${styles['page-container']}`} >
-      <Header />
+    <div className={`${styles['login-form__title']}`} >
       <h2 className={styles['login-form-title']}>Войти</h2>
       
       <form className={styles['login-form']} onSubmit={(e) => handleSubmit(e, user)}>
@@ -151,7 +150,6 @@ const LoginPage: React.FC = () => {
 
 <Link className={styles['to-register']} to='/register'><p>зарегистрироваться</p></Link>
 
-      <Footer />
     </div>
   );
 }

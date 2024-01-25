@@ -110,8 +110,6 @@ export default function AddPostPage(): JSX.Element {
 
 
   return (
-    <div className={style['page-container']}>
-      <Header />
       <div className={style['add-post']}>
 
         <form className={style['form']}
@@ -163,8 +161,6 @@ export default function AddPostPage(): JSX.Element {
 
 
         </form>
-      </div>
-      <Footer />
     </div>
   )
 }

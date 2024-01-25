@@ -81,8 +81,6 @@ export default function CommunityPgae() {
   }, [])
 
   return (
-    <div className={styles['page-container']}>
-      <Header />
       <div className={styles['community']}>
         <h1 className={styles['community-title']}></h1>
         <form className={styles['form-add-user']}
@@ -148,8 +146,6 @@ export default function CommunityPgae() {
           ))}
 
         </ul>
-      </div>
-      <Footer />
     </div>
   )
 }

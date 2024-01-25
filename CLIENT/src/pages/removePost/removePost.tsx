@@ -22,8 +22,7 @@ export default function RemovePost() {
 
 
   return (
-    <div className={style['page-container']}>
-      <Header />
+    <>
       <div className={style['remove-post']}>
       <Link className={style['back-to-allpost']} to='/communism2.0'>
         <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +56,6 @@ export default function RemovePost() {
           </div>
         )} */}
       </div>
-      <Footer />
-    </div>
+    </>
   )
 }

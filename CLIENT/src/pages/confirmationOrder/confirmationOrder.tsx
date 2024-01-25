@@ -50,19 +50,16 @@ function ConfirmationOrder() {
         ...opts,
       });
     }
-    fire(5, {} as IAddConfettiConfig);     setTimeout(() => {
+    fire(5, {} as IAddConfettiConfig); setTimeout(() => {
       jsConfetti.clearCanvas();
     }, 5000);
   }, []);
 
   return (
-    <div className={style['page-container']}>
-
-      <Header />
-      
+    <>
       <div className={style['confirmation-wrapper']}>
         <h2 className={style['confirmation-title']}>ваш заказ создан</h2>
-        <p  className={style['confirmation-text']}>скоро с вами свяжутся для подтверждения оплаты</p>
+        <p className={style['confirmation-text']}>скоро с вами свяжутся для подтверждения оплаты</p>
         <ul className={style['confirmation-list-link']}>
           <li>
             <Link to='/'>
@@ -76,10 +73,8 @@ function ConfirmationOrder() {
           </li>
         </ul>
       </div>
-      <canvas id="confettiCanvas"></canvas>  
-      <Footer />
-      
-    </div>
+      <canvas id="confettiCanvas"></canvas>
+    </>
   )
 }
 
