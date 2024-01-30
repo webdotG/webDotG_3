@@ -1,23 +1,43 @@
-import { Dispatch, SetStateAction, createContext, useState, ReactNode } from "react";
+import { Dispatch, SetStateAction, createContext, useState, ReactNode, useContext } from "react";
 
-type typeSetState<T> = Dispatch<SetStateAction<T>>
+// type typeSetState<T> = Dispatch<SetStateAction<T>>
 
-interface Context {
-  type: 'webDotG' | 'unicornG' | 'dotG' | undefined; 
-  setType: typeSetState<'webDotG' | 'unicornG' | 'dotG'>;
+// interface Context {
+  // theme: 'webDotG' | 'unicornG' | 'dotG' | undefined;
+  // setTheme: typeSetState<'webDotG' | 'unicornG' | 'dotG'>;
+// }
+
+// interface ThemeProviderProps {
+  // children: ReactNode;
+// }
+
+export const THEME_WEBDOTG = 'neitral'
+export const THEME_UNICORNG = 'light'
+export const THEME_DOTG = 'dark'
+
+
+export const ThemeContext = createContext()
+
+const ThemeProvider = ({ children, ...props }) => {
+
+  const [theme, setTheme] = useState(null)
+
+  const change = (name) => {
+    setTheme(name)
+  }
+
+  return (
+    <ThemeContext.Provider
+      value={{ 
+        theme: theme, 
+        change: change }}
+        {...props}
+        >
+      {children}
+    </ThemeContext.Provider>
+  )
 }
 
-interface ThemeProviderProps {
-  children: ReactNode;
-}
+export default ThemeProvider
 
-export const ThemeContext = createContext<Context>({type: 'webDotG', setType: () => {} })
-
-export const ThemeProvider = ({children}: ThemeProviderProps) => {
-  //состояние текущего типа темы
-  const [type, setType] = useState<'webDotG' | 'unicornG' | 'dotG'>('webDotG')
-
-  return <ThemeContext.Provider value={{type, setType}}>
-    {children}
-  </ThemeContext.Provider>
-}
+export const useTheme = () => useContext(ThemeContext)

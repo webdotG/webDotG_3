@@ -21,7 +21,7 @@ import { useAppDispatch, useAppSelector } from './hooks';
 import { useEffect } from 'react';
 import { fetchAuth } from './slices/auth/authSlice';
 import { selectIsAuth } from '../src/slices/auth/authSlice';
-import { ThemeProvider } from './components/provider/themeProvider';
+
 
 
 function App() {
@@ -34,7 +34,6 @@ function App() {
   }, [dispatch])
 
   return (
-    <ThemeProvider>
       <Layout>
         <Routes>
           <Route index path="/" element={<HomePage />} />
@@ -56,7 +55,6 @@ function App() {
           <Route index path="/dreamcatcher" element={<Dreamcatcher />} />
         </Routes>
       </Layout>
-    </ThemeProvider>
   )
 }
 export default App
