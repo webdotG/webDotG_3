@@ -1,5 +1,11 @@
 @media (min-width: 320px) {
 
+
+	#dotgIcon path {
+		fill: var(--color-red); 
+		stroke: var(--color-white); 
+	}
+
 	.display_none {
 		display: none;
 	}
