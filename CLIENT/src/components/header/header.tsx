@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import style from './header.module.scss'
+import style from './header.module.css'
 import { logOut, selectIsAuth } from '../../slices/auth/authSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { useTheme } from '../provider/themeProvider';
