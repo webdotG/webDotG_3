@@ -3,7 +3,7 @@ import { authReducer } from '../src/slices/auth/authSlice'
 import { postsReducer } from './slices/posts/postsSlice';
 import cartReducer, { loadCartState } from './slices/cart/cartSlice';
 import { communityReducer } from './slices/community/communitySlice';
-import { themeReducer } from './slices/theme/themeSlice';
+// import { themeReducer } from './slices/theme/themeSlic';
 
 // Функция, которая проверяет localStorage и загружает данные
 const loadState = () => {
@@ -27,16 +27,16 @@ export const store = configureStore({
     cart: cartReducer,
     auth: authReducer,
     posts: postsReducer,
-    community: communityReducer,
-    theme: themeReducer,
+    community: communityReducer
+    // theme: themeReducer,
   },
   preloadedState: {
     cart: {
       selectedItems: preloadedState ? preloadedState.selectedItems : [],
     },
-    theme: {
-      type: 'dotG', 
-    },
+    // theme: {
+    //   type: 'webDotG', 
+    // },
   },
 })
 
