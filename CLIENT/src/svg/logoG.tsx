@@ -3,9 +3,9 @@
 export default function LogoG() {
 
   const svgStyles: React.CSSProperties = {
-    width: '75px',
-    height: '75px',
-    fill: '#eeeeee'
+    width: '65px',
+    height: '65px',
+    fill: 'rgba(0, 174, 181, 1.0)'
   };
 
   return (

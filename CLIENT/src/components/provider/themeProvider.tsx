@@ -20,7 +20,7 @@ export const ThemeContext = createContext()
 
 const ThemeProvider = ({ children, ...props }) => {
 
-  const [theme, setTheme] = useState(null)
+  const [theme, setTheme] = useState(THEME_WEBDOTG)
 
   const change = (name) => {
     setTheme(name)
