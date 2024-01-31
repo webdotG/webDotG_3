@@ -1,5 +1,13 @@
-:root {
+// --ФОРМАТ CSS ПЕРЕМЕННОЙ
+// --theme-webdotg-УНИКАЛЬНОЕ_ИМЯ    -- для мятной
+// --theme-uncicorng-УНИКАЛЬНОЕ_ИМЯ  -- для единорожек
+// --theme-dotg-УНИКАЛЬНОЕ_ИМЯ       -- дл харда
+// --theme-default-УНИКАЛЬНОЕ_ИМЯ    -- дефолтня переменная
+// `--theme-default-${element}`,
+// `var(--theme-${theme}-${element})`
 
+:root {
+    
   --color-white:       rgb(255,255, 255);
   --color-black:       rgb(10, 10, 10);
   --color-red:         rgb(217, 26, 50);
@@ -19,32 +27,42 @@
   --color-gradient-unicorn:  linear-gradient(45deg, rgba(202, 177, 255, 1.0), rgba(255, 244, 173, 0.9));
   --color-gradient-mint: linear-gradient(90deg, rgba(57, 63, 70, 1.0), rgba(0, 174, 181, 1.0));
   
-  --border-radius-small: 6px;
-  --border-radius-medium: 8px;
-
-  --text-shadow-red:
-      0 0 5px var(--color-white),
-      0 0 40px var(--color-red);
-
-  --text-shadow-shampoo:
-      0 0 2px var(--color-white),
-      0 0 40px var(--color-shampoo);
-
-  --box-shadow-white:
-      0 16px 24px 2px rgba(255, 255, 255, 0.02), 
-      0 6px 30px 5px rgba(255, 255, 255, 0.04), 
-      0 8px 10px -5px rgba(255, 255, 255, 0.1);
-  
-  --box-shadow-black:
-      0 16px 24px 2px rgba(0, 0, 0, 0.5), 
-      0 6px 30px 5px rgba(0, 0, 0, 0.1), 
-      0 8px 10px -5px rgba(0, 0, 0, 0.2);
 
   /* THEMES */
-  --theme-webdotg-header:  var(--color-black); 
-  --theme-unicorng-header: var(--color-red) ;
-  --theme-dotg-header:     var(--color-white:);
+  --theme-webdotg-header:  var(--color-gray); 
+  --theme-unicorng-header: var(--color-melon) ;
+  --theme-dotg-header:     var(--color-black);
   --theme-default-header:  var(--theme-webdotg-header);
+
+  --theme-webdotg-headerText:  var(--color-light-gray); 
+  --theme-unicorng-headerText: var(--color-white) ;
+  --theme-dotg-headerText:     var(--color-red);
+  --theme-default-headerText:  var(--theme-webdotg-headerText);
+
 
 }
 
+
+
+
+
+// --border-radius-small: 6px;
+// --border-radius-medium: 8px;
+
+// --text-shadow-red:
+//     0 0 5px var(--color-white),
+//     0 0 40px var(--color-red);
+
+// --text-shadow-shampoo:
+//     0 0 2px var(--color-white),
+//     0 0 40px var(--color-shampoo);
+
+// --box-shadow-white:
+//     0 16px 24px 2px rgba(255, 255, 255, 0.02), 
+//     0 6px 30px 5px rgba(255, 255, 255, 0.04), 
+//     0 8px 10px -5px rgba(255, 255, 255, 0.1);
+
+// --box-shadow-black:
+//     0 16px 24px 2px rgba(0, 0, 0, 0.5), 
+//     0 6px 30px 5px rgba(0, 0, 0, 0.1), 
+//     0 8px 10px -5px rgba(0, 0, 0, 0.2);

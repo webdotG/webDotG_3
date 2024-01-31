@@ -1,10 +1,9 @@
 @media (min-width:320px) {
-  
+
   .backround_red {
     display : block;
     width: 100%;
     height: 50px;
-    background-color: var(--theme-default-header)
   }
 
   .layout{
@@ -17,7 +16,6 @@
     outline: none;
     border: none;
     background-color: transparent;
-    // border-color: var(--color-mauve);
   }
 
   .color_theme_btn_list{
@@ -30,6 +28,5 @@
     justify-content: center;
     align-items: baseline;
     border-radius: 10px;
-    // background: var(--color-dark-gray);
   }
 }

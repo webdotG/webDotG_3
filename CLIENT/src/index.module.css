@@ -9,13 +9,13 @@ body {
   overflow-y: scroll;
 }
 
-.backround_red {
-  background-color: var(--theme-default-header)
-}
-
 
 ul, ol{
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+a{ 
+  text-decoration: none;
 }

@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, createContext, useState, ReactNode, useContext } from "react";
+import { createContext, useState, useContext } from "react";
 import {changeCssVariables} from '../../services/changeCssVariables'
 
 
@@ -13,7 +13,7 @@ const ThemeProvider = ({ children, ...props }) => {
 
   const [theme, setTheme] = useState(THEME_WEBDOTG)
 
-  const change = (name) => {
+  const change = (name: string) => {
     setTheme(name)
     changeCssVariables(name)
   }

@@ -13,12 +13,10 @@ export default function Layout({ children }: typeProps) {
   const isTheme = useTheme()
 
   console.log('LAYOUT useTHEME() = isTHEME : ', isTheme)
-
+//{isTheme.theme}
   return (
     <div className={style.layout}>
-    <h3 className={style.backround_red}>
-      {isTheme.theme}
-      </h3>
+  
       <ul className={style.color_theme_btn_list}>
         <li className={style.color_theme_btn}>
           <button

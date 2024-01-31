@@ -9,7 +9,7 @@ export const changeCssVariables = (theme: string) => {
 
     if(root) {
 
-      const cssVariables = ['header']
+      const cssVariables = ['header','headerText']
       
       cssVariables.forEach((element) => {
         root.style.setProperty(
