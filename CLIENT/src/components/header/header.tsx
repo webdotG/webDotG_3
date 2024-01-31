@@ -60,8 +60,8 @@ export default function Header() {
           className={style.burger_btn}
         >
           {onClickBtn
-            ? (<span>закрыть</span>)
-            : (<span>меню</span>)
+            ? 'закрыть'
+            : 'меню'
           }
 
         </button>

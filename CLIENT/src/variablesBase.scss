@@ -29,7 +29,8 @@
   
 
   /* THEMES */
-  --theme-webdotg-header:  var(--color-gray); 
+  // HEADR
+  --theme-webdotg-header:  var(--color-dark-gray); 
   --theme-unicorng-header: var(--color-melon) ;
   --theme-dotg-header:     var(--color-black);
   --theme-default-header:  var(--theme-webdotg-header);
@@ -38,6 +39,22 @@
   --theme-unicorng-headerText: var(--color-white) ;
   --theme-dotg-headerText:     var(--color-red);
   --theme-default-headerText:  var(--theme-webdotg-headerText);
+
+  --theme-webdotg-headerAfter:  var(--color-mint); 
+  --theme-unicorng-headerAfter: var(--color-banana-mania) ;
+  --theme-dotg-headerAfter:     var(--color-white);
+  --theme-default-headerAfter:  var(--theme-webdotg-headerAfter);
+
+   // MAIN 
+   --theme-webdotg-main:  var(--color-gray); 
+   --theme-unicorng-main: var(--color-shampoo) ;
+   --theme-dotg-main:     var(--color-red);
+   --theme-default-main:  var(--theme-webdotg-main);
+  
+   --theme-webdotg-mainTitle:  var(--color-light-gray); 
+   --theme-unicorng-mainTitle: var(--color-tea-green) ;
+   --theme-dotg-mainTitle:     var(--color-black);
+   --theme-default-mainTitle:  var(--theme-webdotg-mainTitle);
 
 
 }

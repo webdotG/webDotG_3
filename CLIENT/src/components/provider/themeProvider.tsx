@@ -7,7 +7,7 @@ export const THEME_UNICORNG = 'unicorng'
 export const THEME_DOTG = 'dotg'
 
 
-export const ThemeContext = createContext()
+export const ThemeContext = createContext('webdotg')
 
 const ThemeProvider = ({ children, ...props }) => {
 

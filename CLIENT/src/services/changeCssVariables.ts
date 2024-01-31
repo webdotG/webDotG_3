@@ -1,3 +1,4 @@
+// root.style.setProperty('--theme-default-header', `var(--theme-${theme}-header)`)
 // --ФОРМАТ CSS ПЕРЕМЕННОЙ
 // --theme-webdotg-УНИКАЛЬНОЕ_ИМЯ    -- для мятной
 // --theme-uncicorng-УНИКАЛЬНОЕ_ИМЯ  -- для единорожек
@@ -9,7 +10,10 @@ export const changeCssVariables = (theme: string) => {
 
     if(root) {
 
-      const cssVariables = ['header','headerText']
+      const cssVariables = [
+        'header','headerText', 'headerAfter',
+        'main', 'mainTitle', 
+      ]
       
       cssVariables.forEach((element) => {
         root.style.setProperty(
@@ -24,4 +28,4 @@ export const changeCssVariables = (theme: string) => {
 
 }
 
-    // root.style.setProperty('--theme-default-header', `var(--theme-${theme}-header)`)
+    

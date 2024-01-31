@@ -5,25 +5,22 @@
     }
 
     .header {
-        width: 100%;
         padding-top: 25px;
         position: relative;
         background-color: var(--theme-default-header);
         color: var(--theme-default-headerText);
     }
 
-    
-
-    /* .header::after {
+    .header::after {
         content: '';
         width: 100%;
         height: 3px;
         border-radius: 5px;
-        background-color: #00ADB5;
+        background-color: var(--theme-default-headerAfter);
         position: absolute;
         bottom: 0;
         left: 0;
-    } */
+    }
 
     .header_logo__wrapper {
         padding-bottom: 20px;
@@ -32,7 +29,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-
     }
 
     .header_logo {
@@ -64,8 +60,13 @@
     .header_nav__item {
         z-index: 10;
         width: auto;
-        padding-bottom: 15px;
+        padding-bottom: 10px;
         border-bottom: transparent 2px solid;
+
+         &:hover {
+             background-color: transparent;
+             border-color:  var(--theme-default-headerText);
+         }
     }
 
     .burger_btn {
@@ -76,17 +77,14 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        background-color: transparent;
-        border: 2px solid #00ADB5;
         border-radius: 8px;
         color: var(--theme-default-headerText);
+        border: 2px solid var(--theme-default-headerText);
+         &:hover {
+             border: 2px solid var(--theme-default-headerText);
+         }
     }
 
-    /*&:hover {*/
-    /*     background-color: transparent;*/
-    /*     border: 2px solid #00ADB5;*/
-    /*     color: #eeeeee;*/
-    /* }*/
     .header_nav__link {
         z-index: 10;
         width: auto;
@@ -99,7 +97,7 @@
         justify-content: center;
         cursor: pointer;
         position: relative;
-        color: var(--theme-default-headerText); 
+        color: var(--theme-default-headerText);
         height: 25px;
         line-height: 21px;
         text-align: center;
@@ -130,16 +128,13 @@
 
     }
 
-    /*svg {*/
-    /*    margin-right: 5px;*/
-    /*}*/
     .btn-logout {
         height: 28px;
         padding: 3px 5px;
-        border: #00ADB5 2px solid;
+        border: 2px solid var(--theme-default-headerText);
         border-radius: 6px;
         font-size: 16px;
-       color: var(--theme-default-headerText);
+        color: var(--theme-default-headerText);
         background-color: transparent;
         cursor: pointer;
         font-weight: 200;

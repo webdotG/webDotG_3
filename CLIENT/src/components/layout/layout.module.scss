@@ -1,15 +1,10 @@
 @media (min-width:320px) {
 
-  .backround_red {
-    display : block;
-    width: 100%;
-    height: 50px;
-  }
-
   .layout{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: var(--color-dark-gray);
   }
 
   .layout button {
