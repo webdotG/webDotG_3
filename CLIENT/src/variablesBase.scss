@@ -41,9 +41,10 @@
       0 8px 10px -5px rgba(0, 0, 0, 0.2);
 
   /* THEMES */
-  /*--theme-webdotg-header:   ;*/
-  /*--theme-unicorng-header:    ;*/
-  /*--theme-dotg-header: ;*/
-  /*--theme-default-header: var(--theme-webdotg-header);*/
+  --theme-webdotg-header:  var(--color-black); 
+  --theme-unicorng-header: var(--color-red) ;
+  --theme-dotg-header:     var(--color-white:);
+  --theme-default-header:  var(--theme-webdotg-header);
 
 }
+

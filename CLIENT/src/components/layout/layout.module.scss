@@ -1,0 +1,35 @@
+@media (min-width:320px) {
+  
+  .backround_red {
+    display : block;
+    width: 100%;
+    height: 50px;
+    background-color: var(--theme-default-header)
+  }
+
+  .layout{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .layout button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    // border-color: var(--color-mauve);
+  }
+
+  .color_theme_btn_list{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: baseline;
+    border-radius: 10px;
+    // background: var(--color-dark-gray);
+  }
+}

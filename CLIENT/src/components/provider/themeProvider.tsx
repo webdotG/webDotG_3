@@ -1,19 +1,10 @@
 import { Dispatch, SetStateAction, createContext, useState, ReactNode, useContext } from "react";
+import {changeCssVariables} from '../../services/changeCssVariables'
 
-// type typeSetState<T> = Dispatch<SetStateAction<T>>
 
-// interface Context {
-  // theme: 'webDotG' | 'unicornG' | 'dotG' | undefined;
-  // setTheme: typeSetState<'webDotG' | 'unicornG' | 'dotG'>;
-// }
-
-// interface ThemeProviderProps {
-  // children: ReactNode;
-// }
-
-export const THEME_WEBDOTG = 'neitral'
-export const THEME_UNICORNG = 'light'
-export const THEME_DOTG = 'dark'
+export const THEME_WEBDOTG = 'webdotg'
+export const THEME_UNICORNG = 'unicorng'
+export const THEME_DOTG = 'dotg'
 
 
 export const ThemeContext = createContext()
@@ -24,6 +15,7 @@ const ThemeProvider = ({ children, ...props }) => {
 
   const change = (name) => {
     setTheme(name)
+    changeCssVariables(name)
   }
 
   return (

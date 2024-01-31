@@ -1,10 +1,9 @@
 import { ReactNode } from 'react'
 import { useTheme } from '../provider/themeProvider';
 import { THEME_WEBDOTG, THEME_UNICORNG, THEME_DOTG } from '../provider/themeProvider'
-import style from './layout.module.css'
+import style from './layout.module.scss'
 import Header from '../header/header'
 import Footer from '../footer/footer'
-// import LogoG from '../../svg/logoG';
 
 type typeProps = {
   children: ReactNode
@@ -17,7 +16,9 @@ export default function Layout({ children }: typeProps) {
 
   return (
     <div className={style.layout}>
-
+    <h3 className={style.backround_red}>
+      {isTheme.theme}
+      </h3>
       <ul className={style.color_theme_btn_list}>
         <li className={style.color_theme_btn}>
           <button
