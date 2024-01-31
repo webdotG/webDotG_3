@@ -11,7 +11,7 @@
     margin: 0 auto;
     padding-top: 50px;
     padding-bottom: 25px;
-    color: var(--theme-default-mainTitle);
+    color: var(--theme-default-mainText);
     font-size: 50px;
     display: flex;
     align-items: center;
@@ -24,7 +24,7 @@
       width: 171px;
       height: 3px;
       border-radius: 5px;
-      background-color: var(--theme-default-mainTitle);
+      background-color: var(--theme-default-mainText);
       position: absolute;
       bottom: -10px;
       left: 0;
@@ -43,7 +43,7 @@
     font-size: 21px;
     font-weight: 300;
     letter-spacing: 0.5px;
-    color: var(--theme-default-mainTitle);
+    color: var(--theme-default-mainText);
   }
 
 
@@ -59,7 +59,7 @@
 
     li {
       margin-bottom: 10px;
-      color: var(--theme-default-mainTitle);
+      color: var(--theme-default-mainText);
       font-size: 18px;
       text-transform: uppercase;
     }
