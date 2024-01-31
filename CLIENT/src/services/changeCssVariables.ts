@@ -12,7 +12,9 @@ export const changeCssVariables = (theme: string) => {
 
       const cssVariables = [
         'header','headerText', 'headerAfter',
-        'main', 'mainAboutBack', 'mainAboutBackSlider', 'mainAboutBackSliderBtn', 'mainText', 
+        'main', 'mainText', 'mainAboutBack', 'mainAboutSliderBtn', 'mainAboutSliderBtnBack', 
+        'mainAboutSliderLinkToBorder',
+        
       ]
       
       cssVariables.forEach((element) => {
