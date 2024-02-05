@@ -2,20 +2,20 @@
 
 	.main_price__wrapper {
 		width: 100%;
-		padding-top: 20px;
-		padding-bottom: 25px;
-		background-color: #393e46;
+		// padding-top: 20px;
+		// padding-bottom: 25px;
+		background-color:  var(--theme-default-mainPortfolio);
 	}
 
 
 	.main_price__wrpaper_green {
 		margin: 0 auto;
-		padding-top: 25px;
 		background-color: #00adb5;
 	}
 
 	.main_price__title {
 		margin: 0;
+		padding-top: 20px;
 		padding-bottom: 15px;
 		letter-spacing: 1.5px;
 		text-transform: uppercase;
@@ -28,7 +28,7 @@
 	.panel {
 		padding-top: 25px;
 		padding-bottom: 25px;
-		background-color: #00adb5;
+		background-color: var( --theme-default-mainPortfolioPanel);
 		min-height: 250px;
 		display: flex;
 		color: #eeeeee;

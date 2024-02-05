@@ -18,15 +18,21 @@
     // justify-content: center;
     position: relative;
   
+    svg{
+      padding-left: 15px;
+      width: 60px;
+      height: 60px;
+      fill: var(--color-mint);
+    }
     
     &::after {
       content: '';
-      width: 171px;
+      width: 185px;
       height: 3px;
       border-radius: 5px;
       background-color: var(--theme-default-mainText);
       position: absolute;
-      bottom: -10px;
+      bottom: 10px;
       left: 0;
     }
 
@@ -38,7 +44,7 @@
   }
 
   .main_title_p {
-    padding-top: 30px;
+    margin-left: -38px;
     padding-bottom: 15px;
     font-size: 21px;
     font-weight: 300;

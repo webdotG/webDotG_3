@@ -2,31 +2,23 @@
 // --theme-webdotg-УНИКАЛЬНОЕ_ИМЯ    -- для мятной
 // --theme-uncicorng-УНИКАЛЬНОЕ_ИМЯ  -- для единорожек
 // --theme-dotg-УНИКАЛЬНОЕ_ИМЯ       -- дл харда
-// --theme-default-УНИКАЛЬНОЕ_ИМЯ    -- дефолтня переменная
+// --theme-default-УНИКАЛЬНОЕ_ИМЯ    -- дефолтная переменная
 // `--theme-default-${element}`,
 // `var(--theme-${theme}-${element})`
 
 :root {
     
-  --color-white:       rgba(255,255, 255, 1.0);
-  --color-black:       rgba(10, 10, 10, 1.0);
-  --color-red:         rgba(217, 26, 50, 1.0);
+  --color-white:       rgba(255,255, 255, 1.0);   //шрифт
+  --color-black:       rgba(10, 10, 10, 1.0);     //фон /обводка
+  --color-red:         rgba(217, 26, 50, 1.0);    //фон /обводка
 
-  --color-melon:       rgba(255,178, 177, 1.0);
-  --color-mauve:       rgb(201, 177, 255, 1.0);
-  --color-shampoo:     rgba(255, 202, 242, 1.0 );
-  --color-tea-green:   rgb(188, 255, 188, 1.0);
-  --color-banana-mania:rgba(255, 243, 173, 1.0);
+  --color-light-gray:  rgba(238, 238, 238, 1.0);  //шрифт
+  --color-mauve:       rgb(201, 177, 255, 1.0);   //фон /обводка
+  --color-shampoo:     rgba(255, 202, 242, 1.0 ); //фон /обводка
 
-  --color-light-gray:  rgba(238, 238, 238, 1.0); 
-  --color-gray:        rgba(57, 63, 70, 1.0);
-  --color-dark-gray:   rgba(34, 41, 50, 1.0);
-  --color-mint:        rgba(0, 174, 181, 1.0);
-
-  --color-gradient-black-red: linear-gradient(270deg, rgba(217, 26, 6, 1.0), rgba(10, 10, 10, 1.0)) ;
-  --color-gradient-unicorn:  linear-gradient(45deg, rgba(202, 177, 255, 1.0), rgba(255, 244, 173, 1.0));
-  --color-gradient-mint: linear-gradient(90deg, rgba(57, 63, 70, 1.0), rgba(0, 174, 181, 1.0));
-  
+  --color-light-gray:  rgba(238, 238, 238, 1.0);   //шрифт
+  --color-dark-gray:   rgba(34, 41, 50, 1.0);     //фон /обводка
+  --color-mint:        rgba(0, 174, 181, 1.0);    //фон /обводка
 
   /* THEMES */
   // HEADR
@@ -47,21 +39,22 @@
 
    // MAIN 
    --theme-webdotg-main:  var(--color-gray); 
-   --theme-unicorng-main: var(--color-shampoo) ;
    --theme-dotg-main:     var(--color-red);
+   --theme-unicorng-main: var(--color-shampoo) ;
    --theme-default-main:  var(--theme-webdotg-main);
   
    --theme-webdotg-mainText:  var(--color-light-gray); 
-   --theme-unicorng-mainText: var(--color-tea-green) ;
    --theme-dotg-mainText:     var(--color-black);
+   --theme-unicorng-mainText: var(--color-light-gray) ;
    --theme-default-mainText:  var(--theme-webdotg-mainText);
    
-   --theme-webdotg-mainAboutBack:  var(--color-dark-gray); 
+    // MAIN PRICE
+   --theme-webdotg-mainAboutBack:  var(--color-color-gray); 
    --theme-unicorng-mainAboutBack: var(--color-tea-green) ;
    --theme-dotg-mainAboutBack:     var(--color-red);
    --theme-default-mainAboutBack:  var(--theme-webdotg-mainAboutBack);
 
-   --theme-webdotg-mainAboutSliderBtn:  var(--color-dark-gray); 
+   --theme-webdotg-mainAboutSliderBtn:  var(--color-mint); 
    --theme-unicorng-mainAboutSliderBtn: var(--color-shampoo) ;
    --theme-dotg-mainAboutSliderBtn:     var(--color-black);
    --theme-default-mainAboutSliderBtn:  var(--theme-webdotg-mainAboutSliderBtn);
@@ -71,12 +64,22 @@
    --theme-dotg-mainAboutSliderBtnBack:     var(--color-white);
    --theme-default-mainAboutSliderBtnBack:  var(--theme-default-mainAboutSliderBtnBack);
 
-   
-
    --theme-webdotg-mainAboutSliderLinkToBorder:  var(--color-mint); 
    --theme-unicorng-mainAboutSliderLinkToBorder: var(--color-mauve) ;
    --theme-dotg-mainAboutSliderLinkToBorder:     var(--color-black);
    --theme-default-mainAboutSliderLinkToBorder:  var(--theme-webdotg-mainAboutSliderLinkToBorder);
+
+    // MAIN PORTFOLIO
+    --theme-webdotg-mainPortfolio:  var(--color-dark-gray); 
+    --theme-unicorng-mainPortfolio: var(--color-melon) ;
+    --theme-dotg-mainPortfolio:     var(--color-black);
+    --theme-default-mainPortfolio:  var(--theme-webdotg-mainPortfolio);
+    
+    --theme-webdotg-mainPortfolioPanel:  var(--color-mint); 
+    --theme-unicorng-mainPortfolioPanel: var(--color-shampoo) ;
+    --theme-dotg-mainPortfolioPanel:     var(--color-red);
+    --theme-default-mainPortfolioPanel:  var(--theme-webdotg-mainPortfolioPanel);
+ 
 
 
 }

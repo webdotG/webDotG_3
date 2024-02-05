@@ -55,9 +55,8 @@
 		padding: 5px 10px;
 		border-radius: 8px;
 		cursor: pointer;
-		border: var( --theme-default-mainAboutSliderBtn);
-		background-color: var( --theme-webdotg-mainAboutSliderLinkToBorder);
-		background-color: var(--color-light-gray);
+		border: 2px solid var( --theme-default-mainAboutSliderBtn);
+		background-color: var( --theme-default-mainAboutSliderLinkToBorder);
 
 		p {
 			padding: 0;
@@ -68,7 +67,7 @@
 	}
 
 	.active_tab {
-		background-color: var( --theme-default-mainAboutSliderBtn);
+		background-color: transparent;
 	}
 
 	.content_tabs {
