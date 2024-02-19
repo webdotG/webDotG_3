@@ -53,10 +53,10 @@ export default function Layout({ children }: typeProps) {
         </li>
       </ul> 
 
-
       <Header />
       {children}
       <Footer />
+
     </div>
   )
 }

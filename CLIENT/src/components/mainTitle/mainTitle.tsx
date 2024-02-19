@@ -1,37 +1,56 @@
 import { motion } from 'framer-motion'
 import style from './mainTitle.module.scss'
 
-
 const textAnimation = {
-  hidden: {
-    x: -100,
+  initial: {
+    x: -500,
     opacity: 0,
   },
-  visible: (custom: number) => ({
+  animate: {
     x: 0,
     opacity: 1,
-    transition: { delay: custom * 0.3 }
-  })
+    transition: {
+      duration: 1,
+      staggerChildren: 0.1,
+    }
+  }
 }
 
+const sliderAnimation = {
+  initial: {
+    x: 0,
+  },
+  animate: {
+    x: "-250%",
+    transition: {
+      repeat: Infinity,
+      repeatType: 'mirror',
+      duration: 25,
+    }
+  }
+}
 
 export default function MainTitle() {
   return (
 
     <div className={style.mainTitleBlock}>
       <motion.div
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ amount: 0.2 }}
+        // initial='hidden'
+        // whileInView='visible'
+        // viewport={{ amount: 0.2 }}
         className={style.main_title__wrapp}>
-        <motion.h1 variants={textAnimation} className={style.main_title}>
+        <motion.h1 className={style.main_title}
+        variants={textAnimation} 
+        initial="initial"
+        animate="animate"
+        >
           webDot
 
           <motion.svg
-            initial={{opacity: 0, scale: 0.25}}
+            initial={{ opacity: 0, scale: 0.25 }}
             // animate={{opacity:1, scale: 1}}  
-            transition={{duration: 2}}
-            whileInView={{opacity:1, scale: 1}}
+            transition={{ duration: 2 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             id="G_logo" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" xmlSpace="preserve">
             <g>
               <path d="M10.4,38.9v53.5c0,7.4,3.7,11.3,10.6,11.3c9.4,0.1,18.6,0.1,28,0c6.7,0,10.5-4,10.5-11.1c0-6.3,0-21.2,0-21.2l-22.8,0.2
@@ -44,13 +63,17 @@ export default function MainTitle() {
 
 
         </motion.h1>
-        <motion.p custom={2} variants={textAnimation} className={style.main_title_p}>разрабатываю и улучшаю</motion.p>
+        <section className={style['main_title__text_wrapper']}>
+          <motion.p variants={textAnimation} className={style.main_title_p}>WEB - разработка</motion.p>
+          <motion.p variants={textAnimation} className={style.main_title_p}>UI - дизайн</motion.p>
+        </section>
       </motion.div>
-      <ul className={style.main_title_list}>
-        <li className={style.main_title__text}>сайты</li>
-        <li className={style.main_title__text}>чат боты</li>
-        <li className={style.main_title__text}>приложения</li>
-      </ul>
+
+      <motion.span className={style.slidingText}
+      variants={sliderAnimation}
+      initial='initial'
+      animate='animate'
+      >Сайты Чатботы Приложения</motion.span>
     </div>
   )
 }
