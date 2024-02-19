@@ -68,6 +68,12 @@
    --theme-unicorng-main: var(--color-shampoo) ;
    --theme-default-main:  var(--theme-webdotg-main);
   
+    // PARALAX
+    --theme-webdotg-paralax-background:   linear-gradient(180deg, var(--color-mint) 2.5%, var(--color-dark-gray)100%); 
+    --theme-dotg-paralax-background:      linear-gradient(180deg, var(--color-red) 2.5%,  var(--color-black) 100%);
+    --theme-unicorng-paralax-background:  linear-gradient(180deg, var(--color-shampoo) 2.5%, var(--color-mauve) 100%);
+    --theme-default-paralax-background:  var(--theme-webdotg-paralax-background);
+
    
    
     // MAIN PRICE

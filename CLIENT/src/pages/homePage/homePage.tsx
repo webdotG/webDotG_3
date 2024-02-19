@@ -5,13 +5,15 @@ import MainAboutBlok from "../../components/mainAboutBlok/mainAboutBlok";
 import MainFeedback from "../../components/mainFeedback/mainFeedback";
 import MainOrder from "../../components/mainOreder/mainOrder";
 import MainTitle from '../../components/mainTitle/mainTitle';
+import Paralax from '../../components/paralax/paralax';
 
 function HomePage() {
 
   return (
     <div className={style['main_page']}>
       <MainTitle />
-      <MainPriceBlokck />
+      <Paralax />
+      <MainPriceBlokck/>
       <MainPortfolioBock />
       <MainAboutBlok />
       {/* <MainFeedback /> */}

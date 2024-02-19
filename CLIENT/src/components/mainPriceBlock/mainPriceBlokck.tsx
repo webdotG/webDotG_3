@@ -1,6 +1,7 @@
 import { useState } from "react"
 import styles from './mainPriceBlock.module.scss'
 import { Link } from 'react-router-dom'
+import Paralax from "../paralax/paralax"
 
 
 function MainPriceBlokck() {
