@@ -2,7 +2,6 @@
 
   .main_title__wrapp {
     width: 100%;
-    // background-color: var(--theme-default-main);
   }
 
   .main_title {
@@ -11,7 +10,7 @@
     margin: 0 auto;
     padding-top: 50px;
     padding-bottom: 25px;
-    color: var(--theme-default-mainText);
+    color: var(--theme-default-main-titleText);
     font-size: 50px;
     display: flex;
     align-items: center;
@@ -22,7 +21,7 @@
       padding-left: 15px;
       width: 60px;
       height: 60px;
-      fill: var(--color-mint);
+      fill: var(--theme-default-main-titleG);
     }
 
     &::after {
@@ -30,7 +29,7 @@
       width: 185px;
       height: 3px;
       border-radius: 5px;
-      background-color: var(--theme-default-mainText);
+      background-color: var(--theme-default-main-titleText);
       position: absolute;
       bottom: 10px;
       left: 0;
@@ -49,7 +48,7 @@
     font-size: 21px;
     font-weight: 300;
     letter-spacing: 0.5px;
-    color: var(--theme-default-mainText);
+    color: var(--theme-default-main-titleText);
   }
 
 
@@ -124,7 +123,7 @@
 
   .mainTitleBlock {
     height: calc(100vh - 100px);
-    background: linear-gradient(180deg, var(--color-dark-gray) 52.5%, var(--color-mint)100%);
+    background: var(--theme-default-main-titleBack)
   }
 
   .main_title {
@@ -135,7 +134,6 @@
       padding-left: 30px;
       width: 135px;
       height: 135px;
-      fill: var(--color-mint);
     }
 
     &::after {
@@ -171,7 +169,7 @@
     font-size: 37vh;
     bottom: -47px;
     white-space: nowrap;
-    color: var(--color-dark-gray);
+    color: var(--theme-default-main-titleSliding);
     opacity: 0.5;
     font-weight: 400;
   }

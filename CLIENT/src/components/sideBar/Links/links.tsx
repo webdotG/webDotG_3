@@ -1,4 +1,4 @@
-import style from '../sideBar.module.scss'
+import style from './links.module.scss'
 import { Link, useNavigate } from 'react-router-dom';
 import { logOut, selectIsAuth } from '../../../slices/auth/authSlice';
 import { useAppDispatch, useAppSelector } from '../../../hooks';

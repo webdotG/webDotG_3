@@ -2,7 +2,7 @@
   height: 100px;
   display: flex;
   justify-content: end;
-  // background-color: var(--color-black);
+  background: var(--theme-default-header-background);
 
   .wrapper{
     max-width: 1400px;
@@ -17,7 +17,7 @@
 }
 
 .name{
-  color: var(--color-white);
+  color: var(--theme-default-header-name);
 }
 
 .social-contacts{
@@ -36,12 +36,12 @@
 
 .social-telegram{
   svg{
-    fill: var(--color-mint);
+    fill: var(--theme-default-header-social);
   }
 }
 
 .whatsup-path{
-    fill: var(--color-mint);
+    fill: var(--theme-default-header-social);
 }
 
 .color-theme {
@@ -51,6 +51,6 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;  // пространство между иконкой и текстом
+    gap: 8px;  
   }
 }

@@ -22,15 +22,20 @@
 
   /* THEMES */
   // HEADR
-  --theme-webdotg-header:  var(--color-dark-gray); 
-  --theme-unicorng-header: var(--color-melon) ;
-  --theme-dotg-header:     var(--color-black);
-  --theme-default-header:  var(--theme-webdotg-header);
+  --theme-webdotg-header-background:  var(--color-dark-gray); 
+  --theme-dotg-header-background:     var(--color-black);
+  --theme-unicorng-header-background: var(--color-mauve) ;
+  --theme-default-header-background:  var(--theme-webdotg-header-background);
 
-  --theme-webdotg-headerText:  var(--color-light-gray); 
-  --theme-unicorng-headerText: var(--color-white) ;
-  --theme-dotg-headerText:     var(--color-red);
-  --theme-default-headerText:  var(--theme-webdotg-headerText);
+  --theme-webdotg-header-name:  var(--color-white); 
+  --theme-dotg-header-name:     var(--color-red);
+  --theme-unicorng-header-name: var(--color-white) ;
+  --theme-default-header-name:  var(--theme-webdotg-header-name);
+
+  --theme-webdotg-header-social:  var(--color-mint); 
+  --theme-dotg-header-social:     var(--color-red);
+  --theme-unicorng-header-social: var(--color-light-gray) ;
+  --theme-default-header-social:  var(--theme-webdotg-header-social);
 
   --theme-webdotg-headerAfter:  var(--color-mint); 
   --theme-unicorng-headerAfter: var(--color-banana-mania) ;
@@ -38,15 +43,32 @@
   --theme-default-headerAfter:  var(--theme-webdotg-headerAfter);
 
    // MAIN 
+   --theme-webdotg-main-titleBack:  linear-gradient(180deg, var(--color-dark-gray) 52.5%, var(--color-mint)100%);
+   --theme-dotg-main-titleBack:     linear-gradient(180deg, var(--color-black) 52.5%, var(--color-red)100%);
+   --theme-unicorng-main-titleBack: linear-gradient(180deg, var(--color-mauve) 52.5%, var(--color-shampoo)100%);
+   --theme-default-main-titleBack:  var(--theme-webdotg-main-titleBack);
+
+   --theme-webdotg-main-titleText:  var(--color-light-gray); 
+   --theme-dotg-main-titleText:     var(--color-red);
+   --theme-unicorng-main-titleText: var(--color-light-gray) ;
+   --theme-default-main-titleText:  var(--theme-webdotg-main-titleText);
+
+   --theme-webdotg-main-titleG:  var(--color-mint); 
+   --theme-dotg-main-titleG:     var(--color-red);
+   --theme-unicorng-main-titleG: var(--color-shampoo) ;
+   --theme-default-main-titleG:  var(--theme-webdotg-main-titleG);
+
+   --theme-webdotg-main-titleSliding:  var(--color-dark-gray); 
+   --theme-dotg-main-titleSliding:     var(--color-black);
+   --theme-unicorng-main-titleSliding: var(--color-light-gray) ;
+   --theme-default-main-titleSliding:  var(--theme-webdotg-main-titleSliding);
+
    --theme-webdotg-main:  var(--color-gray); 
    --theme-dotg-main:     var(--color-red);
    --theme-unicorng-main: var(--color-shampoo) ;
    --theme-default-main:  var(--theme-webdotg-main);
   
-   --theme-webdotg-mainText:  var(--color-light-gray); 
-   --theme-dotg-mainText:     var(--color-black);
-   --theme-unicorng-mainText: var(--color-light-gray) ;
-   --theme-default-mainText:  var(--theme-webdotg-mainText);
+   
    
     // MAIN PRICE
    --theme-webdotg-mainAboutBack:  var(--color-color-gray); 
