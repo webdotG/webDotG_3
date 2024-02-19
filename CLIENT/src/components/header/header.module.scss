@@ -36,12 +36,15 @@
 
 .social-telegram{
   svg{
-    fill: var(--theme-default-header-social);
+    fill: var(--color-white);
   }
 }
 
 .whatsup-path{
-    fill: var(--theme-default-header-social);
+    fill: var(--color-white);
+}
+.whatsup-path2{
+  fill: var(--color-black);
 }
 
 .color-theme {
