@@ -137,7 +137,7 @@ export default function Links({ closeSidebar }) {
                   кабинет
                 </Link>
                 <button className={style['btn-logout']}
-                  onClick={onClickLogOut}></button>
+                  onClick={onClickLogOut}>.</button>
               </span>
             }
           </motion.li>
