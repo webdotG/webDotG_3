@@ -1,6 +1,6 @@
 import style from './addPost.module.scss'
 import Footer from '../../components/footer/footer'
-import Header from '../../components/header/header'
+import Header from '../../components/header/header2'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useAppSelector } from '../../hooks'
 import { selectIsAuth } from '../../slices/auth/authSlice'

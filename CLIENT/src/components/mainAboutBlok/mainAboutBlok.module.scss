@@ -1,6 +1,8 @@
 @media (min-width:320px) {
 
   .main-about__wrapper {
+    height: 100vh;
+    // scroll-snap-align: center;
     display: block;
     background-color: #393e46;
     min-height: 500px;

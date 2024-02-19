@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import Header from "../../components/header/header"
+import Header from "../../components/header/header2"
 import Footer from "../../components/footer/footer"
 import style from './confirmationOrder.module.scss'
 import JSConfetti from 'js-confetti';

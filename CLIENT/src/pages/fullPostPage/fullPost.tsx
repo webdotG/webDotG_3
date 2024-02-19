@@ -1,6 +1,6 @@
 import style from './fullPost.module.scss'
 import Post from '../../components/Post/Post'
-import Header from '../../components/header/header'
+import Header from '../../components/header/header2'
 import Footer from '../../components/footer/footer'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'

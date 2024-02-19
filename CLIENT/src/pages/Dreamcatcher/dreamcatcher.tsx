@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import Footer from '../../components/footer/footer'
-import Header from '../../components/header/header'
+import Header from '../../components/header/header2'
 import style from './dreamcatcher.module.scss'
 
 interface Dream {

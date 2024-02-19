@@ -30,8 +30,6 @@ export default function Layout({ children }: typeProps) {
                 <path d="M128,128h-11L69.9,0h10.8L128,128z" />
               </g>
             </svg>
-
-
           </button>
         </li>
         <li className={style.color_theme_btn}>
@@ -53,7 +51,7 @@ export default function Layout({ children }: typeProps) {
             </svg>
           </button>
         </li>
-      </ul>
+      </ul> 
 
 
       <Header />

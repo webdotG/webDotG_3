@@ -1,6 +1,8 @@
 @media (min-width:320px) {
 
 	.feedback {
+		height: 100vh;
+    // scroll-snap-align: center;
 		background-color: #222831;
 	}
 

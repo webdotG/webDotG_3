@@ -1,6 +1,8 @@
 @media (min-width:320px) {
 
   .main-order {
+    height: 100vh;
+    // scroll-snap-align: center;
     padding-bottom: 40px;
     min-height: 500px;
     background-color: #222831;
