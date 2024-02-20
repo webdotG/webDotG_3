@@ -1,8 +1,9 @@
 .header{
-  height: 100px;
+  height: 112px;
   display: flex;
   justify-content: end;
   background: var(--theme-default-header-background);
+  background-image: url(../../img/stars.png);
 
   .wrapper{
     max-width: 1400px;

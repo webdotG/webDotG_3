@@ -1,0 +1,105 @@
+.mainPortfolio-container {
+  width: 100%;
+  background: var(--theme-default-main-titleBack);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+  
+}
+
+.wrapper{
+  padding-top: 100px;
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  background-image: url(../../img/stars.png);
+}
+
+.word{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.images{
+  min-height: 600px;
+  width: 100%;
+  position: relative;
+}
+.booking-home{
+  position: absolute;
+  right: 120px;
+  bottom: 5;
+  z-index: 2;
+}
+.booking-listing{
+  position: absolute;
+  left: 0;
+  top: 110px;
+  z-index: 1;
+}
+.booking-profile{
+  position: absolute;
+  right: 0;
+  bottom: 60px;
+  z-index: 3;
+}
+.telegram-chat{
+  position: absolute;
+  right: 12px;
+  bottom: -55px;
+  z-index: 2;
+}
+.telegram-desctop{
+  position: absolute;
+  left: 0;
+  top: 175px;
+  z-index: 1;
+}
+.telegram-call{
+  position: absolute;
+  left: 20px;
+  bottom: -25px;
+  z-index: 3;
+}
+.mobile-loginLight{
+  position: absolute;
+  right: 123px;
+  top: 100px;
+  z-index: 5;
+}
+.mobile-LoginDark{
+  position: absolute;
+  right: 44px;
+  top: -70px;
+  z-index: 4;
+}
+.mobile-homeLight{
+  position: absolute;
+  left: 21px;
+  top: 280px;
+  z-index: 2;
+}
+.mobile-homeDark{
+  position: absolute;
+  left: 102px;
+  top: 160px;
+  z-index: 6;
+}
+.mobile-chatLight{
+  position: absolute;
+  right: 15px;
+  bottom: 0px;
+  z-index: 1;
+}
+.mobile-chatDark{
+  position: absolute;
+  left: 100px;
+  bottom: -130px;
+  z-index: 3;
+}
