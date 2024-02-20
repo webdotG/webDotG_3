@@ -1,7 +1,6 @@
 import { useState } from "react"
 import styles from './mainPriceBlock.module.scss'
 import { Link } from 'react-router-dom'
-import Paralax from "../paralax/paralax"
 
 
 function MainPriceBlokck() {
@@ -13,7 +12,7 @@ function MainPriceBlokck() {
   }
 
   return (
-    <div className={styles['wrapper']}>
+    <div className={styles['mainPrice_wrapper']}>
       {/* <h2 className={styles['main_price__title']}>цены</h2> */}
       <ul className={styles['bloc_tabs']}>
        <li className={toggleState === 1 ? `${styles["tab"]} ${styles["active_tab"]}` : styles['tab']}
