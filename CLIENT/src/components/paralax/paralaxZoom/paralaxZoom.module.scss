@@ -3,12 +3,13 @@
   height: 1100px;
   position: relative;
   // z-index: 1;
+  background: var(--theme-default-paralax-background);
 
   .sticky {
     height: 800px;
     position: sticky;
     top: 0;
-    background: var(--theme-default-paralax-background);
+    
     // z-index: 2;
   }
 
