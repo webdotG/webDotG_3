@@ -14,7 +14,7 @@ function MainPriceBlokck() {
 
   return (
     <div className={styles['wrapper']}>
-      <h2 className={styles['main_price__title']}>цены</h2>
+      {/* <h2 className={styles['main_price__title']}>цены</h2> */}
       <ul className={styles['bloc_tabs']}>
        <li className={toggleState === 1 ? `${styles["tab"]} ${styles["active_tab"]}` : styles['tab']}
           onClick={() => toggleTab(1)}>

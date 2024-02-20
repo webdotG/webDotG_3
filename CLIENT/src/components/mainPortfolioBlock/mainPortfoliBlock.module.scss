@@ -1,12 +1,9 @@
 @media (min-width:320px) {
 
 	.main_price__wrapper {
-		height: 100vh;
-    // scroll-snap-align: center;
 		width: 100%;
-		// padding-top: 20px;
-		// padding-bottom: 25px;
 		background-color:  var(--theme-default-mainPortfolio);
+		overflow: hidden;
 	}
 
 
@@ -89,6 +86,10 @@
 
 @media (min-width:780px) {
 	
+	.main_price__wrapper{
+		margin-top: -100px;
+	}
+
 	.panel_img {
 		width: 500px;
 		height: 260px;

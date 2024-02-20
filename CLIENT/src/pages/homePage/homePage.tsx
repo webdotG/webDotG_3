@@ -6,6 +6,7 @@ import MainFeedback from "../../components/mainFeedback/mainFeedback";
 import MainOrder from "../../components/mainOreder/mainOrder";
 import MainTitle from '../../components/mainTitle/mainTitle';
 import Paralax from '../../components/paralax/paralax';
+import ParalaxZoom from '../../components/paralax/paralaxZoom/paralaxZoom';
 
 function HomePage() {
 
@@ -14,6 +15,7 @@ function HomePage() {
       <MainTitle />
       <Paralax />
       <MainPriceBlokck/>
+      <ParalaxZoom />
       <MainPortfolioBock />
       <MainAboutBlok />
       {/* <MainFeedback /> */}

@@ -9,7 +9,7 @@ function MainPortfolioBock() {
   return (
 
     <div className={`${style.main_price__wrapper}`}>
-      <h2 className={style.main_price__title}>портфолио</h2>
+      {/* <h2 className={style.main_price__title}>портфолио</h2> */}
       <Carousel defaultControlsConfig={{
         prevButtonClassName: `${style.prev_btn}`,
         nextButtonClassName: `${style.next_btn}`,
