@@ -108,8 +108,30 @@
     --theme-dotg-mainPortfolioPanel:     var(--color-red);
     --theme-default-mainPortfolioPanel:  var(--theme-webdotg-mainPortfolioPanel);
  
+    //MAIN ABOUT
+    
+    --theme-webdotg-main-aboutTitleBtn:  var(--color-dark-gray); 
+    --theme-dotg-main-aboutTitleBtn:     var(--color-white);
+    --theme-unicorng-main-aboutTitleBtn: var(--color-white) ;
+    --theme-default-main-aboutTitleBtn:  var(--theme-webdotg-main-aboutTitleBtn);
 
+    
+    --theme-webdotg-main-aboutItem:  var(--color-light-gray); 
+    --theme-dotg-main-aboutItem:     var(--color-black);
+    --theme-unicorng-main-aboutItem: var(--color-shampoo) ;
+    --theme-default-main-aboutItem:  var(--theme-webdotg-main-aboutItem);
 
+    --theme-webdotg-main-aboutItemSvg:  var(--color-mint); 
+    --theme-dotg-main-aboutItemSvg:     var(--color-red);
+    --theme-unicorng-main-aboutItemSvg: var(--color-mauve) ;
+    --theme-default-main-aboutItemSvg:  var(--theme-webdotg-main-aboutItemSvg);
+
+    --theme-webdotg-main-aboutItemText:  var(--color-dark-gray); 
+    --theme-dotg-main-aboutItemText:     var(--color-white);
+    --theme-unicorng-main-aboutItemText: var(--color-white) ;
+    --theme-default-main-aboutItemText:  var(--theme-webdotg-main-aboutItemText);
+    
+    
 }
 
 

@@ -1,0 +1,139 @@
+.mainAbout-wrapper {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 100%;
+  min-height: 900px;
+  background: var(--theme-default-paralax-background);
+}
+
+.mainAbout {
+  width: 100%;
+  height: 100%;
+  background-image: url(../../img/stars.png);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text-container {
+  flex: 1;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  p {
+    font-weight: 200;
+    font-size: 20px;
+    text-align: right;
+    color: var(--theme-default-main-aboutItemText) ;
+  }
+
+  hr {
+    width: 260px;
+    border: none;
+    border-top: 0.5px solid var(--theme-default-main-aboutItemText) ;;
+  }
+}
+
+.title-container {
+  padding-top: 30px;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    img {
+      width: 225px;
+      height: 60px;
+      border-radius: 25px;
+      object-fit: cover;
+    }
+
+    h2 {
+      font-size: 55px;
+      font-weight: 100;
+      color: var(--theme-default-main-aboutItemText) ;
+
+      b {
+        font-weight: 800;
+        :focus,
+        :hover{
+          color: var(--theme-default-main-aboutTitle);
+        }
+      }
+    }
+
+    .button {
+      width: 200px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 25px;
+      border: none;
+      background:  var(--theme-default-main-aboutItem);
+      color: var(--theme-default-main-aboutItemSvg);
+      font-size: 21px;
+      cursor: pointer;
+    }
+  }
+}
+
+.list-container {
+  flex: 2;
+  padding-top: 50px;
+
+  .box {
+    margin: auto;
+    display: flex;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+    li {
+      margin: 15px;
+      width: 300px;
+      min-height: 400px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 8px;
+      background: var(--theme-default-main-aboutItem);
+      color: var(--theme-default-main-aboutItemText);
+
+      h3 {
+        font-size: 25px;
+        position: relative;
+
+        &::after {
+          content: "";
+          width: 100%;
+          height: 3px;
+          background: var(--theme-default-main-aboutItemSvg);
+          position: absolute;
+          bottom: -8px;
+          left: 0px;
+        }
+      }
+
+      svg {
+        fill: var(--theme-default-main-aboutItemSvg);
+      }
+
+      p {
+        font-size: 18px;
+        text-align: left;
+      }
+    }
+  }
+}

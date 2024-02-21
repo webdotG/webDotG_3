@@ -7,6 +7,7 @@ import MainOrder from "../../components/mainOreder/mainOrder";
 import MainTitle from '../../components/mainTitle/mainTitle';
 import Paralax from '../../components/paralax/paralax';
 import MainPortfolio from '../../components/mainPortfolioBlock/mainPortfolio';
+import MainAbout from '../../components/mainAboutBlok/mainAbout';
 // import ParalaxZoom from '../../components/paralax/paralaxZoom/paralaxZoom';
 
 function HomePage() {
@@ -20,7 +21,8 @@ function HomePage() {
       <Paralax type={'portfolio'} />
       <MainPortfolio />
       {/* <MainPortfolioBock /> */}
-      <MainAboutBlok />
+      <MainAbout />
+      {/* <MainAboutBlok /> */}
       {/* <MainFeedback /> */}
       {/* <MainOrder /> */}
     </div>
