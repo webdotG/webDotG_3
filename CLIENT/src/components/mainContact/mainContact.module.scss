@@ -23,7 +23,7 @@
   gap: 40px;
 
   li {
-    padding-bottom: 40px;
+    padding-bottom: 60px;
   }
 
   h2 {
@@ -54,13 +54,11 @@
 
   .phoneSvg {
     stroke: var(--color-white);
-    position: absolute;
 
     svg {
       display: block;
-      margin: auto;
-      width: 125px;
-      fill: "#000000";
+      width: 135px;
+      fill: var(--color-red);
     }
   }
 
@@ -90,11 +88,11 @@
   }
 }
 
-  // .map-container {
-  //   flex-grow: 2;
-  //   width: 100%;
-  //   height: 500px;
-  //   background-color: red;
-  //   border-radius: 8px;
-  // }
+  .map-container {
+    flex-grow: 2;
+    width: 100%;
+    height: 500px;
+    background-color: red;
+    border-radius: 8px;
+  }
 
