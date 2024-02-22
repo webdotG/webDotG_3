@@ -7,7 +7,7 @@ import { useRef } from 'react'
 const variants = {
   initial: {
     x: -500,
-    y: -250,
+    y: -5,
     opacity: 0
   },
   animate: {
@@ -15,8 +15,8 @@ const variants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 1,
-      staggerChildren: 0.1,
+      duration: 2,
+      staggerChildren: 0.25,
     }
   },
 
