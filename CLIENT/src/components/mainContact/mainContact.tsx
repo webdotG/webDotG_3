@@ -28,11 +28,15 @@ export default function MainContact() {
   return (
     <motion.section className={style['mainContact-wrapper']}
       // ref={ref}
-      variants={variants}
-      initial='initial'
-      whileInView='animate'
+      // variants={variants}
+      // initial='initial'
+      // whileInView='animate'
     >
-      <motion.div className={style['mainContact']}>
+      <motion.div className={style['mainContact']}
+        variants={variants}
+        initial='initial'
+        whileInView='animate'
+      >
 
         <motion.div className={style['text-container']}>
           <motion.h2 variants={variants}>Контакты</motion.h2>

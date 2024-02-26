@@ -1,7 +1,9 @@
 @media (min-width:320px) {
 
   footer {
-    background-color: #393e46;
+    background: var(--theme-default-header-background);
+   background-image: url(../../img/stars.png);
+   background-position-y: -40px;
     position: relative;
     margin-top: auto;
 
@@ -10,7 +12,7 @@
       width: 100%;
       height: 3px;
       border-radius: 5px;
-      background-color: #00ADB5;
+      background-color: var(--theme-default-header-name);
       position: absolute;
       top: 0;
       left: 0;
