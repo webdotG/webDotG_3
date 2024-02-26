@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import style from './mainContact.module.scss'
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
+// import { useRef } from 'react'
+
 
 const variants = {
   initial: {
-    y: 500,
+    y: 250,
     opacity: 0,
   },
   animate: {
@@ -20,17 +21,18 @@ const variants = {
 
 export default function MainContact() {
 
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { margin: '-50px' })
+  // const ref = useRef<HTMLDivElement>(null)
+  // const isInView = useInView(ref, { margin: '-50px' })
 
 
   return (
-    <motion.section variants={variants} className={style['mainContact-wrapper']}
+    <motion.section className={style['mainContact-wrapper']}
+      // ref={ref}
+      variants={variants}
       initial='initial'
-      whileInView='animate'>
-
-
-      <motion.div ref={ref} className={style['mainContact']}>
+      whileInView='animate'
+    >
+      <motion.div className={style['mainContact']}>
 
         <motion.div className={style['text-container']}>
           <motion.h2 variants={variants}>Контакты</motion.h2>
@@ -60,7 +62,8 @@ export default function MainContact() {
             <motion.svg strokeWidth='0.3px' version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xmlSpace="preserve">
               <motion.path
                 initial={{ pathLength: 0 }}
-                animate={{ pathLength: isInView ? 1 : 0 }}
+                whileInView={{ pathLength: 1 }}
+                // animate={{ pathLength: isInView ? 1 : 0 }}
                 transition={{ duration: 3 }}
                 d="M26.2,8.5c-2.2-3.2-5.6-5.2-9.3-5.5c-0.3,0-0.6,0-0.9,0c-3.7,0-7.2,1.6-9.7,4.3c-2.5,2.7-3.6,6.4-3.2,10.1
                 c0.7,6,5.5,10.8,11.5,11.4C15,29,15.5,29,16,29c2.6,0,5-0.7,7.2-2.2c0.5-0.3,0.6-0.9,0.3-1.4c-0.3-0.5-0.9-0.6-1.4-0.3
@@ -72,9 +75,12 @@ export default function MainContact() {
           </motion.div>
 
           <motion.form
+            variants={variants}
             initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: isInView ? 3 : 0, duration: 1 }}
+            whileInView={{ opacity: 1 }}
+            // // animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 3, duration: 1 }}
+          // // transition={{ delay: isInView ? 3 : 0, duration: 1 }}
           >
             <input type='text' required placeholder='Имя' />
             <input type='email' required placeholder='Мэйл' />

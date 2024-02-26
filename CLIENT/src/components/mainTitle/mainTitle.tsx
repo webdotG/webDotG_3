@@ -18,10 +18,10 @@ const textAnimation = {
 
 const sliderAnimation = {
   initial: {
-    x: 0,
+    x:0,
   },
   animate: {
-    x: "-250%",
+    x: -250,
     transition: {
       repeat: Infinity,
       repeatType: 'mirror',

@@ -1,6 +1,6 @@
 import style from './mainAbout.module.scss'
 import people from '../../img/people.webp'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useRef } from 'react'
 
@@ -46,7 +46,7 @@ export default function MainAbout() {
           <div className={style['title']}>
             <img src={people} alt='img working people' />
             <h2>
-              <b>Уникальные</b> Идеи</h2>
+              <b>Рабочие</b> Идеи</h2>
           </div>
           <div className={style['title']}>
             <h2>
