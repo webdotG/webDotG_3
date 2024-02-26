@@ -16,19 +16,19 @@ const textAnimation = {
   }
 }
 
-const sliderAnimation = {
-  initial: {
-    x:0,
-  },
-  animate: {
-    x: -250,
-    transition: {
-      repeat: Infinity,
-      repeatType: 'mirror',
-      duration: 25,
-    }
-  }
-}
+// const sliderAnimation = {
+//   initial: {
+//     x:0,
+//   },
+//   animate: {
+//     x: -250,
+//     transition: {
+//       repeat: Infinity,
+//       repeatType: 'mirror',
+//       duration: 12.5,
+//     }
+//   }
+// }
 
 export default function MainTitle() {
   return (
@@ -69,11 +69,11 @@ export default function MainTitle() {
         </section>
       </motion.div>
 
-      <motion.span className={style.slidingText}
+      {/* <motion.div className={style.slidingText}
       variants={sliderAnimation}
       initial='initial'
       animate='animate'
-      >Сайты Чатботы Приложения</motion.span>
+      >Сайты Чатботы Приложения</motion.div> */}
     </div>
   )
 }

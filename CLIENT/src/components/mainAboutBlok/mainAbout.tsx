@@ -44,7 +44,7 @@ export default function MainAbout() {
         </motion.div>
         <motion.div className={style['title-container']} variants={variants}>
           <div className={style['title']}>
-            <img src={people} alt='img working people' />
+            <img  alt='img working ideas' />
             <h2>
               <b>Рабочие</b> Идеи</h2>
           </div>

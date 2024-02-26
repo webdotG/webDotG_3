@@ -1,15 +1,25 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, ReactNode } from "react";
 import {changeCssVariables} from '../../services/changeCssVariables'
+
+type ThemeContextType = {
+  theme: string;
+  change: (name: string) => void;
+};
 
 
 export const THEME_WEBDOTG = 'webdotg'
-export const THEME_UNICORNG = 'unicorng'
 export const THEME_DOTG = 'dotg'
+export const THEME_UNICORNG = 'unicorng'
 
 
-export const ThemeContext = createContext('webdotg')
 
-const ThemeProvider = ({ children, ...props }) => {
+export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+type ThemeProviderProps = {
+  children: ReactNode;
+};
+
+const ThemeProvider = ( { children }: ThemeProviderProps, {...props} ) => {
 
   const [theme, setTheme] = useState(THEME_WEBDOTG)
 
@@ -32,4 +42,3 @@ const ThemeProvider = ({ children, ...props }) => {
 
 export default ThemeProvider
 
-export const useTheme = () => useContext(ThemeContext)

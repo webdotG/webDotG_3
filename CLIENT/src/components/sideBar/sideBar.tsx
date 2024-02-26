@@ -12,20 +12,17 @@
       open: {
         clipPath: 'circle(1200px at 50px 50px)',
         transition: {
-          delay: 0.5,
-          type: 'tween',
-          stiffness: 40,
-          damping: 5,
-          duration: 2,
+          duration: 1.25,
         }
       },
       closed: {
         clipPath: 'circle(30px at 50px 50px)',
         transition: {
+          delay: 0.25,
           type: 'spring',
-          stiffnes: 150,
+          stiffness: 150,
           damping: 40,
-          duration: 1,
+          duration: 0.5,
         }
       }
     }

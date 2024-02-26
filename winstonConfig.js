@@ -1,6 +1,5 @@
 const winston = require('winston');
 const morgan = require('morgan');
-//импортирую компоненты из winston
 const { createLogger, transports, format } = winston;
 
 //определяю уровни логирования и их порядок
@@ -13,14 +12,14 @@ const levels = {
   
 };
 
-//определяю функцию для выбора уровня в зависимости от окружения
+//функция для выбора уровня в зависимости от окружения
 const level = () => {
   const env = process.env.NODE_ENV || 'development';
   const isDevelopment = env === 'development';
   return isDevelopment ? 'debug' : 'info';
 };
 
-//цвета для различных уровней логирования
+//цвета для уровней
 const colors = {
   info: 'green',
   debug: 'black',
@@ -29,7 +28,7 @@ const colors = {
   http: 'magenta',
 };
 
-//добавляю определенные цвета к уровням логирования
+//добавляю цвета к уровням
 winston.addColors(colors);
 
 //формат для вывода в консоль и в файл
@@ -41,16 +40,16 @@ const formatForConsoleAndFile = format.combine(
   ),
 );
 
-//создаю транспорты для вывода в консоль и в файл
+//транспорты для вывода в консоль
 const consoleTransport = new transports.Console();
-//и для вывода в файл
+//и в файл
 const fileTransportError = new transports.File({
   filename: 'logs/error.log',
   level: 'error',
 });
 const fileTransportAll = new transports.File({ filename: 'logs/all.log' });
 
-//cоздаю логгер с настройками
+//логгер с настройками
 const createWinstonLogger = () => {
   return createLogger({
     level: level(),
@@ -65,14 +64,6 @@ const createWinstonLogger = () => {
 };
 const winstonLogger = createWinstonLogger();
 
-
-//Middleware для логирования с использованием Winston
-// const logMiddleware = (req, res, next) => {
-//   const logMessage = `${req.method} ${req.url}`;
-//   winstonLogger.info(logMessage, { filename: __filename, line: __line });//чтоб кроме сообщения еще знать строку и файл
-//   next();
-// };
-//Middleware для логирования с использованием Winston + Morgan
 const logMiddleware = morgan((tokens, req, res) => {
   return [
     `\x1b[33m${tokens.url(req, res)}\x1b[0m`,    // цвет yellow 

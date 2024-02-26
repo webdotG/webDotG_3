@@ -52,6 +52,10 @@
     img {
       width: 225px;
       height: 60px;
+      text-align: center;
+      border: 2px solid var(--theme-default-main-aboutItem) ;
+      background:  var(--theme-default-main-aboutItem);
+      color: var(--theme-default-main-aboutItemSvg);
       border-radius: 25px;
       object-fit: cover;
     }

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { useTheme } from '../provider/themeProvider';
+import  useTheme  from '../provider/useTheme';
 import { THEME_WEBDOTG, THEME_UNICORNG, THEME_DOTG } from '../provider/themeProvider'
 import style from './layout.module.scss'
 import Header from '../header/header'
@@ -10,10 +10,11 @@ type typeProps = {
 }
 
 export default function Layout({ children }: typeProps) {
+  
   const isTheme = useTheme()
 
-  console.log('LAYOUT useTHEME() = isTHEME : ', isTheme)
-  //{isTheme.theme}
+  console.log('LAYOUT useTHEME() = isTHEME : ', isTheme.theme)
+  
   return (
     <div className={style.layout}>
 
