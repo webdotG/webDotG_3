@@ -37,10 +37,6 @@
   --theme-unicorng-header-social: var(--color-light-gray) ;
   --theme-default-header-social:  var(--theme-webdotg-header-social);
 
-  --theme-webdotg-headerAfter:  var(--color-mint); 
-  --theme-unicorng-headerAfter: var(--color-banana-mania) ;
-  --theme-dotg-headerAfter:     var(--color-white);
-  --theme-default-headerAfter:  var(--theme-webdotg-headerAfter);
 
    // MAIN 
    --theme-webdotg-main-titleBack:  linear-gradient(180deg, var(--color-dark-gray) 35%, var(--color-mint)100%);
@@ -73,6 +69,12 @@
     --theme-dotg-paralax-background:      linear-gradient(180deg, var(--color-red) 2.5%,  var(--color-black) 100%);
     --theme-unicorng-paralax-background:  linear-gradient(180deg, var(--color-shampoo) 2.5%, var(--color-mauve) 100%);
     --theme-default-paralax-background:  var(--theme-webdotg-paralax-background);
+    
+    // KENNY_SLIDER 
+    --theme-webdotg-kennySlider-background:   linear-gradient(180deg, var(--color-mint) 2.5%, var(--color-dark-gray)100%); 
+    --theme-dotg-kennySlider-background:      linear-gradient(180deg, var(--color-red) 2.5%,  var(--color-black) 100%);
+    --theme-unicorng-kennySlider-background:  linear-gradient(180deg, var(--color-shampoo) 2.5%, var(--color-mauve) 100%);
+    --theme-default-kennySlider-background:  var(--theme-webdotg-kennySlider-background);
 
    
    

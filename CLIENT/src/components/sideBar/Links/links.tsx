@@ -161,25 +161,29 @@ export default function Links({ closeSidebar }) {
                           c6.141-0.002,12.285-2.344,16.971-7.03c9.373-9.373,9.373-24.568,0-33.941l-31.03-31.032h278.056c13.254,0,24-10.746,24-24
                           C383.995,242.745,373.251,232.001,359.995,232.001z"/>
                   </svg>
+                  выход
                 </button>
               </span>
             }
           </motion.li>
 
-          <motion.li className={style.header_nav__item__develop}
-            variants={itemVariants}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.75 }}
+          <motion.li className={style.header_nav__item__develop_blur}
           >
             <Link className={style.header_nav__link} to="/communism2.0" onClick={closeSidebar}>
-              <p className={style.header_nav__link__blur}>
+              <motion.p className={style.header_nav__link__blur}
+               variants={itemVariants}
+               whileHover={{ scale: 1.1 }}
+               whileTap={{ scale: 0.75 }}>
                 коммунизм 2.0
-              </p>
+              </motion.p>
             </Link>
             <Link className={style.header_nav__link} to="/communism2.0" onClick={closeSidebar}>
-              <p className={style.header_nav__link__blur}>
+              <motion.p className={style.header_nav__link__blur}
+               variants={itemVariants}
+               whileHover={{ scale: 1.1 }}
+               whileTap={{ scale: 0.75 }}>
                 сны 1.0
-              </p>
+              </motion.p>
             </Link>
           </motion.li>
 

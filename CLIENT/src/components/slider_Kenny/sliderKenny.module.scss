@@ -4,10 +4,8 @@
     grid-template-rows: 1fr 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    border: 2px solid white;
     min-width: 500px;
     min-height: 350px;
-  
 
   div {
     border: 2px solid white;
@@ -21,10 +19,8 @@
   grid-template-rows: 1fr 1fr 1fr;
   gap: 10px 10px;
   grid-auto-flow: row;
-  border: 2px solid white;
   min-width: 500px;
   min-height: 350px;
-
 
   div {
     border: 2px solid white;
@@ -37,17 +33,13 @@
   grid-template-rows: 0.5fr 1fr;
   gap: 10px 10px;
   grid-auto-flow: row;
-  border: 2px solid white;
   min-width: 500px;
   min-height: 350px;
-
 
   div {
     border: 2px solid white;
   }
 }
-
-
 
 
 
@@ -57,14 +49,54 @@
 }
 
 .sliderKenny {
-  padding-top: 40px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 10px;
   background-image: url('../../img/stars.png');
+  position: relative;
 }
+
+.slider-pagination{
+  width: 200px;
+  position: absolute;
+  bottom: -25px;
+  left: 40%;
+  z-index: 3;
+  display: flex;
+  justify-content: space-evenly;
+
+  svg{
+   fill: var(--theme-default-header-name);
+
+  }
+}
+.slider-btn--prev{
+ rotate: 180deg;
+ position: absolute;
+ right: 321px;
+ bottom: -33px;
+ z-index: 2; 
+
+ svg{
+  fill: var(--theme-default-header-name);
+ }
+}
+.slider-btn--next{
+  position: absolute;
+  left: 331px;
+  bottom: -38px;
+  z-index: 2; 
+
+  svg{
+    fill: var(--theme-default-header-name);
+   }
+  }
+
+
 
 .sliderKenny-list {
   width: 100%;
@@ -83,17 +115,39 @@
 .sliderKenny-item-batman,
 .sliderKenny-item-princess,
 .sliderKenny-item-mysterion {
-  padding-top: 10px;
+  padding-top: 70px;
   padding-bottom: 10px;
   width: 100%;
   display: flex;
   align-items: center;
   position: relative;
+  color: var( --theme-default-header-name);
+
+  .btn-toShop{
+    position: absolute;
+    left: 555px;
+    bottom: 13px;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    font-weight: 200;
+    letter-spacing: 0.25px;
+    // background: var(--theme-default-main-titleG);
+    // background: var(--theme-default-header-background);
+    background-color: transparent;
+    border-bottom:  2px solid var(--theme-default-header-name);
+    color: var(--theme-default-header-name);
+    
+  }
+
 
   h2 {
     position: absolute;
-    left: 165px;
-    top: -143px;
+    left: 0;
+    top: -33px;
     font-size: 90px;
     font-weight: 200;
     color: white;
@@ -108,67 +162,69 @@
 }
 
 .sliderKenny-item-chees {
-
   // display: none;
+  h2{
+    left: 35px;
+  }
+  
 
   img {
-    width: 300px;
-    height: 225px;
-    margin-left: auto;
+    margin-top: -55px;
+    margin-left: -23px;
+    width: 400px;
+    height: 300px;
 
+  }
+
+  .btn-toShop{
+    left: 585px;
   }
 }
 
 .sliderKenny-item-batman {
-  // display: none;
+  display: none;
+  z-index: 3;
 
   img {
     width: 400px;
     height: 250px;
-    margin-left: auto;
-
+    margin-left: -35px;
+    z-index: 1;
   }
+
+  .btn-toShop{
+    left: 585px;
+    bottom: 13px;
+  }
+
 }
 
 .sliderKenny-item-princess {
-  // display: none;
+  display: none;
 
   img {
     width: 250px;
     height: 250px;
-    margin-left: auto;
+    margin-left: 35px;
 
+  }
+
+  .btn-toShop{
+    left: 550px;
+    bottom: 13px;
   }
 }
 
 .sliderKenny-item-mysterion {
-  // display: none;
+  display: none;
 
   img {
     width: 350px;
     height: 250px;
-    margin-left: auto;
   }
 
-  table {
-    border: 2px solid #b3adad;
-    border-collapse: separate;
-    padding: 5px;
+  .btn-toShop{
+    right: 550px;
+    bottom: 13px;
   }
-
-  table th {
-    border: 2px solid #b3adad;
-    padding: 5px;
-    background: #f0f0f0;
-    color: #313030;
-  }
-
-  table td {
-    border: 2px solid #b3adad;
-    text-align: center;
-    padding: 5px;
-    background: #ffffff;
-    color: #313030;
-  }
-
 }

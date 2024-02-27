@@ -16,7 +16,7 @@ function HomePage() {
       <MainTitle />
       <Paralax type={'price'} />
       <SliderKenny />
-      <MainPriceBlokck />
+      {/* <MainPriceBlokck /> */}
       <Paralax type={'portfolio'} />
       <MainPortfolio />
       <MainAbout />
