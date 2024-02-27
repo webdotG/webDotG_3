@@ -169,15 +169,19 @@
     box-sizing: border-box;
     width: 100%;
     position: absolute;
+    bottom: -112px;
     font-size: 33vh;
     white-space: nowrap;
     color: var(--theme-default-main-titleSliding);
+    z-index: 5;
     
     svg{
       width: 125px;
       height: 125px;
-      color: var(--theme-default-main-titleSliding);
-      fill:  var(--theme-default-main-titleSliding);
+      // color: var(--theme-default-main-titleSliding);
+      // color: var(--theme-default-main-titleSliding);
+      // fill:  var(--theme-default-main-titleSliding);
+    
     }
 
   }

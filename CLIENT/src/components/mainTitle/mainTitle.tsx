@@ -79,7 +79,7 @@ export default function MainTitle() {
         animate='animate'
       >
 
-        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"
+        <motion.svg  viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"
            strokeLinecap="round" strokeLinejoin="round"
         >
           <path d="M5.5,17.0439v14.23" />
@@ -88,16 +88,16 @@ export default function MainTitle() {
           <path d="M27.7,13.2358V42.0316" />
           <path d="M35.1,41.6352V6.2919" />
           <path d="M42.5,11.8556V33.1467" />
-        </svg>
+        </motion.svg>
 
 
-        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"
-          fill='none' strokeLinecap='round' strokeLinejoin='round'
+        <motion.svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"
+         strokeLinecap='round' strokeLinejoin='round'
         >
           <path d="M38.1874,27.6862C32.6951,33.6711,24,41.7029,24,41.7029s-3.5051-3.2377-7.47-7.1335m-3.1973-3.1929c-3.3451-3.4028-6.446-6.787-7.5147-8.638C3.1342,18.09,4.5874,10.7933,9.8293,7.7672S21.7745,6.5368,24,11.7787c2.2259-5.2419,8.9287-7.0379,14.1707-4.0115s6.6951,10.323,4.0115,14.9713a14.1045,14.1045,0,0,1-1.0132,1.47" />
-        </svg>
+        </motion.svg>
 
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <motion.svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <g id="SVGRepo_bgCarrier" strokeWidth="2"></g>
           <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
           <g id="SVGRepo_iconCarrier">
@@ -106,7 +106,7 @@ export default function MainTitle() {
             <path strokeWidth="0.35px" fill="none" d="M0 0h24v24H0z">
             </path>
           </g>
-        </svg>
+        </motion.svg>
 
 
       </motion.div>
