@@ -1,3 +1,8 @@
+.header_navigation{
+  margin-top: 31.25px;
+}
+
+
 .header_nav_list {
   position: absolute;
   width: 100%;
@@ -16,8 +21,16 @@
 }
 
 .header_nav__link__blur{
+  padding-right: 25px;
   font-size: 17.5px;
-  filter: blur(2.5px);
+  filter: blur(1.25px);
+}
+
+.header_nav__item__develop{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
 }
 
 .auth_wrapper{

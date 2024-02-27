@@ -166,7 +166,7 @@ export default function Links({ closeSidebar }) {
             }
           </motion.li>
 
-          <motion.li className={style.header_nav__item}
+          <motion.li className={style.header_nav__item__develop}
             variants={itemVariants}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.75 }}
@@ -176,19 +176,24 @@ export default function Links({ closeSidebar }) {
                 коммунизм 2.0
               </p>
             </Link>
+            <Link className={style.header_nav__link} to="/communism2.0" onClick={closeSidebar}>
+              <p className={style.header_nav__link__blur}>
+                сны 1.0
+              </p>
+            </Link>
           </motion.li>
 
-          <motion.li className={style.header_nav__item}
+          {/* <motion.li className={style.header_nav__item}
             variants={itemVariants}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.75 }}
           >
             <Link className={style.header_nav__link} to="/communism2.0" onClick={closeSidebar}>
               <p className={style.header_nav__link__blur}>
-                dreams 1.0
+                сны 1.0
               </p>
             </Link>
-          </motion.li>
+          </motion.li> */}
 
 
         </motion.ul>
