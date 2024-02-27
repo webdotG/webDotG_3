@@ -84,9 +84,8 @@
   }
 }
 .slider-btn--prev{
- rotate: 180deg;
  position: absolute;
- right: 321px;
+ left: 321px;
  bottom: -33px;
  z-index: 2; 
 
@@ -94,10 +93,12 @@
   fill: var(--theme-default-header-name);
  }
 }
+
 .slider-btn--next{
   position: absolute;
-  left: 331px;
-  bottom: -38px;
+  right: 321px;
+  bottom: -33px;
+  rotate: 180deg;
   z-index: 2; 
 
   svg{
@@ -114,10 +115,13 @@
   padding-left: 50px;
   padding-right: 50px;
   display: flex;
+  // flex-direction: column;
   justify-content: end;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   align-items: end;
+  overflow: hidden;
   position: relative;
+
 }
 
 .sliderKenny-item-chees,
@@ -144,14 +148,10 @@
     font-size: 21px;
     font-weight: 200;
     letter-spacing: 0.25px;
-    // background: var(--theme-default-main-titleG);
-    // background: var(--theme-default-header-background);
     background-color: transparent;
     border-bottom:  2px solid var(--theme-default-header-name);
     color: var(--theme-default-header-name);
-    
   }
-
 
   h2 {
     position: absolute;
@@ -171,7 +171,7 @@
 }
 
 .sliderKenny-item-chees {
-  display: none;
+  // display: none;
   h2{
     left: 35px;
   }
@@ -191,7 +191,7 @@
 }
 
 .sliderKenny-item-batman {
-  display: none;
+  // display: none;
   z-index: 3;
 
   h2{
@@ -213,7 +213,7 @@
 }
 
 .sliderKenny-item-princess {
-  display: none;
+  // display: none;
 
   h2{
     left: 35px;
