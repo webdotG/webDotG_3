@@ -18,16 +18,16 @@ export default function SliderKenny() {
     <section className={style['sliderKenny-wrapper']} >
       <div className={style['sliderKenny']}>
         <ul className={style['sliderKenny-list']}>
-              <li className={style['sliderKenny-item']} >
+              <li className={style['sliderKenny-item-chees']} >
                 <img src={CheesingKenny} alt='CheesingKenny' />
               </li>
-              <li className={style['sliderKenny-item']} >
+              <li className={style['sliderKenny-item-batman']} >
                 <img src={BatmanKenny} alt='BatmanKenny' />
               </li>
-              <li className={style['sliderKenny-item']} >
+              <li className={style['sliderKenny-item-princess']} >
                 <img src={PrincesseKenny} alt='PrincesseKenny' />
               </li>
-              <li className={style['sliderKenny-item']} >
+              <li className={style['sliderKenny-item-mysterion']} >
                 <img src={MysterionKenny} alt='MysterionKenny' />
               </li>
         </ul>
