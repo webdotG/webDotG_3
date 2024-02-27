@@ -27,10 +27,6 @@ export default function MainContact() {
 
   return (
     <motion.section className={style['mainContact-wrapper']}
-      // ref={ref}
-      // variants={variants}
-      // initial='initial'
-      // whileInView='animate'
     >
       <motion.div className={style['mainContact']}
         variants={variants}
@@ -41,10 +37,10 @@ export default function MainContact() {
         <motion.div className={style['text-container']}>
           <motion.h2 variants={variants}>Контакты</motion.h2>
           <motion.ul>
-            <motion.li variants={variants}>
+            {/* <motion.li variants={variants}>
               <h4>Мэйл</h4>
               <Link className={style['contacts-link']} to=''>webdotg.inbox@gmail.com</Link>
-            </motion.li>
+            </motion.li> */}
             <motion.li variants={variants}>
               <h4>Телефон</h4>
               <Link className={style['contacts-link']} to=''>+79022888989</Link>
@@ -63,7 +59,7 @@ export default function MainContact() {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 3, duration: 1 }}
           >
-            <motion.svg strokeWidth='0.3px' version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xmlSpace="preserve">
+            <motion.svg  strokeWidth='0.35px' version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xmlSpace="preserve">
               <motion.path
                 initial={{ pathLength: 0 }}
                 whileInView={{ pathLength: 1 }}

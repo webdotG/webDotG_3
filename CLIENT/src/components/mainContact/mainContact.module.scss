@@ -58,7 +58,9 @@
     svg {
       display: block;
       width: 135px;
-      fill: var(--color-red);
+    
+      fill: var(--theme-default-main-ContactSvg);
+      stroke: var(--color-white);
     }
   }
 

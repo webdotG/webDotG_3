@@ -165,14 +165,21 @@
   }
 
   .slidingText{
+    padding-left: 25%;
     box-sizing: border-box;
     width: 100%;
     position: absolute;
     font-size: 33vh;
-    bottom: 0;
     white-space: nowrap;
     color: var(--theme-default-main-titleSliding);
-    opacity: 0.5;
-    font-weight: 400;
+    
+    svg{
+      width: 125px;
+      height: 125px;
+      color: var(--theme-default-main-titleSliding);
+      fill:  var(--theme-default-main-titleSliding);
+    }
+
   }
+
 }
