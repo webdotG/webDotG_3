@@ -39,7 +39,7 @@ export default function SliderKenny() {
           <li className={style['sliderKenny-item-chees']} >
             <h2>WEB</h2>
             <div className={style["web_container"]}>
-              <div className={style["LOGO"]}>WEB Logo</div>
+              <div className={style["LOGO"]}>.</div>
               <div className={style["lending"]}>Lending</div>
               <div className={style["portfolio"]}>Portfolio</div>
               <div className={style["shop"]}>Shop</div>
@@ -58,7 +58,7 @@ export default function SliderKenny() {
           <li className={style['sliderKenny-item-batman']} >
             <h2>Bot</h2>
             <div className={style['bot_container']}>
-              <div className={style['чат']}>BOT Logo</div>
+              <div className={style['чат']}>.</div>
               <div className={style['магазин']}>Chat</div>
               <div className={style['']}>Shop</div>
               <div className={style['шаблон']}>Base </div>
@@ -74,7 +74,7 @@ export default function SliderKenny() {
           <li className={style['sliderKenny-item-princess']} >
             <h2>App</h2>
             <div className={style['bot_container']}>
-              <div className={style['чат']}>APP Logo</div>
+              <div className={style['чат']}>.</div>
               <div className={style['магазин']}>Ios | Android</div>
               <div className={style['']}>VK</div>
               <div className={style['шаблон']}>Base </div>
@@ -90,7 +90,7 @@ export default function SliderKenny() {
           <li className={style['sliderKenny-item-mysterion']} >
             <h2>NPM</h2>
             <div className={style["npm_container"]}>
-              <div className={style["цена1"]}>DEV/TEACH Logo</div>
+              <div className={style["цена1"]}>.</div>
               <div className={style["npmPackejes"]}>JS lesson, css animation</div>
               <div className={style["price"]}>Open Source</div>
               <div className={style["free"]}>Free</div>

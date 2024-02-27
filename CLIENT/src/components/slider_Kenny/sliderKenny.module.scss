@@ -8,7 +8,10 @@
     min-height: 350px;
 
   div {
-    border: 2px solid white;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 25px;
   }
 }
 
@@ -23,7 +26,10 @@
   min-height: 350px;
 
   div {
-    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
   }
 }
 
@@ -37,7 +43,10 @@
   min-height: 350px;
 
   div {
-    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
   }
 }
 
@@ -157,12 +166,12 @@
     display: block;
     width: 450px;
     height: 250px;
-    border: 2px solid white;
+    // border: 2px solid white;
   }
 }
 
 .sliderKenny-item-chees {
-  // display: none;
+  display: none;
   h2{
     left: 35px;
   }
@@ -185,6 +194,10 @@
   display: none;
   z-index: 3;
 
+  h2{
+    left: 35px;
+  }
+
   img {
     width: 400px;
     height: 250px;
@@ -202,6 +215,10 @@
 .sliderKenny-item-princess {
   display: none;
 
+  h2{
+    left: 35px;
+  }
+
   img {
     width: 250px;
     height: 250px;
@@ -216,7 +233,11 @@
 }
 
 .sliderKenny-item-mysterion {
-  display: none;
+  // display: none;
+
+  h2{
+    left: 35px;
+  }
 
   img {
     width: 350px;
