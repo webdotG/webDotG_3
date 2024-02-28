@@ -12,20 +12,21 @@ const slide1 = () => (
     <h2>WEB</h2>
     <div className={style["web_container"]}>
       <div >.</div>
-      <div >Lending</div>
-      <div >Portfolio</div>
-      <div >Shop</div>
-      <div >Base</div>
+      <div className={style['title']}><h3>Lending</h3></div>
+      <div className={style['title']} ><h3>Portfolio</h3></div>
+      <div className={style['title']} ><h3>Shop</h3></div>
+      <div className={style['title']} ><h3>Base</h3></div>
       <div >15 000 р</div>
       <div >45 000 р</div>
       <div >120 000р</div>
-      <div >9 Indi</div>
+      <div className={style['title']} ><h3>Indi</h3></div>
       <div >30 000 р</div>
       <div >60 000 р</div>
       <div >180 000 р</div>
     </div>
     <img src={CheesingKenny} alt='CheesingKenny' />
-    <Link to='/shop' className={style["btn-toShop"]}>shop</Link>
+    <Link to='/shop' className={style["btn-toShop"]}>
+      shop</Link>
   </li>
 )
 
@@ -117,6 +118,7 @@ export default function SliderKenny() {
 
   return (
     <section className={style['sliderKenny-wrapper']} >
+
       <div className={style['sliderKenny']}>
 
         <button className={style['slider-btn--prev']}
@@ -156,17 +158,20 @@ export default function SliderKenny() {
               key={index}
               className={`${style[`item-${index}`]} ${index === currentSlide ? style['display-block'] : ''}`}
             >
-              <div className={`${style['puls-container']} ${index === 0 ? ` ${style['puls-container']} `: ` ${style['display-none']} `}`}>
+              <div className={`${style['puls-container']} ${index === 0 ? ` ${style['puls-container']} ` : ` ${style['display-none']} `}`}>
                 <div className={style["pulsating-div"]}></div>
                 <div className={style["pulsating-div2"]}></div>
                 <div className={style["pulsating-div3"]}></div>
                 <div className={style["pulsating-div4"]}></div>
                 <div className={style["pulsating-div5"]}></div>
               </div>
-              {/* <div className={style["pulsating-div-2-1"]}></div>
-              <div className={style["pulsating-div-2-2"]}></div> */}
 
-              
+              <div className={`${style['puls-container']} ${index === 1 ? ` ${style['planet']} ` : ` ${style['display-none']} `}`}>
+                <div className={style["star1"]}></div>
+                <div className={style["star2"]}></div>
+                <div className={style["star3"]}></div>
+              </div>
+
               {slide()}
             </motion.div>
           ))}
