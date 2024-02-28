@@ -163,7 +163,10 @@ export default function SliderKenny() {
                 <div className={style["pulsating-div4"]}></div>
                 <div className={style["pulsating-div5"]}></div>
               </div>
+              {/* <div className={style["pulsating-div-2-1"]}></div>
+              <div className={style["pulsating-div-2-2"]}></div> */}
 
+              
               {slide()}
             </motion.div>
           ))}

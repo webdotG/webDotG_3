@@ -395,33 +395,60 @@
   animation-delay: 0.5s;
 }
 
-.puls-conteiner2 {
+.pulsating-div-2-1 {
+  position: absolute;
+  width: 12.5px;
+  height: 12.5px;
+  background-color: tomato;
+  opacity: 0.75;
+  left: 125px;
+  bottom: 35px;
+  border-radius: 50%;
+  z-index: 100;
+		
+  // animation-name: focus-in-contract;
+  // animation-duration: 1.2s;
+  // animation-timing-function: ease-out;
+  // animation-delay: 0s;
+  // animation-iteration-count: infinite;
+  // animation-direction: normal;
+  // animation-fill-mode: none;
+  animation:  pulsateAndMove 5s 0.5s infinite, focus-in-contract 1s ease 0s infinite normal none;
 
-  .pulsating-div-4 {
-    display: none;
+}
+
+.pulsating-div-2-2 {
+  position: absolute;
+  width: 12.5px;
+  height: 12.5px;
+  background-color: tomato;
+  opacity: 0.75;
+  left: 125px;
+  bottom: 155px;
+  border-radius: 50%;
+  z-index: 100;
+
+		
+  // animation-name: focus-in-contract;
+  // animation-duration: 1.2s;
+  // animation-timing-function: ease-out;
+  // animation-delay: 0s;
+  // animation-iteration-count: infinite;
+  // animation-direction: normal;
+  // animation-fill-mode: none;
+  animation:  pulsateAndMove 3.5s 1s infinite, focus-in-contract 1s ease 0s infinite normal none;
+
+}
+
+@keyframes focus-in-contract {
+			
+  0% {
+    letter-spacing:1em;
+    filter:blur(12px);
+    opacity:0;
   }
-
-  .pulsating-div3-3 {
-    display: none;
+  100% {
+    filter:blur(0);
+    opacity:1;
   }
-
-  .pulsating-div2-2 {
-    display: none;
-  }
-
-  .pulsating-div-1 {
-    position: absolute;
-    width: 12.5px;
-    height: 12.5px;
-    background-color: red;
-    left: 175px;
-    top: 295px;
-    border-radius: 50%;
-    z-index: 100;
-    animation: pulsateAndMove 7.5s infinite;
-    animation-delay: 0.75s;
-    filter: blur(1px);
-    opacity: 0.95;
-  }
-
 }
