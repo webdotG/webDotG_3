@@ -352,8 +352,8 @@
   z-index: 100;
   animation: pulsateAndMove 7.5s infinite;
   animation-delay: 0.75s;
-  filter: blur(1px);
-  opacity: 0.15;
+  filter: blur(0.75px);
+  opacity: 0.05;
 }
 
 .pulsating-div2 {
@@ -367,7 +367,8 @@
   z-index: 100;
   animation: pulsateAndMove 6.5s infinite;
   animation-delay: 0.35s;
-  opacity: 0.15;
+  opacity: 0.05;
+  filter: blur(0.75px);
 }
 
 .pulsating-div3 {
@@ -381,7 +382,8 @@
   z-index: 100;
   animation: pulsateAndMove2 4.5s infinite;
   animation-delay: 0.35s;
-  opacity: 0.15;
+  opacity: 0.05;
+  filter: blur(0.75px);
 }
 
 .pulsating-div4 {
@@ -395,7 +397,8 @@
   z-index: 100;
   animation: pulsateAndMove2 15s infinite;
   animation-delay: 1.5s;
-  opacity: 0.15;
+  opacity: 0.05;
+  filter: blur(0.75px);
 }
 
 .pulsating-div5 {
@@ -409,7 +412,8 @@
   z-index: 100;
   animation: pulsateAndMove2 8s infinite;
   animation-delay: 0.5s;
-  opacity: 0.15;
+  opacity: 0.05;
+  filter: blur(0.75px);
 }
 
 .planet{
@@ -428,6 +432,7 @@
   animation: spinnerRotate 7.5s linear infinite;
   border-radius: 50%;
   opacity: 0.65;
+  filter: blur(0.75px);
 }
 
 @-webkit-keyframes spinnerRotate {
@@ -464,6 +469,7 @@
   border-radius: 50%;
   position: absolute;
   opacity: 0.65;
+  filter: blur(0.75px);
 }
 
 @-webkit-keyframes spinnerRotatetwo {
@@ -501,6 +507,7 @@
   margin-top: -9px;
   margin-left: -9px;
   opacity: 0.65;
+  filter: blur(0.75px);
 }
 
 @-webkit-keyframes spinnerRotatethree {
