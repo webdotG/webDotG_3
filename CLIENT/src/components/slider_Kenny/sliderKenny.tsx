@@ -9,9 +9,8 @@ import { motion } from 'framer-motion';
 
 const slide1 = () => (
   <li className={style['sliderKenny-item-chees']} key={0} >
-    <h2>WEB</h2>
     <div className={style["web_container"]}>
-      <div >.</div>
+      <div>WEB</div>
       <div className={style['title']}><h3>Lending</h3></div>
       <div className={style['title']} ><h3>Portfolio</h3></div>
       <div className={style['title']} ><h3>Shop</h3></div>
@@ -32,9 +31,8 @@ const slide1 = () => (
 
 const slide2 = () => (
   <li className={style['sliderKenny-item-batman']} key={1}>
-    <h2>Bot</h2>
     <div className={style['bot_container']}>
-      <div >.</div>
+      <div >Bot</div>
       <div >Chat</div>
       <div >Shop</div>
       <div >Base </div>
@@ -51,9 +49,8 @@ const slide2 = () => (
 
 const slide3 = () => (
   <li className={style['sliderKenny-item-princess']} key={2}>
-    <h2>App</h2>
     <div className={style['bot_container']}>
-      <div >.</div>
+      <div >App</div>
       <div >Ios | Android</div>
       <div >VK</div>
       <div >Base </div>
@@ -70,9 +67,8 @@ const slide3 = () => (
 
 const slide4 = () => (
   <li className={`${style['sliderKenny-item-mysterion']}`} key={3}>
-    <h2>NPM</h2>
     <div className={style["npm_container"]}>
-      <div >.</div>
+      <div >NPM</div>
       <div >JS lesson, css animation</div>
       <div >Open Source</div>
       <div >Free</div>
@@ -166,7 +162,7 @@ export default function SliderKenny() {
                 <div className={style["pulsating-div5"]}></div>
               </div>
 
-              <div className={`${style['puls-container']} ${index === 1 ? ` ${style['planet']} ` : ` ${style['display-none']} `}`}>
+              <div className={`${style['planet']} ${index === 1 ? ` ${style['planet']} ` : ` ${style['display-none']} `}`}>
                 <div className={style["star1"]}></div>
                 <div className={style["star2"]}></div>
                 <div className={style["star3"]}></div>
