@@ -1,5 +1,4 @@
 import style from './homePage.module.scss'
-import MainPriceBlokck from "../../components/mainPriceBlock/mainPriceBlokck";
 import MainTitle from '../../components/mainTitle/mainTitle';
 import Paralax from '../../components/paralax/paralax';
 import MainPortfolio from '../../components/mainPortfolioBlock/mainPortfolio';
@@ -16,7 +15,6 @@ function HomePage() {
       <MainTitle />
       <Paralax type={'price'} />
       <SliderKenny />
-      {/* <MainPriceBlokck /> */}
       <Paralax type={'portfolio'} />
       <MainPortfolio />
       <MainAbout />

@@ -78,19 +78,6 @@ export default function MainTitle() {
         initial='initial'
         animate='animate'
       >
-
-        <motion.svg  viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"
-           strokeLinecap="round" strokeLinejoin="round"
-        >
-          <path d="M5.5,17.0439v14.23" />
-          <path d="M12.9,41.4807V5.9684" />
-          <path d="M20.3,34.36V6.1064" />
-          <path d="M27.7,13.2358V42.0316" />
-          <path d="M35.1,41.6352V6.2919" />
-          <path d="M42.5,11.8556V33.1467" />
-        </motion.svg>
-
-
         <motion.svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"
          strokeLinecap='round' strokeLinejoin='round'
         >

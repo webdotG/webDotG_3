@@ -1,11 +1,11 @@
 .web_container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 10px 10px;
-    grid-auto-flow: row;
-    min-width: 500px;
-    min-height: 350px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px 10px;
+  grid-auto-flow: row;
+  min-width: 500px;
+  min-height: 350px;
 
   div {
     display: flex;
@@ -60,52 +60,54 @@
 .sliderKenny {
   padding-top: 12px;
   padding-bottom: 50px;
-  min-width: 780px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 10px;
+  // min-width: 780px;
+  // margin: 0 auto;
+  // display: flex;
+  // flex-direction: column;
+  // flex-wrap: wrap;
+  // gap: 10px;
   background-image: url('../../img/stars.png');
   position: relative;
 }
 
-.slider-pagination{
+.slider-pagination {
   width: 200px;
   position: absolute;
-  bottom:  22px;
+  bottom: 22px;
   left: 40%;
   z-index: 3;
   display: flex;
   justify-content: space-evenly;
 
-  svg{
-   fill: var(--theme-default-header-name);
+  svg {
+    fill: var(--theme-default-header-name);
 
   }
 }
-.selected{
-  filter: blur(1px);
+
+.selected {
+  filter: blur(0.75px);
 }
 
-.slider-btn--prev{
+.slider-btn--prev {
   display: block;
   width: 75px;
   height: 75px;
- position: absolute;
- left: 275px;
- bottom: 0;
- z-index: 2; 
+  position: absolute;
+  left: 275px;
+  bottom: 0;
+  z-index: 2;
 
- :hover{
-  filter: blur(1px);
- }
- svg{
-  fill: var(--theme-default-header-name);
- }
+  :hover {
+    filter: blur(0.75px);
+  }
+
+  svg {
+    fill: var(--theme-default-header-name);
+  }
 }
 
-.slider-btn--next{
+.slider-btn--next {
   display: block;
   width: 75px;
   height: 75px;
@@ -113,28 +115,28 @@
   right: 245px;
   bottom: 0;
   rotate: 180deg;
-  z-index: 2; 
-  
- :hover{
-  filter: blur(1px);
- }
-  svg{
-    fill: var(--theme-default-header-name);
-   }
+  z-index: 2;
+
+  :hover {
+    filter: blur(1px);
   }
+
+  svg {
+    fill: var(--theme-default-header-name);
+  }
+}
 
 
 
 .sliderKenny-list {
-  width: 100%;
+  min-width: 850px;
   min-height: 450px;
   padding-top: 25px;
   padding-left: 50px;
   padding-right: 50px;
+  margin: 0 auto;
   display: flex;
-  justify-content: start;
-  // flex-wrap: wrap;
-  align-items: end;
+  justify-content: center;
   overflow: hidden;
   position: relative;
 
@@ -151,10 +153,10 @@
   display: flex;
   align-items: center;
   position: relative;
-  color: var( --theme-default-header-name);
-  
+  color: var(--theme-default-header-name);
 
-  .btn-toShop{
+
+  .btn-toShop {
     position: absolute;
     left: 555px;
     bottom: 13px;
@@ -167,7 +169,7 @@
     font-weight: 200;
     letter-spacing: 0.25px;
     background-color: transparent;
-    border-bottom:  2px solid var(--theme-default-header-name);
+    border-bottom: 2px solid var(--theme-default-header-name);
     color: var(--theme-default-header-name);
   }
 
@@ -191,13 +193,14 @@
 .item-0,
 .item-1,
 .item-2,
-.item-3{
+.item-3 {
   display: none;
-  width: 100%;
+  width: 830px;
   height: 100%;
+  margin: 0 auto;
 }
 
-.display-block{
+.display-block {
   display: block;
   width: 100%;
   height: 100%;
@@ -205,11 +208,12 @@
 }
 
 .sliderKenny-item-chees {
+
   // display: none;
-  h2{
+  h2 {
     left: 35px;
   }
-  
+
 
   img {
     margin-top: -33px;
@@ -219,9 +223,9 @@
 
   }
 
-  .btn-toShop{
+  .btn-toShop {
     left: 585px;
-    
+
   }
 }
 
@@ -229,7 +233,7 @@
   // display: none;
   z-index: 3;
 
-  h2{
+  h2 {
     left: 35px;
   }
 
@@ -240,7 +244,7 @@
     z-index: 1;
   }
 
-  .btn-toShop{
+  .btn-toShop {
     left: 585px;
     bottom: 13px;
   }
@@ -250,7 +254,7 @@
 .sliderKenny-item-princess {
   // display: none;
 
-  h2{
+  h2 {
     left: 35px;
   }
 
@@ -261,7 +265,7 @@
 
   }
 
-  .btn-toShop{
+  .btn-toShop {
     left: 550px;
     bottom: 13px;
   }
@@ -270,7 +274,7 @@
 .sliderKenny-item-mysterion {
   // display: none;
 
-  h2{
+  h2 {
     left: 35px;
   }
 
@@ -279,8 +283,145 @@
     height: 250px;
   }
 
-  .btn-toShop{
+  .btn-toShop {
     right: 550px;
     bottom: 13px;
   }
+}
+
+
+
+@keyframes pulsateAndMove {
+  0% {
+    transform: translateX(0);
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(425px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulsateAndMove2 {
+  0% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(320px);
+    opacity: 0.8;
+  }
+}
+
+
+.display-none {
+  display: none;
+}
+
+.pulsating-div {
+  position: absolute;
+  width: 12.5px;
+  height: 12.5px;
+  background-color: red;
+  left: 75px;
+  top: 295px;
+  border-radius: 50%;
+  z-index: 100;
+  animation: pulsateAndMove 7.5s infinite;
+  animation-delay: 0.75s;
+  filter: blur(1px);
+  opacity: 0.95;
+}
+
+.pulsating-div2 {
+  position: absolute;
+  width: 12.5px;
+  height: 12.5px;
+  background-color: red;
+  left: 75px;
+  bottom: 35px;
+  border-radius: 50%;
+  z-index: 100;
+  animation: pulsateAndMove 6.5s infinite;
+  animation-delay: 0.35s;
+}
+
+.pulsating-div3 {
+  position: absolute;
+  width: 12.5px;
+  height: 12.5px;
+  background-color: green;
+  left: 275px;
+  top: 135px;
+  border-radius: 50%;
+  z-index: 100;
+  animation: pulsateAndMove2 6.5s infinite;
+  animation-delay: 0.35s;
+}
+
+.pulsating-div4 {
+  position: absolute;
+  width: 12.5px;
+  height: 12.5px;
+  background-color: green;
+  left: 411px;
+  top: 135px;
+  border-radius: 50%;
+  z-index: 100;
+  animation: pulsateAndMove2 8s infinite;
+  animation-delay: 1s;
+}
+
+.pulsating-div5 {
+  position: absolute;
+  width: 12.5px;
+  height: 12.5px;
+  background-color: green;
+  left: 125px;
+  top: 135px;
+  border-radius: 50%;
+  z-index: 100;
+  animation: pulsateAndMove2 6s infinite;
+  animation-delay: 0.5s;
+}
+
+.puls-conteiner2 {
+
+  .pulsating-div-4 {
+    display: none;
+  }
+
+  .pulsating-div3-3 {
+    display: none;
+  }
+
+  .pulsating-div2-2 {
+    display: none;
+  }
+
+  .pulsating-div-1 {
+    position: absolute;
+    width: 12.5px;
+    height: 12.5px;
+    background-color: red;
+    left: 175px;
+    top: 295px;
+    border-radius: 50%;
+    z-index: 100;
+    animation: pulsateAndMove 7.5s infinite;
+    animation-delay: 0.75s;
+    filter: blur(1px);
+    opacity: 0.95;
+  }
+
 }

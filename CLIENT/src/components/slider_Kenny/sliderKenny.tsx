@@ -99,7 +99,7 @@ export default function SliderKenny() {
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
-  
+
   // const startSlideShow = () => {
   //   return setInterval(() => {
   //     nextSlide();
@@ -137,24 +137,33 @@ export default function SliderKenny() {
           initial="hidden"
           animate="visible"
           exit="hidden"
-          >
+        >
+
 
           {slides.map((slide, index) => (
             <motion.div
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { 
-                  delay: 0.25 ,
-                  duration: 1, 
-                  ease: "easeInOut",
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    delay: 0.25,
+                    duration: 1,
+                    ease: "easeInOut",
+                  },
                 },
-              },
-            }}
+              }}
               key={index}
               className={`${style[`item-${index}`]} ${index === currentSlide ? style['display-block'] : ''}`}
             >
+              <div className={`${style['puls-container']} ${index === 0 ? ` ${style['puls-container']} `: ` ${style['display-none']} `}`}>
+                <div className={style["pulsating-div"]}></div>
+                <div className={style["pulsating-div2"]}></div>
+                <div className={style["pulsating-div3"]}></div>
+                <div className={style["pulsating-div4"]}></div>
+                <div className={style["pulsating-div5"]}></div>
+              </div>
+
               {slide()}
             </motion.div>
           ))}
