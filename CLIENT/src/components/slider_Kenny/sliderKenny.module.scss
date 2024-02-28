@@ -59,8 +59,9 @@
 
 .sliderKenny {
   padding-top: 12px;
-  padding-bottom: 12px;
-  width: 100%;
+  padding-bottom: 50px;
+  min-width: 780px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -72,7 +73,7 @@
 .slider-pagination{
   width: 200px;
   position: absolute;
-  bottom: -25px;
+  bottom:  22px;
   left: 40%;
   z-index: 3;
   display: flex;
@@ -83,24 +84,40 @@
 
   }
 }
+.selected{
+  filter: blur(1px);
+}
+
 .slider-btn--prev{
+  display: block;
+  width: 75px;
+  height: 75px;
  position: absolute;
- left: 321px;
- bottom: -33px;
+ left: 275px;
+ bottom: 0;
  z-index: 2; 
 
+ :hover{
+  filter: blur(1px);
+ }
  svg{
   fill: var(--theme-default-header-name);
  }
 }
 
 .slider-btn--next{
+  display: block;
+  width: 75px;
+  height: 75px;
   position: absolute;
-  right: 321px;
-  bottom: -33px;
+  right: 245px;
+  bottom: 0;
   rotate: 180deg;
   z-index: 2; 
-
+  
+ :hover{
+  filter: blur(1px);
+ }
   svg{
     fill: var(--theme-default-header-name);
    }
@@ -115,8 +132,7 @@
   padding-left: 50px;
   padding-right: 50px;
   display: flex;
-  // flex-direction: column;
-  justify-content: end;
+  justify-content: start;
   // flex-wrap: wrap;
   align-items: end;
   overflow: hidden;
@@ -130,17 +146,19 @@
 .sliderKenny-item-mysterion {
   padding-top: 70px;
   padding-bottom: 10px;
-  width: 100%;
+  min-width: 840px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   position: relative;
   color: var( --theme-default-header-name);
+  
 
   .btn-toShop{
     position: absolute;
     left: 555px;
     bottom: 13px;
-    width: 200px;
+    width: 133px;
     height: 50px;
     display: flex;
     align-items: center;
@@ -156,7 +174,7 @@
   h2 {
     position: absolute;
     left: 0;
-    top: -33px;
+    top: -22px;
     font-size: 90px;
     font-weight: 200;
     color: white;
@@ -170,6 +188,22 @@
   }
 }
 
+.item-0,
+.item-1,
+.item-2,
+.item-3{
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.display-block{
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
 .sliderKenny-item-chees {
   // display: none;
   h2{
@@ -178,15 +212,16 @@
   
 
   img {
-    margin-top: -55px;
-    margin-left: -23px;
-    width: 400px;
-    height: 300px;
+    margin-top: -33px;
+    margin-left: 10px;
+    width: 300px;
+    height: 200px;
 
   }
 
   .btn-toShop{
     left: 585px;
+    
   }
 }
 
