@@ -343,9 +343,9 @@
 
 .pulsating-div {
   position: absolute;
-  width: 12.5px;
-  height: 12.5px;
-  background-color: blue;
+  width: 18px;
+  height: 18px;
+  background: var( --color-light-gray);
   left: 75px;
   top: 295px;
   border-radius: 50%;
@@ -353,59 +353,63 @@
   animation: pulsateAndMove 7.5s infinite;
   animation-delay: 0.75s;
   filter: blur(1px);
-  opacity: 0.95;
+  opacity: 0.15;
 }
 
 .pulsating-div2 {
   position: absolute;
   width: 12.5px;
   height: 12.5px;
-  background-color: blue;
+  background: var( --color-light-gray);
   left: 75px;
   bottom: 35px;
   border-radius: 50%;
   z-index: 100;
   animation: pulsateAndMove 6.5s infinite;
   animation-delay: 0.35s;
+  opacity: 0.15;
 }
 
 .pulsating-div3 {
   position: absolute;
-  width: 12.5px;
-  height: 12.5px;
-  background-color: greenyellow;
+  width: 25px;
+  height: 25px;
+  background: var( --color-light-gray);
   left: 275px;
   top: 135px;
   border-radius: 50%;
   z-index: 100;
   animation: pulsateAndMove2 4.5s infinite;
   animation-delay: 0.35s;
+  opacity: 0.15;
 }
 
 .pulsating-div4 {
   position: absolute;
-  width: 12.5px;
-  height: 12.5px;
-  background-color: greenyellow;
+  width: 13px;
+  height: 13px;
+  background: var( --color-light-gray);
   left: 411px;
   top: 135px;
   border-radius: 50%;
   z-index: 100;
   animation: pulsateAndMove2 15s infinite;
   animation-delay: 1.5s;
+  opacity: 0.15;
 }
 
 .pulsating-div5 {
   position: absolute;
-  width: 12.5px;
-  height: 12.5px;
-  background-color: greenyellow;
+  width: 21px;
+  height: 21px;
+  background: var( --color-light-gray);
   left: 125px;
   top: 135px;
   border-radius: 50%;
   z-index: 100;
   animation: pulsateAndMove2 8s infinite;
   animation-delay: 0.5s;
+  opacity: 0.15;
 }
 
 .planet{
@@ -417,12 +421,13 @@
   position: absolute;
   margin-top: -15px;
   margin-left: -15px;
-  width: 30px;
-  height: 30px;
-  background: tomato;
+  width: 25px;
+  height: 25px;
+  background: var( --color-light-gray);
   -webkit-animation: spinnerRotate 7.5s linear infinite;
   animation: spinnerRotate 7.5s linear infinite;
   border-radius: 50%;
+  opacity: 0.65;
 }
 
 @-webkit-keyframes spinnerRotate {
@@ -449,15 +454,16 @@
   top: 72%;
   left: 45%;
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: 10px;
+  height: 10px;
   margin-top: -8px;
   margin-left: -8px;
   -webkit-animation: spinnerRotatetwo 5s linear infinite;
   animation: spinnerRotatetwo 5s linear infinite;
-  background: greenyellow;
+  background: var( --color-light-gray);
   border-radius: 50%;
   position: absolute;
+  opacity: 0.65;
 }
 
 @-webkit-keyframes spinnerRotatetwo {
@@ -488,12 +494,13 @@
   position: absolute;
   -webkit-animation: spinnerRotatethree 15s linear infinite;
   animation: spinnerRotatethree 15s linear infinite;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: blue;
+  background: var( --color-light-gray);
   margin-top: -9px;
   margin-left: -9px;
+  opacity: 0.65;
 }
 
 @-webkit-keyframes spinnerRotatethree {
