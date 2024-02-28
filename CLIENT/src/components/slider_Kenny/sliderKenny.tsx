@@ -100,19 +100,19 @@ export default function SliderKenny() {
     setCurrentSlide(index);
   };
   
-  const startSlideShow = () => {
-    return setInterval(() => {
-      nextSlide();
-    }, 3500);
-  };
+  // const startSlideShow = () => {
+  //   return setInterval(() => {
+  //     nextSlide();
+  //   }, 3500);
+  // };
 
-  useEffect(() => {
-    // const intervalId = startSlideShow();
+  // useEffect(() => {
+  //   const intervalId = startSlideShow();
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+  //   return () => {
+  //     clearInterval(intervalId);
+  //   };
+  // }, []);
 
 
   return (
