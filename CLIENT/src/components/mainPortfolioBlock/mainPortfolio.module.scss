@@ -26,6 +26,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  h3{
+    padding-left: 15px;
+    padding-bottom: 35px;
+    font-size: 75px;
+    text-align: center;
+  }
+
+  p{
+    text-align: center;
+    letter-spacing: 0.15px;
+    font-size: 25px;
+    padding-bottom: 15px;
+    font-weight: 400;
+  }
 }
 
 .images{

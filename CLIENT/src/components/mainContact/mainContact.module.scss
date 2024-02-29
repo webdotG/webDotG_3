@@ -127,6 +127,7 @@
     color: var(--color-white);
     padding-bottom: 30px;
     color: transparent;
+    
     text-shadow:
       0 0 1px #fff,
       0 0 5px #0fa,
@@ -136,7 +137,6 @@
     &:hover {
       animation: blink-animation 0.375s steps(5, start) infinite;
       -webkit-animation: blink-animation 0.375s steps(5, start) infinite;
-
     }
   }
 
