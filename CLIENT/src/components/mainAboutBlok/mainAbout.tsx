@@ -15,7 +15,7 @@ const variants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 2,
+      duration: 0.75,
       staggerChildren: 0.25,
     }
   },

@@ -20,15 +20,17 @@
 }
 
 .word{
-  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 360px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
 }
 
 .images{
-  min-height: 600px;
-  width: 100%;
+  height: 550px;
+  width: 400px;
   position: relative;
 }
 .booking-home{
