@@ -176,7 +176,26 @@
   .text{
     font-size: 21px;
     text-align: center;
+    animation: pulse-animation 7s 0.25s infinite;
+    p{
+      // animation: pulse-animation 10s infinite;
+    }
+    
   }
+
+  @keyframes pulse-animation {
+    0% {
+      opacity: 1;
+      
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   .btn-toShop {
     position: absolute;
     left: 555px;

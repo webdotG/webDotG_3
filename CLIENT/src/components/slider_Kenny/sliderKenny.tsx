@@ -15,13 +15,13 @@ const slide1 = () => (
       <div className={style['title']} ><h3>Portfolio</h3></div>
       <div className={style['title']} ><h3>Shop</h3></div>
       <div className={style['title']} ><h3>Base</h3></div>
-      <div className={style['text']}>15 000 р</div>
-      <div className={style['text']}>45 000 р</div>
-      <div className={style['text']}>120 000р</div>
+      <div className={style['text']}><p>price 1</p></div>
+      <div className={style['text']}><p>price 1</p></div>
+      <div className={style['text']}><p>price 1</p></div>
       <div className={style['title']} ><h3>Indi</h3></div>
-      <div className={style['text']}>30 000 р</div>
-      <div className={style['text']}>60 000 р</div>
-      <div className={style['text']}>180 000 р</div>
+      <div className={style['text']}><p>price 1</p></div>
+      <div className={style['text']}><p>price 1</p></div>
+      <div className={style['text']}><p>price 1</p></div>
     </div>
     <img src={CheesingKenny} alt='CheesingKenny' />
     <Link to='/shop' className={style["btn-toShop"]}>
@@ -54,11 +54,11 @@ const slide3 = () => (
       <div className={style['title']}>Ios  Android</div>
       <div className={style['title']}>VK</div>
       <div className={style['title']}>Base </div>
-      <div className={style['text']}>price 1</div>
-      <div className={style['text']}>price 2</div>
+      <div className={style['text']}><p>price 1</p></div>
+      <div className={style['text']}><p>price 2</p></div>
       <div className={style['title']}>Indi</div>
-      <div className={style['text']}>Price 3</div>
-      <div className={style['text']}>Price 4</div>
+      <div className={style['text']}><p>Price 3</p></div>
+      <div className={style['text']}><p>Price 4</p></div>
     </div>
     <Link to='/shop' className={style["btn-toShop"]}>shop</Link>
     <img src={PrincesseKenny} alt='PrincesseKenny' />
