@@ -8,8 +8,8 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    left: 35%;
-    bottom: -5px;
+    left: 40%;
+    bottom: 125px;
     white-space: nowrap;
     color: var(--theme-default-main-titleSliding);
     z-index: 5;
@@ -65,14 +65,25 @@
     }
 
   }
-
+.main_title__text_wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
   .main_title_p {
-    margin-left: -38px;
-    padding-bottom: 15px;
-    font-size: 21px;
-    font-weight: 300;
+    font-size: 41px;
+    font-weight: 600;
     letter-spacing: 0.5px;
     color: var(--theme-default-main-titleText);
+  }
+
+  .main_title_p2{
+    padding-bottom: 15px;
+    font-size: 22px;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    color: var(--theme-default-main-titleText)
   }
 
 

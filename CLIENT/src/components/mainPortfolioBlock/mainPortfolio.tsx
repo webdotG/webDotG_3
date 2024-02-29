@@ -34,14 +34,14 @@ export default function MainPortfolio() {
       <div className={style['wrapper']}>
         <div className={style['word']}>
           <h3>UI</h3>
-          <p>от Мобилки до Десктопа  </p>
+          <p>Мобильная и Десктопная версия  </p>
           <p>Понятный интерфейс,<br/>
            тренды дизайна,<br/>
            анимация</p>
           <p>
             Лендинг,<br />
             Внутренняя программа,<br />
-            Кинотеатр,<br />
+            Сайт бронирования,<br />
             Магазин.
           </p>
         </div>
@@ -59,7 +59,7 @@ export default function MainPortfolio() {
           <motion.img style={{ y: medium }} className={style['telegram-call']} src={telegramCall} alt='project image' height='250px' width='175px' />
         </div>
         <div className={style['word']}>
-          <h3>Telegram</h3>
+          <h3>Bot</h3>
           <p>Telegram бот это удобство коммуникаций </p>
           <p>мгновенные ответы,<br/>
           выигрывание времени на<br/>
