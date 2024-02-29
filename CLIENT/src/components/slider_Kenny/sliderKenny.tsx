@@ -10,18 +10,18 @@ import { motion } from 'framer-motion';
 const slide1 = () => (
   <li className={style['sliderKenny-item-chees']} key={0} >
     <div className={style["web_container"]}>
-      <div>WEB</div>
+      <div className={style['super-title']}>WEB</div>
       <div className={style['title']}><h3>Lending</h3></div>
       <div className={style['title']} ><h3>Portfolio</h3></div>
       <div className={style['title']} ><h3>Shop</h3></div>
       <div className={style['title']} ><h3>Base</h3></div>
-      <div >15 000 р</div>
-      <div >45 000 р</div>
-      <div >120 000р</div>
+      <div className={style['text']}>15 000 р</div>
+      <div className={style['text']}>45 000 р</div>
+      <div className={style['text']}>120 000р</div>
       <div className={style['title']} ><h3>Indi</h3></div>
-      <div >30 000 р</div>
-      <div >60 000 р</div>
-      <div >180 000 р</div>
+      <div className={style['text']}>30 000 р</div>
+      <div className={style['text']}>60 000 р</div>
+      <div className={style['text']}>180 000 р</div>
     </div>
     <img src={CheesingKenny} alt='CheesingKenny' />
     <Link to='/shop' className={style["btn-toShop"]}>
@@ -32,15 +32,15 @@ const slide1 = () => (
 const slide2 = () => (
   <li className={style['sliderKenny-item-batman']} key={1}>
     <div className={style['bot_container']}>
-      <div >Bot</div>
-      <div >Chat</div>
-      <div >Shop</div>
-      <div >Base </div>
-      <div >price 1</div>
-      <div >price 2</div>
-      <div >Indi</div>
-      <div >Price 3</div>
-      <div >Price 4</div>
+      <div className={style['super-title']}>Bot</div>
+      <div className={style['title']}>Chat</div>
+      <div className={style['title']}>Shop</div>
+      <div className={style['title']}>Base </div>
+      <div className={style['text']}>price 1</div>
+      <div className={style['text']}>price 2</div>
+      <div className={style['title']}>Indi</div>
+      <div className={style['text']}>Price 3</div>
+      <div className={style['text']}>Price 4</div>
     </div>
     <Link to='/shop' className={style["btn-toShop"]}>shop</Link>
     <motion.img src={BatmanKenny} alt='BatmanKenny' />
@@ -50,15 +50,15 @@ const slide2 = () => (
 const slide3 = () => (
   <li className={style['sliderKenny-item-princess']} key={2}>
     <div className={style['bot_container']}>
-      <div >App</div>
-      <div >Ios | Android</div>
-      <div >VK</div>
-      <div >Base </div>
-      <div >price 1</div>
-      <div >price 2</div>
-      <div >Indi</div>
-      <div >Price 3</div>
-      <div >Price 4</div>
+      <div className={style['super-title']}>App</div>
+      <div className={style['title']}>Ios  Android</div>
+      <div className={style['title']}>VK</div>
+      <div className={style['title']}>Base </div>
+      <div className={style['text']}>price 1</div>
+      <div className={style['text']}>price 2</div>
+      <div className={style['title']}>Indi</div>
+      <div className={style['text']}>Price 3</div>
+      <div className={style['text']}>Price 4</div>
     </div>
     <Link to='/shop' className={style["btn-toShop"]}>shop</Link>
     <img src={PrincesseKenny} alt='PrincesseKenny' />
@@ -68,10 +68,10 @@ const slide3 = () => (
 const slide4 = () => (
   <li className={`${style['sliderKenny-item-mysterion']}`} key={3}>
     <div className={style["npm_container"]}>
-      <div >NPM</div>
-      <div >JS lesson, css animation</div>
-      <div >Open Source</div>
-      <div >Free</div>
+      <div className={style['super-title']}>NPM</div>
+      <div className={style['title']}>React, JS<br/>CSS, Animation</div>
+      <div className={style['title']}>Open Source</div>
+      <div className={style['text']}>Free</div>
     </div>
     <Link to='/shop' className={style["btn-toShop"]}>shop</Link>
     <img src={MysterionKenny} alt='MysterionKenny' />
