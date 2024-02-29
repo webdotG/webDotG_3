@@ -10,39 +10,39 @@ import { motion } from 'framer-motion';
 const slide1 = () => (
   <li className={style['sliderKenny-item-chees']} key={0} >
     <div className={style["web_container"]}>
-      <div className={style['super-title']}>WEB</div>
-      <div className={style['title']}><h3>Lending</h3></div>
-      <div className={style['title']} ><h3>Portfolio</h3></div>
-      <div className={style['title']} ><h3>Shop</h3></div>
-      <div className={style['title']} ><h3>Base</h3></div>
-      <div className={style['text']}><p>price 1</p></div>
-      <div className={style['text']}><p>price 1</p></div>
-      <div className={style['text']}><p>price 1</p></div>
-      <div className={style['title']} ><h3>Indi</h3></div>
-      <div className={style['text']}><p>price 1</p></div>
-      <div className={style['text']}><p>price 1</p></div>
-      <div className={style['text']}><p>price 1</p></div>
+      <div className={style['super-title']}><p>WEB</p></div>
+      <div className={style['title1']}><h3>1 стр.<br/><p>(лендинг)</p></h3></div>
+      <div className={style['title1']} ><h3>2-5 стр.<br/><p>(портфолио)</p></h3></div>
+      <div className={style['title1']} ><h3>7 стр. +<br/><p>(магазин)</p></h3></div>
+      <div className={style['title']} ><h3>Шаблон</h3></div>
+      <div className={style['text']}><p>десять </p></div>
+      <div className={style['text']}><p>тридцать</p></div>
+      <div className={style['text']}><p>сто</p></div>
+      <div className={style['title']} ><h3>Инди</h3></div>
+      <div className={style['text']}><p>двадцать</p></div>
+      <div className={style['text']}><p>шестьдесят</p></div>
+      <div className={style['text']}><p>сто</p></div>
     </div>
     <img src={CheesingKenny} alt='CheesingKenny' />
     <Link to='/shop' className={style["btn-toShop"]}>
-      shop</Link>
+      магазин</Link>
   </li>
 )
 
 const slide2 = () => (
   <li className={style['sliderKenny-item-batman']} key={1}>
     <div className={style['bot_container']}>
-      <div className={style['super-title']}>Bot</div>
-      <div className={style['title']}>Chat</div>
-      <div className={style['title']}>Shop</div>
-      <div className={style['title']}>Base </div>
-      <div className={style['text']}>price 1</div>
-      <div className={style['text']}>price 2</div>
-      <div className={style['title']}>Indi</div>
-      <div className={style['text']}>Price 3</div>
-      <div className={style['text']}>Price 4</div>
+      <div className={style['super-title']}><p>Bot</p></div>
+      <div className={style['title']}>Чат</div>
+      <div className={style['title']}>Магазин</div>
+      <div className={style['title']}>Шаблон</div>
+      <div className={style['text']}>пятнадцать</div>
+      <div className={style['text']}>пятьдесят</div>
+      <div className={style['title']}>Инди</div>
+      <div className={style['text']}>тридцать</div>
+      <div className={style['text']}>сто</div>
     </div>
-    <Link to='/shop' className={style["btn-toShop"]}>shop</Link>
+    <Link to='/shop' className={style["btn-toShop"]}>магазин</Link>
     <motion.img src={BatmanKenny} alt='BatmanKenny' />
   </li>
 )
@@ -50,17 +50,17 @@ const slide2 = () => (
 const slide3 = () => (
   <li className={style['sliderKenny-item-princess']} key={2}>
     <div className={style['bot_container']}>
-      <div className={style['super-title']}>App</div>
+      <div className={style['super-title']}><p>App</p></div>
       <div className={style['title']}>Ios  Android</div>
       <div className={style['title']}>VK</div>
-      <div className={style['title']}>Base </div>
-      <div className={style['text']}><p>price 1</p></div>
-      <div className={style['text']}><p>price 2</p></div>
-      <div className={style['title']}>Indi</div>
-      <div className={style['text']}><p>Price 3</p></div>
-      <div className={style['text']}><p>Price 4</p></div>
+      <div className={style['title']}>Шаблон </div>
+      <div className={style['text']}><p>сто двадцать</p></div>
+      <div className={style['text']}><p>сто</p></div>
+      <div className={style['title']}>Инди</div>
+      <div className={style['text']}><p>сто пятьдесят</p></div>
+      <div className={style['text']}><p>сто</p></div>
     </div>
-    <Link to='/shop' className={style["btn-toShop"]}>shop</Link>
+    <Link to='/shop' className={style["btn-toShop"]}>магазин</Link>
     <img src={PrincesseKenny} alt='PrincesseKenny' />
   </li>
 )
@@ -68,12 +68,12 @@ const slide3 = () => (
 const slide4 = () => (
   <li className={`${style['sliderKenny-item-mysterion']}`} key={3}>
     <div className={style["npm_container"]}>
-      <div className={style['super-title']}>NPM</div>
+      <div className={style['super-title']}><p>NPM</p></div>
       <div className={style['title']}>React, JS<br/>CSS, Animation</div>
       <div className={style['title']}>Open Source</div>
-      <div className={style['text']}>Free</div>
+      <div className={style['text']}>бесплатно</div>
     </div>
-    <Link to='/shop' className={style["btn-toShop"]}>shop</Link>
+    {/* <Link to='/shop' className={style["btn-toShop"]}>магазин</Link> */}
     <img src={MysterionKenny} alt='MysterionKenny' />
   </li>
 )
