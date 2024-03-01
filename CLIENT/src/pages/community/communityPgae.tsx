@@ -1,5 +1,3 @@
-import Footer from '../../components/footer/footer'
-import Header from '../../components/header/header2'
 import styles from './communityPage.module.scss'
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { fetchAddUserCommunity, fetchAllUserCommunity, fetchRemoveUser, selectUsersCommunity } from '../../slices/community/communitySlice'

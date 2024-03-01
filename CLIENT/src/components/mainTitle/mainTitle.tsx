@@ -16,25 +16,6 @@ const textAnimation = {
   }
 }
 
-const sliderAnimationLeft = {
-  initial: {
-    x: 0,
-    y:-0,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    y: 0,
-    opacity: 1,
-    transition: {
-      repeat: Infinity,
-      repeatType: 'mirror',
-      delay: 1.25,
-      duration: 3,
-    
-    }
-  }
-}
 
 
 export default function MainTitle() {
@@ -73,10 +54,24 @@ export default function MainTitle() {
         </section>
       </motion.div>
 
-      <motion.div className={style.slidingText}
-        variants={sliderAnimationLeft}
+      {/* <motion.div className={style.slidingText}
+        variants={{
+          initial: { x: 0, y: 0, opacity: 0 },
+          animate: {
+            x: 100,
+            y: 0,
+            opacity: 1,
+            transition: {
+              repeat: Infinity,
+              repeatType: 'mirror',
+              delay: 0,
+              duration: 1,
+            },
+          },
+        }}
         initial='initial'
         animate='animate'
+      
       >
         <motion.svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"
          strokeLinecap='round' strokeLinejoin='round'
@@ -96,7 +91,7 @@ export default function MainTitle() {
         </motion.svg>
 
 
-      </motion.div>
+      </motion.div> */}
     </div >
   )
 }

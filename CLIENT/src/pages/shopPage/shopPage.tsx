@@ -1,5 +1,3 @@
-import Header from '../../components/header/header2'
-import Footer from '../../components/footer/footer'
 import style from './shopPage.module.scss';
 import { useState, ChangeEvent } from 'react';
 import { useAppDispatch } from '../../hooks'; //, useAppSelector 

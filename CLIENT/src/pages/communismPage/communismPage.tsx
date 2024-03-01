@@ -1,6 +1,4 @@
 import style from './communismPage.module.scss'
-import Footer from '../../components/footer/footer'
-import Header from '../../components/header/header2'
 import Post from '../../components/Post/Post'
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks'

@@ -1,6 +1,4 @@
 import style from './myPage.module.scss';
-import Header from '../../components/header/header2';
-import Footer from '../../components/footer/footer';
 import { selectUserName } from '../../slices/auth/authSlice';
 import { useAppSelector } from '../../hooks';
 import { Link } from 'react-router-dom';

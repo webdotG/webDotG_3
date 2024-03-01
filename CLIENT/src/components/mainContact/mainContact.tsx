@@ -38,17 +38,17 @@ export default function MainContact() {
           <motion.h2 variants={variants}>Контакты</motion.h2>
           <motion.ul>
             <motion.li variants={variants}>
-              <h4>Телефон</h4>
+              {/* <h4>Телефон</h4> */}
               <Link className={style['contacts-link']} to=''>+79022888989</Link>
             </motion.li>
             <motion.li variants={variants}>
-              <h4>Адрес</h4>
+              {/* <h4>Адрес</h4> */}
               <Link className={style['contacts-link']} to=''>Санкт-Петербург,<br /> Невский Проспект 25</Link>
             </motion.li>
-            <motion.li variants={variants}>
+            {/* <motion.li variants={variants}>
               <h4>Порнхаб</h4>
               <Link className={style['contacts-link']} to=''>~ -- hard ...<br/>~ G\ ...</Link>
-            </motion.li>
+            </motion.li> */}
           </motion.ul>
         </motion.div>
 
@@ -102,8 +102,17 @@ export default function MainContact() {
           </motion.form>
 
         </motion.div>
+    
 
         <motion.div className={style['map-container']}>
+          <Link 
+          to='https://yandex.ru/maps/?um=constructor%3A79af2e9c48ffa7c365f901bcd4cf6580e882b05e8a8e16db519791a987254baa&source=constructorLink'
+          >
+
+          </Link>
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A79af2e9c48ffa7c365f901bcd4cf6580e882b05e8a8e16db519791a987254baa&amp;source=constructor" 
+        frameBorder={0}>
+        </iframe>
         </motion.div>
       </motion.div>
     </motion.section>

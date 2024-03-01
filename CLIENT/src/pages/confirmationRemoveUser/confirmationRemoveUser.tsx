@@ -1,8 +1,6 @@
 import style from './confirmationRemoveUser.module.scss'
 import { useAppSelector } from '../../hooks'
 import { selectRemoveUserCommunity } from '../../slices/community/communitySlice'
-import Header from '../../components/header/header2'
-import Footer from '../../components/footer/footer'
 import { Link } from 'react-router-dom'
 
 export default function ConfirmationRemoveUser() {

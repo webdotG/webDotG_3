@@ -29,7 +29,11 @@ const itemVariants = {
   }
 }
 
-export default function Links({ closeSidebar }) {
+interface LinksProps {
+  closeSidebar: () => void;
+}
+
+export default function Links({ closeSidebar }: LinksProps) {
 
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
@@ -41,7 +45,7 @@ export default function Links({ closeSidebar }) {
       dispatch(logOut())
       window.localStorage.removeItem('token')
     }
-    closeSidebar(false)
+    closeSidebar()
     navigate('/login')
   }
 

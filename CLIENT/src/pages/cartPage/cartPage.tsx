@@ -1,5 +1,3 @@
-import Footer from "../../components/footer/footer";
-import Header from "../../components/header/header2";
 import style from './cartPage.module.scss'
 import { clearCart, deleteItem, CartItem } from '../../slices/cart/cartSlice';
 import { useAppDispatch, useAppSelector } from "../../hooks";

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './loginPage.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
-import Header from '../../components/header/header2';
-import Footer from '../../components/footer/footer';
 import { fetchLogin, selectIsAuth } from '../../slices/auth/authSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 

@@ -1,5 +1,3 @@
-import Footer from '../../components/footer/footer'
-import Header from '../../components/header/header2'
 import style from './removePost.module.scss'
 import { useAppSelector } from '../../hooks'
 import { Link } from 'react-router-dom'

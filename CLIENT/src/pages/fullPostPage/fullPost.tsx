@@ -1,7 +1,5 @@
 import style from './fullPost.module.scss'
 import Post from '../../components/Post/Post'
-import Header from '../../components/header/header2'
-import Footer from '../../components/footer/footer'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
@@ -51,8 +49,8 @@ export default function FullPost() {
             : (
               <code className={style['full-post-text-error']}>
                 {postData.user_name}<br />
-                'не написал текст'<br />
-                'ай ай ай'
+                не написал текст<br />
+                ай
               </code>
             )}
         </p>

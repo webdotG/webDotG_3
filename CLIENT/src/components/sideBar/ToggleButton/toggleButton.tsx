@@ -1,7 +1,12 @@
 import { motion } from "framer-motion" 
 
 
-export default function ToggleButton({ setOpen }) {
+interface ToggleButtonProps {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+
+export default function ToggleButton({ setOpen }: ToggleButtonProps) {
   return (
     <button onClick={() => setOpen((prev: boolean) => !prev)}>
       <svg width='19' height='19' viewBox="0 0 20 20">

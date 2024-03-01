@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import styles from './registerPage.module.scss';
-import Header from '../../components/header/header2';
-import Footer from '../../components/footer/footer';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchRegister, selectIsAuth } from '../../slices/auth/authSlice';
 import { useNavigate } from 'react-router-dom';

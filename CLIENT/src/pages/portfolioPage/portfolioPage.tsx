@@ -1,6 +1,4 @@
 
-import Footer from '../../components/footer/footer'
-import Header from '../../components/header/header2'
 import ForCoders from '../../components/forCoders/forCoders'
 import style from './portfolioPage.module.scss'
 import sixSities from '../../img/six.jpg'

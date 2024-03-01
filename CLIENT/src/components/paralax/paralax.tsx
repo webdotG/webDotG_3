@@ -3,7 +3,7 @@ import style from './paralax.module.scss'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 
-export default function Paralax({ type }) {
+export default function Paralax({ type }: { type: string }) {
 
   const ref = useRef<HTMLDivElement>(null)
 

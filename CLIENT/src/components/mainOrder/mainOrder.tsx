@@ -1,4 +1,3 @@
-import {MContactsList} from '../conactsSocial/contactsSocial'
 import React, { useState } from 'react';
 import style from './mainOrder.module.scss';
 
@@ -63,7 +62,6 @@ const MainOrder: React.FC = () => {
   return (
     <div className={style['main-order']}>
       <h2 className={style['main-order__title']}>сделать заказ</h2>
-      <MContactsList />
       <h4 className={style['main-order__form-title']}>оставить заявку</h4>
       <form className={style['main-order__form']} onSubmit={handleSubmit}>
         <div className={style['main-order__input-wrapper']}>
