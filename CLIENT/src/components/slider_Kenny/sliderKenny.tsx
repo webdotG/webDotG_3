@@ -100,7 +100,7 @@ export default function SliderKenny() {
   const startSlideShow = () => {
     return setInterval(() => {
       nextSlide();
-    }, 14500);
+    }, 15500);
   };
 
   useEffect(() => {

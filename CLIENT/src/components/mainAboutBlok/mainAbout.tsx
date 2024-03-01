@@ -1,5 +1,4 @@
 import style from './mainAbout.module.scss'
-import people from '../../img/people.webp'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useRef } from 'react'
@@ -25,7 +24,6 @@ const variants = {
 export default function MainAbout() {
 
   const ref = useRef<HTMLDivElement>(null)
-  // const inVew = useInView(ref, { margin: '-100px' })
 
   return (
     <motion.section className={style['mainAbout-wrapper']}>
@@ -33,9 +31,7 @@ export default function MainAbout() {
         ref={ref}
         variants={variants}
         initial='initial'
-        // animate='animate'
         whileInView='animate'
-      // animate={inVew && 'animate'}
       >
         <motion.div className={style['text-container']} variants={variants}>
           <p>Я помогаю вам,<br />
@@ -76,6 +72,17 @@ export default function MainAbout() {
           <ul className={style['box']}>
 
             <motion.li>
+
+              <div className={style['puls-container']}>
+                <div className={style["item"]}>
+                  1
+                </div>
+                <div className={style["circle0"]}></div>
+                <div className={style["circle1"]}></div>
+                <div className={style["circle2"]}></div>
+                <div className={style["circle3"]}></div>
+              </div>
+
               <svg version="1.1" id="task" width='125px' height='125px' xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 128 128" xmlSpace="preserve">
                 <g>
@@ -108,6 +115,15 @@ export default function MainAbout() {
             </motion.li>
 
             <motion.li>
+            <div className={style['puls-container']}>
+                <div className={style["item"]}>
+                  2
+                </div>
+                <div className={style["circle0"]}></div>
+                <div className={style["circle1"]}></div>
+                <div className={style["circle2"]}></div>
+                <div className={style["circle3"]}></div>
+              </div>
               <svg version="1.1" id="contract" width='125px' height='125px' xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 128 128" xmlSpace="preserve">
                 <g>
@@ -140,6 +156,15 @@ export default function MainAbout() {
             </motion.li>
 
             <motion.li>
+              <div className={style['puls-container']}>
+                <div className={style["item"]}>
+                  3
+                </div>
+                <div className={style["circle0"]}></div>
+                <div className={style["circle1"]}></div>
+                <div className={style["circle2"]}></div>
+                <div className={style["circle3"]}></div>
+              </div>
               <svg version="1.1" id="design" width='125px' height='125px' xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 128 128" xmlSpace="preserve">
                 <g>
@@ -167,6 +192,15 @@ export default function MainAbout() {
             </motion.li>
 
             <motion.li>
+            <div className={style['puls-container']}>
+                <div className={style["item"]}>
+                  4
+                </div>
+                <div className={style["circle0"]}></div>
+                <div className={style["circle1"]}></div>
+                <div className={style["circle2"]}></div>
+                <div className={style["circle3"]}></div>
+              </div>
               <svg version="1.1" id="develop" width='125px' height='125px' xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 128 128" xmlSpace="preserve">
                 <g>
@@ -218,6 +252,15 @@ export default function MainAbout() {
             </motion.li>
 
             <motion.li>
+            <div className={style['puls-container']}>
+                <div className={style["item"]}>
+                  5
+                </div>
+                <div className={style["circle0"]}></div>
+                <div className={style["circle1"]}></div>
+                <div className={style["circle2"]}></div>
+                <div className={style["circle3"]}></div>
+              </div>
               <svg version="1.1" id="test" width='125px' height='125px' xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 128 128" xmlSpace="preserve">
                 <g>
@@ -245,6 +288,15 @@ export default function MainAbout() {
             </motion.li>
 
             <motion.li>
+            <div className={style['puls-container']}>
+                <div className={style["item"]}>
+                  6
+                </div>
+                <div className={style["circle0"]}></div>
+                <div className={style["circle1"]}></div>
+                <div className={style["circle2"]}></div>
+                <div className={style["circle3"]}></div>
+              </div>
               <svg version="1.1" id="start" width='125px' height='125px' xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 128 128" xmlSpace="preserve">
                 <g>
@@ -296,6 +348,6 @@ export default function MainAbout() {
           </ul>
         </motion.div>
       </motion.div>
-    </motion.section>
+    </motion.section >
   )
 }

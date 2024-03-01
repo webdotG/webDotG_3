@@ -1,3 +1,70 @@
+.puls-container {
+  width: 200px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: absolute;
+  top: -75px;
+  right: 52px;
+
+  .circle0,
+  .circle1,
+  .circle2,
+  .circle3 {
+    border-radius: 50%;
+    background-color: var(--color-light-gray);
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    opacity: 0;
+    animation: scaleIn 5s infinite cubic-bezier(.36, .11, .89, .32);
+    z-index: 5;
+  }
+
+  .circle0{
+    animation-delay: 0s;
+  }
+  .circle1{
+    animation-delay: 1s;
+  }
+  .circle2{
+    animation-delay: 2;
+  }
+  .circle3{
+    animation-delay: 3s;
+  }
+
+  .item {
+    z-index: 100;
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--theme-default-main-aboutItem);;
+  }
+
+  .item div {
+    font-size: 25px;
+    width: 50px;
+  }
+
+}
+@keyframes scaleIn {
+  from {
+    transform: scale(.5, .5);
+    opacity: .4;
+  }
+  to {
+    transform: scale(1.75, 1.75);
+    opacity: 0;
+  }
+}
+
 .mainAbout-wrapper {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -26,13 +93,14 @@
     font-weight: 200;
     font-size: 20px;
     text-align: right;
-    color: var(--theme-default-main-aboutItemText) ;
+    color: var(--theme-default-main-aboutItemText);
   }
 
   hr {
     width: 260px;
     border: none;
-    border-top: 0.5px solid var(--theme-default-main-aboutItemText) ;;
+    border-top: 0.5px solid var(--theme-default-main-aboutItemText);
+    ;
   }
 }
 
@@ -53,8 +121,8 @@
       width: 225px;
       height: 60px;
       text-align: center;
-      border: 2px solid var(--theme-default-main-aboutItem) ;
-      background:  var(--theme-default-main-aboutItem);
+      border: 2px solid var(--theme-default-main-aboutItem);
+      background: var(--theme-default-main-aboutItem);
       color: var(--theme-default-main-aboutItemSvg);
       border-radius: 25px;
       object-fit: cover;
@@ -63,12 +131,13 @@
     h2 {
       font-size: 55px;
       font-weight: 100;
-      color: var(--theme-default-main-aboutItemText) ;
+      color: var(--theme-default-main-aboutItemText);
 
       b {
         font-weight: 800;
+
         :focus,
-        :hover{
+        :hover {
           color: var(--theme-default-main-aboutTitle);
         }
       }
@@ -82,7 +151,7 @@
       justify-content: center;
       border-radius: 25px;
       border: none;
-      background:  var(--theme-default-main-aboutItem);
+      background: var(--theme-default-main-aboutItem);
       color: var(--theme-default-main-aboutItemSvg);
       font-size: 21px;
       cursor: pointer;
@@ -103,6 +172,7 @@
 
 
     li {
+      position: relative;
       margin: 15px;
       width: 300px;
       min-height: 400px;
