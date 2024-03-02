@@ -68,12 +68,13 @@ export default function MainContact() {
              <motion.svg 
               version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xmlSpace="preserve">
               <motion.path
+              className={style['svg-dro-shadow']}
               fill="transparent"
               strokeWidth="0.2px"
               strokeLinecap="round"
               strokeLinejoin="round"
               stroke="white"
-              filter="drop-shadow(0 0 0.3px #fff) drop-shadow(0 0 0.7px #0fa) drop-shadow(0 0 1.1px #0fa)"
+              
                 initial={{ pathLength: 0 }}
                 whileInView={{ pathLength: 1 }}
                 transition={{ duration: 2.5 }}

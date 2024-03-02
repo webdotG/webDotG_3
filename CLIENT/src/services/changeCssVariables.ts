@@ -15,7 +15,7 @@ export const changeCssVariables = (theme: string) => {
         'main-titleBack', 'main-titleText', 'main-titleG', 'main-titleSliding',
         'paralax-background',
         'main-aboutTitleBtn', 'main-aboutItem', 'main-aboutItemSvg', 'main-aboutItemText',
-        'main-ContactSvg'
+        'main-ContactSvg', 'main-ContactNeonTitle', 'main-ContactNeonText', 'main-ContactNeonBox',
       ]
       
       cssVariables.forEach((element) => {
