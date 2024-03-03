@@ -1,16 +1,11 @@
 // @import '../../variablesBase.scss';
 @mixin mobile {
-  @media (max-width: 738px) {
+  @media (min-width: 340px) {
     @content;
   }
 }
-@mixin tablet {
-  @media (max-width: 1024px) {
-    @content;
-  }
-}
-@mixin desktop {
-  @media (max-width: 1366px) {
+@mixin descktop {
+  @media (min-width: 780px) {
     @content;
   }
 }
