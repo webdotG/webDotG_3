@@ -13,7 +13,7 @@ const slide1 = () => (
       <div className={style['super-title']}><p>WEB</p></div>
       <div className={style['title1']}><h3>1 стр.<br/><p>(лендинг)</p></h3></div>
       <div className={style['title1']} ><h3>2-5 стр.<br/><p>(портфолио)</p></h3></div>
-      <div className={style['title1']} ><h3>7 стр. +<br/><p>(магазин)</p></h3></div>
+      <div className={style['title1']} ><h3>7 стр.<br/><p>(магазин)</p></h3></div>
       <div className={style['title']} ><h3>Шаблон</h3></div>
       <div className={style['text']}><p>десять </p></div>
       <div className={style['text']}><p>тридцать</p></div>
@@ -23,7 +23,7 @@ const slide1 = () => (
       <div className={style['text']}><p>шестьдесят</p></div>
       <div className={style['text']}><p>сто</p></div>
     </div>
-    <img src={CheesingKenny} alt='CheesingKenny' />
+    <img className={style['img-scheesing']} src={CheesingKenny} alt='CheesingKenny' />
     <Link to='/shop' className={style["btn-toShop"]}>
       магазин</Link>
   </li>
@@ -43,7 +43,7 @@ const slide2 = () => (
       <div className={style['text']}>сто</div>
     </div>
     <Link to='/shop' className={style["btn-toShop"]}>магазин</Link>
-    <motion.img src={BatmanKenny} alt='BatmanKenny' />
+    <img className={style['batman']} src={BatmanKenny} alt='BatmanKenny' />
   </li>
 )
 
@@ -61,7 +61,7 @@ const slide3 = () => (
       <div className={style['text']}><p>сто</p></div>
     </div>
     <Link to='/shop' className={style["btn-toShop"]}>магазин</Link>
-    <img src={PrincesseKenny} alt='PrincesseKenny' />
+    <img className={style['princess']} src={PrincesseKenny} alt='PrincesseKenny' />
   </li>
 )
 
@@ -74,7 +74,7 @@ const slide4 = () => (
       <div className={style['text']}>бесплатно</div>
     </div>
     {/* <Link to='/shop' className={style["btn-toShop"]}>магазин</Link> */}
-    <img src={MysterionKenny} alt='MysterionKenny' />
+    <img className={style['mysterion']} src={MysterionKenny} alt='MysterionKenny' />
   </li>
 )
 
@@ -97,19 +97,19 @@ export default function SliderKenny() {
     setCurrentSlide(index);
   };
 
-  const startSlideShow = () => {
-    return setInterval(() => {
-      nextSlide();
-    }, 15500);
-  };
+  // const startSlideShow = () => {
+  //   return setInterval(() => {
+  //     nextSlide();
+  //   }, 15500);
+  // };
 
-  useEffect(() => {
-    const intervalId = startSlideShow();
+  // useEffect(() => {
+  //   const intervalId = startSlideShow();
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+  //   return () => {
+  //     clearInterval(intervalId);
+  //   };
+  // }, []);
 
 
   return (
@@ -120,7 +120,7 @@ export default function SliderKenny() {
         <button className={style['slider-btn--prev']}
           onClick={prevSlide}
         >
-          <svg width="50px" height="50px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+          <svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <g id="icomoon-ignore">
             </g>
             <path d="M16 15.999l14.928 8.531v-17.060l-14.928 8.529zM29.861 22.693l-11.712-6.693 11.712-6.692v13.385z" >
@@ -178,7 +178,7 @@ export default function SliderKenny() {
           onClick={nextSlide}
           className={style['slider-btn--next']}
         >
-          <svg width="50px" height="50px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+          <svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <g id="icomoon-ignore">
             </g>
             <path d="M16 15.999l14.928 8.531v-17.060l-14.928 8.529zM29.861 22.693l-11.712-6.693 11.712-6.692v13.385z" >
@@ -194,7 +194,7 @@ export default function SliderKenny() {
               key={`slide-${index}`}
               className={`${style['pagination-item']} ${index === currentSlide ? style['selected'] : ''}`}
               onClick={() => goToSlide(index)}
-              width="30px" height="30px" viewBox="-3 0 32 32"
+             viewBox="-3 0 32 32"
               version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
             >
               <path d="M12.8 3.2c-7.093 0-12.8 5.707-12.8 12.8s5.707 12.8 12.8 12.8c7.093 0 12.8-5.707 12.8-12.8s-5.707-12.8-12.8-12.8zM12.8 27.733c-6.453 0-11.733-5.28-11.733-11.733s5.28-11.733 11.733-11.733c6.453 0 11.733 5.28 11.733 11.733s-5.28 11.733-11.733 11.733z">

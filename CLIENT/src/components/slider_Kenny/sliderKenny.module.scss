@@ -1,68 +1,8 @@
-.web_container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 10px 10px;
-  grid-auto-flow: row;
-  min-width: 500px;
-  min-height: 350px;
+@import '../../variablesBase.scss';
 
-  div {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    font-size: 25px;
-
-  }
-
-  .title {
-
-    h3 {
-      font-size: 27px;
-      font-weight: 100;
-      letter-spacing: 0.25px;
-      color: #fff;
-    }
-  }
-
+.display-none {
+  display: none;
 }
-
-.bot_container,
-.app_container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 10px 10px;
-  grid-auto-flow: row;
-  min-width: 500px;
-  min-height: 350px;
-
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-  }
-}
-
-.npm_container {
-  display: grid;
-  grid-template-columns: 0.5fr 1fr;
-  grid-template-rows: 0.5fr 1fr;
-  gap: 10px 10px;
-  grid-auto-flow: row;
-  min-width: 500px;
-  min-height: 350px;
-
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-  }
-}
-
-
 
 .sliderKenny-wrapper {
   width: 100%;
@@ -72,183 +12,40 @@
 .sliderKenny {
   padding-top: 12px;
   padding-bottom: 50px;
-  // min-width: 780px;
-  // margin: 0 auto;
-  // display: flex;
-  // flex-direction: column;
-  // flex-wrap: wrap;
-  // gap: 10px;
   background-image: url('../../img/stars.png');
   position: relative;
-}
 
-.slider-pagination {
-  width: 200px;
-  position: absolute;
-  bottom: 22px;
-  left: 40%;
-  z-index: 3;
-  display: flex;
-  justify-content: space-evenly;
-
-  svg {
-    fill: var(--theme-default-header-name);
-
-  }
-}
-
-.selected {
-  filter: blur(0.75px);
-}
-
-.slider-btn--prev {
-  display: block;
-  width: 75px;
-  height: 75px;
-  position: absolute;
-  left: 275px;
-  bottom: 0;
-  z-index: 2;
-
-  :hover {
-    filter: blur(0.75px);
+  @include mobile {
+    width: 320px;
+    margin: 0 auto;
   }
 
-  svg {
-    fill: var(--theme-default-header-name);
+  @include descktop {
+    width: 100%;
   }
 }
-
-.slider-btn--next {
-  display: block;
-  width: 75px;
-  height: 75px;
-  position: absolute;
-  right: 245px;
-  bottom: 0;
-  rotate: 180deg;
-  z-index: 2;
-
-  :hover {
-    filter: blur(1px);
-  }
-
-  svg {
-    fill: var(--theme-default-header-name);
-  }
-}
-
-
 
 .sliderKenny-list {
-  width: 850px;
-  min-height: 450px;
-  padding-top: 25px;
-  padding-left: 50px;
-  padding-right: 50px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-
-}
-
-.sliderKenny-item-chees,
-.sliderKenny-item-batman,
-.sliderKenny-item-princess,
-.sliderKenny-item-mysterion {
-  padding-bottom: 10px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  color: var(--theme-default-header-name);
-
-  .super-title {
-    p{
-      font-size: 48px;
-      // -webkit-text-stroke-width: 1.7px;
-      // -webkit-text-stroke-color: white;
-      // color: transparent;
-    }
+  @include mobile {
+    height: 500px;
+    padding-top: 25px;
+    padding-left: 0;
   }
 
-  .title1 {
-    h3 {
-      p {
-        font-size: 13px;
-        font-weight: 200;
-      }
-    }
-  }
-
-  .title {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 500;
-    letter-spacing: 0.7px;
-  }
-
-  .text {
-    font-size: 21px;
-    text-align: center;
-    animation: pulse-animation 7s 0.25s infinite;
-
-    p {
-      // animation: pulse-animation 10s infinite;
-    }
-
-  }
-
-  @keyframes pulse-animation {
-    0% {
-      opacity: 1;
-
-    }
-
-    50% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .btn-toShop {
-    position: absolute;
-    left: 555px;
-    bottom: 13px;
-    width: 133px;
-    height: 50px;
+  @include descktop {
+    width: 850px;
+    min-height: 450px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 0 auto;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 35px;
-    font-weight: 200;
-    letter-spacing: 0.25px;
-    background-color: transparent;
-    // border-bottom: 2px solid var(--theme-default-header-name);
-    color: var(--theme-default-header-name);
-  }
-
-  h2 {
-    position: absolute;
-    left: 0;
-    top: -22px;
-    font-size: 90px;
-    font-weight: 200;
-    color: white;
-  }
-
-  section {
-    display: block;
-    width: 450px;
-    height: 250px;
-    // border: 2px solid white;
+    overflow: hidden;
+    position: relative;
   }
 }
 
+//===============================================SLIDES=========================================
 .item-0,
 .item-1,
 .item-2,
@@ -266,108 +63,639 @@
   margin: 0 auto;
 }
 
-.sliderKenny-item-chees {
-
-  .super-title {
-    font-size: 45px;
+//===============================================PAGINATION===================================
+.slider-pagination {
+  @include mobile {
+    width: 340px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    position: absolute;
+    bottom: 22px;
+    z-index: 3;
   }
 
-  // display: none;
-  h2 {
-    left: 35px;
+  @include descktop {
+    left: 40%;
+    justify-content: space-evenly;
   }
 
+  svg {
+    fill: var(--theme-default-header-name);
 
-  img {
-    margin-top: -33px;
-    margin-left: 10px;
-    width: 300px;
-    height: 200px;
+    @include mobile {
+      width: 25px;
+      height: 25px;
+    }
 
-  }
-
-  .btn-toShop {
-    left: 585px;
-
-  }
-}
-
-.sliderKenny-item-batman {
-  // display: none;
-  z-index: 3;
-
-  h2 {
-    left: 35px;
-  }
-
-  img {
-    width: 400px;
-    height: 250px;
-    margin-left: -35px;
-    z-index: 1;
-  }
-
-  .btn-toShop {
-    left: 585px;
-    bottom: 13px;
-  }
-
-}
-
-.sliderKenny-item-princess {
-  // display: none;
-
-  h2 {
-    left: 35px;
-  }
-
-  img {
-    width: 250px;
-    height: 250px;
-    margin-left: 35px;
-
-  }
-
-  .btn-toShop {
-    left: 550px;
-    bottom: 13px;
+    @include descktop {
+      width: 45px;
+      height: 45px;
+    }
   }
 }
 
+.selected {
+  filter: blur(0.75px);
+}
+
+.slider-btn--prev {
+  @include mobile {
+    width: 35px;
+    height: 35px;
+    display: block;
+    position: absolute;
+    bottom: 17px;
+    left: 0;
+    z-index: 2;
+  }
+
+  @include descktop {
+    width: 75px;
+    height: 75px;
+    left: 275px;
+  }
+
+  :focus,
+  :hover {
+    filter: blur(0.75px);
+  }
+
+  svg {
+    width: 35px;
+    height: 35px;
+    fill: var(--theme-default-header-name);
+  }
+}
+
+.slider-btn--next {
+  @include mobile {
+    width: 35px;
+    height: 35px;
+    display: block;
+    position: absolute;
+    bottom: 17px;
+    right: 0;
+    rotate: 180deg;
+    z-index: 2;
+  }
+
+  @include descktop {
+    width: 75px;
+    height: 75px;
+    right: 245px;
+  }
+
+  :focus,
+  :hover {
+    filter: blur(1px);
+  }
+
+  svg {
+    width: 35px;
+    height: 35px;
+    fill: var(--theme-default-header-name);
+  }
+}
+
+//=======================================================ALL SLIDES=======================================
+.sliderKenny-item-chees,
+.sliderKenny-item-batman,
+.sliderKenny-item-princess,
 .sliderKenny-item-mysterion {
-  // display: none;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: var(--theme-default-header-name);
 
-  h2 {
-    left: 35px;
+  @include mobile {
+    flex-wrap: wrap;
   }
 
-  img {
-    width: 350px;
+  @include descktop {
+    flex-wrap: nowrap;
+  }
+
+  //===================================================WEB CONTAINER==========================================
+  .web_container {
+    @include mobile {
+      width: 320px;
+      height: 250px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 2vw;
+      grid-auto-flow: row;
+    }
+
+    @include descktop {
+      min-width: 500px;
+      min-height: 350px;
+    }
+
+    div {
+      @include descktop {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        font-size: 25px;
+      }
+    }
+
+    .title {
+      h3 {
+        @include mobile {
+          font-size: 18px;
+        }
+
+        @include descktop {
+          font-size: 27px;
+          font-weight: 100;
+          letter-spacing: 0.25px;
+          color: var(--color-white)
+        }
+      }
+    }
+
+    .super-title {
+      p {
+        @include mobile {
+          font-size: 21px;
+        }
+
+        @include descktop {
+          font-size: 48px;
+        }
+      }
+    }
+
+    .title1 {
+      h3 {
+        p {
+          @include mobile {
+            font-size: 10px;
+          }
+
+          @include descktop {
+            font-size: 13px;
+            font-weight: 200;
+          }
+        }
+      }
+    }
+
+    .text {
+      text-align: center;
+      animation: pulse-animation 7s 0.25s infinite;
+
+      @include mobile {
+        font-size: 15px;
+      }
+
+      @include descktop {
+        font-size: 21px;
+      }
+    }
+
+    .btn-toShop {
+      left: 585px;
+
+      @include mobile {
+        left: 100px;
+        bottom: -35px;
+      }
+    }
+
+  }
+
+  //===================================================BOT APP CONTAINER======================================
+  .bot_container,
+  .app_container {
+    @include mobile {
+      width: 320px;
+      height: 250px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 2vw;
+      grid-auto-flow: row;
+    }
+
+    @include descktop {
+      min-width: 500px;
+      min-height: 350px;
+    }
+
+    div {
+      @include descktop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+      }
+    }
+
+
+    .super-title {
+      p {
+        @include mobile {
+          font-size: 21px;
+        }
+
+        @include descktop {
+          font-size: 48px;
+        }
+      }
+    }
+
+    .title1 {
+      h3 {
+        p {
+          @include mobile {
+            font-size: 10px;
+          }
+
+          @include descktop {
+            font-size: 13px;
+            font-weight: 200;
+          }
+        }
+      }
+    }
+
+
+    .text {
+      text-align: center;
+      animation: pulse-animation 7s 0.25s infinite;
+
+      @include mobile {
+        font-size: 15px;
+      }
+
+      @include descktop {
+        font-size: 21px;
+      }
+    }
+
+
+  }
+
+  //===================================================NPM CONTAINER===================================
+  .npm_container {
+    @include descktop {
+      display: grid;
+      grid-template-columns: 0.5fr 1fr;
+      grid-template-rows: 0.5fr 1fr;
+      gap: 10px 10px;
+      grid-auto-flow: row;
+      min-width: 500px;
+      min-height: 350px;
+    }
+
+    div {
+      @include descktop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+      }
+
+      .super-title {
+        p {
+          @include mobile {
+            font-size: 21px;
+          }
+
+          @include descktop {
+            font-size: 48px;
+          }
+        }
+      }
+
+      .title1 {
+        h3 {
+          p {
+            @include mobile {
+              font-size: 10px;
+            }
+
+            @include descktop {
+              font-size: 13px;
+              font-weight: 200;
+            }
+          }
+        }
+      }
+
+      .text {
+        text-align: center;
+        animation: pulse-animation 7s 0.25s infinite;
+
+        @include mobile {
+          font-size: 15px;
+        }
+
+        @include descktop {
+          font-size: 21px;
+        }
+      }
+
+    }
+  }
+
+  //==============================================BTN SHOP======================================
+  .btn-toShop {
+    position: absolute;
+    left: 555px;
+    bottom: 13px;
+    width: 133px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    font-weight: 200;
+    letter-spacing: 0.25px;
+    background-color: transparent;
+    color: var(--theme-default-header-name);
+  }
+
+  h2 {
+    position: absolute;
+    left: 0;
+    top: -22px;
+    font-size: 90px;
+    font-weight: 200;
+    color: white;
+  }
+
+  section {
+    display: block;
+    width: 450px;
     height: 250px;
   }
 
+}
+  //==========================================SLIDE CONTENT CHEES==========================================
+  .sliderKenny-item-chees {
+
+  img {
+    @include mobile {
+      width: 251px;
+      height: 185px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @include descktop {
+      display: block;
+      margin-top: -33px;
+      margin-left: 10px;
+      width: 300px;
+      height: 200px;
+    }
+  }
   .btn-toShop {
-    right: 550px;
-    bottom: 13px;
+    @include mobile {
+      left: 100px;
+      bottom: -35px;
+    }
+    @include descktop {
+      left: 585px;
+      bottom: 13px;
+  
+    }
+
+  }
+  }
+
+  //=================================================SLIDE CONTENT BATMAN=====================================
+  .sliderKenny-item-batman {
+    z-index: 3;
+
+    img {
+
+      @include mobile {
+        width: 251px;
+        height: 185px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      @include descktop {
+        width: 400px;
+        height: 250px;
+        margin-left: -35px;
+      }
+    }
+
+    .btn-toShop {
+      left: 585px;
+      bottom: 13px;
+
+      @include mobile {
+        left: 100px;
+        bottom: -25px;
+      }
+
+    }
+
+  }
+
+  //=============================================SLIDE CONTENT PRINCESS=======================================
+  .sliderKenny-item-princess {
+
+    img {
+      @include mobile {
+        width: 251px;
+        height: 185px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      @include descktop {
+        width: 250px;
+        height: 250px;
+        margin-left: 35px;
+      }
+
+    }
+
+    .btn-toShop {
+      left: 550px;
+      bottom: 13px;
+    }
+  }
+
+  //================================================SLIDE CONTENT MYSTERION================================
+  .sliderKenny-item-mysterion {
+
+    h2 {
+      left: 35px;
+    }
+
+    img {
+      @include mobile {
+        width: 251px;
+        height: 185px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      @include descktop {
+        width: 350px;
+        height: 250px;
+      }
+    }
+
+    .btn-toShop {
+      right: 550px;
+      bottom: 13px;
+    }
+  }
+
+
+@keyframes pulse-animation {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
+
+//===========================================BACKGROUND===========================================
+.pulsating-div {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--color-light-gray);
+  border-radius: 50%;
+  animation: pulsateAndMove 7.5s infinite;
+  animation-delay: 0.75s;
+  filter: blur(0.75px);
+  opacity: 0.05;
+
+  @include mobile {
+    left: 10px;
+    top: 80px;
+  }
+
+  @include descktop {
+    left: 75px;
+    top: 295px;
+  }
+}
+
+.pulsating-div2 {
+  position: absolute;
+  width: 12.5px;
+  height: 12.5px;
+  background: var(--color-light-gray);
+  border-radius: 50%;
+  animation: pulsateAndMove 6.5s infinite;
+  animation-delay: 0.35s;
+  opacity: 0.05;
+  filter: blur(0.75px);
+
+  @include mobile {
+    left: 10px;
+    top: 175px;
+  }
+
+  @include descktop {
+    left: 75px;
+    bottom: 35px;
+  }
+}
+
+.pulsating-div3 {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: var(--color-light-gray);
+  border-radius: 50%;
+  animation: pulsateAndMove2 4.5s infinite;
+  animation-delay: 0.35s;
+  opacity: 0.05;
+  filter: blur(0.75px);
+
+  @include mobile {
+    left: 275px;
+    // top: 135px;
+  }
+
+  @include descktop {
+    left: 275px;
+    top: 135px;
+  }
+}
+
+.pulsating-div4 {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background: var(--color-light-gray);
+  border-radius: 50%;
+  animation: pulsateAndMove2 15s infinite;
+  animation-delay: 1.5s;
+  opacity: 0.05;
+  filter: blur(0.75px);
+
+  @include mobile {
+    left: 25px;
+
+  }
+
+  @include descktop {
+    left: 411px;
+    top: 135px;
+  }
+}
+
+.pulsating-div5 {
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  background: var(--color-light-gray);
+  border-radius: 50%;
+  animation: pulsateAndMove2 8s infinite;
+  animation-delay: 0.5s;
+  opacity: 0.05;
+  filter: blur(0.75px);
+
+  @include mobile {
+    left: 150px;
+  }
+
+  @include descktop {
+    left: 125px;
+    top: 135px;
+  }
+}
 
 
 @keyframes pulsateAndMove {
   0% {
-    transform: translateX(0);
     opacity: 0.8;
+    transform: translateX(0);
   }
 
   50% {
-    transform: translateX(450px);
     opacity: 1;
+    transform: translateX(300px);
   }
 
   100% {
-    transform: translateX(0);
     opacity: 0.8;
+    transform: translateX(0);
   }
 }
 
@@ -388,85 +716,7 @@
   }
 }
 
-
-.display-none {
-  display: none;
-}
-
-.pulsating-div {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  background: var(--color-light-gray);
-  left: 75px;
-  top: 295px;
-  border-radius: 50%;
-  z-index: 100;
-  animation: pulsateAndMove 7.5s infinite;
-  animation-delay: 0.75s;
-  filter: blur(0.75px);
-  opacity: 0.05;
-}
-
-.pulsating-div2 {
-  position: absolute;
-  width: 12.5px;
-  height: 12.5px;
-  background: var(--color-light-gray);
-  left: 75px;
-  bottom: 35px;
-  border-radius: 50%;
-  z-index: 100;
-  animation: pulsateAndMove 6.5s infinite;
-  animation-delay: 0.35s;
-  opacity: 0.05;
-  filter: blur(0.75px);
-}
-
-.pulsating-div3 {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background: var(--color-light-gray);
-  left: 275px;
-  top: 135px;
-  border-radius: 50%;
-  z-index: 100;
-  animation: pulsateAndMove2 4.5s infinite;
-  animation-delay: 0.35s;
-  opacity: 0.05;
-  filter: blur(0.75px);
-}
-
-.pulsating-div4 {
-  position: absolute;
-  width: 13px;
-  height: 13px;
-  background: var(--color-light-gray);
-  left: 411px;
-  top: 135px;
-  border-radius: 50%;
-  z-index: 100;
-  animation: pulsateAndMove2 15s infinite;
-  animation-delay: 1.5s;
-  opacity: 0.05;
-  filter: blur(0.75px);
-}
-
-.pulsating-div5 {
-  position: absolute;
-  width: 21px;
-  height: 21px;
-  background: var(--color-light-gray);
-  left: 125px;
-  top: 135px;
-  border-radius: 50%;
-  z-index: 100;
-  animation: pulsateAndMove2 8s infinite;
-  animation-delay: 0.5s;
-  opacity: 0.05;
-  filter: blur(0.75px);
-}
+//==========================================ANIMATION 2SLIDE=============================
 
 .planet {
   opacity: 0.95;

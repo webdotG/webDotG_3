@@ -1,19 +1,27 @@
+@import '../../variablesBase.scss';
+
+
 .paralax-wrapper{
-  width: 100%;
-  height: 748px;
-  background: var(--theme-default-paralax-background);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative; 
+    width: 100%;
+    height: 600px;
+    background: var(--theme-default-paralax-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative; 
 
   h2{
-    margin-top: -325px;
-    font-family: "Arsenal", sans-serif;
-    font-size: 125px;
-    font-weight: 300;
     color: var(--color-white);
+    font-family: "Arsenal", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: 25px;
+    @include descktop {
+      margin-top: -325px;
+      font-size: 125px;
+    }
+    
   }
 
   .mountains{
@@ -24,6 +32,10 @@
     background-position: bottom;
     position: absolute;
     z-index: 3;
+    @include mobile{
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   }
 
   .planet{
@@ -35,6 +47,10 @@
     position: absolute;
     overflow: hidden;
     z-index: 2;
+    @include mobile{
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   }
 
   .stars{
