@@ -1,3 +1,5 @@
+@import '../../variablesBase.scss';
+
 .header{
   height: 112px;
   display: flex;
@@ -14,6 +16,10 @@
     position: fixed;
     top: 25px;
     z-index: 10;
+
+    @include mobile {
+      padding-right: 10px;
+    }
   }
 }
 
@@ -35,6 +41,9 @@
     width: 40px;
     height: 40px;
   }
+  @include mobile {
+    display: none;
+    }
 }
 
 .social-telegram{
@@ -45,7 +54,7 @@
 
 .whatsup-path{
     fill: var(--color-white);
-}
+  }
 .whatsup-path2{
   fill: var(--color-black);
 }

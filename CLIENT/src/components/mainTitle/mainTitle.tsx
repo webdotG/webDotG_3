@@ -49,7 +49,7 @@ export default function MainTitle() {
 
         </motion.h1>
         <section className={style['main_title__text_wrapper']}>
-          <motion.p variants={textAnimation} className={style.main_title_p}>WEB  UI  APP </motion.p>
+          <motion.p variants={textAnimation} className={style.main_title_p}>UI  WEB  APP </motion.p>
           <motion.p variants={textAnimation} className={style.main_title_p2}>разработка и дизайн</motion.p>
         </section>
       </motion.div>
