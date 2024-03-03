@@ -1,8 +1,8 @@
 @import '../../../variablesBase.scss';
 
-.header_navigation{
+.header_navigation {
   margin-top: 31.25px;
-  @include mobile{
+  @include mobile {
     margin-top: 10px;
   }
 }
@@ -17,7 +17,8 @@
   justify-content: center;
   gap: 18px;
   font-family: "Arsenal", sans-serif;
-  @include mobile{
+
+  @include mobile {
     padding-top: 50px;
     justify-content: start;
     gap: 14px;
@@ -25,22 +26,23 @@
 
   a {
     color: var(--color-black);
-    font-size: 40px;
-    @include mobile{
+    @include mobile {
       font-size: 35px;
+    }
+    @include descktop {
+      font-size: 40px;
     }
   }
 }
 
 
-.header_nav__item__develop{
+.header_nav__item__develop {
   width: 100%;
   display: flex;
   justify-content: center;
-  
 }
 
-.header_nav__item__develop_blur{
+.header_nav__item__develop_blur {
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -48,24 +50,25 @@
   display: flex;
   flex-direction: column;
   align-items: end;
+
   @include mobile {
     padding-top: 0;
   }
 }
 
 
-.header_nav__link__blur{
+.header_nav__link__blur {
   padding-right: 25px;
   font-size: 17.5px;
   filter: blur(1.25px);
 }
 
-.auth_wrapper{
+.auth_wrapper {
   height: 100%;
   position: relative;
 }
 
-.auth_btn_logout__wrapper{
+.auth_btn_logout__wrapper {
   width: 105px;
   height: 50px;
   display: flex;
@@ -73,7 +76,7 @@
   justify-content: center;
   position: relative;
 
-  .btn-logout{
+  .btn-logout {
     position: absolute;
     top: 0;
     left: 25px;
@@ -81,17 +84,12 @@
     font-weight: 400;
     font-size: 18px;
     -webkit-text-stroke-width: 0.35px;
-  -webkit-text-stroke-color: black;
-  
+    -webkit-text-stroke-color: black;
   }
 
 }
 
-.check_auth_link{
+.check_auth_link {
   display: flex;
   position: relative;
 }
-
-
-
-

@@ -1,13 +1,13 @@
 @import '../../variablesBase.scss';
 
-.header{
+.header {
   height: 112px;
   display: flex;
   justify-content: end;
   background: var(--theme-default-header-background);
   background-image: url(../../img/stars.png);
 
-  .wrapper{
+  .wrapper {
     max-width: 1400px;
     padding-right: 25px;
     display: flex;
@@ -24,38 +24,51 @@
 }
 
 
-.name{
+.name {
   font-family: "Arsenal", sans-serif;
   color: var(--theme-default-header-name);
+
+  @include mobile {
+    padding-right: 15px;
+  }
+
 }
 
-.social-contacts{
-  display: flex;
-  li{
+.social-contacts {
+  @include mobile {
+    display: none;
+  }
+
+  @include descktop {
+    display: flex;
+    padding-right: 15px;
+  }
+
+  li {
     margin-left: 15px;
   }
 }
+
 .social-telegram,
-.social-whatsup{
-  svg{
+.social-whatsup {
+  svg {
     width: 40px;
     height: 40px;
   }
-  @include mobile {
-    display: none;
-    }
+
 }
 
-.social-telegram{
-  svg{
+.social-telegram {
+  svg {
     fill: var(--color-white);
   }
 }
 
-.whatsup-path{
-    fill: var(--color-white);
-  }
-.whatsup-path2{
+.whatsup-path {
+  fill: var(--color-white);
+}
+
+.whatsup-path2 {
   fill: var(--color-black);
 }
 
@@ -66,6 +79,6 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;  
+    gap: 8px;
   }
 }
