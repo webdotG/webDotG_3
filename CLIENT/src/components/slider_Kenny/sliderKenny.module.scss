@@ -68,7 +68,7 @@
   @include mobile {
     width: 340px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 25px;
     position: absolute;
     bottom: 22px;
@@ -101,13 +101,7 @@
 
 .slider-btn--prev {
   @include mobile {
-    width: 35px;
-    height: 35px;
-    display: block;
-    position: absolute;
-    bottom: 17px;
-    left: 0;
-    z-index: 2;
+    display: none;
   }
 
   @include descktop {
@@ -130,14 +124,7 @@
 
 .slider-btn--next {
   @include mobile {
-    width: 35px;
-    height: 35px;
-    display: block;
-    position: absolute;
-    bottom: 17px;
-    right: 0;
-    rotate: 180deg;
-    z-index: 2;
+    display: none;
   }
 
   @include descktop {
