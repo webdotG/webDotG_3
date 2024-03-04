@@ -24,8 +24,9 @@
   }
 
   @include descktop {
-    padding-left: 85px;
-    padding-right: 85px;
+    padding-left: 40px;
+    padding-right: 40px;
+    justify-content: space-evenly;
   }
 }
 
@@ -33,7 +34,6 @@
 .word {
   padding-left: 15px;
   padding-right: 15px;
-  width: 360px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,13 +41,16 @@
   @include mobile {
     width: 150px;
   }
+  @include descktop {
+    width: 222px;
+  }
 
   h3 {
     padding-bottom: 35px;
     text-align: center;
     color: transparent;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-color: var(--color-white);
 
     @include mobile {
       font-size: 50px;
@@ -203,7 +206,7 @@
   @include descktop {
     width: 175px;
     height: 250px;
-    left: 20px;
+    right: 20px;
     bottom: -25px;
   }
 }
@@ -243,7 +246,7 @@
     width: 125px;
     height: 250px;
     right: 44px;
-    top: -70px;
+    top: -1px;
   }
 }
 
@@ -320,6 +323,6 @@
     width: 125px;
     height: 250px;
     left: 100px;
-    bottom: -130px;
+    bottom: -71px;
   }
 }
