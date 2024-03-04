@@ -296,11 +296,10 @@
       }
     }
 
-
     .super-title {
       p {
         @include mobile {
-          font-size: 21px;
+          font-size: 25px;
         }
 
         @include descktop {
@@ -309,18 +308,14 @@
       }
     }
 
-    .title1 {
-      h3 {
-        p {
-          @include mobile {
-            font-size: 10px;
-          }
+    .title {
+      @include mobile {
+        font-size: 21px;
+      }
 
-          @include descktop {
-            font-size: 13px;
-            font-weight: 200;
-          }
-        }
+      @include descktop {
+        font-size: 13px;
+        font-weight: 200;
       }
     }
 
@@ -330,7 +325,7 @@
       animation: pulse-animation 7s 0.25s infinite;
 
       @include mobile {
-        font-size: 15px;
+        font-size: 18px;
       }
 
       @include descktop {
@@ -338,17 +333,21 @@
       }
     }
 
-
   }
 
   //===================================================NPM CONTAINER===================================
   .npm_container {
-    @include descktop {
+    @include mobile {
+      width: 320px;
+      height: 250px;
       display: grid;
-      grid-template-columns: 0.5fr 1fr;
-      grid-template-rows: 0.5fr 1fr;
-      gap: 10px 10px;
+      grid-template-columns: repeat(2, 0.5fr);
+      grid-template-rows: repeat(1, 0.5fr);
+      gap: 2vw;
       grid-auto-flow: row;
+    }
+
+    @include descktop {
       min-width: 500px;
       min-height: 350px;
     }
@@ -360,48 +359,45 @@
         align-items: center;
         font-size: 25px;
       }
+    }
 
-      .super-title {
-        p {
-          @include mobile {
-            font-size: 21px;
-          }
-
-          @include descktop {
-            font-size: 48px;
-          }
-        }
-      }
-
-      .title1 {
-        h3 {
-          p {
-            @include mobile {
-              font-size: 10px;
-            }
-
-            @include descktop {
-              font-size: 13px;
-              font-weight: 200;
-            }
-          }
-        }
-      }
-
-      .text {
-        text-align: center;
-        animation: pulse-animation 7s 0.25s infinite;
-
+    .super-title {
+      p {
         @include mobile {
-          font-size: 15px;
+          font-size: 25px;
         }
 
         @include descktop {
-          font-size: 21px;
+          font-size: 48px;
         }
       }
-
     }
+
+    .title {
+      @include mobile {
+        font-size: 21px;
+      }
+
+      @include descktop {
+        font-size: 13px;
+        font-weight: 200;
+      }
+    }
+
+
+    .text {
+      text-align: center;
+      animation: pulse-animation 7s 0.25s infinite;
+
+      @include mobile {
+        font-size: 18px;
+      }
+
+      @include descktop {
+        font-size: 21px;
+      }
+    }
+
   }
 
   //==============================================BTN SHOP======================================
@@ -437,8 +433,9 @@
   }
 
 }
-  //==========================================SLIDE CONTENT CHEES==========================================
-  .sliderKenny-item-chees {
+
+//==========================================SLIDE CONTENT CHEES==========================================
+.sliderKenny-item-chees {
 
   img {
     @include mobile {
@@ -456,104 +453,102 @@
       height: 200px;
     }
   }
+
   .btn-toShop {
     @include mobile {
       left: 100px;
       bottom: -35px;
     }
+
     @include descktop {
       left: 585px;
       bottom: 13px;
-  
-    }
-
-  }
-  }
-
-  //=================================================SLIDE CONTENT BATMAN=====================================
-  .sliderKenny-item-batman {
-    z-index: 3;
-
-    img {
-
-      @include mobile {
-        width: 251px;
-        height: 185px;
-        display: block;
-        margin: 0 auto;
-      }
-
-      @include descktop {
-        width: 400px;
-        height: 250px;
-        margin-left: -35px;
-      }
-    }
-
-    .btn-toShop {
-      left: 585px;
-      bottom: 13px;
-
-      @include mobile {
-        left: 100px;
-        bottom: -25px;
-      }
 
     }
 
   }
+}
 
-  //=============================================SLIDE CONTENT PRINCESS=======================================
-  .sliderKenny-item-princess {
+//=================================================SLIDE CONTENT BATMAN=====================================
+.sliderKenny-item-batman {
 
-    img {
-      @include mobile {
-        width: 251px;
-        height: 185px;
-        display: block;
-        margin: 0 auto;
-      }
+  img {
 
-      @include descktop {
-        width: 250px;
-        height: 250px;
-        margin-left: 35px;
-      }
-
+    @include mobile {
+      width: 251px;
+      height: 185px;
+      display: block;
+      margin: 0 auto;
     }
 
-    .btn-toShop {
-      left: 550px;
-      bottom: 13px;
+    @include descktop {
+      width: 400px;
+      height: 250px;
+      margin-left: -35px;
     }
   }
 
-  //================================================SLIDE CONTENT MYSTERION================================
-  .sliderKenny-item-mysterion {
+  .btn-toShop {
+    left: 585px;
+    bottom: 13px;
 
-    h2 {
-      left: 35px;
+    @include mobile {
+      left: 100px;
+      bottom: -25px;
     }
 
-    img {
-      @include mobile {
-        width: 251px;
-        height: 185px;
-        display: block;
-        margin: 0 auto;
-      }
+  }
 
-      @include descktop {
-        width: 350px;
-        height: 250px;
-      }
+}
+
+//=============================================SLIDE CONTENT PRINCESS=======================================
+.sliderKenny-item-princess {
+
+  img {
+    @include mobile {
+      width: 211px;
+      height: 195px;
+      display: block;
+      margin: 0 auto;
     }
 
-    .btn-toShop {
-      right: 550px;
-      bottom: 13px;
+    @include descktop {
+      width: 250px;
+      height: 250px;
+      margin-left: 35px;
+    }
+
+  }
+
+  .btn-toShop {
+    left: 585px;
+    bottom: 13px;
+
+    @include mobile {
+      left: 100px;
+      bottom: -25px;
+    }
+
+  }
+}
+
+//================================================SLIDE CONTENT MYSTERION================================
+.sliderKenny-item-mysterion {
+
+  img {
+    @include mobile {
+      width: 251px;
+      height: 185px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @include descktop {
+      width: 350px;
+      height: 250px;
     }
   }
+}
 
 
 @keyframes pulse-animation {
