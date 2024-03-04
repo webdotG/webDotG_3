@@ -26,7 +26,10 @@ export default function Paralax({ type }: { type: string }) {
       </motion.h2>
       <motion.div className={style['mountains']}></motion.div>
 
-      <motion.div style={type === 'price' ? { y: yBg } : { y: yTop }} className={style['planet']}></motion.div>
+      <motion.div style={type === 'price' ? { y: yBg } : { y: yTop }} 
+      className={`type === 'price' ? ${style['planet']} : ${style['planet2']}`}>
+
+      </motion.div>
       
       <motion.div style={type === 'price' ? { x: yBg } : { x: xLeft }} className={style['stars']}></motion.div>
     </section>

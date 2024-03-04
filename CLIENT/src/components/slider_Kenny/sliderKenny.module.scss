@@ -7,6 +7,7 @@
 .sliderKenny-wrapper {
   width: 100%;
   background: var(--theme-default-main-titleBack);
+  
 }
 
 .sliderKenny {
@@ -21,7 +22,8 @@
   }
 
   @include descktop {
-    width: 100%;
+    width: 780px;
+    margin: 0 auto;
   }
 }
 
@@ -33,10 +35,10 @@
   }
 
   @include descktop {
-    width: 850px;
+    width: 780px;
     min-height: 450px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -76,7 +78,7 @@
   }
 
   @include descktop {
-    left: 40%;
+    left: 30%;
     justify-content: space-evenly;
   }
 
@@ -105,9 +107,12 @@
   }
 
   @include descktop {
+    display: block;
     width: 75px;
     height: 75px;
-    left: 275px;
+    position: absolute;
+    left: 150px;
+    bottom: 5px;
   }
 
   :focus,
@@ -116,21 +121,25 @@
   }
 
   svg {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     fill: var(--theme-default-header-name);
   }
 }
 
 .slider-btn--next {
+  rotate: 180deg;
   @include mobile {
     display: none;
   }
 
   @include descktop {
+    display: block;
     width: 75px;
     height: 75px;
-    right: 245px;
+    position: absolute;
+    right: 125px;
+    bottom: 5px;
   }
 
   :focus,
@@ -139,8 +148,8 @@
   }
 
   svg {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     fill: var(--theme-default-header-name);
   }
 }
@@ -435,7 +444,7 @@
     @include descktop {
       display: block;
       margin-top: -33px;
-      margin-left: 10px;
+      margin-left: -69  px;
       width: 300px;
       height: 200px;
     }

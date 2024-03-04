@@ -13,10 +13,10 @@ function HomePage() {
   return (
     <div className={style['main_page']}>
       <MainTitle />
-      {/* <Paralax type={'price'} /> */}
+      <Paralax type={'price'} />
       <SliderKenny />
-      {/* <Paralax type={'portfolio'} /> */}
-      {/* <MainPortfolio /> */}
+      <Paralax type={'portfolio'} />
+      <MainPortfolio />
       {/* <MainAbout /> */}
       {/* <MainContact /> */}
       {/* <ParalaxZoom /> */}
