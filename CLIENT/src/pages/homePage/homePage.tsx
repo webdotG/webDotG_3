@@ -17,7 +17,7 @@ function HomePage() {
       <SliderKenny />
       <Paralax type={'portfolio'} />
       <MainPortfolio />
-      {/* <MainAbout /> */}
+      <MainAbout />
       {/* <MainContact /> */}
       {/* <ParalaxZoom /> */}
       {/* <MainFeedback /> */}

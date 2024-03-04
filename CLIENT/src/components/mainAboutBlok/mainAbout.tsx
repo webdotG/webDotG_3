@@ -5,8 +5,8 @@ import { useRef } from 'react'
 
 const variants = {
   initial: {
-    x: -500,
-    y: -5,
+    x: 0,
+    y: 500,
     opacity: 0
   },
   animate: {
@@ -14,7 +14,7 @@ const variants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.75,
+      duration: 1.25,
       staggerChildren: 0.25,
     }
   },
@@ -24,6 +24,8 @@ const variants = {
 export default function MainAbout() {
 
   const ref = useRef<HTMLDivElement>(null)
+ 
+
 
   return (
     <motion.section className={style['mainAbout-wrapper']}>
@@ -40,22 +42,6 @@ export default function MainAbout() {
         </motion.div>
         <motion.div className={style['title-container']} variants={variants}>
           <div className={style['title']}>
-            {/* <svg width="155px" height='75px' viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" overflow="auto" shape-rendering="auto" fill="#ffffff">
-              <defs>
-                <path id="wavepath" d="M 0 2000 0 500 Q 58.5 329 117 500 t 117 0 117 0 117 0 117 0 117 0 117 0 117 0 117 0 117 0 117 0  v1000 z" />
-                <path id="motionpath" d="M -234 0 0 0" />
-              </defs>
-              <g >
-                <use xlinkHref="#wavepath" y="421" fill="#000000">
-                  <animateMotion
-                    dur="5s"
-                    repeatCount="indefinite">
-                    <mpath xlinkHref="#motionpath" />
-                  </animateMotion>
-                </use>
-              </g>
-            </svg> */}
-
 
             <h2>
               <b>Рабочие</b> Идеи</h2>
@@ -68,6 +54,7 @@ export default function MainAbout() {
           </div>
 
         </motion.div>
+
         <motion.div className={style['list-container']} variants={variants}>
           <ul className={style['box']}>
 
@@ -347,6 +334,7 @@ export default function MainAbout() {
 
           </ul>
         </motion.div>
+
       </motion.div>
     </motion.section >
   )
