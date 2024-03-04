@@ -12,18 +12,19 @@
 }
 
 .wrapper {
-  padding-top: 100px;
   width: 100%;
   display: flex;
   justify-content: center;
   background-image: url(../../img/stars.png);
 
   @include mobile {
+    padding-top: 50px;
     padding-left: 10px;
     padding-right: 10px;
   }
 
   @include descktop {
+    padding-top: 100px;
     padding-left: 40px;
     padding-right: 40px;
     justify-content: space-evenly;
