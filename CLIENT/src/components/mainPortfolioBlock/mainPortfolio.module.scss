@@ -1,3 +1,5 @@
+@import '../../variablesBase.scss';
+
 .mainPortfolio-container {
   width: 100%;
   background: var(--theme-default-main-titleBack);
@@ -5,22 +7,30 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: white;
   overflow: hidden;
-  
+  color: var(--color-white);
 }
 
-.wrapper{
+.wrapper {
   padding-top: 100px;
   width: 100%;
-  padding-left: 85px;
-  padding-right: 85px;
   display: flex;
   justify-content: center;
   background-image: url(../../img/stars.png);
+
+  @include mobile {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  @include descktop {
+    padding-left: 85px;
+    padding-right: 85px;
+  }
 }
 
-.word{
+//===========================================================TEXT===========================================
+.word {
   padding-left: 15px;
   padding-right: 15px;
   width: 360px;
@@ -28,97 +38,175 @@
   flex-direction: column;
   justify-content: center;
 
-  h3{
-    padding-left: 15px;
+  @include mobile {
+    width: 150px;
+  }
+
+  h3 {
     padding-bottom: 35px;
-    font-size: 75px;
     text-align: center;
     color: transparent;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: white;
+
+    @include mobile {
+      font-size: 50px;
+    }
+
+    @include descktop {
+      font-size: 75px;
+    }
   }
 
-  p{
+  p {
     text-align: center;
     letter-spacing: 0.15px;
-    font-size: 25px;
     padding-bottom: 15px;
     font-weight: 400;
+
+    @include mobile {
+      font-size: 18px;
+    }
+
+    @include descktop {
+      font-size: 25px;
+    }
   }
 }
 
-.images{
-  height: 550px;
-  width: 400px;
+//=================================================IMAGES====================================================
+.images {
   position: relative;
+
+  @include mobile {
+    width: 150px;
+    height: 350px;
+  }
+
+  @include descktop {
+    height: 550px;
+    width: 400px;
+  }
 }
-.booking-home{
+
+// ==============================================booking
+.booking-listing {
   position: absolute;
-  right: 120px;
-  bottom: 5;
-  z-index: 2;
-}
-.booking-listing{
-  position: absolute;
-  left: 0;
-  top: 110px;
   z-index: 1;
+
+  @include mobile {
+    width: 70px;
+    height: 180px;
+    left: -12px;
+    top: 150px;
+  }
+
+  @include descktop {
+    width: 100px;
+    height: 300px;
+    left: 0;
+    top: 110px;
+  }
 }
-.booking-profile{
+
+.booking-home {
   position: absolute;
-  right: 0;
-  bottom: 60px;
-  z-index: 3;
+  z-index: 2;
+
+  @include mobile {
+    width: 90px;
+    height: 314px;
+    right: 25px;
+    bottom: -30px;
+  }
+
+  @include descktop {
+    width: 550px;
+    height: 225px;
+    right: 120px;
+    bottom: 5;
+
+  }
 }
-.telegram-chat{
+
+.booking-profile {
+  position: absolute;
+  z-index: 3;
+
+  @include mobile {
+    width: 80px;
+    height: 115px;
+    right: 0px;
+    bottom: -50px;
+  }
+
+  @include descktop {
+    width: 200px;
+    height: 250px;
+    right: 0;
+    bottom: 60px;
+  }
+
+}
+
+//=========================================================telegram
+.telegram-chat {
   position: absolute;
   right: 12px;
   bottom: -55px;
   z-index: 2;
 }
-.telegram-desctop{
+
+.telegram-desctop {
   position: absolute;
   left: 0;
   top: 175px;
   z-index: 1;
 }
-.telegram-call{
+
+.telegram-call {
   position: absolute;
   left: 20px;
   bottom: -25px;
   z-index: 3;
 }
-.mobile-loginLight{
+
+.mobile-loginLight {
   position: absolute;
   right: 123px;
   top: 100px;
   z-index: 5;
 }
-.mobile-LoginDark{
+
+.mobile-LoginDark {
   position: absolute;
   right: 44px;
   top: -70px;
   z-index: 4;
 }
-.mobile-homeLight{
+
+.mobile-homeLight {
   position: absolute;
   left: 21px;
   top: 280px;
   z-index: 2;
 }
-.mobile-homeDark{
+
+.mobile-homeDark {
   position: absolute;
   left: 102px;
   top: 160px;
   z-index: 6;
 }
-.mobile-chatLight{
+
+.mobile-chatLight {
   position: absolute;
   right: 15px;
   bottom: 0px;
   z-index: 1;
 }
-.mobile-chatDark{
+
+.mobile-chatDark {
   position: absolute;
   left: 100px;
   bottom: -130px;

@@ -46,9 +46,9 @@ export default function MainPortfolio() {
           </p>
         </div>
         <div className={style['images']}>
-          <motion.img style={{ y: medium }} className={style['booking-listing']} src={listing} alt='project image' height='300px' width='100px' />
-          <motion.img style={{ y: small }} className={style['booking-home']} src={home} alt='project image' height='550px' width='225px' />
-          <motion.img style={{ y: large }} className={style['booking-profile']} src={profile} alt='project image' height='250px' width='200px' />
+          <motion.img style={{ y: medium }} className={style['booking-listing']} src={listing} alt='project image' />
+          <motion.img style={{ y: small }} className={style['booking-home']} src={home} alt='project image' />
+          <motion.img style={{ y: large }} className={style['booking-profile']} src={profile} alt='project image'/>
         </div>
       </div>
 
