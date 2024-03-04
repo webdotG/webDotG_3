@@ -255,13 +255,15 @@
   z-index: 2;
 
   @include mobile {
+    display: none;
     width: 75px;
     height: 150px;
     right: 41px;
-    top: 115px;
+    bottom: 115px;
   }
 
   @include descktop {
+    display: block;
     width: 125px;
     height: 250px;
     left: 21px;
