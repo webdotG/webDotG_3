@@ -46,21 +46,21 @@ export default function MainPortfolio() {
           </p>
         </div>
         <div className={style['images']}>
-          <motion.img style={{ y: medium }} className={style['booking-listing']} src={listing} alt='project image' />
+          <motion.img style={{ y: medium }} className={style['booking-listing']} src={listing} alt='project image'  />
           <motion.img style={{ y: small }} className={style['booking-home']} src={home} alt='project image' />
-          <motion.img style={{ y: large }} className={style['booking-profile']} src={profile} alt='project image'/>
+          <motion.img style={{ y: large }} className={style['booking-profile']} src={profile} alt='project image' />
         </div>
       </div>
 
       <div className={style['wrapper']}>
         <div className={style['images']}>
-          <motion.img style={{ y: large }} className={style['telegram-chat']} src={telegramChat} alt='project image' height='400px' width='200px' />
-          <motion.img style={{ y: small }} className={style['telegram-desctop']} src={telegramDesctop} alt='project image' height='300px' width='400px' />
-          <motion.img style={{ y: medium }} className={style['telegram-call']} src={telegramCall} alt='project image' height='250px' width='175px' />
+          <motion.img style={{ y: large }} className={style['telegram-chat']} src={telegramChat} alt='project image' />
+          <motion.img style={{ y: small }} className={style['telegram-desctop']} src={telegramDesctop} alt='project image' />
+          <motion.img style={{ y: medium }} className={style['telegram-call']} src={telegramCall} alt='project image'  />
         </div>
         <div className={style['word']}>
           <h3>Bot</h3>
-          <p>Telegram бот это удобство коммуникаций </p>
+          <p>Telegram бот- удобство коммуникаций </p>
           <p>мгновенные ответы,<br/>
           выигрывание времени на<br/>
           поддержке клиентов и<br/>
@@ -79,12 +79,12 @@ export default function MainPortfolio() {
           ко всем функциям телефона.</p>
         </div>
         <div className={style['images']}>
-          <motion.img style={{ y: small }} className={style['mobile-loginLight']} src={mobileLoginLight} alt='project image' height='250px' width='125px' />
-          <motion.img style={{ y: small }} className={style['mobile-LoginDark']} src={mobileLoginDark} alt='project image' height='250px' width='125px' />
-          <motion.img style={{ y: large }} className={style['mobile-homeLight']} src={mobileHomeLight} alt='project image' height='250px' width='125px' />
-          <motion.img style={{ y: large }} className={style['mobile-homeDark']} src={mobileHomeDark} alt='project image' height='250px' width='125px' />
-          <motion.img style={{ y: medium }} className={style['mobile-chatLight']} src={mobileChatLight} alt='project image' height='250px' width='125px' />
-          <motion.img style={{ y: medium }} className={style['mobile-chatDark']} src={mobileChatDark} alt='project image' height='250px' width='125px' />
+          <motion.img style={{ y: small }} className={style['mobile-loginLight']} src={mobileLoginLight} alt='project image' />
+          <motion.img style={{ y: small }} className={style['mobile-LoginDark']} src={mobileLoginDark} alt='project image' />
+          <motion.img style={{ y: large }} className={style['mobile-homeLight']} src={mobileHomeLight} alt='project image' />
+          <motion.img style={{ y: large }} className={style['mobile-homeDark']} src={mobileHomeDark} alt='project image' />
+          <motion.img style={{ y: medium }} className={style['mobile-chatLight']} src={mobileChatLight} alt='project image' />
+          <motion.img style={{ y: medium }} className={style['mobile-chatDark']} src={mobileChatDark} alt='project image' />
         </div>
       </div>
 

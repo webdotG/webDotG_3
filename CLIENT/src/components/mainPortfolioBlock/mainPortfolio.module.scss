@@ -97,7 +97,7 @@
   @include mobile {
     width: 70px;
     height: 180px;
-    left: -12px;
+    left: 0px;
     top: 150px;
   }
 
@@ -121,8 +121,8 @@
   }
 
   @include descktop {
-    width: 550px;
-    height: 225px;
+    width: 225px;
+    height: 550px;
     right: 120px;
     bottom: 5;
 
@@ -152,63 +152,174 @@
 //=========================================================telegram
 .telegram-chat {
   position: absolute;
-  right: 12px;
-  bottom: -55px;
   z-index: 2;
+
+  @include mobile {
+    width: 80px;
+    height: 115px;
+    bottom: -55px;
+    left: -5px;
+  }
+
+  @include descktop {
+    width: 200px;
+    height: 400px;
+    right: 12px;
+    bottom: -55px;
+  }
+
 }
 
 .telegram-desctop {
   position: absolute;
-  left: 0;
-  top: 175px;
   z-index: 1;
+
+  @include mobile {
+    width: 148px;
+    height: 133px;
+    right: 0px;
+    top: 150px;
+  }
+
+  @include descktop {
+    width: 400px;
+    height: 300px;
+    left: 0;
+    top: 175px;
+  }
 }
 
 .telegram-call {
   position: absolute;
-  left: 20px;
-  bottom: -25px;
   z-index: 3;
+
+  @include mobile {
+    width: 80px;
+    height: 115px;
+    right: -13px;
+    bottom: -45px;
+  }
+
+  @include descktop {
+    width: 175px;
+    height: 250px;
+    left: 20px;
+    bottom: -25px;
+  }
 }
 
+//=====================================================APP
 .mobile-loginLight {
   position: absolute;
-  right: 123px;
-  top: 100px;
   z-index: 5;
+
+  @include mobile {
+    width: 75px;
+    height: 150px;
+    right: 5px;
+    top: 95px;
+  }
+
+  @include descktop {
+    width: 125px;
+    height: 250px;
+    right: 123px;
+    top: 100px;
+  }
 }
 
 .mobile-LoginDark {
   position: absolute;
-  right: 44px;
-  top: -70px;
   z-index: 4;
+
+  @include mobile {
+    width: 75px;
+    height: 150px;
+    right: 55px;
+    bottom: 145px;
+  }
+
+  @include descktop {
+    width: 125px;
+    height: 250px;
+    right: 44px;
+    top: -70px;
+  }
 }
 
 .mobile-homeLight {
   position: absolute;
-  left: 21px;
-  top: 280px;
   z-index: 2;
+
+  @include mobile {
+    width: 75px;
+    height: 150px;
+    right: 41px;
+    top: 115px;
+  }
+
+  @include descktop {
+    width: 125px;
+    height: 250px;
+    left: 21px;
+    top: 280px;
+  }
 }
+
 
 .mobile-homeDark {
   position: absolute;
-  left: 102px;
-  top: 160px;
   z-index: 6;
+
+  @include mobile {
+    width: 75px;
+    height: 150px;
+    right: 25px;
+    top: 160px;
+  }
+
+  @include descktop {
+    width: 125px;
+    height: 250px;
+    left: 102px;
+    top: 160px;
+  }
 }
 
 .mobile-chatLight {
   position: absolute;
-  right: 15px;
-  bottom: 0px;
   z-index: 1;
+
+  @include mobile {
+    width: 75px;
+    height: 150px;
+    right: 12px;
+    bottom: -33px;
+  }
+
+  @include descktop {
+    width: 125px;
+    height: 250px;
+    right: 15px;
+    bottom: 0px;
+  }
 }
 
 .mobile-chatDark {
   position: absolute;
-  left: 100px;
-  bottom: -130px;
   z-index: 3;
+
+  @include mobile {
+    width: 75px;
+    height: 150px;
+    right: 66px;
+    bottom: -70px;
+  }
+
+  @include descktop {
+    width: 125px;
+    height: 250px;
+    left: 100px;
+    bottom: -130px;
+  }
 }
