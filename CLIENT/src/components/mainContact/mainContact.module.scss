@@ -1,3 +1,5 @@
+@import '../../variablesBase.scss';
+
 .mainContact-wrapper {
   padding-bottom: 50px;
   width: 100%;
@@ -5,14 +7,25 @@
 }
 
 .mainContact {
-  padding-left: 85px;
-  padding-right: 85px;
-  width: 100%;
-  min-height: 900px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  background-image: url('../../img/stars.png');
+  @include mobile {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 340px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    background-image: url('../../img/stars.png');
+  }
+  @include descktop{
+    margin: 0;
+    padding-left: 85px;
+    padding-right: 85px;
+    width: 100%;
+    min-height: 900px;
+    gap: 50px;  
+  }
+
 }
 
 
@@ -22,31 +35,60 @@
   flex-direction: column;
   gap: 40px;
 
-  ul{
+  ul {
     margin-top: auto;
+    @include mobile {
+      padding-bottom: 15px;
+    }
+   @include descktop {
     padding-bottom: 50px;
+   }
+    
   }
 
   li {
+    @include mobile {
+      padding-bottom: 15px;
+    }
+   @include descktop {
     padding-bottom: 50px;
+   }
   }
 
   h2 {
-    font-size: 95px;
-    font-weight: 200;
-    animation: blink-animation 2s steps(5, start) infinite;
-    -webkit-animation: blink-animation 2s steps(5, start) infinite;
-    color: var(--color-white);
-    text-shadow: var(--theme-default-main-ContactNeonTitle);
+    @include mobile {
+      font-size: 55px;
+      font-weight: 200;
+      animation: blink-animation 2s steps(5, start) infinite;
+      -webkit-animation: blink-animation 2s steps(5, start) infinite;
+      color: var(--color-white);
+      text-shadow: var(--theme-default-main-ContactNeonTitle);
+      text-align: center;
+    }
+    @include descktop {
+      font-size: 95px;
+    }
+    
   }
 
   .contacts-link {
-    font-size: 25px;
-    color: var(--color-white);
-    padding-bottom: 30px;
-    color: transparent;
-    text-shadow: var( --theme-default-main-ContactNeonText);
+    @include mobile {
+      font-size: 21px;
+      color: var(--color-white);
+      padding-bottom: 15px;
+      color: transparent;
+      text-shadow: var(--theme-default-main-ContactNeonText);
+      cursor: pointer;
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+    }
 
+    @include descktop{
+      text-align: left;
+      font-size: 25px;
+      padding-bottom: 30px;
+    }
     &:hover {
       animation: blink-animation 0.375s steps(5, start) infinite;
       -webkit-animation: blink-animation 0.375s steps(5, start) infinite;
@@ -61,6 +103,7 @@
     visibility: hidden;
   }
 }
+
 @-webkit-keyframes blink-animation {
   to {
     visibility: hidden;
@@ -74,14 +117,20 @@
   .phoneSvg {
 
     svg {
-      display: block;
-      width: 135px;
+      @include mobile{
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+        padding-bottom: 25px;
+      }
+      @include descktop {
+        width: 135px;
+      }
+      
 
-      .svg-dro-shadow{
-        filter: 
-        drop-shadow(0 0 0.3px var(--theme-default-main-ContactSvg))
-        drop-shadow(0 0 1px var(--theme-default-main-ContactSvg))
-        drop-shadow(0 0 1.3px var(--theme-default-main-ContactSvg));
+      .svg-dro-shadow {
+        filter:
+          drop-shadow(0 0 0.3px var(--theme-default-main-ContactSvg)) drop-shadow(0 0 1px var(--theme-default-main-ContactSvg)) drop-shadow(0 0 1.3px var(--theme-default-main-ContactSvg));
       }
     }
   }
@@ -111,37 +160,47 @@
       background-color: transparent;
       color: transparent;
       font-weight: 200;
-      text-shadow: var( --theme-default-main-ContactNeonText);
+      text-shadow: var(--theme-default-main-ContactNeonText);
       box-shadow: var(--theme-default-main-ContactNeonBox);
-      
-        &:focus,
-        &:hover {
-          animation: blink-animation 1.25s steps(5, start) infinite;
-          -webkit-animation: blink-animation 1.25s steps(5, start) infinite;
-        }
+
+      &:focus,
+      &:hover {
+        animation: blink-animation 1.25s steps(5, start) infinite;
+        -webkit-animation: blink-animation 1.25s steps(5, start) infinite;
+      }
     }
   }
 }
 
 .map-container {
+  padding-top: 25px;
   flex-grow: 2;
   height: 300px;
   border-radius: 8px;
-  
-    iframe{
+
+  iframe {
+    @include mobile {
+      width: 300px;
+      height: 300px;
       display: block;
-      min-width: 780px;
-      height:300px;
-      margin: 0 auto; 
+      margin: 0 auto;
       border-radius: 33px;
       box-shadow: var(--theme-default-main-ContactNeonBox);
     }
+    @include descktop {
+      min-width: 780px;
+      height: 300px;
+    }
+    
+  }
 }
+
 @keyframes blink-animation {
   to {
     visibility: hidden;
   }
 }
+
 @-webkit-keyframes blink-animation {
   to {
     visibility: hidden;

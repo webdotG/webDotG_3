@@ -27,7 +27,7 @@
   a {
     color: var(--color-black);
     @include mobile {
-      font-size: 35px;
+      font-size: 25px;
     }
     @include descktop {
       font-size: 40px;

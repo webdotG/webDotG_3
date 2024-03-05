@@ -511,7 +511,7 @@
     @include descktop {
       width: 250px;
       height: 250px;
-      margin-left: 35px;
+      // margin-left: 35px;
     }
 
   }
@@ -542,6 +542,7 @@
     @include descktop {
       width: 350px;
       height: 250px;
+      margin-left: -40px;
     }
   }
 }

@@ -1,3 +1,5 @@
+@import '../../variablesBase.scss';
+
 .sideBar {
   display: flex;
   flex-direction: column;
@@ -8,13 +10,19 @@
   z-index: 10;
 
   .backGround {
-    width: 342px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background-color: var(--color-white);
-    opacity: 0.95;
+    @include mobile {
+      width: 200px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: var(--color-white);
+      opacity: 0.95;  
+    }
+    @include descktop {
+      width: 342px;
+    }
+   
   }
 
   button {

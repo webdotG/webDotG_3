@@ -18,7 +18,7 @@ function HomePage() {
       <Paralax type={'portfolio'} />
       <MainPortfolio />
       <MainAbout />
-      {/* <MainContact /> */}
+      <MainContact />
       {/* <ParalaxZoom /> */}
       {/* <MainFeedback /> */}
     </div>
