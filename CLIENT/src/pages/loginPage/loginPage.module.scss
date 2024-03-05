@@ -85,7 +85,7 @@
       width: 36px;
       height: 36px;
       fill: var( --color-light-gray);
-      
+      stroke: var( --color-light-gray);
     }
   }
 
@@ -108,7 +108,7 @@
     &:focus,
     &:hover,
     &:active{
-      background: var(-color-light-gray);
+      background: var(--color-light-gray);
       color: var(--color-dark-gray);     
     }
   }
@@ -128,5 +128,12 @@
     font-size: 21px;
     border-radius: 8px;
     letter-spacing: 0.25px;
+
+    &:focus,
+    &:hover,
+    &:active{
+      background: var(--color-light-gray);
+      color: var(--color-dark-gray);     
+    }
   }
 }
