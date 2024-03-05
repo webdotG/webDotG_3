@@ -1,14 +1,19 @@
 @media screen and (min-width: 320px) {
 
+  .register-page{
+    height: 100vh;
+    background: var(--theme-default-main-titleBack);
+  }
+
   .registration-form-container{
-    background-color: #393e46;
+    background-image: url(../../img/stars.png) ;
   }
 
   .register-form-title{
     text-align: center;
     padding-top: 25px;
-    font-size: 28px;
-    color: #eeeeee;
+    font-size: 35px;
+    color: var(--color-light-gray);
     font-weight: 300;
   }
 
@@ -27,35 +32,39 @@
 
   .email-wrapper,
   .password-wrapper {
+    margin-bottom: 35px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
   }
 
   .email-label,
   .password-label {
-    font-size: 18px;
+    font-size: 21px;
     padding-bottom: 10px;
     padding-left: 35px;
-    color: #eeeeee;
+    color: var(--color-light-gray);
   }
 
   .email-input,
   .password-input {
     width: 230px;
     margin: 0 auto;
-    padding: 7px 10px;
+    padding: 10px 10px;
     font-size: 16px;
     border-radius: 8px;
-    border: #00ADB5 2px solid;
+    border: 2px solid transparent;
+    box-shadow: var(--theme-default-main-ContactNeonBox);
     outline: none;
+    background: transparent;
+    color: var(--color-white);
+    font-size: 21px;
   }
 
   .error-message {
-    padding-top: 5px;
+    padding-top: 8px;
     padding-left: 36px;
     font-size: 14px;
-    color: tomato;
+    color: var(--color-white);
   }
 
   .password-input_wrapper {
@@ -67,16 +76,24 @@
     width: 40px;
     height: 40px;
     position: absolute;
-    right: 0;
-    bottom: -4px;
+    right: 4px;
+    bottom: 3px;
     border: none;
     background-color: transparent;
+
+    svg{
+      width: 36px;
+      height: 36px;
+      fill: var( --color-light-gray);
+      stroke: var( --color-light-gray);
+    }
   }
 
   
   .submit-button{
-    width: 280px;
+    width: 300px;
     margin: 0 auto;
+    margin-top: 35px;
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 19px;
@@ -84,16 +101,16 @@
     text-transform: uppercase;
     font-weight: 200;
     border-radius: 8px;
-    border: #00ADB5 2px solid;
-    color: #eeeeee;
+    box-shadow: var(--theme-default-main-ContactNeonBox);
+    color: var(--color-light-gray);
     background-color: transparent;
     outline: none;
 
     &:focus,
     &:hover,
     &:active{
-      background-color: #eeeeee;
-      color: #393e46;     
+      background: var(--color-light-gray);
+      color: var(--color-dark-gray);     
     }
   }
 }
