@@ -4,7 +4,7 @@ import BatmanKenny from '../../img/sliderPhotoBack/Batman_Kenny.png'
 import PrincesseKenny from '../../img/sliderPhotoBack/Princess_Kenny.png'
 import MysterionKenny from '../../img/sliderPhotoBack/Mysterion_Kenny.png'
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const slide1 = () => (
