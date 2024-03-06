@@ -85,7 +85,7 @@ const variants5 = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: 0.75,
+      delay: 0.6,
       duration: 0.25,
       staggerChildren: 0.1,
     },
