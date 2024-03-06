@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const variants = {
   initial: {
     x: 0,
-    y: -500,
+    y: -50,
     opacity: 0,
   },
   animate: {
@@ -13,7 +13,7 @@ const variants = {
     opacity: 1,
     transition: {
       delay: 0.25,
-      duration: 0.25,
+      duration: 0.5,
       staggerChildren: 0.1,
     },
   },
@@ -22,7 +22,7 @@ const variants = {
 const variants2 = {
   initial: {
     x: 0,
-    y: -500,
+    y: -50,
     opacity: 0,
   },
   animate: {
@@ -30,7 +30,7 @@ const variants2 = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: 0.5,
+      delay: 0.55,
       duration: 0.5,
       staggerChildren: 0.1,
     },
@@ -40,7 +40,44 @@ const variants2 = {
 const variants3 = {
   initial: {
     x: 0,
-    y: -500,
+    y: -50,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.25,
+      duration: 0.5,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const variants4 = {
+  initial: {
+    x: 0,
+    y: -50,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 1,
+      duration: 0.5,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+
+const variants5 = {
+  initial: {
+    x: 0,
+    y: -5,
     opacity: 0,
   },
   animate: {
@@ -49,25 +86,7 @@ const variants3 = {
     opacity: 1,
     transition: {
       delay: 0.75,
-      duration: 0.75,
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const variants5 = {
-  initial: {
-    x: 0,
-    y: -500,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    y: 0,
-    opacity: 1.25,
-    transition: {
-      delay: 1.25,
-      duration: 1,
+      duration: 0.25,
       staggerChildren: 0.1,
     },
   },
@@ -84,6 +103,7 @@ export default function ForCoders() {
             variants={variants}
             initial='initial'
             whileInView='animate'
+            // animate='animate'
           >
             <li className={style['zadrot-list-item']}>
               <svg width="50px" height="50px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -133,6 +153,7 @@ export default function ForCoders() {
             variants={variants2}
             initial='initial'
             whileInView='animate'
+            // animate='animate'
           >
             <li className={style['zadrot-list-item']}>
               <svg width="50px" height="50px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -194,6 +215,7 @@ export default function ForCoders() {
             variants={variants3}
             initial='initial'
             whileInView='animate'
+            // animate='animate'
           >
             <li className={style['zadrot-list-item']}>
               <svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
@@ -247,9 +269,10 @@ export default function ForCoders() {
           </motion.ul>
           <div className={style['zadrot-list-block']}>
             <motion.ul className={style['zadrot-list-prog']}
-              variants={variants3}
+              variants={variants4}
               initial='initial'
               whileInView='animate'
+              // animate='animate'
             >
               <li className={style['zadrot-list-item']}>
                 <svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
@@ -318,6 +341,7 @@ export default function ForCoders() {
               variants={variants5}
               initial='initial'
               whileInView='animate'
+              // animate='animate'
             >
               <li className={style['zadrot-list-item']}>
                 <svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
