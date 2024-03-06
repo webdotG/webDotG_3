@@ -4,6 +4,25 @@ import style from './portfolioPage.module.scss'
 import sixSities from '../../img/six.jpg'
 import Rental from '../../img/rental.jpg'
 import Git from '../../img/git.jpg'
+import {motion } from 'framer-motion'
+
+const variants = {
+  initial: {
+    x: 0,
+    y: -50,
+    opacity: 0
+  },
+  animate: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1.25,
+      staggerChildren: 0.25,
+    }
+  },
+
+}
 
 function PortfolioPage() {
 
@@ -12,7 +31,12 @@ function PortfolioPage() {
       <section className={style['portfolio-page-wrapper']}>
         <ForCoders />
         <div className={style["portfolio"]}>
-          <ul className={style["portfolio-list"]}>
+          <motion.ul className={style["portfolio-list"]}
+            variants={variants}
+            initial='initial'
+            // whileInView='animate'
+            animate='animate'
+          >
 
             <li className={style["portfolio-item"]}>
               <h3 className={style["portfolio-item-title"]}>G/ Booking</h3>
@@ -81,7 +105,7 @@ function PortfolioPage() {
                 href='https://webdotg.github.io/favorite_add/'>открыть проект</a>
             </li>
 
-          </ul>
+          </motion.ul>
         </div>
       </section>
     </>

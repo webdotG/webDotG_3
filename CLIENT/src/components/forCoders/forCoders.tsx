@@ -30,7 +30,7 @@ const variants2 = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: 0.55,
+      delay: 0.5,
       duration: 0.5,
       staggerChildren: 0.1,
     },
@@ -48,7 +48,7 @@ const variants3 = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: 0.25,
+      delay: 0.75,
       duration: 0.5,
       staggerChildren: 0.1,
     },
@@ -73,7 +73,6 @@ const variants4 = {
   },
 };
 
-
 const variants5 = {
   initial: {
     x: 0,
@@ -85,8 +84,8 @@ const variants5 = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: 0.6,
-      duration: 0.25,
+      delay: 1.25,
+      duration: 0.5,
       staggerChildren: 0.1,
     },
   },
