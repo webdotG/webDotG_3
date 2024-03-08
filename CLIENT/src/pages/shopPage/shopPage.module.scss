@@ -1,20 +1,26 @@
 @media (min-width:320px) {
 
+  .shop-page{
+    min-height: 100vh;
+    background: var(--theme-default-main-titleBack);
+  }
+
   .form-wrapper {
     width: 320px;
     min-height: 900px;
     margin: 0 auto;
     padding-bottom: 35px;
+    background-image: url(../../img/stars.png) ;
   }
 
   .form-title {
-    padding-top: 25px;
-    padding-bottom: 15px;
     text-align: center;
-    font-size: 21px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 35px;
+    color: var(--color-light-gray);
     font-weight: 300;
     text-transform: uppercase;
-    color: #eeeeee;
   }
 
   .first-radio-wrapper,
@@ -23,6 +29,8 @@
   .first-telegram-wrapper,
   .first-app-wrapper {
     width: 320px;
+    min-height: 225px;
+    gap: 25px;
     padding-top: 25px;
     padding-bottom: 25px;
     display: flex;
@@ -35,7 +43,7 @@
       width: 190px;
       height: 2px;
       border-radius: 8px;
-      background-color: #00ADB5;
+      background: var(--theme-default-header-social);
       position: absolute;
       left: 68px;
       bottom: 0;
@@ -53,13 +61,14 @@
   checkbox {
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 20px;
+    padding-left: 25px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: flex-end;
-    font-size: 18px;
-    color: #eeeeee;
+    font-size: 23px;
+    letter-spacing: 0.25px;
+    color: var(--color-light-gray);
 
     .custom-check {
       // margin-top: 25px;
@@ -71,16 +80,16 @@
   .radio+.custom-check,
   .checkbox+.custom-check {
     display: block;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     background-image: url(../../svg/icon_heart_non_check.svg);
   }
 
   .radio:checked+.custom-check,
   .checkbox:checked+.custom-check {
     display: block;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     background-image: url(../../svg/icon_heart_check.svg);
   }
 
@@ -108,18 +117,19 @@
 
   .total-select {
     padding-top: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 35px;
     padding-left: 10px;
-    font-size: 18px;
-    color: #eeeeee;
-    line-height: 25px;
+    font-size: 28px;
+    color: var(--color-light-gray);
+    line-height: 35px;
     letter-spacing: 0.3px;
+    font-weight: 300;
   }
 
   .total-select-text {
     line-height: 23px;
     text-align: left;
-    font-size: 16px;
+    font-size: 18px;
     color: #00ADB5;
   }
 
@@ -129,7 +139,7 @@
 
   .selected-item {
     padding-top: 10px;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .total-price {
@@ -137,29 +147,31 @@
     padding-bottom: 30px;
     padding-left: 10px;
     text-align: left;
-    font-size: 16px;
-    color: #eeeeee;
+    font-size: 21px;
+    color: var(--color-light-gray);
     text-transform: uppercase;
   }
 
   .form-submit {
     display: block;
-    width: 200px;
+    width: 280px;
     margin: 0 auto;
+    margin-top: 25px;
     padding: 7px 12px;
     letter-spacing: 0.3px;
     font-size: 18px;
-    color: #eeeeee;
+    color: var(--color-light-gray);
     background-color: transparent;
-    border: #00ADB5 2px solid;
-    border-radius: 8px;
-    outline: none;
+    box-shadow: var(--theme-default-main-ContactNeonBox);
+    border-radius: 6px;
+    color: var(--color-light-gray);
+    font-size: 21px;
 
     &:focus,
     &:hover,
-    &:active {
-      background-color: #eeeeee;
-      color: #393e46;
+    &:active{
+      background: var(--color-light-gray);
+      color: var(--color-dark-gray);     
     }
   }
 
