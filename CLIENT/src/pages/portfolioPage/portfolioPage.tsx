@@ -6,19 +6,7 @@ import Rental from '../../img/rental.jpg'
 import Git from '../../img/git.jpg'
 import {motion } from 'framer-motion'
 
-const variants = {
-  initial: {
-    opacity: 0
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      delay:0.5,
-      duration: 1,
-      staggerChildren: 0.25,
-    }
-  },
-}
+
 const variants2 = {
   initial: {
     x: 0,
