@@ -8,13 +8,9 @@ import {motion } from 'framer-motion'
 
 const variants = {
   initial: {
-    x: 0,
-    y: -5,
     opacity: 0
   },
   animate: {
-    x: 0,
-    y: 0,
     opacity: 1,
     transition: {
       delay:0.5,
@@ -26,7 +22,7 @@ const variants = {
 const variants2 = {
   initial: {
     x: 0,
-    y: 500,
+    y: 50,
     opacity: 0
   },
   animate: {
@@ -34,7 +30,7 @@ const variants2 = {
     y: 0,
     opacity: 1,
     transition: {
-      delay:0.75,
+      delay:0.5,
       duration: 1,
       staggerChildren: 0.25,
     }
@@ -49,16 +45,13 @@ function PortfolioPage() {
         <ForCoders />
         <div className={style["portfolio"]}>
           <motion.ul className={style["portfolio-list"]}
-            variants={variants}
-            initial='initial'
-            whileInView='animate'
+          
           >
 
             <motion.li className={style["portfolio-item"]}
-              variants={variants}
+              variants={variants2}
               initial='initial'
               whileInView='animate'
-              // animate='animate'
             >
               <h3 className={style["portfolio-item-title"]}>G/ Booking</h3>
               <img src={sixSities} className={style['portfolio-item-img']} width='250px' height='150px' alt='six sities' />
@@ -92,7 +85,6 @@ function PortfolioPage() {
              variants={variants2}
              initial='initial'
              whileInView='animate'
-            //  animate='animate'
             className={style["portfolio-item"]}>
               <h3 className={style["portfolio-item-title"]}>G/ Rental</h3>
               <img src={Rental} className={style['portfolio-item-img']} width='250px' height='150px' alt='six sities' />
@@ -113,7 +105,11 @@ function PortfolioPage() {
                 href='https://webdotg.github.io/Rental/'>открыть проект</a>
             </motion.li>
 
-            <li className={style["portfolio-item"]}>
+            <motion.li 
+            variants={variants2}
+            initial='initial'
+            whileInView='animate'
+            className={style["portfolio-item"]}>
               <h3 className={style["portfolio-item-title"]}>G/ GitHub search</h3>
               <img src={Git} className={style['portfolio-item-img']} width='250px' height='150px' alt='six sities' />
               <p className={style["portfolio-item-about"]}>Поиск репозиториев на GitHub</p>
@@ -129,7 +125,7 @@ function PortfolioPage() {
               </ul>
               <a className={style['task-link']}
                 href='https://webdotg.github.io/favorite_add/'>открыть проект</a>
-            </li>
+            </motion.li>
 
           </motion.ul>
         </div>
