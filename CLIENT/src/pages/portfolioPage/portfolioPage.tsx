@@ -9,7 +9,7 @@ import {motion } from 'framer-motion'
 const variants = {
   initial: {
     x: 0,
-    y: -50,
+    y: -5,
     opacity: 0
   },
   animate: {
@@ -17,11 +17,28 @@ const variants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 1.25,
+      delay:0.5,
+      duration: 1,
       staggerChildren: 0.25,
     }
   },
-
+}
+const variants2 = {
+  initial: {
+    x: 0,
+    y: 500,
+    opacity: 0
+  },
+  animate: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay:0.75,
+      duration: 1,
+      staggerChildren: 0.25,
+    }
+  },
 }
 
 function PortfolioPage() {
@@ -34,11 +51,15 @@ function PortfolioPage() {
           <motion.ul className={style["portfolio-list"]}
             variants={variants}
             initial='initial'
-            // whileInView='animate'
-            animate='animate'
+            whileInView='animate'
           >
 
-            <li className={style["portfolio-item"]}>
+            <motion.li className={style["portfolio-item"]}
+              variants={variants}
+              initial='initial'
+              whileInView='animate'
+              // animate='animate'
+            >
               <h3 className={style["portfolio-item-title"]}>G/ Booking</h3>
               <img src={sixSities} className={style['portfolio-item-img']} width='250px' height='150px' alt='six sities' />
               <p className={style["portfolio-item-about"]}>Сайт бронирования отелей</p>
@@ -65,9 +86,14 @@ function PortfolioPage() {
               </ul>
               <a className={style['task-link']}
                 href='https://webdotg.github.io/six_citise'>открыть проект</a>
-            </li>
+            </motion.li>
 
-            <li className={style["portfolio-item"]}>
+            <motion.li
+             variants={variants2}
+             initial='initial'
+             whileInView='animate'
+            //  animate='animate'
+            className={style["portfolio-item"]}>
               <h3 className={style["portfolio-item-title"]}>G/ Rental</h3>
               <img src={Rental} className={style['portfolio-item-img']} width='250px' height='150px' alt='six sities' />
               <p className={style["portfolio-item-about"]}>Сайт аренды строительной техники</p>
@@ -85,7 +111,7 @@ function PortfolioPage() {
               </ul>
               <a className={style['task-link']}
                 href='https://webdotg.github.io/Rental/'>открыть проект</a>
-            </li>
+            </motion.li>
 
             <li className={style["portfolio-item"]}>
               <h3 className={style["portfolio-item-title"]}>G/ GitHub search</h3>

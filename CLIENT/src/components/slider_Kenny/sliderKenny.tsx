@@ -4,7 +4,7 @@ import BatmanKenny from '../../img/sliderPhotoBack/Batman_Kenny.png'
 import PrincesseKenny from '../../img/sliderPhotoBack/Princess_Kenny.png'
 import MysterionKenny from '../../img/sliderPhotoBack/Mysterion_Kenny.png'
 import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const slide1 = () => (
@@ -97,24 +97,24 @@ export default function SliderKenny() {
     setCurrentSlide(index);
   };
 
-  // const startSlideShow = () => {
-  //   return setInterval(() => {
-  //     nextSlide();
-  //   }, 15500);
-  // };
+  const startSlideShow = () => {
+    return setInterval(() => {
+      nextSlide();
+    }, 15500);
+  };
 
-  // useEffect(() => {
-  //   const intervalId = startSlideShow();
+  useEffect(() => {
+    const intervalId = startSlideShow();
 
-  //   return () => {
-  //     clearInterval(intervalId);
-  //   };
-  // }, []);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
 
   return (
     <section className={style['sliderKenny-wrapper']} >
-
+<div className={style['sliderKenny-background-star']}>
       <div className={style['sliderKenny']}>
 
         <button className={style['slider-btn--prev']}
@@ -189,6 +189,7 @@ export default function SliderKenny() {
         </button>
 
         <section className={style['slider-pagination']}>
+          
           {slides.map((_, index) => (
             <svg
               key={`slide-${index}`}
@@ -209,6 +210,7 @@ export default function SliderKenny() {
           ))}
         </section>
 
+      </div>
       </div>
     </section>
   )

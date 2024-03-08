@@ -3,17 +3,21 @@
 .display-none {
   display: none;
 }
-
 .sliderKenny-wrapper {
   width: 100%;
   background: var(--theme-default-main-titleBack);
   
 }
 
+
+.sliderKenny-background-star{
+  width: 100%;
+  background-image: url('../../img/stars.png');
+}
+
 .sliderKenny {
   padding-top: 12px;
   padding-bottom: 50px;
-  background-image: url('../../img/stars.png');
   position: relative;
 
   @include mobile {
