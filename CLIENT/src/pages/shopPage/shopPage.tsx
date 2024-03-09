@@ -24,6 +24,45 @@ const PRICE = [
   { id: 16, name: 'Срочно!', price: 16 },
 ]
 
+
+const variants = {
+  initial: {
+    x: 0,
+    y: 5,
+    opacity: 0
+  },
+  animate: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.25,
+      duration: 1.25,
+      staggerChildren: 0.25,
+    }
+  },
+
+}
+
+const variantsText = {
+  initial: {
+    x: 0,
+    y: 0,
+    opacity: 0
+  },
+  animate: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.25,
+      duration: 1.25,
+      staggerChildren: 0.25,
+    }
+  },
+}
+
+
 export default function ShopPage() {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
@@ -43,11 +82,15 @@ export default function ShopPage() {
   console.log(selectedItems2)
   const [showSelectItemMessage, setShowSelectItemMessage] = useState(false);
 
+  const [selectedTemplate, setSelectedTemplate] = useState<string | null>(null);
+
   const handleChangeFirsRadio = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
+      setSelectedTemplate(id);
       setSelectedItems([id]);
     } else {
+      setSelectedTemplate(null);
       setSelectedItems([]);
     }
     setShowSecondeRadio(true)
@@ -180,25 +223,6 @@ export default function ShopPage() {
     navigate('/confirmation')
   };
 
-  const variants = {
-    initial: {
-      x: 0,
-      y: 5,
-      opacity: 0
-    },
-    animate: {
-      x: 0,
-      y: 0,
-      opacity: 1,
-      transition: {
-        delay: 0.25,
-        duration: 1.25,
-        staggerChildren: 0.25,
-      }
-    },
-  
-  }
-  
 
   return (
     <>
@@ -212,12 +236,12 @@ export default function ShopPage() {
             onSubmit={handleSubmit}
           >
             {showFirstRadio && (
-              <motion.div 
-              // ref={ref}
-              variants={variants}
-              initial='initial'
-              animate='animate'
-              className={style['first-radio-wrapper']}>
+              <motion.div
+                // ref={ref}
+                variants={variants}
+                initial='initial'
+                animate='animate'
+                className={style['first-radio-wrapper']}>
                 <span className={style['first-wrapper']}>
                 </span>
                 <span className={style['first-wrapper']}>
@@ -247,11 +271,11 @@ export default function ShopPage() {
               </motion.div>
             )}
             {showSecondeRadio && (
-              <motion.div 
-              variants={variants}
-              initial='initial'
-              animate='animate'
-              className={style['seconde-radio-wrapper']}>
+              <motion.div
+                variants={variants}
+                initial='initial'
+                animate='animate'
+                className={style['seconde-radio-wrapper']}>
                 <span className={style['first-wrapper']}>
                   <label className={style['label']} >сайты
                     <input className={style['radio']}
@@ -294,11 +318,11 @@ export default function ShopPage() {
               </motion.div>
             )}
             {showSite && (
-              <motion.div 
-              variants={variants}
-              initial='initial'
-              animate='animate'
-              className={style['first-site-wrapper']}>
+              <motion.div
+                variants={variants}
+                initial='initial'
+                animate='animate'
+                className={style['first-site-wrapper']}>
                 <span className={style['first-wrapper']}>
                   <label>лендинг
                     <input className={style['radio']}
@@ -341,11 +365,11 @@ export default function ShopPage() {
               </motion.div>
             )}
             {showTelegram && (
-              <motion.div 
-              variants={variants}
-              initial='initial'
-              animate='animate'
-              className={style['first-telegram-wrapper']}>
+              <motion.div
+                variants={variants}
+                initial='initial'
+                animate='animate'
+                className={style['first-telegram-wrapper']}>
                 <span className={style['first-wrapper']}>
                   <label>чат бот
                     <input className={style['radio']}
@@ -375,11 +399,11 @@ export default function ShopPage() {
               </motion.div>
             )}
             {showApp && (
-              <motion.div 
-              variants={variants}
-              initial='initial'
-              animate='animate'
-              className={style['first-app-wrapper']}>
+              <motion.div
+                variants={variants}
+                initial='initial'
+                animate='animate'
+                className={style['first-app-wrapper']}>
                 <span className={style['first-wrapper']}>
                   <label>IOS & Android
                     <input className={style['radio']}
@@ -407,11 +431,11 @@ export default function ShopPage() {
               </motion.div>
             )}
             {showAdditional && (
-              <motion.div 
-              variants={variants}
-              initial='initial'
-              animate='animate'
-              className={style['additional-wrapper']}>
+              <motion.div
+                variants={variants}
+                initial='initial'
+                animate='animate'
+                className={style['additional-wrapper']}>
                 <span className={style['addit-check-wrapper']}>
                   <label className={style['additional-check1']}>графику от иллюстратора
                     <input className={style['checkbox']}
@@ -488,7 +512,7 @@ export default function ShopPage() {
                 // disabled={!showAdditional}
                 onClick={(event) => {
                   if (!showAdditional) {
-                    event.preventDefault();          
+                    event.preventDefault();
                     setShowSelectItemMessage(true);
                   }
                 }}
@@ -505,9 +529,194 @@ export default function ShopPage() {
         </div>
 
         <div className={style['text-wrapper']}>
-      
-      </div>
 
+          <div className={style['first-radio-wrapper___text']}>
+            {selectedTemplate === '1' && (
+              <motion.div className={`${style['text-item-base']} ${style['display-block']}`}
+                variants={variantsText}
+                initial='initial'
+                animate='animate'
+              >
+                <h4 className={style['text-title']}>
+                  Шаблонный:
+                </h4>
+                <p className={style['text-paragraph']}>
+                  В работе с шаблонами, используются заранее созданные дизайн-макеты и структуры страниц.<br />
+                  Это быстрый и эффективный способ создания продукта, подходящий для проектов с ограниченным бюджетом и короткими сроками.
+                </p>
+              </motion.div>
+            )}
+            {selectedTemplate === '2' && (
+              <motion.div className={`${style['text-item-indi']} ${style['display-block']}`}
+                variants={variantsText}
+                initial='initial'
+                animate='animate'
+              >
+                <h4 className={style['text-title']}>
+                  Индивидуальный:
+                </h4>
+                <p className={style['text-paragraph']}>
+                  Индивидуальный дизайн это более творческий и уникальный подход.<br />
+                  Всё, от цветовой палитры и до элементов интерфейса, разрабатывается с учетом конкретных требований.<br />
+                  Этот метод для тех, кто стремится к уникальности и соответствию корпоративному стилю и бренду.
+                </p>
+              </motion.div>
+            )}
+          </div>
+
+          <div className={style['seconde-radio-wrapper___text']}>
+
+            {selectedItems2.map(id => (
+              <motion.div
+                key={id}
+                className={`${style['text-item']} ${style['display-block']}`}
+                variants={variantsText}
+                initial='initial'
+                animate='animate'
+              >
+                {id === '3' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      Сайты:
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      классика
+                    </p>
+                  </>
+                )}
+                {id === '4' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      Боты:
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      удобвство
+                    </p>
+                  </>
+                )}
+                {id === '5' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      Приложения:
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      если нужен встроенный функционал телефона
+                    </p>
+                  </>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          <div className={style['therd-radio-wrapper___text']}>
+
+            {selectedItems3.map(id => (
+              <motion.div
+                key={id}
+                className={`${style['text-item']} ${style['display-block']}`}
+                variants={variantsText}
+                initial='initial'
+                animate='animate'
+              >
+                {id === '6' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      Лендинг:
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      1 стр
+                    </p>
+                  </>
+                )}
+                {id === '7' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      многостраничный
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      3-5стр
+                    </p>
+                  </>
+                )}
+                {id === '8' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      магазин:
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      7 + стр
+                    </p>
+                  </>
+                )}
+              </motion.div>
+            ))}
+
+            {selectedItems4.map(id => (
+              <motion.div
+                key={id}
+                className={`${style['text-item']} ${style['display-block']}`}
+                variants={variantsText}
+                initial='initial'
+                animate='animate'
+              >
+                {id === '9' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      чат бот:
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      чат
+                    </p>
+                  </>
+                )}
+                {id === '10' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      магазин бот
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      магазин
+                    </p>
+                  </>
+                )}
+              </motion.div>
+            ))}
+
+            {selectedItems5.map(id => (
+              <motion.div
+                key={id}
+                className={`${style['text-item']} ${style['display-block']}`}
+                variants={variantsText}
+                initial='initial'
+                animate='animate'
+              >
+                {id === '11' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      IOS ANDROID:
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      приложения
+                    </p>
+                  </>
+                )}
+                {id === '12' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      VK
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      приложение
+                    </p>
+                  </>
+                )}
+              </motion.div>
+            ))}
+
+
+          </div>
+
+        </div>
       </section>
     </>
   )

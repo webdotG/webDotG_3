@@ -18,7 +18,6 @@ const variants = {
       staggerChildren: 0.25,
     }
   },
-
 }
 
 export default function MainAbout() {

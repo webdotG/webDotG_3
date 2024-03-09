@@ -37,7 +37,7 @@
   .first-telegram-wrapper,
   .first-app-wrapper {
     width: 320px;
-    min-height: 225px;
+    min-height: 255px;
     gap: 25px;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -195,6 +195,78 @@
     flex-direction: column;
     background: transparent;
     background-image: url(../../img/stars.png);
+    color: var(--color-light-gray);
+
+    .text-item,
+    .text-item-base,
+    .text-item-indi {
+      width: 450px;
+      margin: 0 auto;
+      padding-top: 70px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .text-item-indi {
+      padding-top: 35px;
+    }
+
+    .text-item-base,
+    .text-item-indi {
+      display: none;
+    }
+
+    .display-block {
+      display: flex;
+    }
+
+
+    .text-title {
+      text-align: center;
+      font-weight: 300;
+      text-transform: uppercase;
+      font-size: 33px;
+      padding-bottom: 25px;
+    }
+
+    .text-paragraph {
+      min-height: 255px;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 19px;
+      line-height: 25px;
+      letter-spacing: 0.25px;
+      text-align: center;
+    }
+
+    .seconde-radio-wrapper___text {
+      .text-title {
+        padding-top: 35px;
+      }
+
+      .text-item {
+        padding-top: 33px;
+      }
+
+      .text-paragraph {
+        min-height: 177px;
+      }
+    }
+
+    .therd-radio-wrapper___text {
+      .text-title {
+        padding-top: 0;
+      }
+
+      .text-item {
+        padding-top: 33px;
+      }
+    }
+
+    .text-paragraph {
+      min-height: 155px;
+    }
+
   }
 
   .form-title {
@@ -202,7 +274,7 @@
     padding-top: 30px;
     padding-left: 50px;
     font-size: 42px;
-   
+
   }
 
   .form-wrapper {
@@ -225,7 +297,7 @@
     background-position: center;
   }
 
-  .additional-wrapper{
+  .additional-wrapper {
     padding-left: 0;
   }
 

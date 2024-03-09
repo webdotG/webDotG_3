@@ -45,15 +45,14 @@
   }
 
   hr {
-    border-top: 0.5px solid var(--theme-default-main-aboutItemText);
-
     @include mobile {
       width: 80px;
+      border-top: 0.5px solid var(--theme-default-main-aboutItemText);
     }
 
     @include descktop {
       width: 260px;
-      border: none;
+      border-top: 0.5px solid var(--color-light-gray);
     }
 
   }
