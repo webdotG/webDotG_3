@@ -100,6 +100,9 @@ export default function ShopPage() {
     const { id, checked } = event.target;
     if (checked) {
       setSelectedItems2([id]);
+      setSelectedItems3([]);
+      setSelectedItems4([]);
+      setSelectedItems5([]);
       if (id === '3') {
         setShowSite(true);
       } else {
@@ -120,6 +123,9 @@ export default function ShopPage() {
     }
   };
 
+
+
+
   const handleChangeSite = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
@@ -127,7 +133,7 @@ export default function ShopPage() {
     } else {
       setSelectedItems3([]);
     }
-    setShowAdditional(true)
+    setShowAdditional(checked); // Показывать/скрывать дополнительные блоки в зависимости от выбранности
   };
 
   const handleChangeTelegram = (event: ChangeEvent<HTMLInputElement>) => {
@@ -137,7 +143,7 @@ export default function ShopPage() {
     } else {
       setSelectedItems4([]);
     }
-    setShowAdditional(true)
+    setShowAdditional(checked);
   };
 
   const handleChangeApp = (event: ChangeEvent<HTMLInputElement>) => {
@@ -147,8 +153,39 @@ export default function ShopPage() {
     } else {
       setSelectedItems5([]);
     }
-    setShowAdditional(true)
+    setShowAdditional(checked);
   };
+
+
+  // const handleChangeSite = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const { id, checked } = event.target;
+  //   if (checked) {
+  //     setSelectedItems3([id]);
+  //   } else {
+  //     setSelectedItems3([]);
+  //   }
+  //   setShowAdditional(true)
+  // };
+
+  // const handleChangeTelegram = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const { id, checked } = event.target;
+  //   if (checked) {
+  //     setSelectedItems4([id]);
+  //   } else {
+  //     setSelectedItems4([]);
+  //   }
+  //   setShowAdditional(true)
+  // };
+
+  // const handleChangeApp = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const { id, checked } = event.target;
+  //   if (checked) {
+  //     setSelectedItems5([id]);
+  //   } else {
+  //     setSelectedItems5([]);
+  //   }
+  //   setShowAdditional(true)
+  // };
 
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
