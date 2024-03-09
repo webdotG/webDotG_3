@@ -1,0 +1,55 @@
+
+
+.random-pulsating-div {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  animation: moveInCircle 10s infinite linear;
+  opacity: 0.8;
+}
+
+.random-pulsating-div2 {
+  position: absolute;
+  width: 12.5px;
+  height: 12.5px;
+  border-radius: 50%;
+  animation: moveInCircle 8s infinite linear;
+  opacity: 0.8;
+}
+
+.random-pulsating-div3 {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  animation: moveInCircle 12s infinite linear;
+  opacity: 0.8;
+}
+
+.random-pulsating-div4 {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  animation: moveInCircle 15s infinite linear;
+  opacity: 0.8;
+}
+
+.random-pulsating-div5 {
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  animation: moveInCircle 10s infinite linear;
+  opacity: 0.8;
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+}

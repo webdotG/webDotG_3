@@ -534,7 +534,7 @@ export default function ShopPage() {
         </div>
 
         <div className={style['text-wrapper']}>
-          <RandomPulsatingDivs />
+          {/* <RandomPulsatingDivs /> */}
           <div className={style['first-radio-wrapper___text']}>
             {selectedTemplate === '1' && (
               <motion.div className={`${style['text-item-base']} ${style['display-block']}`}
@@ -543,11 +543,11 @@ export default function ShopPage() {
                 animate='animate'
               >
                 <h4 className={style['text-title']}>
-                  Шаблонный дизайн:
-                </h4> 
+                  Шаблон:
+                </h4>
                 <p className={style['text-paragraph']}>
-                  В работе с шаблонами, используются заранее созданные дизайн-макеты и структуры страниц.<br />
-                  Это быстрый и эффективный способ создания продукта, подходящий для проектов с ограниченным бюджетом и короткими сроками.
+                  В работе с шаблонами, используются заранее созданные дизайн-макеты и структуры.<br />
+                  Это быстрый и эффективный способ создать продукт, за небольшой бюджет и короткие сроки.
                 </p>
               </motion.div>
             )}
@@ -558,16 +558,16 @@ export default function ShopPage() {
                 animate='animate'
               >
                 <h4 className={style['text-title']}>
-                  Индивидуальный дизайн:
+                  Индивидуальный:
                 </h4>
                 <p className={style['text-paragraph']}>
-                  Индивидуальный дизайн это более творческий и уникальный подход.<br />
-                  Всё, от цветовой палитры и до элементов интерфейса, разрабатывается с учетом конкретных требований.<br />
-                  Этот метод для тех, кто стремится к уникальности и соответствию корпоративному стилю и бренду.
+                  Это более творческий подход.<br />
+                  Всё, от цветовой палитры и до элементов интерфейса,
+                  разрабатывается с учетом конкретных требований.<br />
                 </p>
               </motion.div>
             )}
-          R</div>
+            R</div>
 
           <div className={style['seconde-radio-wrapper___text']}>
             {selectedItems2.map(id => (
@@ -584,7 +584,8 @@ export default function ShopPage() {
                       Сайты:
                     </h4>
                     <p className={style['text-paragraph']}>
-                      классика
+                      Сегодня веб-пространство стало новой классикой,<br />
+                      предоставляя все возможности для комфортных покупок, обучения и развлечений. <br />
                     </p>
                   </>
                 )}
@@ -594,7 +595,8 @@ export default function ShopPage() {
                       Боты:
                     </h4>
                     <p className={style['text-paragraph']}>
-                      удобвство
+                      Telegram-боты - наши цифровые спутники,<br />
+                      предоставляющие много полезных функций.<br />
                     </p>
                   </>
                 )}
@@ -604,7 +606,7 @@ export default function ShopPage() {
                       Приложения:
                     </h4>
                     <p className={style['text-paragraph']}>
-                      если нужен встроенный функционал телефона
+                      Их ценность неоспорима, а установка оправдана, когда требуется дополнительный функционал телефона.
                     </p>
                   </>
                 )}
@@ -627,27 +629,31 @@ export default function ShopPage() {
                       Лендинг:
                     </h4>
                     <p className={style['text-paragraph']}>
-                      1 стр
+                      Одностраничный сайт,<br />
+                      для представления продукта или услуги<br />
+                      и максимально быстрого вовлечения посетителя.
                     </p>
                   </>
                 )}
                 {id === '7' && (
                   <>
                     <h4 className={style['text-title']}>
-                      многостраничный
+                      Многостраничный:
                     </h4>
                     <p className={style['text-paragraph']}>
-                      3-5стр
+                      Веб-сайт, состоящий из 3-5 страниц,<br />
+                      предоставляющий более обширную информацию о продукте, услуге или компании. <br />
                     </p>
                   </>
                 )}
                 {id === '8' && (
                   <>
                     <h4 className={style['text-title']}>
-                      магазин:
+                      Магазин:
                     </h4>
                     <p className={style['text-paragraph']}>
-                      7 + стр
+                      Онлайн-торговая платформа с более чем 7 страницами,<br />
+                      предоставляющая индивидуалные возможности для просмотра и приобретения товаров.
                     </p>
                   </>
                 )}
@@ -665,20 +671,20 @@ export default function ShopPage() {
                 {id === '9' && (
                   <>
                     <h4 className={style['text-title']}>
-                      чат бот:
+                      Чат-бот:
                     </h4>
                     <p className={style['text-paragraph']}>
-                      чат
+                      Чат-бот - это автоматизированный собеседник в мессенджере, который ведёт диалог и выполненяет различные задачи.
                     </p>
                   </>
                 )}
                 {id === '10' && (
                   <>
                     <h4 className={style['text-title']}>
-                      магазин бот
+                      Магазин-бот:
                     </h4>
                     <p className={style['text-paragraph']}>
-                      магазин
+                      Это возможность совершать покупки и получать информацию о товарах прямо в мессенджере.
                     </p>
                   </>
                 )}
@@ -696,20 +702,22 @@ export default function ShopPage() {
                 {id === '11' && (
                   <>
                     <h4 className={style['text-title']}>
-                      IOS ANDROID:
+                      iOS и Android:
                     </h4>
                     <p className={style['text-paragraph']}>
-                      приложения
+                      Приложения – дополнительная польза в телефоне,<br />
+                      чтобы удобно и весело проводить время!
                     </p>
                   </>
                 )}
                 {id === '12' && (
                   <>
                     <h4 className={style['text-title']}>
-                      VK
+                      VK:
                     </h4>
                     <p className={style['text-paragraph']}>
-                      приложение
+                      Польза в одном приложении: <br />
+                      общение, магазины, игры 
                     </p>
                   </>
                 )}
@@ -732,7 +740,7 @@ export default function ShopPage() {
                       Иллюстрации:
                     </h4>
                     <p className={style['text-paragraph']}>
-                      Настя, иллюстратор
+                      Уникальные графические работы
                     </p>
                   </>
                 )}
@@ -742,7 +750,7 @@ export default function ShopPage() {
                       Иконки:
                     </h4>
                     <p className={style['text-paragraph']}>
-                      индивидуальные иконки
+                      SVG, стиль и функциональность.
                     </p>
                   </>
                 )}
@@ -752,7 +760,7 @@ export default function ShopPage() {
                       Фотографии:
                     </h4>
                     <p className={style['text-paragraph']}>
-                      проф сбемка товара
+                      Профессиональная съемка и ретушь.
                     </p>
                   </>
                 )}
@@ -762,7 +770,7 @@ export default function ShopPage() {
                       Срочно!
                     </h4>
                     <p className={style['text-paragraph']}>
-                      нужно было ещё вчера
+                      Нужно было ещё вчера
                     </p>
                   </>
                 )}
