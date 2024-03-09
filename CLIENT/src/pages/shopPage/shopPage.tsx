@@ -4,6 +4,7 @@ import { useAppDispatch } from '../../hooks'; //, useAppSelector
 import { addToCart } from '../../slices/cart/cartSlice';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import RandomPulsatingDivs from '../../components/AnimationRandom/animationRandom';
 
 const PRICE = [
   { id: 1, name: 'Шаблон', price: 1 },
@@ -533,6 +534,7 @@ export default function ShopPage() {
         </div>
 
         <div className={style['text-wrapper']}>
+          <RandomPulsatingDivs />
           <div className={style['first-radio-wrapper___text']}>
             {selectedTemplate === '1' && (
               <motion.div className={`${style['text-item-base']} ${style['display-block']}`}
@@ -541,7 +543,7 @@ export default function ShopPage() {
                 animate='animate'
               >
                 <h4 className={style['text-title']}>
-                  Шаблонный:
+                  Шаблонный дизайн:
                 </h4>
                 <p className={style['text-paragraph']}>
                   В работе с шаблонами, используются заранее созданные дизайн-макеты и структуры страниц.<br />
@@ -556,7 +558,7 @@ export default function ShopPage() {
                 animate='animate'
               >
                 <h4 className={style['text-title']}>
-                  Индивидуальный:
+                  Индивидуальный дизайн:
                 </h4>
                 <p className={style['text-paragraph']}>
                   Индивидуальный дизайн это более творческий и уникальный подход.<br />
@@ -565,7 +567,7 @@ export default function ShopPage() {
                 </p>
               </motion.div>
             )}
-          </div>
+          R</div>
 
           <div className={style['seconde-radio-wrapper___text']}>
             {selectedItems2.map(id => (

@@ -33,7 +33,7 @@ export default function MainPortfolio() {
 
       <div className={style['wrapper']}>
         <div className={style['word']}>
-          <h3>UI</h3>
+          <h3>WEB</h3>
           <p>Мобильная и Десктопная версии  </p>
           <p>Понятный интерфейс,<br/>
            тренды дизайна,<br/>
