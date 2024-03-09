@@ -123,9 +123,6 @@ export default function ShopPage() {
     }
   };
 
-
-
-
   const handleChangeSite = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
@@ -156,36 +153,6 @@ export default function ShopPage() {
     setShowAdditional(checked);
   };
 
-
-  // const handleChangeSite = (event: ChangeEvent<HTMLInputElement>) => {
-  //   const { id, checked } = event.target;
-  //   if (checked) {
-  //     setSelectedItems3([id]);
-  //   } else {
-  //     setSelectedItems3([]);
-  //   }
-  //   setShowAdditional(true)
-  // };
-
-  // const handleChangeTelegram = (event: ChangeEvent<HTMLInputElement>) => {
-  //   const { id, checked } = event.target;
-  //   if (checked) {
-  //     setSelectedItems4([id]);
-  //   } else {
-  //     setSelectedItems4([]);
-  //   }
-  //   setShowAdditional(true)
-  // };
-
-  // const handleChangeApp = (event: ChangeEvent<HTMLInputElement>) => {
-  //   const { id, checked } = event.target;
-  //   if (checked) {
-  //     setSelectedItems5([id]);
-  //   } else {
-  //     setSelectedItems5([]);
-  //   }
-  //   setShowAdditional(true)
-  // };
 
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
@@ -566,7 +533,6 @@ export default function ShopPage() {
         </div>
 
         <div className={style['text-wrapper']}>
-
           <div className={style['first-radio-wrapper___text']}>
             {selectedTemplate === '1' && (
               <motion.div className={`${style['text-item-base']} ${style['display-block']}`}
@@ -602,7 +568,6 @@ export default function ShopPage() {
           </div>
 
           <div className={style['seconde-radio-wrapper___text']}>
-
             {selectedItems2.map(id => (
               <motion.div
                 key={id}
@@ -646,7 +611,6 @@ export default function ShopPage() {
           </div>
 
           <div className={style['therd-radio-wrapper___text']}>
-
             {selectedItems3.map(id => (
               <motion.div
                 key={id}
@@ -749,9 +713,61 @@ export default function ShopPage() {
                 )}
               </motion.div>
             ))}
-
-
           </div>
+
+          <div className={style['checkbox-items-wrapper']}>
+            {selectedItemsCheckbox.map(id => (
+              <motion.div
+                key={id}
+                className={`${style['text-item']} ${style['display-block']}`}
+                variants={variantsText}
+                initial='initial'
+                animate='animate'
+              >
+                {id === '13' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      Иллюстрации:
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      Настя, иллюстратор
+                    </p>
+                  </>
+                )}
+                {id === '14' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      Иконки:
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      индивидуальные иконки
+                    </p>
+                  </>
+                )}
+                {id === '15' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      Фотографии:
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      проф сбемка товара
+                    </p>
+                  </>
+                )}
+                {id === '16' && (
+                  <>
+                    <h4 className={style['text-title']}>
+                      Срочно!
+                    </h4>
+                    <p className={style['text-paragraph']}>
+                      нужно было ещё вчера
+                    </p>
+                  </>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
 
         </div>
       </section>
