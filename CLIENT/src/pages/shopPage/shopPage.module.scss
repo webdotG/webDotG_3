@@ -1,16 +1,24 @@
 @media (min-width:320px) {
 
-  .shop-page{
+  .shop-page {
     min-height: 100vh;
     background: var(--theme-default-main-titleBack);
   }
 
+  .text-wrapper {
+    display: none;
+  }
+
   .form-wrapper {
+    width: 100%;
+    background-image: url(../../img/stars.png);
+  }
+
+  .shop-form {
     width: 320px;
     min-height: 900px;
     margin: 0 auto;
     padding-bottom: 35px;
-    background-image: url(../../img/stars.png) ;
   }
 
   .form-title {
@@ -55,6 +63,10 @@
     appearance: none;
     -webkit-appearance: none;
     position: absolute;
+  }
+
+  .first-radio-wrapper label {
+    padding-bottom: 30px;
   }
 
   label,
@@ -116,7 +128,7 @@
   }
 
   .total-select {
-    padding-top: 25px;
+    padding-top: 69px;
     padding-bottom: 35px;
     padding-left: 10px;
     font-size: 28px;
@@ -124,13 +136,6 @@
     line-height: 35px;
     letter-spacing: 0.3px;
     font-weight: 300;
-  }
-
-  .total-select-text {
-    line-height: 23px;
-    text-align: left;
-    font-size: 18px;
-    color: #00ADB5;
   }
 
   .selected-items-list {
@@ -159,50 +164,58 @@
     margin-top: 25px;
     padding: 7px 12px;
     letter-spacing: 0.3px;
-    font-size: 18px;
+    font-size: 23px;
     color: var(--color-light-gray);
     background-color: transparent;
     box-shadow: var(--theme-default-main-ContactNeonBox);
     border-radius: 6px;
     color: var(--color-light-gray);
-    font-size: 21px;
 
     &:focus,
     &:hover,
-    &:active{
+    &:active {
       background: var(--color-light-gray);
-      color: var(--color-dark-gray);     
+      color: var(--color-dark-gray);
     }
   }
 
-  .select-item-message{
-    max-width: 260px;
-    margin: 0 auto;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    border-bottom: #00ADB5 2px solid;
-    font-size: 16px;
-    color: #eeeeee;
-    text-align: center;
-  }
 }
 
-@media (min-width:780px) { 
+@media (min-width:780px) {
 
-    .form-title{
-      padding-top: 30px;
-      font-size: 24px;
-    }
+  .shop-page {
+    display: flex;
+    padding-left: 50px;
+    padding-right: 10px;
+  }
 
-    .form-wrapper{
-      width: 400px;
-      margin: 0;
-    }
+  .text-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    background-image: url(../../img/stars.png);
+  }
 
-    label{
-      padding-left: 60px;
-      font-size: 22px;
-    }
+  .form-title {
+    text-align: left;
+    padding-top: 30px;
+    padding-left: 50px;
+    font-size: 42px;
+   
+  }
+
+  .form-wrapper {
+    width: 270px;
+    padding-bottom: 33px;
+    margin: 0;
+    background-image: none;
+  }
+
+  label {
+    padding-left: 0px;
+    font-size: 25px;
+  }
 
   .custom-check,
   .custom-check {
@@ -212,29 +225,29 @@
     background-position: center;
   }
 
-  .total-select{
+  .additional-wrapper{
+    padding-left: 0;
+  }
+
+  .total-select {
     font-size: 23px;
-    padding-left: 60px;
     padding-top: 40px;
   }
 
-  .selected-items-list{
+  .selected-items-list {
     padding-left: 20px;
   }
-  .selected-item{
+
+  .selected-item {
     font-size: 17px;
   }
 
-  .additional-wrapper{
-    padding-left: 45px;
-  }
 
-  .total-price{
+  .total-price {
     padding-top: 40px;
-    padding-left: 99px;
   }
 
-  .form-submit{
+  .form-submit {
     width: 300px;
     font-size: 21px;
   }

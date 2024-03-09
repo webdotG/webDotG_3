@@ -203,6 +203,8 @@ export default function ShopPage() {
   return (
     <>
       <section className={style['shop-page']}>
+
+
         <div className={style['form-wrapper']}>
           <h2 className={style['form-title']}>магазин</h2>
 
@@ -248,7 +250,7 @@ export default function ShopPage() {
               <motion.div 
               variants={variants}
               initial='initial'
-              whileInView='animate'
+              animate='animate'
               className={style['seconde-radio-wrapper']}>
                 <span className={style['first-wrapper']}>
                   <label className={style['label']} >сайты
@@ -295,7 +297,7 @@ export default function ShopPage() {
               <motion.div 
               variants={variants}
               initial='initial'
-              whileInView='animate'
+              animate='animate'
               className={style['first-site-wrapper']}>
                 <span className={style['first-wrapper']}>
                   <label>лендинг
@@ -342,7 +344,7 @@ export default function ShopPage() {
               <motion.div 
               variants={variants}
               initial='initial'
-              whileInView='animate'
+              animate='animate'
               className={style['first-telegram-wrapper']}>
                 <span className={style['first-wrapper']}>
                   <label>чат бот
@@ -376,7 +378,7 @@ export default function ShopPage() {
               <motion.div 
               variants={variants}
               initial='initial'
-              whileInView='animate'
+              animate='animate'
               className={style['first-app-wrapper']}>
                 <span className={style['first-wrapper']}>
                   <label>IOS & Android
@@ -408,7 +410,7 @@ export default function ShopPage() {
               <motion.div 
               variants={variants}
               initial='initial'
-              whileInView='animate'
+              animate='animate'
               className={style['additional-wrapper']}>
                 <span className={style['addit-check-wrapper']}>
                   <label className={style['additional-check1']}>графику от иллюстратора
@@ -486,7 +488,7 @@ export default function ShopPage() {
                 // disabled={!showAdditional}
                 onClick={(event) => {
                   if (!showAdditional) {
-                    event.preventDefault();          // прерываю отправку формы если кнопка недоступна
+                    event.preventDefault();          
                     setShowSelectItemMessage(true);
                   }
                 }}
@@ -501,6 +503,11 @@ export default function ShopPage() {
             </div>
           </form>
         </div>
+
+        <div className={style['text-wrapper']}>
+      
+      </div>
+
       </section>
     </>
   )
