@@ -4,6 +4,7 @@ import style from './confirmation.module.scss'
 
 function ConfirmationToCart() {
 
+  
   return (
     <>
       <div className={style['confirmation-wrapper']}>
