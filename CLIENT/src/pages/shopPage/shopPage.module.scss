@@ -297,13 +297,21 @@
       }
       .text-item {
         font-size: 14px;
-        padding-top: 40px;
+        padding-top: 59px;
+      }
+
+      .text-item:nth-child(2),
+      .text-item:nth-child(3),
+      .text-item:nth-child(4){
+        padding-top: 5px;
       }
 
       .text-paragraph {
         min-height: 33px;
       }
     }
+
+
   }
 
   .form-title {
