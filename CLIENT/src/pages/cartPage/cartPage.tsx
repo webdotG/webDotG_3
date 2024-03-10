@@ -58,16 +58,19 @@ function CartPage() {
   };
 
   return (
+    <div className={style['cart-page__wrapper']}>
+      <div className={style['cart-page__back']}>
       <section className={style["cart"]}>
-        <h2 className={style["cart_title"]}>Ваш заказ:</h2>
+        <h2 className={style["cart_title"]}>Покупаю:</h2>
         <button className={style["all-clear-btn"]}
           onClick={() => dispatch(clearCart())}>
-          очистить заказ
+          удалить всё
         </button>
         <ul className={style["cart-list"]}>
           {cartItems}
         </ul>
         <div className={style["cart-total"]}>
+     
           <p>Итого: <span className={style["total-amount"]}>{totalAmount} Р</span></p>
           <button className={style["checkout-btn"]}
             onClick={sendOrder}
@@ -75,6 +78,8 @@ function CartPage() {
         </div>
 
       </section>
+      </div>
+    </div>
   )
 }
 
