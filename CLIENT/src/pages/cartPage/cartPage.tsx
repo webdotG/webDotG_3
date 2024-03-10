@@ -62,19 +62,23 @@ function CartPage() {
       <div className={style['cart-page__back']}>
       <section className={style["cart"]}>
         <h2 className={style["cart_title"]}>Покупаю:</h2>
-        <button className={style["all-clear-btn"]}
-          onClick={() => dispatch(clearCart())}>
-          удалить всё
-        </button>
+        
         <ul className={style["cart-list"]}>
           {cartItems}
         </ul>
         <div className={style["cart-total"]}>
      
           <p>Итого: <span className={style["total-amount"]}>{totalAmount} Р</span></p>
+          
           <button className={style["checkout-btn"]}
             onClick={sendOrder}
-          >Оформить заказ</button>
+          >Оформить заказ
+          </button>
+          <button className={style["all-clear-btn"]}
+          onClick={() => dispatch(clearCart())}>
+          удалить всё
+        </button>
+
         </div>
 
       </section>
