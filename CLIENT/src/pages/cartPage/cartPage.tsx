@@ -21,7 +21,7 @@ function CartPage() {
           if (window.confirm('точно удалить ?')) {
             event.preventDefault();
             dispatch(deleteItem(item.itemId));
-            
+
           }
         }}
       >
@@ -62,7 +62,7 @@ function CartPage() {
     <div className={style['cart-page__wrapper']}>
       <div className={style['cart-page__back']}>
       <section className={style["cart"]}>
-        <h2 className={style["cart_title"]}>Покупаю:</h2>
+        <h2 className={style["cart_title"]}>Выбрано:</h2>
         
         <ul className={style["cart-list"]}>
           {cartItems}
