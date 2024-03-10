@@ -116,23 +116,29 @@
     justify-content: center;
     border-radius: 6px;
     background-color: transparent;
-    border: 2px solid #eeeeee;
+    border: 2px solid var(--theme-default-main-ContactNeonBox);
     cursor: pointer;
-    fill: var(--color-light-gray);
     transition: fill 0.3s ease;
+
+    svg{
+      fill: var(--theme-default-main-ContactNeonBox);
+      stroke: var(--theme-default-main-ContactNeonBox) ;
+    }
 
     &:focus,
     &:hover,
     &:active {
-      border: 2px solid #00ADB5;
-      background-color: #393e46;
+      border: 2px solid var(--theme-default-main-ContactNeonBox);
+      background: transparent;
+      fill: var(--color-light-gray);
     }
   }
 
   .remove-btn svg,
   .inc-btn svg,
   .dec-btn svg {
-    fill: #00ADB5;
+      background: transparent;
+      fill: var(--color-light-gray);
 
   }
 
@@ -145,7 +151,8 @@
   .remove-btn:active svg,
   .inc-btn:active svg,
   .dec-btn:active svg {
-    fill: #eeeeee;
+    fill: var(--theme-default-main-ContactNeonBox);
+      stroke: var(--theme-default-main-ContactNeonBox) ;
   }
 
   .quantity {
