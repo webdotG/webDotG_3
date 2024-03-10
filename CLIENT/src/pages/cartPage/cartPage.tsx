@@ -21,6 +21,7 @@ function CartPage() {
           if (window.confirm('точно удалить ?')) {
             event.preventDefault();
             dispatch(deleteItem(item.itemId));
+            
           }
         }}
       >
