@@ -3,7 +3,13 @@
   .shop-page {
     min-height: 100vh;
     background: var(--theme-default-main-titleBack);
+    position: relative;
+    z-index: 10;
   }
+
+.background-container{
+  z-index: -1;
+}
 
   .text-wrapper {
     display: none;
@@ -81,6 +87,7 @@
     font-size: 23px;
     letter-spacing: 0.25px;
     color: var(--color-light-gray);
+    z-index: 10;
 
     .custom-check {
       // margin-top: 25px;
@@ -105,9 +112,14 @@
     background-image: url(../../svg/icon_heart_check.svg);
   }
 
+  .background-container,
+  .background-animation{
+    z-index: 0;
+  }
   .additional-wrapper {
     padding-top: 20px;
     padding-bottom: 20px;
+    z-index: 10;
   }
 
   .additional-check1,
@@ -187,6 +199,7 @@
     display: flex;
     padding-left: 50px;
     padding-right: 10px;
+    position: relative;
   }
 
   .text-wrapper {
@@ -280,6 +293,7 @@
         padding-bottom: 10px;
         font-size: 18px;
         text-decoration: underline;
+        z-index: 10;
       }
       .text-item {
         font-size: 14px;

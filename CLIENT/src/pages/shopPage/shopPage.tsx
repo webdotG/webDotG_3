@@ -251,10 +251,13 @@ export default function ShopPage() {
 
   return (
     <>
-   
+
+
       <section className={style['shop-page']}>
-     
-      {shouldShowSnowflakes && <SnowflakesComponent />}
+
+        {shouldShowSnowflakes && <SnowflakesComponent />}
+
+
         <div className={style['form-wrapper']}>
           <h2 className={style['form-title']}>магазин</h2>
 
@@ -463,7 +466,7 @@ export default function ShopPage() {
                 animate='animate'
                 className={style['additional-wrapper']}>
                 <span className={style['addit-check-wrapper']}>
-                  <label className={style['additional-check1']}>графику от иллюстратора
+                  <label className={style['additional-check1']}>иллюстрации
                     <input className={style['checkbox']}
                       // id="customImages"
                       // id="Иллюстрации
@@ -476,7 +479,7 @@ export default function ShopPage() {
                   </label>
                 </span>
                 <span className={style['addit-check-wrapper']}>
-                  <label className={style['additional-check2']}>индивидуальные иконки
+                  <label className={style['additional-check2']}>иконки
                     <input className={style['checkbox']}
                       // id="customIcons"
                       // id="Иконки"
@@ -555,7 +558,8 @@ export default function ShopPage() {
         </div>
 
         <div className={style['text-wrapper']}>
-        <SnowflakesComponent />
+          {/* {shouldShowSnowflakes && <SnowflakesComponent />} */}
+          <SnowflakesComponent />
           <div className={style['first-radio-wrapper___text']}>
             {selectedTemplate === '1' && (
               <motion.div className={`${style['text-item-base']} ${style['display-block']}`}
@@ -738,7 +742,7 @@ export default function ShopPage() {
                     </h4>
                     <p className={style['text-paragraph']}>
                       Польза в одном приложении: <br />
-                      общение, магазины, игры 
+                      общение, магазины, игры
                     </p>
                   </>
                 )}
