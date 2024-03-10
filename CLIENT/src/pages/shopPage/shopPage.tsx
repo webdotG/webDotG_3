@@ -1,10 +1,10 @@
 import style from './shopPage.module.scss';
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useEffect } from 'react';
 import { useAppDispatch } from '../../hooks'; //, useAppSelector 
 import { addToCart } from '../../slices/cart/cartSlice';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import RandomPulsatingDivs from '../../components/AnimationRandom/animationRandom';
+import SnowflakesComponent from '../../components/AnimationRandom/animationRandom';
 
 const PRICE = [
   { id: 1, name: 'Шаблон', price: 1 },
@@ -229,11 +229,32 @@ export default function ShopPage() {
   };
 
 
+  const [shouldShowSnowflakes, setShouldShowSnowflakes] = useState(false);
+  useEffect(() => {
+    // Проверяем ширину viewport при загрузке страницы
+    const handleResize = () => {
+      const viewportWidth = window.innerWidth;
+      setShouldShowSnowflakes(viewportWidth >= 340 && viewportWidth <= 780);
+    };
+
+    // Добавляем обработчик события изменения размеров окна
+    window.addEventListener('resize', handleResize);
+
+    // Вызываем проверку при загрузке страницы
+    handleResize();
+
+    // Убираем обработчик при размонтировании компонента
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <>
+   
       <section className={style['shop-page']}>
-
-
+     
+      {shouldShowSnowflakes && <SnowflakesComponent />}
         <div className={style['form-wrapper']}>
           <h2 className={style['form-title']}>магазин</h2>
 
@@ -534,7 +555,7 @@ export default function ShopPage() {
         </div>
 
         <div className={style['text-wrapper']}>
-          {/* <RandomPulsatingDivs /> */}
+        <SnowflakesComponent />
           <div className={style['first-radio-wrapper___text']}>
             {selectedTemplate === '1' && (
               <motion.div className={`${style['text-item-base']} ${style['display-block']}`}

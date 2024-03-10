@@ -198,6 +198,7 @@
     background-image: url(../../img/stars.png);
     color: var(--color-light-gray);
     position: relative;
+    z-index: 5;
 
     .text-item,
     .text-item-base,
@@ -321,6 +322,7 @@
 
   .additional-wrapper {
     padding-left: 0;
+    z-index: 10;
 
     label{
       padding-left: 0;
