@@ -181,14 +181,14 @@ export default function Links({ closeSidebar }: LinksProps) {
                 коммунизм 2.0
               </motion.p>
             </Link>
-            <Link className={style.header_nav__link} to="/communism2.0" onClick={closeSidebar}>
+            {/* <Link className={style.header_nav__link} to="/communism2.0" onClick={closeSidebar}>
               <motion.p className={style.header_nav__link__blur}
                variants={itemVariants}
                whileHover={{ scale: 1.1 }}
                whileTap={{ scale: 0.75 }}>
                 сны 1.0
               </motion.p>
-            </Link>
+            </Link> */}
           </motion.li>
 
           {/* <motion.li className={style.header_nav__item}

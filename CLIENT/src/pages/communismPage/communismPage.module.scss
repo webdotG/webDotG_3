@@ -32,15 +32,20 @@
     text-align: center;
   }
 
+  .link-wrapper{
+    width: 340px;
+    margin: 0 auto;
+    position: relative;
+  }
   :root {
     --initial-left: 25px;
-    --initial-top: 100px;
+    --initial-top: 75px;
     --hover-left: 25px;
-    --hover-top: 295px;
+    --hover-top: 251px;
     --initial-left2: 150px;
-    --initial-top2: 311px;
+    --initial-top2: 250px;
     --hover-left2: 150px;
-    --hover-top2: 115px;
+    --hover-top2: 85px;
   }
 
   .add-post-link,

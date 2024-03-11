@@ -30,11 +30,8 @@ export default function CommunismPage() {
           <p className={style['communism-about']}>
             доска объявлений
           </p>
-          <p className={style['communism-about']}>
-          </p>
-          <p className={style['communism-about']}>
-          </p>
         </div>
+        <div className={style['link-wrapper']}>
         <Link className={style['add-post-link']} to='/addPost'>
           написать
         </Link>
@@ -42,6 +39,7 @@ export default function CommunismPage() {
           не<br/>
           писать
         </Link>
+        </div>
         <section className={style['communism']}>
           {(isPostsLoading ? [...Array(3)] : posts.items).map((obj, index) =>
             isPostsLoading

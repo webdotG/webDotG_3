@@ -117,7 +117,7 @@ export default function AddPostPage(): JSX.Element {
           <label className={style['label']}>
           могу помочь ...
             <textarea className={style['title-input']}
-              placeholder="... научить чему-то"
+              placeholder="... помочь чем"
               rows={2}
               value={title}
               onChange={handleTitleChange}
@@ -127,7 +127,7 @@ export default function AddPostPage(): JSX.Element {
           <label className={style['label']}>
            мне нужна помощь ...
             <textarea className={style['text-input']}
-              placeholder="... помочь в чем-то"
+              placeholder="... помощь в чем"
               rows={8}
               value={text}
               onChange={handleTextChange}
