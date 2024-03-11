@@ -314,7 +314,7 @@
       }
 
       @include descktop {
-        font-size: 13px;
+        font-size: 27px;
         font-weight: 200;
       }
     }
@@ -373,13 +373,14 @@
       }
     }
 
+    
     .title {
       @include mobile {
         font-size: 21px;
       }
 
       @include descktop {
-        font-size: 13px;
+        font-size: 27px;
         font-weight: 200;
       }
     }
@@ -484,17 +485,21 @@
     @include descktop {
       width: 400px;
       height: 250px;
-      margin-left: -35px;
+      margin-left: -69px;
     }
   }
 
   .btn-toShop {
-    left: 585px;
-    bottom: 13px;
+   
 
     @include mobile {
       left: 100px;
       bottom: -25px;
+    }
+
+    @include descktop {
+      left: 585px;
+    bottom: 13px;
     }
 
   }
@@ -521,12 +526,15 @@
   }
 
   .btn-toShop {
-    left: 585px;
-    bottom: 13px;
-
+   
     @include mobile {
       left: 100px;
       bottom: -25px;
+    }
+
+    @include descktop {
+      left: 555px;
+    bottom: 13px;
     }
 
   }

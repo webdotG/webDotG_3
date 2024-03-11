@@ -1,5 +1,5 @@
 import style from './addPost.module.scss'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useAppSelector } from '../../hooks'
 import { selectIsAuth } from '../../slices/auth/authSlice'
 import { useState, FormEvent, ChangeEvent, useEffect } from 'react'
@@ -98,7 +98,7 @@ export default function AddPostPage(): JSX.Element {
   useEffect(() => {
     if (id) {
       axios.get(`/api/posts/${id}`).then(({ data }) => {
-        console.log('ADDPOST USEEFFECT AXIOS.GET RES ! ')
+        // console.log('ADDPOST USEEFFECT AXIOS.GET RES ! ')
         setTitle(data.title)
         setText(data.text)
         setTags(data.tags)
@@ -108,15 +108,16 @@ export default function AddPostPage(): JSX.Element {
 
 
   return (
-      <div className={style['add-post']}>
+    <div className={style['addpost__wrapper']}>
+      <section className={style['add-post']}>
 
         <form className={style['form']}
           onSubmit={onSubmit}
         >
           <label className={style['label']}>
-            Что предлагаете
+          могу помочь ...
             <textarea className={style['title-input']}
-              placeholder="научу готовить"
+              placeholder="... научить чему-то"
               rows={2}
               value={title}
               onChange={handleTitleChange}
@@ -124,18 +125,18 @@ export default function AddPostPage(): JSX.Element {
             <span className={style['error-message']}>{errorTitleMessage}</span>
           </label>
           <label className={style['label']}>
-            Описание и что взамен
+           мне надо ...
             <textarea className={style['text-input']}
-              placeholder="более детальное описание предложения и хотите ли что ни будь за это а может вам достаточно искреннего спаибо ?))"
+              placeholder="... помочь в чем-то"
               rows={8}
               value={text}
               onChange={handleTextChange}
             />
           </label>
           <label className={style['label']}>
-            # Тэги
+            # тэги
             <textarea className={style['tags-input']}
-              placeholder="#приготовление еды #хачапури #массаж #погуляю с вашей собакой #составить компанию для просмотра вего властелина колец "
+              placeholder="#всё #что угодно #что посчитаешь нужным"
               rows={4}
               value={noFormatTags}
               onChange={handleTagsChange}
@@ -151,7 +152,7 @@ export default function AddPostPage(): JSX.Element {
             : (<button className={style['btn-submit']}
               type='submit'
               disabled>
-              надо залогиниться что бы отправить
+              <Link className={style['to-login']} to='/login'>надо залогиниться</Link>
             </button>
 
             )
@@ -159,6 +160,7 @@ export default function AddPostPage(): JSX.Element {
 
 
         </form>
+    </section>
     </div>
   )
 }

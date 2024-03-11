@@ -188,22 +188,23 @@
       box-shadow: var(--theme-default-main-ContactNeonBox);
     }
     @include descktop {
-      min-width: 780px;
+      width: 780px;
       height: 300px;
+      margin: 0 auto;
     }
     
   }
 }
 
-@media (min-width: 900px) {
+// @media (min-width: 900px) {
 
-  .map-container{
-    iframe{
-      width: 900px;
-    }
-  }
+//   .map-container{
+//     iframe{
+//       width: 900px;
+//     }
+//   }
   
-}
+// }
 
 @keyframes blink-animation {
   to {

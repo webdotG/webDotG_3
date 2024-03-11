@@ -1,5 +1,5 @@
 import style from './shopPage.module.scss';
-import { useState, ChangeEvent, useEffect } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { useAppDispatch } from '../../hooks'; //, useAppSelector 
 import { addToCart } from '../../slices/cart/cartSlice';
 import { useNavigate } from 'react-router-dom';
@@ -229,33 +229,11 @@ export default function ShopPage() {
   };
 
 
-  const [shouldShowSnowflakes, setShouldShowSnowflakes] = useState(false);
-  useEffect(() => {
-    // Проверяем ширину viewport при загрузке страницы
-    const handleResize = () => {
-      const viewportWidth = window.innerWidth;
-      setShouldShowSnowflakes(viewportWidth >= 340 && viewportWidth <= 780);
-    };
-
-    // Добавляем обработчик события изменения размеров окна
-    window.addEventListener('resize', handleResize);
-
-    // Вызываем проверку при загрузке страницы
-    handleResize();
-
-    // Убираем обработчик при размонтировании компонента
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   return (
     <>
 
 
       <section className={style['shop-page']}>
-
-        {shouldShowSnowflakes && <SnowflakesComponent />}
 
 
         <div className={style['form-wrapper']}>
@@ -558,7 +536,6 @@ export default function ShopPage() {
         </div>
 
         <div className={style['text-wrapper']}>
-          {/* {shouldShowSnowflakes && <SnowflakesComponent />} */}
           <SnowflakesComponent />
           <div className={style['first-radio-wrapper___text']}>
             {selectedTemplate === '1' && (
@@ -592,7 +569,7 @@ export default function ShopPage() {
                 </p>
               </motion.div>
             )}
-            R</div>
+            </div>
 
           <div className={style['seconde-radio-wrapper___text']}>
             {selectedItems2.map(id => (
@@ -621,7 +598,7 @@ export default function ShopPage() {
                     </h4>
                     <p className={style['text-paragraph']}>
                       Telegram-боты - наши цифровые спутники,<br />
-                      предоставляющие много полезных функций.<br />
+                      предоставляющие много полезного.<br />
                     </p>
                   </>
                 )}

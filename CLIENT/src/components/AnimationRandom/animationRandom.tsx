@@ -5,8 +5,7 @@ const SnowflakesComponent = () => {
   return (
     <>
       <div className={style["background-container"]}>
-        <div className={style["background-animation"]}/>
-        
+        <div className={style["background-animation"]}></div>
       </div>
     </>
   )
