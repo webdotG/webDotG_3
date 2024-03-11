@@ -125,7 +125,7 @@ export default function AddPostPage(): JSX.Element {
             <span className={style['error-message']}>{errorTitleMessage}</span>
           </label>
           <label className={style['label']}>
-           мне надо ...
+           мне нужна помощь ...
             <textarea className={style['text-input']}
               placeholder="... помочь в чем-то"
               rows={8}
@@ -136,7 +136,7 @@ export default function AddPostPage(): JSX.Element {
           <label className={style['label']}>
             # тэги
             <textarea className={style['tags-input']}
-              placeholder="#всё #что угодно #что посчитаешь нужным"
+              placeholder="#всё #что угодно #желательно по теме"
               rows={4}
               value={noFormatTags}
               onChange={handleTagsChange}

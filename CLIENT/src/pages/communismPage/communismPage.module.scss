@@ -19,7 +19,7 @@
     padding-bottom: 20px;
     font-size: 31px;
     text-align: center;
-    color: var(--color-light-gray);
+    color: var( --theme-default-main-titleG);
     font-weight: 200;
   }
 
@@ -34,18 +34,23 @@
   :root {
     --initial-left: 25px;
     --initial-top: 100px;
-    --hover-left: 350px;
-    --hover-top: 250px;
+    --hover-left: 25px;
+    --hover-top: 295px;
+    --initial-left2: 150px;
+    --initial-top2: 311px;
+    --hover-left2: 150px;
+    --hover-top2: 115px;
   }
 
-  .add-post-link {
-    width: 111px;
-    height: 111px;
+  .add-post-link,
+  .add-post-link2 {
+    width: 95px;
+    height: 95px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    font-size: 16px;
+    font-size: 21px;
     color: var(--color-light-gray);
     font-weight: 200;
     position: absolute;
@@ -53,26 +58,45 @@
     top: var(--initial-top);
     transition: left 3.5s ease-in-out, top 3.5s ease-in-out;
     overflow: hidden;
+    
 
     &:focus,
     &:hover {
-      filter: blur(0.15px);
+      filter: blur(0.17px);
       background-color: transparent;
       top: var(--hover-top);
       left: var(--hover-left);
       text-shadow: var(--theme-default-main-ContactNeonText);
       box-shadow: var(--theme-default-main-ContactNeonText);
-      animation: randomMove 9s linear;
     }
   }
 
-  @keyframes randomMove {
-    to {
-      left: calc(random() * (100vw));
-      top: calc(random() * (100vh));
-      opacity: 0.5;
+  .add-post-link2{
+    width: 65px;
+    height: 65px;
+    font-size: 14px;
+    text-align: center;
+    left: var(--initial-left2);
+    top: var(--initial-top2);
+    transition: left 4.15s ease-in-out, top 4.15s ease-in-out;
+    text-decoration: underline;
+
+    &:focus,
+    &:hover {
+      transform: scale(1.05);
+      top: var(--hover-top2);
+      left: var(--hover-left2);
     }
+
   }
+
+  // @keyframes randomMove {
+  //   to {
+  //     left: calc(random() * (100vw));
+  //     top: calc(random() * (100vh));
+  //     opacity: 0.5;
+  //   }
+  // }
 
 
 
