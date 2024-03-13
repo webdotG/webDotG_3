@@ -10,24 +10,23 @@ function MyPage() {
   return (
     <>
       <div className={style['mypage-wrapper']}>
-        <h2 className={style['hello']}>Здравствуй
-          <p className={style['user-name']}>{userName}</p>
-        </h2>
-        <Link className={style['dreamcatcher-link']} to="/dreamcatcher">
+        <section className={style['my-page']}>
+          <h2 className={style['hello']}>Здравствуй</h2>
+          <div className={style['user-info']}>
+          <h3 className={style['user-name']}>{userName}</h3>
+          </div>
+          
+          {/* <Link className={style['dreamcatcher-link']} to="/dreamcatcher">
           сонник
-        </Link>
-        <div className={style['community-link-wrapper']}>
+        </Link> */}
+          {/* <div className={style['community-link-wrapper']}>
           <Link className={style['community-link']}
             to="/community_no_verified">
-            orgy band
+            orgy
           </Link>
-        </div>
+        </div> */}
+        </section>
       </div>
-      <ul>
-        <li>
-          <a href='https://dewatermark.ai/'>сетка удаляющая вотермарки</a>
-        </li>
-      </ul>
     </>
   );
 }

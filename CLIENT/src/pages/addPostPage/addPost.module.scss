@@ -58,8 +58,13 @@
 
     &:focus,
     &:hover {
-      transform: scale(1.05);
-      text-decoration: underline;
+      &:focus,
+    &:hover {
+      background-color: transparent;
+      text-shadow: var(--theme-default-main-ContactNeonText);
+      box-shadow: var(--theme-default-main-ContactNeonText);
+      transform: scale(1.15);
+    }
     }
 
   }
@@ -73,6 +78,7 @@
   .error-message {
     width: 285px;
     margin: 0 auto;
+    margin-top: 5px;
     display: block;
     padding-top: 2px;
     font-size: 12px;

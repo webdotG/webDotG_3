@@ -1,5 +1,17 @@
 @media (min-width:320px) {
 
+  .full-post__wrapper{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--theme-default-main-titleBack);
+  }
+
+  .full-post{
+    min-height: 100vh;
+    background-image: url(../../img/stars.png);
+  }
+
   .back-to-allpost{
     width: 225px;
     padding-left: 25px;
@@ -8,19 +20,20 @@
     display: flex;
     align-items: center;
     font-size: 19px;
-    color: #eeeeee;
+    color: var(--color-light-gray);
 
     svg{
+      fill: var( --theme-default-main-titleG);
       margin-right: 10px;
     }
 
     &:focus,
     &:hover{
-      color: #00ADB5;
+      color: var(--theme-default-main-titleG);
 
       svg{
-        background-color: #eeeeee;
-        border-radius: 10px;
+        background-color: var(--color-light-gray);
+        border-radius: 8px;
       }
     }
   }
@@ -35,29 +48,34 @@
   }
 
   .full-post-title{
-    font-size: 27px;
-    padding-bottom: 10px;
-    // border-bottom: #00ADB5 2px solid;
-    font-weight: 400;
+    min-height: 50px;
+    font-size: 25px;
+    padding-bottom: 25px;
+    font-weight: 300;
+    color: var(--color-light-gray);
     text-align: center;
-    text-decoration: underline;
   }
 
   .full-post-text{
-    padding-bottom: 15px;
-    padding-left: 10px;
-    text-align: left;
-    font-size: 21px;
-    line-height: 24px;
-    letter-spacing: 0.1px;
-    font-weight: 300;
-  }
-
-  .full-post-tags{
+    min-height: 50px;
+    padding-bottom: 25px;
     padding-left: 10px;
     text-align: left;
     font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
     font-weight: 300;
+    color: var(--color-light-gray);
+  }
+
+  .full-post-tags{
+    min-height: 30px;
+    padding-left: 10px;
+    padding-bottom: 15px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--color-light-gray);
   }
 
   .post-data{

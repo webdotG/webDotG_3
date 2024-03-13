@@ -22,7 +22,7 @@ export default function Layout({ children }: typeProps) {
         <li className={style.color_theme_btn}>
           <button
             onClick={() => isTheme.change(THEME_WEBDOTG)}>
-            <svg width="25px" height="25px" fill='rgba(0, 174, 181, 1.0)' id="G_logo" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" xmlSpace="preserve">
+            <svg width="30px" height="29px" fill='rgba(0, 174, 181, 1.0)' id="G_logo" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" xmlSpace="preserve">
               <g>
                 <path d="M10.4,38.9v53.5c0,7.4,3.7,11.3,10.6,11.3c9.4,0.1,18.6,0.1,28,0c6.7,0,10.5-4,10.5-11.1c0-6.3,0-21.2,0-21.2l-22.8,0.2
 		                V60.4c0,0,21.3,0,29.3,0c3.3,0.1,3.8,0.5,3.7,3.7c0,9.8,0.1,19.5,0,29.3c0,12.1-8.5,20.9-20.1,21c-9.8,0.1-19.7,0.1-29.5,0
