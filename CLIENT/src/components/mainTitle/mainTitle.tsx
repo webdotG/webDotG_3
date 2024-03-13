@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import style from './mainTitle.module.scss'
+import { Variants } from 'framer-motion';
 
 const textAnimation = {
   initial: {
@@ -30,7 +31,7 @@ const textAnimation2 = {
     }
   }
 }
-const slidingText = {
+const slidingText: Variants = {
   initial: {
     x: 0,
   },

@@ -1,7 +1,7 @@
 import style from './myPage.module.scss';
 import { selectUserName } from '../../slices/auth/authSlice';
 import { useAppSelector } from '../../hooks';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 function MyPage() {
 
