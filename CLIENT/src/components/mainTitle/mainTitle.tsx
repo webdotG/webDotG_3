@@ -15,6 +15,35 @@ const textAnimation = {
     }
   }
 }
+const textAnimation2 = {
+  initial: {
+    x: -250,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.5,
+      duration: 1,
+      staggerChildren: 0.1,
+    }
+  }
+}
+const slidingText = {
+  initial: {
+    x: 0,
+  },
+  animate: {
+    x: '-100%',
+    transition: {
+      delay: 1,
+      duration: 20,
+      repeatType: 'mirror',
+      repeat: Infinity,
+    }
+  }
+}
 
 
 
@@ -49,9 +78,19 @@ export default function MainTitle() {
 
         </motion.h1>
         <section className={style['main_title__text_wrapper']}>
-          <motion.p variants={textAnimation} className={style.main_title_p}>UI  WEB  APP </motion.p>
-          <motion.p variants={textAnimation} className={style.main_title_p2}>разработка и дизайн</motion.p>
+          <motion.p initial="initial"
+            animate="animate" variants={textAnimation2} className={style.main_title_p}>UI  WEB  APP </motion.p>
+          <motion.p initial="initial"
+            animate="animate" variants={textAnimation2} className={style.main_title_p2}>разработка и дизайн</motion.p>
         </section>
+      </motion.div>
+
+      <motion.div className={style['sliding-text']}
+      initial="initial"
+      animate="animate" 
+      variants={slidingText}
+      >
+        Сайты Боты Приложения
       </motion.div>
 
     </div >
