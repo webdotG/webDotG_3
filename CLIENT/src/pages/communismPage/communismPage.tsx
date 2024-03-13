@@ -35,10 +35,6 @@ export default function CommunismPage() {
         <Link className={style['add-post-link']} to='/addPost'>
           написать
         </Link>
-        {/* <Link className={style['add-post-link2']} to='/addPost'>
-          не<br/>
-          писать
-        </Link> */}
         </div>
         <section className={style['communism']}>
           {(isPostsLoading ? [...Array(3)] : posts.items).map((obj, index) =>
@@ -63,7 +59,7 @@ export default function CommunismPage() {
                     confirmUser={userData?.email}
                   />
                   <Link className={style['link-to-post']} to={`/communism2.0/${obj.id}`}>
-                    перейти к
+                  открыть
                   </Link>
                 </div>
               )

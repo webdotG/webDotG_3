@@ -8,12 +8,21 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #393e46;
+  }
+
+  .edit-link,
+  .remove-btn{
+    svg{
+      path{
+        stroke: var( --theme-default-main-titleG);
+      }
+    }
   }
 
   .post-data {
     padding-top: 20px;
     padding-left: 10px;
+    margin-bottom: 25px;
     display: flex;
     align-items: center;
   }
@@ -21,13 +30,13 @@
   .user-name{
     padding-right: 15px;
     font-size: 18px;
-    color: #eeeeee;
+    color: var(--color-light-gray);
   }
 
   .update-at{
     margin-top: 5px;
     font-size: 12px;
-    color: #eeeeee;
+    color: var(--color-light-gray);
   }
 
   .control-buttons {
@@ -44,7 +53,7 @@
     font-size: 16px;
     border: transparent 2px solid;
     border-radius: 6px;
-    color: #eeeeee;
+    color: var(--color-light-gray);
 
     svg {
       margin-right: 7px;
@@ -58,7 +67,7 @@
     font-size: 16px;
     border: transparent 2px solid;
     border-radius: 6px;
-    color: #eeeeee;
+    color: var(--color-light-gray);
     background-color: transparent;
     cursor: pointer;
 

@@ -79,8 +79,17 @@
   }
 
   .post-data{
+    // margin-bottom: 25px;
     width: 100%;
     margin: 0 auto;
   }
 
+}
+
+@media (min-width:780px) {
+
+  .full-post-content{
+    max-width: 780px;
+    margin: 0 auto;
+  }
 }
