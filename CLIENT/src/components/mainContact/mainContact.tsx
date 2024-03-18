@@ -38,17 +38,11 @@ export default function MainContact() {
           <motion.h2 variants={variants}>Контакты</motion.h2>
           <motion.ul>
             <motion.li variants={variants}>
-              {/* <h4>Телефон</h4> */}
               <Link className={style['contacts-link']} to=''>+79022888989</Link>
             </motion.li>
             <motion.li variants={variants}>
-              {/* <h4>Адрес</h4> */}
               <Link className={style['contacts-link']} to=''>Санкт-Петербург,<br /> Невский Проспект 25</Link>
             </motion.li>
-            {/* <motion.li variants={variants}>
-              <h4>Порнхаб</h4>
-              <Link className={style['contacts-link']} to=''>~ -- hard ...<br/>~ G\ ...</Link>
-            </motion.li> */}
           </motion.ul>
         </motion.div>
 

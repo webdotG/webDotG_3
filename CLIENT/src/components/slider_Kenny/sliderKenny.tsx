@@ -84,7 +84,7 @@ export default function SliderKenny() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
-    console.log('nextSlide')
+    // console.log('nextSlide')
     setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
   };
 

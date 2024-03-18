@@ -13,7 +13,7 @@ export default function Layout({ children }: typeProps) {
   
   const isTheme = useTheme()
 
-  console.log('LAYOUT useTHEME() = isTHEME : ', isTheme.theme)
+  // console.log('LAYOUT useTHEME() = isTHEME : ', isTheme.theme)
   
   return (
     <div className={style.layout}>

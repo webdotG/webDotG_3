@@ -21,7 +21,7 @@ const Auth = async (req, res, next) => {
     }
 
     const userId = decoded.id;
-    console.log('MIDLEWEAR AUTH USER ID : ', userId);
+    // console.log('MIDLEWEAR AUTH USER ID : ', userId);
 
     // запрос на проверку в таблице users и в таблице admins
     const getUserQuery = `

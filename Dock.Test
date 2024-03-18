@@ -31,11 +31,36 @@ RUN npm run build
 # Возвращаюсь в корневую директорию
 WORKDIR /app
 
+# ENV PORT 1111
+# EXPOSE $PORT
+# Открываю порт 1111 в контейнере, чтобы он был доступен извне
+# EXPOSE не открывает фактически порт он документирует тот факт
+# что приложение внутри контейнера ожидает входящие соединения на этом порту
+# 80:1111 означает, что 
+# контейнер ожидает входящие соединения на порту 1111 внутри контейнера
+# но эти соединения будут проксированы на порт 80 внутри самого контейнера.
+# Таким образом, при обращении к порту 80 на хост-системе (вне контейнера)
+# эти соединения будут направлены на порт 1111 внутри контейнера.
+# EXPOSE 1111:1111
+
+
+# 1111 server app my!!!
+# Команда для запуска сервера и клиента
+# CMD ["npm", "run", "deploy"]
+# Запустит NPM RUN START и NPM RUN CLIENT-BUILD
+# NPM RUN START запустит NODE и папку ./BIN/WWW
+# NPM RUN CLIENT-BUILD запустит из папки client NPM RUN BUILD а он запустит TSC && VITE BUILD
+#
+
+
 # Указываю базовый образ для Nginx
 FROM nginx:latest
 
 # Копирую конфигурационный файл Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# # Копирую собранные файлы из контейнера с Node.js
+# COPY --from=build /app/CLIENT/dist /usr/share/nginx/html
 
 # Копирую собранные файлы клиентской части
 COPY --from=build /app/CLIENT/dist /usr/share/nginx/html
@@ -47,4 +72,8 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
 
-
+# docker build . -t webdotg
+# docker build -t webdotgmaster/webdotg .
+# docker push webdotgmaster/webdotg:latest
+# docker rmi webdotgmaster/webdotg:latest
+# docker pull webdotgmaster/webdotg:latest

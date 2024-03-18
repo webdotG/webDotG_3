@@ -32,7 +32,7 @@ app.get('*', (req, res) => {
 
 const PORT = 1111 //process.env.PORT  ; 
 app.listen(PORT, () => {
-  winstonLogger.info(`Сервер работает на порту ${PORT}`);
+  // winstonLogger.info(`Сервер работает на порту ${PORT}`);
 //   // winstonLogger.info("This is a info log");
 //   // winstonLogger.debug("This is a debug log");
 //   // winstonLogger.error("This is an error log");

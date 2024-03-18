@@ -10,7 +10,8 @@
   }
 
   @include descktop {
-    height: calc(100vh - 100px);
+    padding-bottom: 200px;
+    min-height: calc(100vh - 100px);
   }
 }
 
@@ -141,10 +142,14 @@
   opacity: 0.75;
   color: var(--color-light-gray);
   @include mobile {
-  width: 320px;
+  // display: none;  
+    width: 320px;
+  
   }
 
   @include descktop {
+    display: block;
+    font-size: 135px;
     min-width:780px;
   }
 }

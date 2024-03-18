@@ -27,7 +27,7 @@ import ThemeProvider from './components/provider/themeProvider';
 function App() {
   const dispatch = useAppDispatch()
   const isAuth = useAppSelector(selectIsAuth);
-  console.log('SRC APP Slice Auth IS AUTH ! ')
+  // console.log('SRC APP Slice Auth IS AUTH ! ')
 
   useEffect(() => {
     dispatch(fetchAuth())

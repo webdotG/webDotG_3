@@ -13,7 +13,7 @@ export const fetchLogin = createAsyncThunk<typeUserData, { email: string, passwo
   'auth/fetchLogin',
 
   async (values) => {
-    console.log("AUTH SLICE AXIOS EMAIL LOGIN ! ")
+    // console.log("AUTH SLICE AXIOS EMAIL LOGIN ! ")
     try {
       const { email, password,} = values;
       const response: AxiosResponse<typeUserData> = await axios.post('/api/user/login', { email, password });//{ params }
@@ -55,7 +55,7 @@ export const fetchRegister = createAsyncThunk<typeUserData, {
 export const fetchAuth = createAsyncThunk('auth/fetchAuth', async () => {
   try {
     const { data } = await axios.get('/api/user/current');
-    console.log("FETCH AUTH API/USER/CURRENT DATA ! ");
+    // console.log("FETCH AUTH API/USER/CURRENT DATA ! ");
     return data;
   } catch (error) {
     throw Error("Ошибка при получении данных пользователя");
@@ -123,7 +123,7 @@ const authSlice = createSlice({
 
 
 export const selectIsAuth = (state: RootState) => {
-  console.log("AuthSlice SelectIsAuth STATE.AUTH.DATA ! ")
+  // console.log("AuthSlice SelectIsAuth STATE.AUTH.DATA ! ")
   return state.auth.data !== null && typeof state.auth.data === 'object' && state.auth.data;
 };
 
