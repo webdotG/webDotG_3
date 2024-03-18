@@ -34,7 +34,7 @@ export const fetchRegister = createAsyncThunk<typeUserData, {
   'auth/fetchRegister',
 
   async (values) => {
-    console.log("AUTH SLICE AXIOS EMAIL REGISTER ! ")
+    // console.log("AUTH SLICE AXIOS EMAIL REGISTER ! ")
     try {
       const { email, password, confirmPassword, name } = values;
       const response: AxiosResponse<typeUserData> = await axios.post('/api/user/register', {

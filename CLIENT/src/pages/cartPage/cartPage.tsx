@@ -8,7 +8,7 @@ function CartPage() {
   const navigate = useNavigate()
   const dispatch = useAppDispatch();
   const selectedItems = useAppSelector((state) => state.cart.selectedItems);
-  console.log('CART PAGE APPSELECTOR SELECET ITEMS ! ')
+  // console.log('CART PAGE APPSELECTOR SELECET ITEMS ! ')
   const isAuth = useAppSelector(selectIsAuth)
 
   const cartItems = selectedItems.map((item: CartItem, index: number) => (

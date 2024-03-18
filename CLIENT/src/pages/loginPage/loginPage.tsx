@@ -45,14 +45,14 @@ const LoginPage: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, values: { email: string, password: string }) => {
-    console.log("LOGIN PAGE HANDLE SUBMIT VALUES ! ")
+    // console.log("LOGIN PAGE HANDLE SUBMIT VALUES ! ")
     e.preventDefault();
     if (!error.email && !error.password) {
       try {
         dispatch(fetchLogin(values))
         //проверка на промис 
         const data = await dispatch(fetchLogin(values))
-        console.log("DISPATCH fetchLogin VALUES , PROMISE ! ")
+        // console.log("DISPATCH fetchLogin VALUES , PROMISE ! ")
         if (typeof data.payload === 'object' && data.payload !== null && 'token' in data.payload) {
           const token: string = data.payload.token as string;
           window.localStorage.setItem('token', token);

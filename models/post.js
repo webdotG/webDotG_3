@@ -16,7 +16,7 @@ const GetAll = async (req, res) => {
    p.user_id::integer = u.id`
     // Выполнение запроса и получение результатов
     const { rows } = await pool.query(query);
-    console.log('API/POSTS GETALL ROWS : ', rows)
+    // console.log('API/POSTS GETALL ROWS : ', rows)
     res.json(rows)
   } catch (err) {
     console.error(err);

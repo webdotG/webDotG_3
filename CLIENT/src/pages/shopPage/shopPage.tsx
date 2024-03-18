@@ -80,7 +80,7 @@ export default function ShopPage() {
   const [selectedItems4, setSelectedItems4] = useState<string[]>([]);
   const [selectedItems5, setSelectedItems5] = useState<string[]>([]);
   const [selectedItemsCheckbox, setSelectedItemsCheckbox] = useState<string[]>([]);
-  console.log(selectedItems2)
+  // console.log(selectedItems2)
   const [showSelectItemMessage, setShowSelectItemMessage] = useState(false);
 
   const [selectedTemplate, setSelectedTemplate] = useState<string | null>(null);

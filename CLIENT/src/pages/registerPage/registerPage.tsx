@@ -61,7 +61,7 @@ function RegistrPage() {
     try {
       if (!error.email && !error.password && !error.confirmPassword && !error.name) {
         const data = await dispatch(fetchRegister(user));
-        console.log("DISPATCH fetchREGISTER USER, PROMISE ??? ! ");
+        // console.log("DISPATCH fetchREGISTER USER, PROMISE ??? ! ");
 
         if (data.payload !== null && typeof data.payload === 'object' && 'token' in data.payload) {
 
@@ -83,7 +83,7 @@ function RegistrPage() {
 
 
 
-  console.log('SELECT IS AUTH ! ')
+  // console.log('SELECT IS AUTH ! ')
   if (isAuth) {
     navigate('/')
   }

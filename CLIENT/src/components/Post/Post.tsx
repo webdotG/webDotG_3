@@ -39,8 +39,8 @@ const Post: React.FC<PostProps> = ({
     }
   }
 
-  console.log('confirmUser ! ')
-  console.log('user_email ! ')
+  // console.log('confirmUser ! ')
+  // console.log('user_email ! ')
   const canEditOrDelete = confirmUser === user_email;
 
   let dateOnly: string | undefined;

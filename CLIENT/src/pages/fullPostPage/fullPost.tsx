@@ -11,21 +11,21 @@ import { PostData } from '../../types'
 
 export default function FullPost() {
   const { id } = useParams()
-  console.log('FULL POST USEPARAMS PARAMS ! ')
+  // console.log('FULL POST USEPARAMS PARAMS ! ')
   const [postData, setPostData] = useState<PostData>({ id: 0, title: '', text: '', tags: '', user_name: '', user_email: '', created_at: '', updated_at: '', });
-  console.log('FULLPOST SETDATAPOST POSTDATA ! ')
+  // console.log('FULLPOST SETDATAPOST POSTDATA ! ')
   const userData: typeUserData | null = useAppSelector((state) => state.auth.data)
-  console.log('COMMUNISM PAGE USERDATA  ');
+  // console.log('COMMUNISM PAGE USERDATA  ');
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     axios.get(`/api/posts/${id}`)
       .then(res => {
-        console.log('FULLPOST AXIOS GET /POSTS/:ID RES.DATA ! ')
+        // console.log('FULLPOST AXIOS GET /POSTS/:ID RES.DATA ! ')
         setPostData(res.data)
       })
       .catch((err) => {
-        console.log('ошибка при попытке получения конкретной статьи')
+        // console.log('ошибка при попытке получения конкретной статьи')
         console.warn(err)
         alert('ошибка при попытке получения конкретной статьи')
       })

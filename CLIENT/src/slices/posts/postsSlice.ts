@@ -5,13 +5,13 @@ import { RootState } from "../../types";
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   const { data } = await axios.get('/api/posts/')
-  console.log('POSTSLICE AXIOS GET API/POSTS DATA ! ')
+  // console.log('POSTSLICE AXIOS GET API/POSTS DATA ! ')
   return data
 })
 
 export const fetchTags = createAsyncThunk('posts/fetchTags', async () => {
   const { data } = await axios.get('/api/tags')
-  console.log('POSTSLICE AXIOS GET API/TAGS DATA ! ')
+  // console.log('POSTSLICE AXIOS GET API/TAGS DATA ! ')
   return data
 })
 
@@ -35,7 +35,7 @@ export const fetchRemovePost = createAsyncThunk<DeleteResponse, number>('posts/f
   const { data } = await axios.delete<DeleteResponse>(`/api/posts/${id}`)
   // const deletePostMessage = (data.message);
   // const deletePostData = (data.deletedPost);
-  console.log('POSTSLICE AXIOS DELETE API/POSTS ID, DATA ! ')
+  // console.log('POSTSLICE AXIOS DELETE API/POSTS ID, DATA ! ')
   return data
 })
 
