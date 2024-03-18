@@ -3,8 +3,9 @@
 .mainTitleBlock {
   position: relative;
   overflow: hidden;
+
   @include mobile {
-    height: calc(600px - 100px);
+    height: calc(650px - 100px);
     width: 100%;
     background: var(--theme-default-main-titleBack)
   }
@@ -134,22 +135,23 @@
   }
 }
 
-.sliding-text{
+.sliding-text {
   position: absolute;
   font-size: 95px;
   bottom: 0;
   white-space: nowrap;
   opacity: 0.75;
   color: var(--color-light-gray);
+
   @include mobile {
-  // display: none;  
+    // display: none;
     width: 320px;
-  
+
   }
 
   @include descktop {
     display: block;
     font-size: 135px;
-    min-width:780px;
+    min-width: 780px;
   }
 }
