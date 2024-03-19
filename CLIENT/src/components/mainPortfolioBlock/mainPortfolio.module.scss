@@ -50,8 +50,8 @@
     padding-bottom: 35px;
     text-align: center;
     color: transparent;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: var(--color-white);
+    // -webkit-text-stroke-width: 2px;
+    // -webkit-text-stroke-color: var(--color-white);
 
     @include mobile {
       font-size: 50px;
