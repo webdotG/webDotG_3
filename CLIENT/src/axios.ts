@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: 'http://localhost:1111' //https://webdotg.ru/
+  baseURL: 'http://localhost:1111' //https://webdotg.ru/ 
 })
 
 //создаю midlweare чтоб при каждом запросе проверять есть токен или нет 
