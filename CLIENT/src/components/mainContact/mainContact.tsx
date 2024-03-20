@@ -46,28 +46,21 @@ export default function MainContact() {
           </motion.ul>
         </motion.div>
 
-
         <motion.div className={style['form-container']}>
           <motion.div className={style['phoneSvg']}
             initial={{ opacity: 0.75 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 2.5, duration: 1 }}
           >
-
-
-
-
-
-
-             <motion.svg 
+            <motion.svg
               version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xmlSpace="preserve">
               <motion.path
-              className={style['svg-dro-shadow']}
-              fill="transparent"
-              strokeWidth="0.2px"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              stroke="white"
+                className={style['svg-dro-shadow']}
+                fill="transparent"
+                strokeWidth="0.2px"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                stroke="white"
                 initial={{ pathLength: 0 }}
                 whileInView={{ pathLength: 1 }}
                 transition={{ duration: 2.5 }}
@@ -77,10 +70,10 @@ export default function MainContact() {
                 c1.9,2.9,2.4,6.3,1.3,9.6l0,0.1c-0.3,1-1.3,1.7-2.4,1.7c-1.4,0-2.5-1.1-2.5-2.5V17v-2v-4c0-0.6-0.4-1-1-1s-1,0.4-1,1v0
                 c-0.8-0.6-1.9-1-3-1c-2.8,0-5,2.2-5,5v2c0,2.8,2.2,5,5,5c1.4,0,2.6-0.6,3.5-1.4c0.7,1.4,2.2,2.4,4,2.4c1.9,0,3.6-1.2,4.3-3.1l0-0.1
                 C29.1,16,28.5,11.9,26.2,8.5z M19,17c0,1.7-1.3,3-3,3s-3-1.3-3-3v-2c0-1.7,1.3-3,3-3s3,1.3,3,3V17z"
-                />
-           
+              />
+
             </motion.svg>
-          </motion.div> 
+          </motion.div>
 
           <motion.form
             variants={variants}
@@ -95,17 +88,17 @@ export default function MainContact() {
           </motion.form>
 
         </motion.div>
-    
+
 
         <motion.div className={style['map-container']}>
-          <Link 
-          to='https://yandex.ru/maps/?um=constructor%3A79af2e9c48ffa7c365f901bcd4cf6580e882b05e8a8e16db519791a987254baa&source=constructorLink'
+          <Link
+            to='https://yandex.ru/maps/?um=constructor%3A79af2e9c48ffa7c365f901bcd4cf6580e882b05e8a8e16db519791a987254baa&source=constructorLink'
           >
 
           </Link>
-        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A79af2e9c48ffa7c365f901bcd4cf6580e882b05e8a8e16db519791a987254baa&amp;source=constructor" 
-        frameBorder={0}>
-        </iframe>
+          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A79af2e9c48ffa7c365f901bcd4cf6580e882b05e8a8e16db519791a987254baa&amp;source=constructor"
+            frameBorder={0}>
+          </iframe>
         </motion.div>
       </motion.div>
     </motion.section>

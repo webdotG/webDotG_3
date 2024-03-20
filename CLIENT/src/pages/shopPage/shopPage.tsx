@@ -1,5 +1,5 @@
 import style from './shopPage.module.scss';
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useEffect} from 'react';
 import { useAppDispatch } from '../../hooks'; //, useAppSelector 
 import { addToCart } from '../../slices/cart/cartSlice';
 import { useNavigate } from 'react-router-dom';
@@ -85,11 +85,18 @@ export default function ShopPage() {
 
   const [selectedTemplate, setSelectedTemplate] = useState<string | null>(null);
 
+  useEffect(() => {
+    if (selectedTemplate === null) {
+      setSelectedTemplate('1'); 
+    }
+  }, [selectedTemplate]);
+
   const handleChangeFirsRadio = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
     if (checked) {
       setSelectedTemplate(id);
-      setSelectedItems([id]);
+      // setSelectedItems([id]);
+      setShowSecondeRadio(true);
     } else {
       setSelectedTemplate(null);
       setSelectedItems([]);
@@ -229,6 +236,9 @@ export default function ShopPage() {
   };
 
 
+  console.log('selectedTemplate:', selectedTemplate); 
+
+
   return (
     <>
 
@@ -260,6 +270,7 @@ export default function ShopPage() {
                       type='radio'
                       name='first-radio'
                       onChange={handleChangeFirsRadio}
+                      defaultChecked
                     />
                     <motion.span whileHover={{ scale: 1.25 }} className={style['custom-check']}></motion.span>
                   </label>
