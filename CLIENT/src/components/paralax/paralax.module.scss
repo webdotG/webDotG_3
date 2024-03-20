@@ -12,7 +12,7 @@
   position: relative;
 
   @include mobile {
-    height: 600px;
+     height: 600px;
   }
 
   @include descktop {
@@ -89,7 +89,7 @@
     @include mobile {
       background-size: contain;
       background-repeat: no-repeat;
-      background-position-y: 250px;
+      background-position-y: 450px;;
 
     }
 
