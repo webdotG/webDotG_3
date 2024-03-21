@@ -12,12 +12,13 @@ const Auth = async (req, res, next) => {
       decoded = jwt.verify(token, process.env.JWT_SECRET);
       // console.log('MIDLEWEAR AUTH DECODED JWT : ', decoded);
     } catch (decodeErr) {
+      console.error('decodeErr : ', decodeErr);
       if (decodeErr.name === 'TokenExpiredError') {
         // console.error('TOKEN EXPIRED : ', decodeErr.message);
-        throw new Error('Срок действия токена истек');
+        return res.status(401).json({ message: 'Срок действия токена истек' });
       } else {
         // console.error('ERROR DECODING TOKEN : ', decodeErr.message);
-        throw new Error('Ошибка декодирования токена');
+        return res.status(401).json({ message: 'Ошибка декодирования токена' });
       }
     }
 
@@ -36,7 +37,7 @@ const Auth = async (req, res, next) => {
     // winstonLogger.info('MIDLEWEAR AUTH USER RESULT : ', userResult)
 
     if (userResult.rows.length === 0) {
-      throw new Error('Пользователь не найден');
+      return res.status(401).json({ message: 'Пользователь не найден' });
     }
 
     // запрос на проверку в таблице admins

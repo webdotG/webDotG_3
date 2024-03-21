@@ -18,7 +18,7 @@ const GetAll = async (req, res) => {
    p.user_id::integer = u.id`
     // Выполнение запроса и получение результатов
     const { rows } = await pool.query(query);
-    console.log('API/POSTS GETALL ROWS : ', rows)
+    // console.log('API/POSTS GETALL ROWS : ', rows)
     res.json(rows)
   } catch (err) {
     console.error(err);
@@ -67,7 +67,7 @@ const Create = async (req, res) => {
     const userResult = await pool.query(userQuery, userValues);
 
     if (userResult.rows.length === 0) {
-      throw new Error('Пользователь не найден');
+      return res.status(404).json({ message: 'Пользователь не найден' });
     }
 
     const { name, email } = userResult.rows[0];
@@ -87,7 +87,7 @@ const Create = async (req, res) => {
       const newPost = result.rows[0];
       res.status(201).json({ message: 'Пост успешно создан', post: newPost });
     } else {
-      throw new Error('Не удалось создать пост');
+      res.status(500).json({ message: 'Не удалось создать пост' });
     }
   } catch (err) {
     console.error(err);
