@@ -10,6 +10,7 @@ const pool = new Pool({
   port: process.env.DB_PORT
 })
 // winstonLogger.info("POOL IMPORT process.env.DB_USER ! ") 
+console.log("POOL IMPORT DB_USER : ", process.env.DB_USER)
 
 // pool.query('SELECT NOW()').then() //x => console.log(x)
 
