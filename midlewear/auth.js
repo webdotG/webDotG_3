@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
-const pool = require('../db'); // Подключение к базе данных с помощью pool
+const pool = require('../db'); 
+// const { winstonLogger } = require('../winstonConfig');
 
 const Auth = async (req, res, next) => {
   try {
@@ -21,7 +22,7 @@ const Auth = async (req, res, next) => {
     }
 
     const userId = decoded.id;
-    // console.log('MIDLEWEAR AUTH USER ID : ', userId);
+    console.log('MIDLEWEAR AUTH USER ID : ', userId)
 
     // запрос на проверку в таблице users и в таблице admins
     const getUserQuery = `
@@ -32,7 +33,7 @@ const Auth = async (req, res, next) => {
     // console.log('MIDLEWEAR AUTH GET USER QUERY : ', getUserQuery);
 
     const userResult = await pool.query(getUserQuery, [userId]);
-    // console.log('MIDLEWEAR AUTH USER RESULT : ', userResult);
+    // winstonLogger.info('MIDLEWEAR AUTH USER RESULT : ', userResult)
 
     if (userResult.rows.length === 0) {
       throw new Error('Пользователь не найден');

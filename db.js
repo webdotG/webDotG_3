@@ -1,6 +1,6 @@
 const { Pool } = require('pg');
 require('dotenv').config(); 
-const { winstonLogger } = require('./winstonConfig');
+// const { winstonLogger } = require('./winstonConfig');
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -9,7 +9,7 @@ const pool = new Pool({
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT
 })
-// winstonLogger.info("POOL IMPORT process.env.DB_USER ! ", ) 
+// winstonLogger.info("POOL IMPORT process.env.DB_USER ! ") 
 
 // pool.query('SELECT NOW()').then() //x => console.log(x)
 

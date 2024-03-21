@@ -1,6 +1,8 @@
 const pool = require('../db');
 
 const GetAll = async (req, res) => {
+// console.log('MODELS POST GetAll ')
+
   try {
 
     const query = `
@@ -16,7 +18,7 @@ const GetAll = async (req, res) => {
    p.user_id::integer = u.id`
     // Выполнение запроса и получение результатов
     const { rows } = await pool.query(query);
-    // console.log('API/POSTS GETALL ROWS : ', rows)
+    console.log('API/POSTS GETALL ROWS : ', rows)
     res.json(rows)
   } catch (err) {
     console.error(err);
@@ -25,6 +27,7 @@ const GetAll = async (req, res) => {
 }
 
 const GetOne = async (req, res) => {
+  console.log('MODELS POST GetOne ')
   try {
 
     const postId = req.params.id
@@ -36,6 +39,7 @@ const GetOne = async (req, res) => {
       WHERE id = $1
     `;
     const { rows } = await pool.query(query, [postId]);
+    console.log('API/POSTS GETONE ROWS : ', rows)
 
     if (rows.length === 0) {
       return res.status(404).json({ message: 'Пост не найден' });

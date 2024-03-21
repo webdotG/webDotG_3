@@ -1,8 +1,8 @@
 import axios from "axios";
 
-
+ //https://webdotg.ru/
 const instance = axios.create({
-  baseURL: 'https://webdotg.ru/'                           //http://localhost:1111 
+  baseURL: 'http://localhost:1111'
 })
 
 

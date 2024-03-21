@@ -43,7 +43,7 @@ export const fetchRegister = createAsyncThunk<typeUserData, {
         confirmPassword,
         name
       });
-      console.log("AUTH SLICE AXIOS RESPONSE REGISTER ! ")
+      console.log("AUTH SLICE AXIOS RESPONSE REGISTER ! ", response.data.user)
       return response.data;
     } catch (error) {
       throw Error("Ошибка при получении данных пользователя");
